@@ -1,0 +1,6 @@
+{
+  "functionName": "PAUSE_PLAY",
+  "status": "success",
+  "message": "The app has stopped its audio and preserved the pause request locally.",
+  "mode": "silent"
+}

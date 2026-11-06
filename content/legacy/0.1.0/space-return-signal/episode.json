@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "pack_id": "space-return-signal",
+  "version": "0.1.0",
+  "locale": "ko-KR",
+  "title": "우주 정거장의 귀환 신호",
+  "fiction_notice": "우주 정거장, 탐사 로봇 토리와 귀환 절차는 상상 이야기입니다. 달의 충돌구와 화성의 붉은 먼지에 관한 두 사실만 NASA 자료를 바탕으로 합니다. 실제 우주선 운용 방법이 아닙니다.",
+  "review_status": "authored; primary facts checked; family listening and playtest pending",
+  "roles": [
+    "관측 대장",
+    "귀환 대장"
+  ],
+  "solo_role": "우주 탐사대",
+  "max_turns": 6,
+  "start_scene": "choose_mission",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {
+    "nasa_moon_craters": {
+      "title": "NASA Science: Moon Craters",
+      "url": "https://science.nasa.gov/moon/lunar-craters/",
+      "checked_at": "2026-10-26",
+      "claims_used": [
+        "달의 충돌구는 소행성·유성체·혜성 등의 충돌로 생긴 움푹한 지형이다."
+      ]
+    },
+    "nasa_mars_color": {
+      "title": "NASA JPL: Exploring the Colors of Mars",
+      "url": "https://www.jpl.nasa.gov/edu/resources/lesson-plan/exploring-the-colors-of-mars/",
+      "checked_at": "2026-10-26",
+      "claims_used": [
+        "화성의 붉은빛은 산화철이 포함된 먼지와 관련이 있다. 화성 표면 전체가 같은 색은 아니다."
+      ]
+    }
+  },
+  "template_labels": {
+    "world_label": {
+      "flag": "mission",
+      "values": {
+        "MOON": "달",
+        "MARS": "화성"
+      },
+      "default": "탐사 장소"
+    },
+    "discovery_label": {
+      "flag": "mission",
+      "values": {
+        "MOON": "부딪힌 흔적이 남은 충돌구",
+        "MARS": "산화철이 섞인 붉은 먼지"
+      },
+      "default": "관측한 모습"
+    },
+    "record_label": {
+      "flag": "record",
+      "values": {
+        "PHOTO": "풍경 사진",
+        "NOTE": "관찰 노트"
+      },
+      "default": "탐사 기록"
+    },
+    "teamwork_label": {
+      "flag": "teamwork",
+      "values": {
+        "READ_CHECKLIST": "확인표를 읽고",
+        "COUNT_STEPS": "순서를 세며"
+      },
+      "default": "함께"
+    },
+    "tool_label": {
+      "flag": "tool_used",
+      "values": {
+        "PANORAMA": "넓은 화면",
+        "CLOSE_CAMERA": "확대 카메라"
+      },
+      "default": "관측 도구"
+    }
+  },
+  "scenes": {
+    "choose_mission": {
+      "kind": "choice",
+      "title": "토리의 마지막 탐사",
+      "prompt": "상상 속 우주 정거장이야. 탐사 로봇 토리와 기록을 가져오자. 달의 돌밭을 볼까, 화성의 먼지 들판을 볼까?",
+      "hint": "두 탐사 모두 정거장으로 돌아와. 더 궁금한 모습을 골라 줘.",
+      "actions": [
+        {
+          "id": "MOON",
+          "label": "달 탐사",
+          "aliases": [
+            "달",
+            "달로",
+            "달로 갈래",
+            "달을 볼래"
+          ],
+          "set_flags": {
+            "mission": "MOON"
+          },
+          "add_clues": [
+            "MOON_MISSION"
+          ],
+          "next": "moon_observation",
+          "score": 1,
+          "feedback": "토리의 화면에 달의 돌밭이 보여. 크고 작은 움푹한 자국이 있어."
+        },
+        {
+          "id": "MARS",
+          "label": "화성 탐사",
+          "aliases": [
+            "화성",
+            "화성으로",
+            "화성으로 갈래",
+            "화성을 볼래"
+          ],
+          "set_flags": {
+            "mission": "MARS"
+          },
+          "add_clues": [
+            "MARS_MISSION"
+          ],
+          "next": "mars_observation",
+          "score": 1,
+          "feedback": "토리의 화면에 화성의 들판이 보여. 붉은 먼지 사이로 다른 색의 바위도 있어."
+        }
+      ],
+      "art_key": "space"
+    },
+    "moon_observation": {
+      "kind": "choice",
+      "title": "달의 움푹한 자국",
+      "prompt": "토리가 관측 도구 하나를 켜 준대. 넓은 화면으로 자국들을 비교할까, 확대 카메라로 가장자리를 볼까?",
+      "hint": "넓은 화면은 여러 자국을, 확대 카메라는 자국 하나를 자세히 보여 줘.",
+      "actions": [
+        {
+          "id": "PANORAMA",
+          "label": "넓은 화면",
+          "aliases": [
+            "전체 화면",
+            "넓게 보기",
+            "넓게 볼래",
+            "넓은 화면을 볼래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "PANORAMA"
+          },
+          "add_clues": [
+            "MANY_MOON_CRATERS"
+          ],
+          "next": "keep_record",
+          "score": 1,
+          "feedback": "크고 작은 충돌구가 보여. 우주에서 날아온 물체가 달에 부딪혀 남긴 자국이야."
+        },
+        {
+          "id": "CLOSE_CAMERA",
+          "label": "확대 카메라",
+          "aliases": [
+            "카메라",
+            "확대",
+            "확대해서 볼래",
+            "카메라를 쓸래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "CLOSE_CAMERA"
+          },
+          "add_clues": [
+            "MOON_CRATER_EDGE"
+          ],
+          "next": "keep_record",
+          "score": 1,
+          "feedback": "움푹한 충돌구의 가장자리를 살폈어. 달에 물체가 부딪힌 흔적이지. 토리가 사진에 표시했어."
+        }
+      ],
+      "source_ids": [
+        "nasa_moon_craters"
+      ],
+      "art_key": "space"
+    },
+    "mars_observation": {
+      "kind": "choice",
+      "title": "화성의 여러 빛깔",
+      "prompt": "토리가 관측 도구 하나를 켜 준대. 넓은 화면으로 들판을 볼까, 확대 카메라로 먼지를 살펴볼까?",
+      "hint": "넓은 화면은 들판을, 확대 카메라는 먼지를 자세히 보여 줘.",
+      "actions": [
+        {
+          "id": "PANORAMA",
+          "label": "넓은 화면",
+          "aliases": [
+            "전체 화면",
+            "넓게 보기",
+            "넓게 볼래",
+            "넓은 화면을 볼래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "PANORAMA"
+          },
+          "add_clues": [
+            "MARS_COLOR_LANDSCAPE"
+          ],
+          "next": "keep_record",
+          "score": 1,
+          "feedback": "붉은 먼지와 다른 색 바위가 함께 보여. 화성의 먼지에는 붉은빛을 내는 산화철이 들어 있어."
+        },
+        {
+          "id": "CLOSE_CAMERA",
+          "label": "확대 카메라",
+          "aliases": [
+            "카메라",
+            "확대",
+            "확대해서 볼래",
+            "카메라를 쓸래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "CLOSE_CAMERA"
+          },
+          "add_clues": [
+            "MARS_RUST_DUST"
+          ],
+          "next": "keep_record",
+          "score": 1,
+          "feedback": "붉은 먼지를 확대했어. 이 붉은빛은 산화철과 관련이 있어. 녹슨 쇠에서 보는 색과 닮았지."
+        }
+      ],
+      "source_ids": [
+        "nasa_mars_color"
+      ],
+      "art_key": "space"
+    },
+    "keep_record": {
+      "kind": "choice",
+      "title": "가져갈 탐사 기록",
+      "prompt": "토리가 {world_label}의 기록을 골라 달래. 풍경 사진을 담을까, 관찰 노트를 담을까?",
+      "hint": "사진은 모습을, 노트는 알아낸 내용을 담아. 어느 쪽도 탐사 기록이야.",
+      "actions": [
+        {
+          "id": "PHOTO",
+          "label": "풍경 사진",
+          "aliases": [
+            "사진",
+            "사진을 담을래",
+            "풍경",
+            "풍경을 남길래"
+          ],
+          "set_flags": {
+            "record": "PHOTO"
+          },
+          "add_clues": [
+            "PHOTO_PACKED"
+          ],
+          "next": "prepare_return",
+          "score": 1,
+          "feedback": "풍경 사진을 귀환 상자에 넣었어. 나중에 친구들과 어디를 보았는지 짚어 보자."
+        },
+        {
+          "id": "NOTE",
+          "label": "관찰 노트",
+          "aliases": [
+            "노트",
+            "관찰 기록",
+            "노트를 담을래",
+            "기록을 남길래"
+          ],
+          "set_flags": {
+            "record": "NOTE"
+          },
+          "add_clues": [
+            "NOTE_PACKED"
+          ],
+          "next": "prepare_return",
+          "score": 1,
+          "feedback": "토리가 알아낸 내용을 노트에 적었어. 귀환 상자에 넣고, 나중에 함께 읽기로 했어."
+        }
+      ],
+      "art_key": "space"
+    },
+    "prepare_return": {
+      "kind": "choice",
+      "title": "둘이 맞추는 귀환 준비",
+      "prompt": "이야기 속 귀환 약속은 문 닫기, 출발 신호 순서야. 확인표를 함께 읽을까, 하나씩 순서를 셀까?",
+      "hint": "한 친구가 말하면 다른 친구가 확인해 줘. 혼자라면 두 역할을 차례로 해 보자.",
+      "actions": [
+        {
+          "id": "READ_CHECKLIST",
+          "label": "확인표 읽기",
+          "aliases": [
+            "확인표",
+            "표 읽기",
+            "확인표를 읽을래",
+            "함께 읽을래"
+          ],
+          "set_flags": {
+            "teamwork": "READ_CHECKLIST"
+          },
+          "add_clues": [
+            "CHECKLIST_SHARED"
+          ],
+          "next": "return_order",
+          "score": 1,
+          "feedback": "확인표를 읽었어. 첫째 문 닫기, 둘째 출발 신호. 토리도 같은 순서인지 확인해 줬어."
+        },
+        {
+          "id": "COUNT_STEPS",
+          "label": "순서 세기",
+          "aliases": [
+            "순서",
+            "차례 세기",
+            "순서를 셀래",
+            "하나씩 셀래"
+          ],
+          "set_flags": {
+            "teamwork": "COUNT_STEPS"
+          },
+          "add_clues": [
+            "STEPS_SHARED"
+          ],
+          "next": "return_order",
+          "score": 1,
+          "feedback": "하나, 문을 닫고. 둘, 출발 신호를 보내고. 토리와 번갈아 말하며 준비했어."
+        }
+      ],
+      "art_key": "space"
+    },
+    "return_order": {
+      "kind": "choice",
+      "title": "먼저 할 일은 무엇일까",
+      "prompt": "기록을 실었고 문이 아직 열려 있어. 우리 약속에서 먼저 할 일은 문 닫기일까, 출발 신호일까?",
+      "hint": "문 닫기 다음에 출발 신호야. 아직 열린 곳부터 살펴보자.",
+      "actions": [
+        {
+          "id": "CLOSE_DOOR",
+          "label": "문 닫기",
+          "aliases": [
+            "문",
+            "문부터",
+            "문을 닫을래",
+            "닫기"
+          ],
+          "set_flags": {
+            "order_recalled": true
+          },
+          "add_clues": [
+            "RETURN_READY"
+          ],
+          "next": "share_record",
+          "score": 1,
+          "feedback": "먼저 문을 닫았어. 토리가 확인한 뒤 출발 신호를 보냈어. 기록과 함께 정거장으로 돌아왔어."
+        },
+        {
+          "id": "SEND_SIGNAL",
+          "label": "출발 신호",
+          "aliases": [
+            "신호",
+            "신호부터",
+            "신호를 보낼래",
+            "출발"
+          ],
+          "set_flags": {
+            "order_recalled": false
+          },
+          "add_clues": [
+            "RETURN_READY"
+          ],
+          "next": "share_record",
+          "score": 1,
+          "feedback": "토리가 열린 문을 가리켜. 우리 약속은 문 닫기가 먼저였지. 문을 닫고 신호를 보내 정거장으로 돌아왔어."
+        }
+      ],
+      "art_key": "space"
+    },
+    "share_record": {
+      "kind": "choice",
+      "title": "기록을 나누는 우리 방식",
+      "prompt": "{world_label}에서 가져온 {record_label}, 어떻게 나눌까? 전시판에 놓을까, 친구들에게 이야기로 들려줄까?",
+      "hint": "둘 다 탐사를 나누는 방법이야. 오늘 하고 싶은 방식을 골라 줘.",
+      "actions": [
+        {
+          "id": "MAKE_GALLERY",
+          "label": "전시판 만들기",
+          "aliases": [
+            "전시판",
+            "전시",
+            "전시할래",
+            "전시판에 놓을래"
+          ],
+          "set_flags": {
+            "sharing": "GALLERY"
+          },
+          "next": "ending_gallery",
+          "score": 1,
+          "feedback": "정거장 전시판에 기록을 놓았어. 친구들이 모여 우리가 살핀 곳을 하나씩 찾아봐."
+        },
+        {
+          "id": "TELL_STORY",
+          "label": "탐사 이야기",
+          "aliases": [
+            "이야기",
+            "들려주기",
+            "이야기할래",
+            "친구에게 들려줄래"
+          ],
+          "set_flags": {
+            "sharing": "STORY"
+          },
+          "next": "ending_story",
+          "score": 1,
+          "feedback": "친구들이 둘러앉았어. 우리가 본 모습을 토리와 번갈아 이야기했어."
+        }
+      ],
+      "art_key": "space"
+    },
+    "ending_gallery": {
+      "kind": "ending",
+      "ending_id": "MISSION_GALLERY",
+      "title": "우리 손으로 연 작은 전시",
+      "ending_title": "우리 손으로 연 작은 전시",
+      "summary": "탐사 기록을 가지고 돌아와 정거장 전시판을 함께 꾸몄어요.",
+      "prompt": "{world_label}에서 본 {discovery_label}. {tool_label}도 도움이 됐지. {teamwork_label} 돌아왔어. {record_label}도 전시했지. 다음에 다른 탐사를 골라도 좋아. 지금은 쉬어 가자.",
+      "hint": "",
+      "actions": [],
+      "art_key": "space"
+    },
+    "ending_story": {
+      "kind": "ending",
+      "ending_id": "MISSION_STORY",
+      "title": "다 함께 들은 탐사 이야기",
+      "ending_title": "다 함께 들은 탐사 이야기",
+      "summary": "탐사 기록을 가지고 돌아와 친구들에게 발견을 들려줬어요.",
+      "prompt": "{world_label}에서 본 {discovery_label}. {tool_label}도 도움이 됐지. {teamwork_label} 돌아왔어. {record_label}도 친구들과 나눴지. 오늘 이야기는 여기까지. 편히 쉬어도 좋아.",
+      "hint": "",
+      "actions": [],
+      "art_key": "space"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "status": "passed",
+  "checks": {
+    "1080p": true,
+    "60fps": true,
+    "exact_frames": true,
+    "video_duration": true,
+    "audio_duration": true,
+    "unclipped_loudness": true,
+    "captions_inside_video": true,
+    "unchanged_app": true,
+    "full_decode": true
+  },
+  "levels": {
+    "input_i": "-19.08",
+    "input_tp": "-2.80",
+    "input_lra": "8.80",
+    "input_thresh": "-30.11",
+    "output_i": "-18.18",
+    "output_tp": "-2.50",
+    "output_lra": "6.10",
+    "output_thresh": "-29.03",
+    "normalization_type": "dynamic",
+    "target_offset": "0.18"
+  },
+  "video": "D:\\car-playmate-workspace\\.local\\film-polish-20261106\\cut-1\\onu-introduction-v2.mp4",
+  "video_sha256": "39e7e73a221459c7f4e9d047742a5d8f86b5217f9e226682dacd695cbe85d36f",
+  "bytes": 19418830,
+  "duration": 49.31666666666666,
+  "actual_ui_seconds": 7.833333333333334,
+  "voice_seconds": 36.88,
+  "master": ".local\\film-polish-20261106\\sound-cut-1\\master.wav",
+  "master_sha256": "a508b7ce43f08918a0fa8449b3f8648d18cb3155bee06f7430ef9eb4951f6caf",
+  "motion": {
+    "before": {
+      "sample_fps": 30,
+      "metric": "Mean absolute luma difference at160x90; editorial indicator, not a quality score",
+      "maximum": 93.13666666666667,
+      "p99": 7.272002777777794,
+      "frames_above8": 15,
+      "largest": [
+        {
+          "at": 10.466666666666667,
+          "difference": 93.13666666666667
+        },
+        {
+          "at": 7.133333333333334,
+          "difference": 90.26791666666666
+        },
+        {
+          "at": 44.7,
+          "difference": 80.98291666666667
+        },
+        {
+          "at": 16.8,
+          "difference": 78.73166666666667
+        },
+        {
+          "at": 40.2,
+          "difference": 77.17409722222222
+        },
+        {
+          "at": 13.466666666666667,
+          "difference": 66.64395833333333
+        },
+        {
+          "at": 31.0,
+          "difference": 10.591319444444444
+        },
+        {
+          "at": 31.066666666666666,
+          "difference": 10.246527777777779
+        }
+      ]
+    },
+    "after": {
+      "sample_fps": 30,
+      "metric": "Mean absolute luma difference at160x90; editorial indicator, not a quality score",
+      "maximum": 7.340347222222222,
+      "p99": 3.5330097222222223,
+      "frames_above8": 0,
+      "largest": [
+        {
+          "at": 0.36666666666666664,
+          "difference": 7.340347222222222
+        },
+        {
+          "at": 0.3333333333333333,
+          "difference": 7.160347222222223
+        },
+        {
+          "at": 0.4,
+          "difference": 6.939097222222222
+        },
+        {
+          "at": 31.733333333333334,
+          "difference": 6.841805555555555
+        },
+        {
+          "at": 0.3,
+          "difference": 6.840277777777778
+        },
+        {
+          "at": 0.43333333333333335,
+          "difference": 6.583472222222222
+        },
+        {
+          "at": 0.26666666666666666,
+          "difference": 6.481111111111111
+        },
+        {
+          "at": 32.63333333333333,
+          "difference": 5.693333333333333
+        }
+      ]
+    }
+  },
+  "new_app_tests": false,
+  "human_listening_verified": false,
+  "actual_mic_or_vehicle_footage": false
+}

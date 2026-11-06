@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-11-02",
+  "sources": [
+    {
+      "id": "forest",
+      "file": "docs/audio/sources/onu-0.35.0/forest.ogg",
+      "title": "Forest ambience.aiff",
+      "author": "bolland",
+      "license": "CC0-1.0",
+      "source_url": "https://freesound.org/people/bolland/sounds/196005/",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "실제 숲 녹음의 공개 OGG 재배포본. 발췌, 필터, 페이드, 음량 조절 및 혼합.",
+      "url": "https://raw.githubusercontent.com/RenxoAr/Uebergame/master/art/sound/environment/forest/wind_forest_birds_01.ogg",
+      "bytes": 652228,
+      "sha256": "1e7c54ea1f754676ed794079cd7942cb7b0dc4b928e1e6e9925ddf4a9497134e"
+    },
+    {
+      "id": "stream",
+      "file": "docs/audio/sources/onu-0.35.0/stream.ogg",
+      "title": "Swale",
+      "author": "Siddharth Patil (Ksd5 / Sidpatil)",
+      "license": "CC0-1.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Swale.ogg",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "changes": "실제 작은 물줄기 녹음. 발췌, 필터, 페이드, 음량 조절 및 혼합.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Swale.ogg",
+      "bytes": 1092440,
+      "sha256": "b71def4798508e588229a5f801fefaed9ac51c5dbad224274123c92e6d183fff"
+    },
+    {
+      "id": "pigeon",
+      "file": "docs/audio/sources/onu-0.35.0/pigeon.mp3",
+      "title": "Pigeons Sound Effect",
+      "author": "Alexander / Orange Free Sounds",
+      "license": "CC-BY-4.0",
+      "source_url": "https://orangefreesounds.com/pigeons-sound-effect/",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "실제 비둘기 목울음을 발췌하고 높낮이·속도·음량을 조절해 상상 속 공룡 효과음으로 혼합.",
+      "url": "https://www.orangefreesounds.com/wp-content/uploads/2019/01/Pigeons-sound-effect.mp3",
+      "bytes": 140016,
+      "sha256": "dd85e4442c97d4751a8d1e09fb4326b4e5985b4ae088ef72852dc4e0fe0e45fa"
+    },
+    {
+      "id": "pig",
+      "file": "docs/audio/sources/onu-0.35.0/pig.mp3",
+      "title": "Pigs Noises",
+      "author": "Alexander / Orange Free Sounds",
+      "license": "CC-BY-4.0",
+      "source_url": "https://orangefreesounds.com/pigs-noises/",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "실제 돼지의 짧은 목울음·콧김을 발췌하고 높낮이·속도·필터·음량을 조절해 상상 속 공룡 효과음으로 혼합.",
+      "url": "https://www.orangefreesounds.com/wp-content/uploads/2017/06/Pigs-noises.mp3",
+      "bytes": 422974,
+      "sha256": "2f8184ca64b7fea4f5e6d71fa40259c21f97b4f4feeebb1d213c237d8a3c7935"
+    }
+  ],
+  "source_note": "Original source encodings include lossy MP3/Vorbis. Rendering at 48 kHz does not restore lost information. The natural texture comes from field recordings, not upsampling.",
+  "forest_redistribution_credit_url": "https://duion.com/de/games/uebergame/credits/art-sound",
+  "not_used": [
+    "LaSonotheque 0905 (direct download unavailable)",
+    "Stable Audio / ElevenLabs (not invoked)"
+  ]
+}

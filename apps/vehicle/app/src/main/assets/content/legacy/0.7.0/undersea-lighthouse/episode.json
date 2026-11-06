@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "pack_id": "undersea-lighthouse",
+  "version": "0.7.0",
+  "locale": "ko-KR",
+  "title": "바닷속 등대의 약속",
+  "fiction_notice": "바닷속 등대, 말하는 조개와 우편잠수정은 상상으로 만든 이야기입니다. 빛의 순서와 표지는 이 이야기에서만 쓰는 약속이며 실제 항해 방법이 아닙니다.",
+  "review_status": "authored; exhaustive automated paths checked separately; family listening and playtest pending",
+  "roles": [
+    "길잡이",
+    "빛지기"
+  ],
+  "solo_role": "바다 탐험가",
+  "max_turns": 6,
+  "start_scene": "choose_route",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {},
+  "template_labels": {
+    "beacon_label": {
+      "flag": "destination",
+      "values": {
+        "EAST_LIGHT": "동쪽 등대",
+        "WEST_LIGHT": "서쪽 등대"
+      },
+      "default": "약속한 등대"
+    },
+    "pattern_label": {
+      "flag": "destination",
+      "values": {
+        "EAST_LIGHT": "동그라미, 세모, 동그라미",
+        "WEST_LIGHT": "세모, 동그라미, 세모"
+      },
+      "default": "세 개의 모양"
+    },
+    "route_label": {
+      "flag": "route",
+      "values": {
+        "CORAL_ARCH": "산호문",
+        "SHELL_TUNNEL": "조개터널"
+      },
+      "default": "바닷속 길"
+    },
+    "teamwork_label": {
+      "flag": "teamwork",
+      "values": {
+        "KEEP_MAP": "지도를 펴 두고",
+        "REPEAT_SIGNS": "표지를 함께 되짚으며"
+      },
+      "default": "함께"
+    },
+    "tool_label": {
+      "flag": "tool_used",
+      "values": {
+        "LIGHT_PRISM": "빛거울",
+        "ECHO_SHELL": "메아리 조개"
+      },
+      "default": "등대 도구"
+    },
+    "sign_memory": {
+      "flag": "sign_method",
+      "values": {
+        "READ_SIGN": "표지에서 본 모양",
+        "HEAR_BUOY": "부표에게 들은 모양"
+      },
+      "default": "우리가 찾은 모양"
+    },
+    "teamwork_lead": {
+      "flag": "teamwork",
+      "values": {
+        "KEEP_MAP": "펼친 지도를 따라와서",
+        "REPEAT_SIGNS": "표지의 약속을 되짚으며"
+      },
+      "default": "단서를 따라와서"
+    }
+  },
+  "scenes": {
+    "choose_route": {
+      "kind": "choice",
+      "title": "우편잠수정의 부탁",
+      "art_key": "undersea-lighthouse",
+      "prompt": "오누랑 상상 속 바다에 가자. 잠수정 누리가 돌아올 등대를 켤 거야. 산호문으로 갈까, 조개터널로 갈까?",
+      "hint": "두 길에 등대 불을 켜는 표지가 있어. 궁금한 길부터 살펴보자.",
+      "actions": [
+        {
+          "id": "CORAL_ARCH",
+          "label": "산호문",
+          "aliases": [
+            "산호 문",
+            "산호",
+            "산호문으로",
+            "산호문으로 갈래",
+            "산호문을 볼래",
+            "산호문으로 가자",
+            "산호문으로 가 줘",
+            "산호문으로 가줘"
+          ],
+          "set_flags": {
+            "route": "CORAL_ARCH",
+            "destination": "EAST_LIGHT"
+          },
+          "add_clues": [
+            "CORAL_ROUTE"
+          ],
+          "next": "coral_sign",
+          "score": 1,
+          "feedback": "산호문 사이로 부표가 둥실 떠 있어. 옆에는 반짝이는 길표지가 보여."
+        },
+        {
+          "id": "SHELL_TUNNEL",
+          "label": "조개터널",
+          "aliases": [
+            "조개 터널",
+            "터널",
+            "조개터널로",
+            "조개터널로 갈래",
+            "터널을 볼래",
+            "조개터널로 가자",
+            "조개터널로 가 줘",
+            "조개터널로 가줘"
+          ],
+          "set_flags": {
+            "route": "SHELL_TUNNEL",
+            "destination": "WEST_LIGHT"
+          },
+          "add_clues": [
+            "SHELL_ROUTE"
+          ],
+          "next": "shell_sign",
+          "score": 1,
+          "feedback": "조개터널 끝에서 부표가 통통 흔들려. 옆에는 반짝이는 길표지가 보여."
+        }
+      ]
+    },
+    "coral_sign": {
+      "kind": "choice",
+      "title": "산호문의 길표지",
+      "art_key": "undersea-lighthouse",
+      "prompt": "등대 불을 켜는 약속이 있대. 표지를 볼까, 부표의 안내를 들을까?",
+      "hint": "표지를 봐도, 부표 말을 들어도 길을 알 수 있어.",
+      "actions": [
+        {
+          "id": "READ_SIGN",
+          "label": "표지 보기",
+          "aliases": [
+            "표지",
+            "표지를 볼래",
+            "가까이 볼래",
+            "표지를 읽을래",
+            "표지를 읽어 줘",
+            "표지를 읽어줘",
+            "표지 읽어 줘",
+            "표지 읽어줘"
+          ],
+          "add_clues": [
+            "EAST_SIGN_SEEN"
+          ],
+          "next": "keep_together",
+          "score": 1,
+          "feedback": "표지에 동쪽 등대라고 적혀 있어.",
+          "set_flags": {
+            "sign_method": "READ_SIGN"
+          }
+        },
+        {
+          "id": "HEAR_BUOY",
+          "label": "부표 듣기",
+          "aliases": [
+            "부표",
+            "부표를 들을래",
+            "안내를 들을래",
+            "부표 말을 들을래",
+            "부표의 안내를 들려 줘",
+            "부표의 안내를 들려줘",
+            "부표 말을 들려 줘",
+            "부표 말을 들려줘"
+          ],
+          "add_clues": [
+            "EAST_SIGN_HEARD"
+          ],
+          "next": "keep_together",
+          "score": 1,
+          "feedback": "부표가 동쪽 등대의 약속을 알려 줬어.",
+          "set_flags": {
+            "sign_method": "HEAR_BUOY"
+          }
+        }
+      ]
+    },
+    "shell_sign": {
+      "kind": "choice",
+      "title": "조개터널의 길표지",
+      "art_key": "undersea-lighthouse",
+      "prompt": "등대 불을 켜는 약속이 있대. 표지를 볼까, 부표의 안내를 들을까?",
+      "hint": "표지를 봐도, 부표 말을 들어도 길을 알 수 있어.",
+      "actions": [
+        {
+          "id": "READ_SIGN",
+          "label": "표지 보기",
+          "aliases": [
+            "표지",
+            "표지를 볼래",
+            "가까이 볼래",
+            "표지를 읽을래",
+            "표지를 읽어 줘",
+            "표지를 읽어줘",
+            "표지 읽어 줘",
+            "표지 읽어줘"
+          ],
+          "add_clues": [
+            "WEST_SIGN_SEEN"
+          ],
+          "next": "keep_together",
+          "score": 1,
+          "feedback": "표지에 서쪽 등대라고 적혀 있어.",
+          "set_flags": {
+            "sign_method": "READ_SIGN"
+          }
+        },
+        {
+          "id": "HEAR_BUOY",
+          "label": "부표 듣기",
+          "aliases": [
+            "부표",
+            "부표를 들을래",
+            "안내를 들을래",
+            "부표 말을 들을래",
+            "부표의 안내를 들려 줘",
+            "부표의 안내를 들려줘",
+            "부표 말을 들려 줘",
+            "부표 말을 들려줘"
+          ],
+          "add_clues": [
+            "WEST_SIGN_HEARD"
+          ],
+          "next": "keep_together",
+          "score": 1,
+          "feedback": "부표가 서쪽 등대의 약속을 알려 줬어.",
+          "set_flags": {
+            "sign_method": "HEAR_BUOY"
+          }
+        }
+      ]
+    },
+    "keep_together": {
+      "kind": "choice",
+      "title": "단서를 잊지 않는 방법",
+      "art_key": "undersea-lighthouse",
+      "prompt": "{sign_memory}은 {pattern_label}였어. 길을 놓치지 않게 지도를 펼칠까, 표지를 다시 볼까?",
+      "hint": "{beacon_label}로 가는 단서야. 지도를 펴도, 표지를 다시 봐도 길을 찾을 수 있어.",
+      "actions": [
+        {
+          "id": "KEEP_MAP",
+          "label": "지도 펴기",
+          "aliases": [
+            "지도",
+            "지도를 펼칠래",
+            "지도를 볼래",
+            "지도를 펴 둘래",
+            "지도를 펼쳐 줘",
+            "지도를 펼쳐줘",
+            "지도 펼쳐 줘",
+            "지도 펼쳐줘"
+          ],
+          "set_flags": {
+            "teamwork": "KEEP_MAP"
+          },
+          "add_clues": [
+            "MAP_SHARED"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "오누가 지도에 등대까지 이어진 길을 표시했어. 펼쳐 둔 지도를 따라가 보자."
+        },
+        {
+          "id": "REPEAT_SIGNS",
+          "label": "표지 다시 보기",
+          "aliases": [
+            "표지 기억하기",
+            "함께 떠올리기",
+            "표지를 되짚을래",
+            "단서를 말할래",
+            "기억을 나눌래",
+            "표지 되짚기",
+            "표지 다시 보기",
+            "표지를 다시 볼래",
+            "다시 볼래",
+            "표지를 다시 보여 줘",
+            "표지를 다시 보여줘",
+            "표지를 되짚어 줘",
+            "표지를 되짚어줘"
+          ],
+          "set_flags": {
+            "teamwork": "REPEAT_SIGNS"
+          },
+          "add_clues": [
+            "SIGNS_SHARED"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "오누가 표지를 다시 살폈어. 등대 이름과 모양을 따라 길을 찾았어."
+        }
+      ]
+    },
+    "choose_tool": {
+      "kind": "choice",
+      "title": "희미한 빛을 다시 살펴보자",
+      "art_key": "undersea-lighthouse",
+      "prompt": "{teamwork_lead} 신호판 앞에 왔어. 빛거울로 비춰 볼까, 메아리 조개로 들어 볼까?",
+      "hint": "빛거울은 모양을 크게 보여 줘. 메아리 조개는 순서를 읽어 줘.",
+      "actions": [
+        {
+          "id": "LIGHT_PRISM",
+          "label": "빛거울",
+          "aliases": [
+            "빛 거울",
+            "거울",
+            "빛거울을 쓸래",
+            "빛거울로 볼래",
+            "크게 볼래",
+            "빛거울로 비춰 줘",
+            "빛거울로 비춰줘",
+            "빛거울로 보여 줘",
+            "빛거울로 보여줘"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "LIGHT_PRISM"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "destination": "EAST_LIGHT"
+              },
+              "add_clues": [
+                "EAST_PATTERN_SEEN"
+              ],
+              "next": "finish_pattern",
+              "score": 1,
+              "feedback": "빛거울을 비추니 신호판의 모양이 또렷해졌어."
+            },
+            {
+              "add_clues": [
+                "WEST_PATTERN_SEEN"
+              ],
+              "next": "finish_pattern",
+              "score": 1,
+              "feedback": "빛거울을 비추니 신호판의 모양이 또렷해졌어."
+            }
+          ]
+        },
+        {
+          "id": "ECHO_SHELL",
+          "label": "메아리 조개",
+          "aliases": [
+            "메아리",
+            "조개",
+            "메아리 조개를 쓸래",
+            "메아리 조개로 들을래",
+            "순서를 들을래",
+            "메아리 조개로 들려 줘",
+            "메아리 조개로 들려줘",
+            "메아리 조개 안내를 들려 줘",
+            "메아리 조개 안내를 들려줘"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "ECHO_SHELL"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "destination": "EAST_LIGHT"
+              },
+              "add_clues": [
+                "EAST_PATTERN_HEARD"
+              ],
+              "next": "finish_pattern",
+              "score": 1,
+              "feedback": "메아리 조개가 모양의 순서를 천천히 읽어 줘."
+            },
+            {
+              "add_clues": [
+                "WEST_PATTERN_HEARD"
+              ],
+              "next": "finish_pattern",
+              "score": 1,
+              "feedback": "메아리 조개가 모양의 순서를 천천히 읽어 줘."
+            }
+          ]
+        }
+      ]
+    },
+    "finish_pattern": {
+      "kind": "choice",
+      "title": "마지막 불빛 하나",
+      "art_key": "undersea-lighthouse",
+      "prompt": "{tool_label}로 찾은 약속은 {pattern_label}. 오누가 끝 칸을 채울게. 동그라미를 넣을까, 세모를 넣을까?",
+      "hint": "처음과 끝 모양이 같아. {pattern_label}. 맨 끝 모양으로 이어 보자.",
+      "actions": [
+        {
+          "id": "CIRCLE",
+          "label": "동그라미",
+          "aliases": [
+            "원",
+            "동그라미야",
+            "동그라미 같아",
+            "동그라미를 넣을래",
+            "동그라미를 넣어 줘",
+            "동그라미를 넣어줘",
+            "동그라미 넣어 줘",
+            "동그라미 넣어줘"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "destination": "EAST_LIGHT"
+              },
+              "set_flags": {
+                "pattern_recalled": true
+              },
+              "add_clues": [
+                "PATTERN_COMPLETED"
+              ],
+              "next": "choose_destination",
+              "score": 2,
+              "feedback": "오누가 마지막 동그라미를 넣으니 불이 이어졌어. 누리가 작은 불빛으로 답하네."
+            },
+            {
+              "set_flags": {
+                "pattern_recalled": false
+              },
+              "add_clues": [
+                "PATTERN_COMPLETED"
+              ],
+              "next": "choose_destination",
+              "score": 0,
+              "feedback": "다른 모양을 넣으니 불이 깜빡여. 오누가 약속대로 세모로 바꾸자 불빛이 이어졌어."
+            }
+          ]
+        },
+        {
+          "id": "TRIANGLE",
+          "label": "세모",
+          "aliases": [
+            "삼각형",
+            "세모야",
+            "세모 같아",
+            "세모를 넣을래",
+            "세모를 넣어 줘",
+            "세모를 넣어줘",
+            "세모 넣어 줘",
+            "세모 넣어줘"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "destination": "WEST_LIGHT"
+              },
+              "set_flags": {
+                "pattern_recalled": true
+              },
+              "add_clues": [
+                "PATTERN_COMPLETED"
+              ],
+              "next": "choose_destination",
+              "score": 2,
+              "feedback": "오누가 마지막 세모를 넣으니 불이 이어졌어. 누리가 작은 불빛으로 답하네."
+            },
+            {
+              "set_flags": {
+                "pattern_recalled": false
+              },
+              "add_clues": [
+                "PATTERN_COMPLETED"
+              ],
+              "next": "choose_destination",
+              "score": 0,
+              "feedback": "다른 모양을 넣으니 불이 깜빡여. 오누가 약속대로 동그라미로 바꾸자 불빛이 이어졌어."
+            }
+          ]
+        }
+      ]
+    },
+    "choose_destination": {
+      "kind": "choice",
+      "title": "누리에게 보낼 불빛",
+      "art_key": "undersea-lighthouse",
+      "prompt": "누리가 기다리는 곳은 {beacon_label}야. 마지막 빛을 동쪽 등대로 보낼까, 서쪽 등대로 보낼까?",
+      "hint": "내가 단서를 다시 짚어 줄게. {route_label}에서 찾은 표지가 가리킨 곳은 {beacon_label} 쪽이야.",
+      "actions": [
+        {
+          "id": "EAST_LIGHT",
+          "label": "동쪽 등대",
+          "aliases": [
+            "동쪽",
+            "동쪽등대",
+            "동쪽 등대로",
+            "동쪽 등대로 보낼래",
+            "동쪽으로",
+            "동쪽 등대로 보내 줘",
+            "동쪽 등대로 보내줘",
+            "동쪽으로 보내 줘",
+            "동쪽으로 보내줘"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "destination": "EAST_LIGHT"
+              },
+              "next": "ending_home",
+              "score": 2,
+              "feedback": "동쪽 등대가 답했어. 누리가 불빛을 따라 돌아가."
+            },
+            {
+              "next": "ending_relay",
+              "score": 0,
+              "feedback": "동쪽 등대의 친구가 신호를 받았어. 서쪽 등대로 이어 보내 준대."
+            }
+          ]
+        },
+        {
+          "id": "WEST_LIGHT",
+          "label": "서쪽 등대",
+          "aliases": [
+            "서쪽",
+            "서쪽등대",
+            "서쪽 등대로",
+            "서쪽 등대로 보낼래",
+            "서쪽으로",
+            "서쪽 등대로 보내 줘",
+            "서쪽 등대로 보내줘",
+            "서쪽으로 보내 줘",
+            "서쪽으로 보내줘"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "destination": "WEST_LIGHT"
+              },
+              "next": "ending_home",
+              "score": 2,
+              "feedback": "서쪽 등대가 답했어. 누리가 불빛을 따라 돌아가."
+            },
+            {
+              "next": "ending_relay",
+              "score": 0,
+              "feedback": "서쪽 등대의 친구가 신호를 받았어. 동쪽 등대로 이어 보내 준대."
+            }
+          ]
+        }
+      ]
+    },
+    "ending_home": {
+      "kind": "ending",
+      "ending_id": "LIGHT_CONNECTED",
+      "title": "이어진 빛, 도착한 누리",
+      "art_key": "undersea-lighthouse",
+      "ending_title": "이어진 빛, 도착한 누리",
+      "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요.",
+      "prompt": "{route_label}에서 찾은 약속을 {tool_label}로 이었어. {beacon_label}에 도착한 누리가 작은 불빛을 깜빡여. 오누도 불빛으로 인사했어.",
+      "hint": "",
+      "actions": []
+    },
+    "ending_relay": {
+      "kind": "ending",
+      "ending_id": "LIGHT_RELAY",
+      "title": "서로 건네 준 빛",
+      "art_key": "undersea-lighthouse",
+      "ending_title": "서로 건네 준 빛",
+      "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요.",
+      "prompt": "{tool_label}로 이은 빛을 등대 친구가 {beacon_label}까지 전했어. 누리가 도착해 작은 불빛을 깜빡여. 오누도 곁에서 인사했어.",
+      "hint": "",
+      "actions": []
+    }
+  },
+  "solo_prompt_style": "nickname"
+}

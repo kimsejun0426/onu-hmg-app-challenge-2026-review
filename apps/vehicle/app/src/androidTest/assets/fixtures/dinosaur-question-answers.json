@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "synthetic_inputs_only": true,
+  "authorship": "Answers and refusal examples are written from the spoken questions, independently of action aliases; no recorded child speech.",
+  "pack_id": "dinosaur-lab-missing-egg",
+  "prior_version": "0.7.0",
+  "current_version": "0.8.0",
+  "published_source_bytes": 15635,
+  "published_source_sha256": "2b482c1854918fe2d11f934ae106356ccd0e6a6baef78400a5b4b6285f41cc0c",
+  "published_metadata_sha256": "d67ebd659ce67ed14ac7526fbc59f734519dcccd26021019471e2992c2e989e3",
+  "cases": [
+    {
+      "id": "find-river",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "물가에서 찾을래",
+      "action": "RIVER",
+      "other": "숲에서 찾을래",
+      "other_action": "FOREST",
+      "negative": "물가에서 안 찾을래",
+      "both": "물가랑 숲 둘 다"
+    },
+    {
+      "id": "find-forest",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "숲에서 찾을래",
+      "action": "FOREST",
+      "other": "물가에서 찾을래",
+      "other_action": "RIVER",
+      "negative": "숲에서 안 찾을래",
+      "both": "물가랑 숲 둘 다"
+    },
+    {
+      "id": "river-follow",
+      "path": [
+        "RIVER"
+      ],
+      "scene": "river_evidence",
+      "question": "자국을 따라갈까, 상자 표지를 볼까?",
+      "text": "자국을 따라갈래",
+      "action": "FOLLOW_TRACKS",
+      "other": "상자 표지를 볼래",
+      "other_action": "READ_LABEL",
+      "negative": "자국을 따라가지 마",
+      "both": "자국이랑 상자 표지 둘 다"
+    },
+    {
+      "id": "river-label",
+      "path": [
+        "RIVER"
+      ],
+      "scene": "river_evidence",
+      "question": "자국을 따라갈까, 상자 표지를 볼까?",
+      "text": "상자 표지를 볼래",
+      "action": "READ_LABEL",
+      "other": "자국을 따라갈래",
+      "other_action": "FOLLOW_TRACKS",
+      "negative": "상자 표지를 안 볼래",
+      "both": "자국이랑 상자 표지 둘 다"
+    },
+    {
+      "id": "forest-follow",
+      "path": [
+        "FOREST"
+      ],
+      "scene": "forest_evidence",
+      "question": "자국을 따라갈까, 상자 표지를 볼까?",
+      "text": "자국을 따라갈래",
+      "action": "FOLLOW_TRACKS",
+      "other": "상자 표지를 볼래",
+      "other_action": "READ_LABEL",
+      "negative": "자국을 따라가지 마",
+      "both": "자국이랑 상자 표지 둘 다"
+    },
+    {
+      "id": "forest-label",
+      "path": [
+        "FOREST"
+      ],
+      "scene": "forest_evidence",
+      "question": "자국을 따라갈까, 상자 표지를 볼까?",
+      "text": "상자 표지를 볼래",
+      "action": "READ_LABEL",
+      "other": "자국을 따라갈래",
+      "other_action": "FOLLOW_TRACKS",
+      "negative": "상자 표지를 안 볼래",
+      "both": "자국이랑 상자 표지 둘 다"
+    },
+    {
+      "id": "uncertain-fish",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS"
+      ],
+      "scene": "diet",
+      "question": "나뭇잎일까, 생선일까?",
+      "text": "생선 같아",
+      "action": "FISH",
+      "other": "나뭇잎 같아",
+      "other_action": "LEAVES",
+      "negative": "생선 같지는 않아",
+      "both": "나뭇잎이랑 생선 둘 다"
+    },
+    {
+      "id": "use-listening-device",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS",
+        "LEAVES"
+      ],
+      "scene": "tool",
+      "question": "돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text": "듣기 장치로 알아볼래",
+      "action": "LISTENING_DEVICE",
+      "other": "돋보기로 볼래",
+      "other_action": "MAGNIFIER",
+      "negative": "듣기 장치로 알아보기 싫어",
+      "both": "돋보기랑 듣기 장치 둘 다"
+    }
+  ]
+}

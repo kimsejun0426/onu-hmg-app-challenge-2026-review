@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "pack_id": "starlight-post-office",
+  "version": "0.9.0",
+  "locale": "ko-KR",
+  "title": "별빛 우체국",
+  "fiction_notice": "별편지, 달다리, 바람정원과 등장인물은 모두 상상으로 만든 이야기입니다. 감정과 인사에는 정답을 정하지 않습니다.",
+  "review_status": "authored; exhaustive automated paths checked separately; family listening and playtest pending",
+  "roles": [
+    "길잡이",
+    "마음지기"
+  ],
+  "solo_role": "별빛 배달부",
+  "max_turns": 6,
+  "start_scene": "choose_route",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {},
+  "template_labels": {
+    "recipient_label": {
+      "flag": "recipient",
+      "values": {
+        "MOON_BEAR": "달집의 작은 곰",
+        "GARDEN_RABBIT": "바람집의 토끼"
+      },
+      "default": "편지를 기다리는 친구"
+    },
+    "route_label": {
+      "flag": "route",
+      "values": {
+        "MOON_BRIDGE": "달다리",
+        "WIND_GARDEN": "바람정원"
+      },
+      "default": "별빛 길"
+    },
+    "greeting_label": {
+      "flag": "greeting",
+      "values": {
+        "HELLO": "만나서 반가워",
+        "TAKE_YOUR_TIME": "천천히 열어도 괜찮아"
+      },
+      "default": "너에게 별편지를 보내"
+    },
+    "teamwork_label": {
+      "flag": "teamwork",
+      "values": {
+        "WALK_TOGETHER": "나란히 걸으며",
+        "CHECK_PATH": "앞길을 살피며"
+      },
+      "default": "함께"
+    },
+    "tool_label": {
+      "flag": "tool_used",
+      "values": {
+        "STAR_LANTERN": "별등",
+        "WIND_CHIME": "바람종"
+      },
+      "default": "배달 도구"
+    },
+    "address_check": {
+      "flag": "address_source",
+      "values": {
+        "STAMP": "봉투의 그림과 문패를 맞춰 보자.",
+        "NOTE": "쪽지의 주소와 문패를 맞춰 보자."
+      },
+      "default": "봉투와 문패를 맞춰 보자."
+    },
+    "teamwork_arrival": {
+      "flag": "teamwork",
+      "values": {
+        "WALK_TOGETHER": "모모와 나란히 걸어 집 앞에 왔어.",
+        "CHECK_PATH": "살펴둔 길을 따라 모모와 집 앞에 왔어."
+      },
+      "default": "모모와 집 앞에 왔어."
+    },
+    "tool_memory": {
+      "flag": "tool_used",
+      "values": {
+        "STAR_LANTERN": "별등을 끄고 모모가 편지를 들었어.",
+        "WIND_CHIME": "바람종이 잦아들고 모모가 편지를 들었어."
+      },
+      "default": "모모가 편지를 들었어."
+    }
+  },
+  "scenes": {
+    "choose_route": {
+      "kind": "choice",
+      "title": "바람에 날린 별편지",
+      "art_key": "starlight-post-office",
+      "prompt": "오누랑 상상 속 별편지를 찾으러 가자. 배달부 모모도 함께야. 달다리로 갈까, 바람정원으로 갈까?",
+      "hint": "달다리와 바람정원 중 먼저 찾아보고 싶은 곳을 골라 줘.",
+      "actions": [
+        {
+          "id": "MOON_BRIDGE",
+          "label": "달다리",
+          "aliases": [
+            "달 다리",
+            "달다리로",
+            "달다리로 갈래",
+            "달다리로 가자",
+            "달다리로 가 줘",
+            "달다리로 가줘"
+          ],
+          "set_flags": {
+            "route": "MOON_BRIDGE",
+            "recipient": "MOON_BEAR"
+          },
+          "add_clues": [
+            "MOON_ROUTE"
+          ],
+          "next": "moon_envelope",
+          "score": 1,
+          "feedback": "달다리 난간에 은빛 봉투가 걸려 있어. 모모가 조심히 꺼냈어."
+        },
+        {
+          "id": "WIND_GARDEN",
+          "label": "바람정원",
+          "aliases": [
+            "바람 정원",
+            "정원",
+            "바람정원으로",
+            "바람정원으로 갈래",
+            "정원으로 가자",
+            "바람정원으로 가자",
+            "바람정원으로 가 줘",
+            "바람정원으로 가줘"
+          ],
+          "set_flags": {
+            "route": "WIND_GARDEN",
+            "recipient": "GARDEN_RABBIT"
+          },
+          "add_clues": [
+            "GARDEN_ROUTE"
+          ],
+          "next": "garden_envelope",
+          "score": 1,
+          "feedback": "바람정원 꽃 사이에 분홍 봉투가 보여. 모모가 조심히 꺼냈어."
+        }
+      ]
+    },
+    "moon_envelope": {
+      "kind": "choice",
+      "title": "은빛 봉투의 작은 표시",
+      "art_key": "starlight-post-office",
+      "prompt": "봉투에 달 도장이 있고, 끈에는 쪽지가 달려 있어. 도장을 볼까, 쪽지를 펼칠까?",
+      "hint": "도장과 쪽지 모두 받는 친구를 알려 줘.",
+      "actions": [
+        {
+          "id": "LOOK_STAMP",
+          "label": "달 도장",
+          "aliases": [
+            "도장",
+            "달도장",
+            "도장을 볼래",
+            "달 도장을 볼래",
+            "도장을 보여 줘",
+            "도장을 보여줘",
+            "달 도장을 보여 줘",
+            "달 도장을 보여줘"
+          ],
+          "add_clues": [
+            "MOON_HOUSE_STAMP"
+          ],
+          "next": "help_momo",
+          "score": 1,
+          "feedback": "달 아래 작은 곰이 그려져 있어. 달집의 작은 곰에게 가는 편지야.",
+          "set_flags": {
+            "address_source": "STAMP"
+          }
+        },
+        {
+          "id": "OPEN_NOTE",
+          "label": "끈의 쪽지",
+          "aliases": [
+            "쪽지",
+            "끈",
+            "쪽지를 볼래",
+            "쪽지를 펼칠래",
+            "쪽지를 펼쳐 줘",
+            "쪽지를 펼쳐줘",
+            "쪽지 펼쳐 줘",
+            "쪽지 펼쳐줘"
+          ],
+          "add_clues": [
+            "MOON_BEAR_ADDRESS"
+          ],
+          "next": "help_momo",
+          "score": 1,
+          "feedback": "쪽지에 달집의 작은 곰이라고 적혀 있어. 모모가 주소를 챙겼어.",
+          "set_flags": {
+            "address_source": "NOTE"
+          }
+        }
+      ]
+    },
+    "garden_envelope": {
+      "kind": "choice",
+      "title": "바람에 흔들리는 봉투",
+      "art_key": "starlight-post-office",
+      "prompt": "봉투에 꽃 도장이 있고, 끈에는 쪽지가 달려 있어. 도장을 볼까, 쪽지를 펼칠까?",
+      "hint": "도장과 쪽지 모두 받는 친구를 알려 줘.",
+      "actions": [
+        {
+          "id": "LOOK_STAMP",
+          "label": "꽃 도장",
+          "aliases": [
+            "도장",
+            "꽃도장",
+            "도장을 볼래",
+            "꽃 도장을 볼래",
+            "도장을 보여 줘",
+            "도장을 보여줘",
+            "꽃 도장을 보여 줘",
+            "꽃 도장을 보여줘"
+          ],
+          "add_clues": [
+            "WIND_HOUSE_STAMP"
+          ],
+          "next": "help_momo",
+          "score": 1,
+          "feedback": "꽃 옆에 토끼 귀가 그려져 있어. 바람집의 토끼에게 가는 편지야.",
+          "set_flags": {
+            "address_source": "STAMP"
+          }
+        },
+        {
+          "id": "OPEN_NOTE",
+          "label": "끈의 쪽지",
+          "aliases": [
+            "쪽지",
+            "끈",
+            "쪽지를 볼래",
+            "쪽지를 펼칠래",
+            "쪽지를 펼쳐 줘",
+            "쪽지를 펼쳐줘",
+            "쪽지 펼쳐 줘",
+            "쪽지 펼쳐줘"
+          ],
+          "add_clues": [
+            "GARDEN_RABBIT_ADDRESS"
+          ],
+          "next": "help_momo",
+          "score": 1,
+          "feedback": "쪽지에 바람집의 토끼라고 적혀 있어. 모모가 주소를 챙겼어.",
+          "set_flags": {
+            "address_source": "NOTE"
+          }
+        }
+      ]
+    },
+    "help_momo": {
+      "kind": "choice",
+      "title": "모모의 첫 배달",
+      "art_key": "starlight-post-office",
+      "prompt": "모모가 처음 가는 집이라 떨린대. 오누가 나란히 걸을까, 앞길을 살펴 줄까?",
+      "hint": "곁에서 함께 걸어도, 다음 표지까지 길을 살펴 줘도 돼.",
+      "actions": [
+        {
+          "id": "WALK_TOGETHER",
+          "label": "나란히 걷기",
+          "aliases": [
+            "같이 걷기",
+            "함께 걷기",
+            "같이 걸을래",
+            "나란히 걸을래",
+            "곁에 있을래",
+            "나란히 걸어 줘",
+            "나란히 걸어줘",
+            "모모와 나란히 걸어 줘",
+            "모모와 나란히 걸어줘"
+          ],
+          "set_flags": {
+            "teamwork": "WALK_TOGETHER"
+          },
+          "add_clues": [
+            "WALKING_COMPANIONS"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "모모가 옆으로 한 걸음 다가왔어. 오누도 발걸음을 맞췄어."
+        },
+        {
+          "id": "CHECK_PATH",
+          "label": "길 살피기",
+          "aliases": [
+            "앞길",
+            "길을 볼래",
+            "길을 살필래",
+            "먼저 볼래",
+            "앞길을 살필래",
+            "앞길을 살펴 줘",
+            "앞길을 살펴줘",
+            "앞길 살펴 줘",
+            "앞길 살펴줘"
+          ],
+          "set_flags": {
+            "teamwork": "CHECK_PATH"
+          },
+          "add_clues": [
+            "PATH_CHECKED"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "오누가 다음 표지까지 길을 살폈어. 모모가 그쪽으로 방향을 잡았어."
+        }
+      ]
+    },
+    "choose_tool": {
+      "kind": "choice",
+      "title": "가방 속 배달 도구",
+      "art_key": "starlight-post-office",
+      "prompt": "{teamwork_arrival} {address_check} 별등을 켤까, 바람종을 들을까?",
+      "hint": "별등은 문패를 비춰 줘. 바람종은 문패를 읽어 줘.",
+      "actions": [
+        {
+          "id": "STAR_LANTERN",
+          "label": "별등",
+          "aliases": [
+            "별 등",
+            "등불",
+            "별등을 켤래",
+            "별등으로 볼래",
+            "비출래",
+            "별등을 켜 줘",
+            "별등을 켜줘",
+            "별등 켜 줘",
+            "별등 켜줘"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "STAR_LANTERN"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "recipient": "MOON_BEAR"
+              },
+              "add_clues": [
+                "LIT_MOON_NAMEPLATE"
+              ],
+              "next": "write_greeting",
+              "score": 1,
+              "feedback": "별등을 비추자 달집의 작은 곰 문패가 보여. 봉투가 가리킨 집이 맞아."
+            },
+            {
+              "add_clues": [
+                "LIT_GARDEN_NAMEPLATE"
+              ],
+              "next": "write_greeting",
+              "score": 1,
+              "feedback": "별등을 비추자 바람집의 토끼 문패가 보여. 봉투가 가리킨 집이 맞아."
+            }
+          ]
+        },
+        {
+          "id": "WIND_CHIME",
+          "label": "바람종",
+          "aliases": [
+            "바람 종",
+            "종",
+            "바람종을 들을래",
+            "바람종으로 들을래",
+            "안내를 들을래",
+            "바람종을 들려 줘",
+            "바람종을 들려줘",
+            "바람종 들려 줘",
+            "바람종 들려줘"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "WIND_CHIME"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "recipient": "MOON_BEAR"
+              },
+              "add_clues": [
+                "HEARD_MOON_NAMEPLATE"
+              ],
+              "next": "write_greeting",
+              "score": 1,
+              "feedback": "바람종이 달집의 작은 곰이라고 읽어 줘. 편지의 주소와 같아."
+            },
+            {
+              "add_clues": [
+                "HEARD_GARDEN_NAMEPLATE"
+              ],
+              "next": "write_greeting",
+              "score": 1,
+              "feedback": "바람종이 바람집의 토끼라고 읽어 줘. 편지의 주소와 같아."
+            }
+          ]
+        }
+      ]
+    },
+    "write_greeting": {
+      "kind": "choice",
+      "title": "우리가 보태는 한마디",
+      "art_key": "starlight-post-office",
+      "prompt": "{tool_memory} '만나서 반가워'라고 적을까, '천천히 열어도 괜찮아'라고 적을까?",
+      "hint": "모모가 고른 인사를 적어 줄 거야. 반가운 인사와 기다려 주는 인사 중 골라 줘.",
+      "actions": [
+        {
+          "id": "HELLO",
+          "label": "만나서 반가워",
+          "aliases": [
+            "반가워",
+            "반갑다고",
+            "만나서 반가워라고 할래",
+            "반가워라고 할래",
+            "만나서 반가워라고 적어 줘",
+            "만나서 반가워라고 적어줘",
+            "반가워라고 적어 줘",
+            "반가워라고 적어줘",
+            "반가운 인사"
+          ],
+          "set_flags": {
+            "greeting": "HELLO"
+          },
+          "add_clues": [
+            "WARM_GREETING"
+          ],
+          "next": "deliver_letter",
+          "score": 1,
+          "feedback": "모모가 만나서 반가워라는 인사를 편지에 적었어."
+        },
+        {
+          "id": "TAKE_YOUR_TIME",
+          "label": "천천히 열어도 괜찮아",
+          "aliases": [
+            "천천히",
+            "천천히 열어",
+            "천천히 읽어",
+            "천천히 열어도 돼",
+            "천천히 열어도 괜찮아라고 할래",
+            "천천히 열어도 괜찮아라고 적어 줘",
+            "천천히 열어도 괜찮아라고 적어줘",
+            "천천히 열어도 돼라고 적어 줘",
+            "천천히 열어도 돼라고 적어줘",
+            "기다려 주는 인사"
+          ],
+          "set_flags": {
+            "greeting": "TAKE_YOUR_TIME"
+          },
+          "add_clues": [
+            "UNHURRIED_GREETING"
+          ],
+          "next": "deliver_letter",
+          "score": 1,
+          "feedback": "모모가 천천히 열어도 괜찮아라는 인사를 편지에 적었어."
+        }
+      ]
+    },
+    "deliver_letter": {
+      "kind": "choice",
+      "title": "편지를 건네는 두 가지 방법",
+      "art_key": "starlight-post-office",
+      "prompt": "친구가 편지함에 둬도, 모모가 읽어 줘도 좋대. 편지함에 둘까, 모모가 읽어 줄까?",
+      "hint": "편지함에 두면 친구가 나중에 열어 볼 수 있어. 모모가 읽으면 친구가 곁에서 들을 수 있어.",
+      "actions": [
+        {
+          "id": "QUIET_MAILBOX",
+          "label": "편지함에 두기",
+          "aliases": [
+            "편지함",
+            "조용히 두기",
+            "편지함에 둘래",
+            "두고 갈래",
+            "조용히 전할래",
+            "편지함에 넣어 줘",
+            "편지함에 넣어줘",
+            "편지함에 두어 줘",
+            "편지함에 두어줘"
+          ],
+          "set_flags": {
+            "delivery": "QUIET_MAILBOX"
+          },
+          "next": "ending_mailbox",
+          "score": 1,
+          "feedback": "모모가 편지함에 편지를 넣었어. 작은 불빛으로 고맙다는 답이 왔어."
+        },
+        {
+          "id": "READ_TOGETHER",
+          "label": "모모가 읽기",
+          "aliases": [
+            "같이 읽기",
+            "함께 읽을래",
+            "같이 읽을래",
+            "곁에서 읽을래",
+            "함께 읽기",
+            "모모",
+            "모모가 읽어 줘",
+            "모모가 읽을래",
+            "읽어 줘",
+            "모모가 읽어줘",
+            "읽어줘"
+          ],
+          "set_flags": {
+            "delivery": "READ_TOGETHER"
+          },
+          "next": "ending_together",
+          "score": 1,
+          "feedback": "모모가 친구 곁에서 별편지를 펼쳤어."
+        }
+      ]
+    },
+    "ending_mailbox": {
+      "kind": "ending",
+      "ending_id": "QUIET_DELIVERY",
+      "title": "조용히 도착한 마음",
+      "art_key": "starlight-post-office",
+      "ending_title": "조용히 도착한 마음",
+      "summary": "{recipient_label}에게 '{greeting_label}'라는 인사를 편지함으로 전했어요.",
+      "prompt": "{route_label}에서 찾은 편지를 편지함에 넣었어. {recipient_label}에게 우리 인사도 전했네. {greeting_label}.",
+      "hint": "",
+      "actions": []
+    },
+    "ending_together": {
+      "kind": "ending",
+      "ending_id": "SHARED_READING",
+      "title": "곁에서 읽은 별편지",
+      "art_key": "starlight-post-office",
+      "ending_title": "곁에서 읽은 별편지",
+      "summary": "{recipient_label}에게 모모가 '{greeting_label}'라는 인사부터 별편지를 읽어 줬어요.",
+      "prompt": "{recipient_label} 곁에서 모모가 편지를 읽어 줬어. {greeting_label}. {route_label}에서 찾은 작은 봉투가 여기까지 왔네.",
+      "hint": "",
+      "actions": []
+    }
+  },
+  "solo_prompt_style": "nickname"
+}

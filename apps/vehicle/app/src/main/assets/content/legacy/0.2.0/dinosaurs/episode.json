@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "pack_id": "dinosaur-lab-missing-egg",
+  "version": "0.2.0",
+  "locale": "ko-KR",
+  "title": "공룡 연구소의 사라진 알",
+  "fiction_notice": "연구소, 운반 로봇, 사라진 전시용 알 모형과 사건은 허구입니다. 공룡 지식은 표시한 박물관 자료를 바탕으로 합니다.",
+  "review_status": "prototype_source_checked; human playtest and pronunciation review pending",
+  "start_scene": "choose_path",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {
+    "nhm_triceratops": {
+      "title": "Natural History Museum: Triceratops",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/triceratops.html",
+      "checked_at": "2026-10-24",
+      "claims_used": [
+        "Triceratops ate plants.",
+        "Triceratops had three horns."
+      ]
+    },
+    "nhm_stegosaurus": {
+      "title": "Natural History Museum: Stegosaurus",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/Stegosaurus.html",
+      "checked_at": "2026-10-24",
+      "claims_used": [
+        "Stegosaurus had plates along its back."
+      ]
+    }
+  },
+  "scenes": {
+    "choose_path": {
+      "kind": "choice",
+      "prompt": "오누랑 상상 속 공룡 연구소에 가자. 사라진 알 모형을 찾을 거야. 물가로 갈까, 숲으로 갈까?",
+      "hint": "두 길 모두 갈 수 있어. 더 궁금한 곳을 골라 줘.",
+      "actions": [
+        {
+          "id": "RIVER",
+          "label": "물가",
+          "aliases": [
+            "물가 길",
+            "물가로",
+            "물가로 갈래",
+            "물가 길로 갈래",
+            "물가 쪽",
+            "물가로 가자"
+          ],
+          "set_flags": {
+            "route": "RIVER",
+            "egg_location": "WORKSHOP"
+          },
+          "add_clues": [
+            "RIVER_ROUTE"
+          ],
+          "next": "river_evidence",
+          "score": 0,
+          "feedback": "물가를 골랐어. 운반 로봇이 지나간 흔적을 찾아보자."
+        },
+        {
+          "id": "FOREST",
+          "label": "숲",
+          "aliases": [
+            "숲 길",
+            "숲길",
+            "숲으로",
+            "숲으로 갈래",
+            "숲 길로 갈래",
+            "숲 쪽",
+            "숲으로 가자"
+          ],
+          "set_flags": {
+            "route": "FOREST",
+            "egg_location": "GREENHOUSE"
+          },
+          "add_clues": [
+            "FOREST_ROUTE"
+          ],
+          "next": "forest_evidence",
+          "score": 0,
+          "feedback": "숲을 골랐어. 운반 로봇이 지나간 흔적을 찾아보자."
+        }
+      ]
+    },
+    "river_evidence": {
+      "kind": "choice",
+      "prompt": "바퀴 자국과 운반 상자가 있어. 자국을 따라갈까, 상자 표지를 볼까?",
+      "hint": "자국과 표지 모두 단서야. 하나씩 살펴보자.",
+      "actions": [
+        {
+          "id": "FOLLOW_TRACKS",
+          "label": "바퀴 자국",
+          "aliases": [
+            "자국",
+            "바퀴 자국 따라갈래",
+            "바퀴 자국을 따라갈래",
+            "따라갈래",
+            "자국을 볼래"
+          ],
+          "add_clues": [
+            "BLUE_TRIANGLE"
+          ],
+          "next": "diet",
+          "score": 1,
+          "feedback": "자국이 파란 세모 쪽으로 이어져. 파란 세모는 공작실 표시야."
+        },
+        {
+          "id": "READ_LABEL",
+          "label": "상자 표지",
+          "aliases": [
+            "상자",
+            "표지",
+            "표지를 읽을래",
+            "상자를 볼래",
+            "상자 표지를 읽을래"
+          ],
+          "add_clues": [
+            "WORKSHOP_LABEL"
+          ],
+          "next": "diet",
+          "score": 1,
+          "feedback": "상자에 공작실로 옮긴다고 적혀 있어. 다음 단서도 찾아보자."
+        }
+      ]
+    },
+    "forest_evidence": {
+      "kind": "choice",
+      "prompt": "나무 옆에 바퀴 자국과 상자가 있어. 자국을 따라갈까, 상자 표지를 볼까?",
+      "hint": "자국과 표지 모두 단서야. 하나씩 살펴보자.",
+      "actions": [
+        {
+          "id": "FOLLOW_TRACKS",
+          "label": "바퀴 자국",
+          "aliases": [
+            "자국",
+            "바퀴 자국 따라갈래",
+            "바퀴 자국을 따라갈래",
+            "따라갈래",
+            "자국을 볼래"
+          ],
+          "add_clues": [
+            "GREEN_CIRCLE"
+          ],
+          "next": "diet",
+          "score": 1,
+          "feedback": "자국이 초록 동그라미 쪽으로 이어져. 초록 동그라미는 온실 표시야."
+        },
+        {
+          "id": "READ_LABEL",
+          "label": "상자 표지",
+          "aliases": [
+            "상자",
+            "표지",
+            "표지를 읽을래",
+            "상자를 볼래",
+            "상자 표지를 읽을래"
+          ],
+          "add_clues": [
+            "GREENHOUSE_LABEL"
+          ],
+          "next": "diet",
+          "score": 1,
+          "feedback": "상자에 온실로 옮긴다고 적혀 있어. 다음 단서도 찾아보자."
+        }
+      ]
+    },
+    "diet": {
+      "kind": "knowledge",
+      "prompt": "노트 속 트리케라톱스의 먹이를 골라 보자. 나뭇잎일까, 생선일까?",
+      "hint": "트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
+      "source_ids": [
+        "nhm_triceratops"
+      ],
+      "actions": [
+        {
+          "id": "LEAVES",
+          "label": "나뭇잎",
+          "aliases": [
+            "잎",
+            "풀",
+            "식물",
+            "초식",
+            "나뭇잎이야",
+            "식물을 먹어",
+            "나뭇잎을 먹어",
+            "나뭇잎 같아"
+          ],
+          "add_clues": [
+            "TRICERATOPS_PLANT_EATER"
+          ],
+          "next": "tool",
+          "score": 2,
+          "feedback": "트리케라톱스는 식물을 먹었어. 이제 로봇의 공룡 그림을 보자."
+        },
+        {
+          "id": "FISH",
+          "label": "생선",
+          "aliases": [
+            "물고기",
+            "생선이야",
+            "물고기를 먹어",
+            "생선을 먹어"
+          ],
+          "add_clues": [
+            "TRICERATOPS_PLANT_EATER"
+          ],
+          "next": "tool",
+          "score": 0,
+          "feedback": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 이제 로봇의 그림을 보자."
+        }
+      ]
+    },
+    "tool": {
+      "kind": "choice",
+      "prompt": "로봇의 공룡 그림이 작네. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+      "hint": "크게 보고 싶으면 돋보기, 설명을 듣고 싶으면 듣기 장치야. 둘 다 단서를 알려 줘.",
+      "actions": [
+        {
+          "id": "MAGNIFIER",
+          "label": "돋보기",
+          "aliases": [
+            "돋보기 쓸래",
+            "돋보기를 쓸래",
+            "돋보기로 볼래",
+            "돋보기로 볼게",
+            "확대해서 볼래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "add_clues": [
+            "THREE_HORNS_PICTURE"
+          ],
+          "set_flags": {
+            "tool_used": "MAGNIFIER"
+          },
+          "next": "identity",
+          "score": 1,
+          "feedback": "돋보기로 보니 얼굴에 뿔 세 개가 보여."
+        },
+        {
+          "id": "LISTENING_DEVICE",
+          "label": "듣기 장치",
+          "aliases": [
+            "듣기",
+            "듣기 장치 쓸래",
+            "소리를 들을래",
+            "로봇 말을 들을래",
+            "안내를 들을래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "add_clues": [
+            "THREE_HORNS_MESSAGE"
+          ],
+          "set_flags": {
+            "tool_used": "LISTENING_DEVICE"
+          },
+          "next": "identity",
+          "score": 1,
+          "feedback": "로봇이 알려 줬어. 그림 속 공룡은 얼굴에 뿔이 세 개래."
+        }
+      ]
+    },
+    "identity": {
+      "kind": "knowledge",
+      "prompt": "그림 속 공룡은 얼굴에 뿔이 세 개야. 트리케라톱스일까, 스테고사우루스일까?",
+      "hint": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
+      "source_ids": [
+        "nhm_triceratops",
+        "nhm_stegosaurus"
+      ],
+      "actions": [
+        {
+          "id": "TRICERATOPS",
+          "label": "트리케라톱스",
+          "aliases": [
+            "트리케라토프스",
+            "트리케라톱스야",
+            "트리케라토프스야",
+            "뿔 세 개",
+            "뿔이 세 개",
+            "트리케라톱스 같아"
+          ],
+          "add_clues": [
+            "MATCHED_ROBOT"
+          ],
+          "next": "deduction",
+          "score": 2,
+          "feedback": "얼굴에 뿔이 세 개인 트리케라톱스야. 이 그림이 붙은 로봇을 찾았어."
+        },
+        {
+          "id": "STEGOSAURUS",
+          "label": "스테고사우루스",
+          "aliases": [
+            "스테고",
+            "스테고사우루스야",
+            "스테고사우루스 같아",
+            "등에 판"
+          ],
+          "add_clues": [
+            "MATCHED_ROBOT"
+          ],
+          "next": "deduction",
+          "score": 0,
+          "feedback": "스테고사우루스는 등에 판이 있었어. 이 그림은 뿔 세 개인 트리케라톱스였어."
+        }
+      ]
+    },
+    "deduction": {
+      "kind": "choice",
+      "prompt": "처음 단서가 가리킨 곳으로 가자. 온실로 갈까, 공작실로 갈까?",
+      "hint": "처음 단서는 {destination_label}을 가리켰어. 함께 확인하고 가자.",
+      "actions": [
+        {
+          "id": "GREENHOUSE",
+          "label": "온실",
+          "aliases": [
+            "온실로",
+            "온실로 갈래",
+            "온실이야",
+            "온실에 있어",
+            "초록 동그라미"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "egg_location": "GREENHOUSE"
+              },
+              "next": "ending_found",
+              "score": 2,
+              "feedback": "온실에서 알 모형을 찾았어. 앞에서 본 단서가 이어졌네."
+            },
+            {
+              "next": "ending_help",
+              "score": 0,
+              "feedback": "온실에는 없네. 연구소 팀에 우리 단서를 전하자."
+            }
+          ]
+        },
+        {
+          "id": "WORKSHOP",
+          "label": "공작실",
+          "aliases": [
+            "공작실로",
+            "공작실로 갈래",
+            "공작실이야",
+            "공작실에 있어",
+            "파란 세모"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "egg_location": "WORKSHOP"
+              },
+              "next": "ending_found",
+              "score": 2,
+              "feedback": "공작실에서 알 모형을 찾았어. 앞에서 본 단서가 이어졌네."
+            },
+            {
+              "next": "ending_help",
+              "score": 0,
+              "feedback": "공작실에는 없네. 연구소 팀에 우리 단서를 전하자."
+            }
+          ]
+        }
+      ]
+    },
+    "ending_found": {
+      "kind": "ending",
+      "ending_id": "FOUND_TOGETHER",
+      "prompt": "함께 살핀 단서로 알 모형을 찾았어. 다음에는 다른 길도 가 볼 수 있어. 지금은 편히 쉬어도 좋아.",
+      "hint": "",
+      "actions": []
+    },
+    "ending_help": {
+      "kind": "ending",
+      "ending_id": "TEAM_ASSIST",
+      "prompt": "우리 단서를 받은 연구소 팀이 {destination_label}에서 알 모형을 찾았대. 같이 찾는 방법도 있네. 이제 쉬어도 좋아.",
+      "hint": "",
+      "actions": []
+    }
+  }
+}

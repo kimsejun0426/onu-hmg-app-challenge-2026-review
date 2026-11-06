@@ -1,0 +1,81 @@
+name: Verify application
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7, verified 2026-10-26
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install pinned environment
+        run: python -m pip install -r requirements.lock
+      - name: Install project
+        run: python -m pip install --no-build-isolation --no-deps -e .
+      - name: Game and recovery tests
+        run: python -m pytest -q
+      - name: Finite content paths
+        run: python tools/check_content.py
+      - name: Android content and contract parity fixtures
+        run: python tools/export_android_fixtures.py --check
+      - name: Python static checks
+        run: python -m ruff check services/api tools tests
+      - name: Source backup and transfer policy
+        run: python tools/check_android_backup.py
+      - name: Real HTTP smoke
+        run: python tools/http_smoke.py
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Verify the Gradle wrapper before executing it
+        # Official gradle-8.9-wrapper.jar.sha256, checked 2026-10-26.
+        run: echo '498495120a03b9a6ab5d155f5de3c8f0d986a449153702fb80fc80e134484f17  apps/vehicle/gradle/wrapper/gradle-wrapper.jar' | sha256sum --check
+      - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      - name: Build installable app, lint and run JVM tests
+        working-directory: apps/vehicle
+        run: bash gradlew :app:assembleDemo :app:lintDemo :app:testDebugUnitTest --no-daemon
+      - name: An unsigned market release must fail clearly
+        working-directory: apps/vehicle
+        env:
+          CARPLAY_RELEASE_KEYSTORE: ''
+          CARPLAY_RELEASE_KEY_ALIAS: ''
+          CARPLAY_RELEASE_STORE_PASSWORD: ''
+          CARPLAY_RELEASE_KEY_PASSWORD: ''
+          CARPLAY_RELEASE_CERT_SHA256: ''
+        run: |
+          if bash gradlew :app:assembleRelease --no-daemon > "$RUNNER_TEMP/unsigned-release.log" 2>&1; then
+            echo 'ERROR: release unexpectedly built without signing credentials'
+            exit 1
+          fi
+          if ! grep -q 'Release signing is required' "$RUNNER_TEMP/unsigned-release.log"; then
+            echo 'ERROR: release failed for a reason other than the required signing gate'
+            tail -n 50 "$RUNNER_TEMP/unsigned-release.log"
+            exit 1
+          fi
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+      - name: Reject SDK payload loggers in demo APK
+        run: python tools/check_pleos_sdk_logs.py apps/vehicle/app/build/outputs/apk/demo/app-demo.apk --mapping apps/vehicle/app/build/outputs/mapping/demo/mapping.txt
+      - name: Inspect packaged backup and device-transfer exclusions
+        run: python tools/check_android_backup.py --apk apps/vehicle/app/build/outputs/apk/demo/app-demo.apk --aapt2 "$ANDROID_HOME/build-tools/35.0.0/aapt2"

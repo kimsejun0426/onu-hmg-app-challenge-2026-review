@@ -1,0 +1,2978 @@
+{
+  "audio_baseline": "not included",
+  "excluded": [
+    "Git history",
+    "private form/contact/signature documents",
+    "signing credentials and keys",
+    "caches and runtime databases",
+    "raw child voice/transcripts"
+  ],
+  "files": [
+    {
+      "bytes": 426,
+      "path": ".env.example",
+      "sha256": "cb90364c1811a1caf0f9a70e41babb1acdd8ca7b4c26d7ac87ee6db52d2f0682"
+    },
+    {
+      "bytes": 1310,
+      "path": ".gitattributes",
+      "sha256": "ca0f0df53f6673de37c088186549b4f7fc783ce250df7999cb95adf31e750f36"
+    },
+    {
+      "bytes": 213,
+      "path": ".gitignore",
+      "sha256": "41b57f1e870439b19ee613cced3e06446191b005af5f19b1c874f03adacec59d"
+    },
+    {
+      "bytes": 58,
+      "path": "apps/vehicle/.gitignore",
+      "sha256": "4cecc5d3d53caedb9387ec9533cb676b339c3753afaa225aaea0038f9866bc64"
+    },
+    {
+      "bytes": 7147,
+      "path": "apps/vehicle/app/build.gradle.kts",
+      "sha256": "1cf63e4852db8f69d226f99aaa8db84fb8ba0f734297b9dcfb24e3c70d26d0bc"
+    },
+    {
+      "bytes": 2405,
+      "path": "apps/vehicle/app/proguard-demo-runtime.pro",
+      "sha256": "7fbcdf523642a30e441abb8a15d1639104163584c05ec79b7be2d849e7507318"
+    },
+    {
+      "bytes": 276,
+      "path": "apps/vehicle/app/proguard-pleos-release.pro",
+      "sha256": "e176a0e4e9d534c4897183f77f036aa169c5367bffa40a033396e7ca6e63a499"
+    },
+    {
+      "bytes": 1757,
+      "path": "apps/vehicle/app/proguard-rules.pro",
+      "sha256": "7a5a1345e5bd1ee6bba9c3e7281da6eb9d1e327d8909a996b1bf466bc3afef97"
+    },
+    {
+      "bytes": 244,
+      "path": "apps/vehicle/app/proguard-test-interfaces.pro",
+      "sha256": "f7abeb86e5385585d7c250bd7a808287034cec8ca5b804b0e5574b0298cacbd9"
+    },
+    {
+      "bytes": 6503052,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/animal-footprint-garden/game-parity.json",
+      "sha256": "c92bfee1aa224327d8b66067dbbb933e6c891fc0e10b23d15ffff800a272ab3a"
+    },
+    {
+      "bytes": 32682,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/catalog-parity.json",
+      "sha256": "8ef05bb020f5488cb3384db5d75de3cb4b581b3af1171069f76fcc7ae52e79c8"
+    },
+    {
+      "bytes": 16125,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/companion-greetings.json",
+      "sha256": "debfe08d452dabe8798f37cc73045f6555fa726f6ae84dc576eb19b0ec856dc0"
+    },
+    {
+      "bytes": 10195,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/dinosaur-child-script-revision.json",
+      "sha256": "3dbf25a7b08b131b16bdf3064d227adf330cfc237f74820e5be4f39e001938ef"
+    },
+    {
+      "bytes": 3936,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/dinosaur-question-answers.json",
+      "sha256": "a8c4022dc88006bf235094ff080e2234331b34be6c779bfc89add45a8386d769"
+    },
+    {
+      "bytes": 5853770,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/game-parity.json",
+      "sha256": "661c7820ed647a5303968e2b2f5bc6b3fba6b3ef5a1da91575b2643ce20f01ee"
+    },
+    {
+      "bytes": 1779534,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/animal-footprint-garden/game-parity.json",
+      "sha256": "1859cd33bea9f059ed8591a623b006d8f334907944d7f035e3689a9ac4a49270"
+    },
+    {
+      "bytes": 1825679,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "17620e2994a036f3bd5cc8ca7bd1f72cd316a343541450eaa9a78c97fc8d4338"
+    },
+    {
+      "bytes": 1802244,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/little-car-workshop/game-parity.json",
+      "sha256": "a41d1518e4eb50bf91a3cd035a1b21967098138e39cc66c9aaeb511e23a722fe"
+    },
+    {
+      "bytes": 1377469,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/onu-little-picnic/game-parity.json",
+      "sha256": "026ae011ca7aae25ab69a71cf1be3fdd5f5f371cdff94c8a9972bd894e21afc5"
+    },
+    {
+      "bytes": 1785308,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/space-return-signal/game-parity.json",
+      "sha256": "db738944cdce008a95136ffa8ae45760c1c9e9ccfcc9af214a95be469b248b98"
+    },
+    {
+      "bytes": 1827898,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/starlight-post-office/game-parity.json",
+      "sha256": "e000f24cee0adef8e18b759fd194cc309c12695e8c583311adfedd55faec1b0d"
+    },
+    {
+      "bytes": 1806607,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/undersea-lighthouse/game-parity.json",
+      "sha256": "a5d62f32e731313423aab02f93780b6718116d87626277958a02ba1102de8532"
+    },
+    {
+      "bytes": 3016984,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.10.0/animal-footprint-garden/game-parity.json",
+      "sha256": "9cefc91eba48ac505f3b1ebde0c198d983267b9fc53dc490f7332b2d892ce8a6"
+    },
+    {
+      "bytes": 2152526,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.10.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "47eceb027ae82e81d3fb61a43c0ab0de9661fef4c74f8b0e624913af04fcfcf3"
+    },
+    {
+      "bytes": 2760558,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.10.0/little-car-workshop/game-parity.json",
+      "sha256": "4262f009aa5b46ea91ac6dc583ca9cb56477a5895f6155feaf834b6e85167dc9"
+    },
+    {
+      "bytes": 2910293,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.10.0/space-return-signal/game-parity.json",
+      "sha256": "85ef99986a3a9a85f6235db8979683ca0a6c549872aed6d448a825ca05fac31d"
+    },
+    {
+      "bytes": 2980412,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.11.0/animal-footprint-garden/game-parity.json",
+      "sha256": "d54ea020588555b28669b2cb663fb8fd444e3d341df15f0fe7f3d57767469df4"
+    },
+    {
+      "bytes": 1756946,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/animal-footprint-garden/game-parity.json",
+      "sha256": "4c00340a629fc9a1fd8932aefc4a48973491371a22c564d5363ccdc14bf5243b"
+    },
+    {
+      "bytes": 1800713,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "e3bed3f8dca2def8c63c8b1af0371403717cced236035b0bd0440ec4cc116876"
+    },
+    {
+      "bytes": 1771802,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/little-car-workshop/game-parity.json",
+      "sha256": "539f90888110d9d84decc67a74d1868a0b16f948418cdd47f9e0942b9edeff56"
+    },
+    {
+      "bytes": 1533987,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/onu-little-picnic/game-parity.json",
+      "sha256": "7feeea333b0a74a1b7c6d327bb96d87c6183b489f34546fb7818a6d6eb891818"
+    },
+    {
+      "bytes": 1763634,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/space-return-signal/game-parity.json",
+      "sha256": "d426ec7a7da5ef217f02ed504e08981ec76bcfbfc70d3b75939cc4cf73122f2c"
+    },
+    {
+      "bytes": 1812926,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/starlight-post-office/game-parity.json",
+      "sha256": "bcf85213d88ed995ddfd6d76a4c7cf1d66de8da76c60346eb08454db5867b213"
+    },
+    {
+      "bytes": 1780683,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/undersea-lighthouse/game-parity.json",
+      "sha256": "89ad76b0e21fee4f63210f3eb752ede5cca60926f3affc91bea79c7cf94db5c6"
+    },
+    {
+      "bytes": 1784164,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/animal-footprint-garden/game-parity.json",
+      "sha256": "0e509f2fbb5b218efc22e41b7f412f89a494b3ad8544686df574542bb1298fb9"
+    },
+    {
+      "bytes": 1839931,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "d4c008c28b917a9ece576dd6aeae3b93549fea1df9ae811b29e90e9e256ad1bc"
+    },
+    {
+      "bytes": 1792660,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/little-car-workshop/game-parity.json",
+      "sha256": "dc41f2b80dec2c067d3fefad9625cb342d2bb575c6752559989478b55facaadc"
+    },
+    {
+      "bytes": 1600903,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/onu-little-picnic/game-parity.json",
+      "sha256": "9bb125509b51091539d83479934b2d4b2efdb215aafc1f529ed807323d2d146d"
+    },
+    {
+      "bytes": 1772590,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/space-return-signal/game-parity.json",
+      "sha256": "e1a6deeaba7bdfcfac8be36253921529f9b99f64bd2fa8a4839ac18b11e1f07d"
+    },
+    {
+      "bytes": 1836615,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/starlight-post-office/game-parity.json",
+      "sha256": "dce8c77c44496346f125f8d7df2eb470203f334ba21aa3bdb81d6170bdeacd40"
+    },
+    {
+      "bytes": 1811759,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.3.0/undersea-lighthouse/game-parity.json",
+      "sha256": "f1a94587889b73cd99874de2eb026c9466a329f4a6e1ef1bfa64a6efb5995016"
+    },
+    {
+      "bytes": 1823994,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/animal-footprint-garden/game-parity.json",
+      "sha256": "3be9224f9ae83f6ea6b92088a5f7cb4a9fdd62a7d667718716707be775d1c18a"
+    },
+    {
+      "bytes": 1840239,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "f2e3f248b2ba68b97f83cdf02a593ecc176a558eec379f18c67cbf36c7feaa1f"
+    },
+    {
+      "bytes": 1835666,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/little-car-workshop/game-parity.json",
+      "sha256": "6ca2cf10f592daf283e7202be85b45dc31bf1cdc1ea8fcc137de195f8beac1a2"
+    },
+    {
+      "bytes": 1990420,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/onu-little-picnic/game-parity.json",
+      "sha256": "d4ece4e22c319294edd496d290649cfd506345bece0832371737902575769ceb"
+    },
+    {
+      "bytes": 1809321,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/space-return-signal/game-parity.json",
+      "sha256": "380deac6d66394f27745568a72e104d3e55c176b1fabe84a20d71ec520edfcae"
+    },
+    {
+      "bytes": 1868056,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/starlight-post-office/game-parity.json",
+      "sha256": "7d7e96b3ceb4c6e56d7a4475a2375e5885026c12c247e409428242b339df26c4"
+    },
+    {
+      "bytes": 1832579,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.4.0/undersea-lighthouse/game-parity.json",
+      "sha256": "46f494055465db4a5a6c71579f89a36f4f2e658ba5b7d34082c4df37fc9fd9bf"
+    },
+    {
+      "bytes": 1876700,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/animal-footprint-garden/game-parity.json",
+      "sha256": "d1758543de47164c4afb29f49ec90debf957f00ec94eb3ac6e6443660b48d21a"
+    },
+    {
+      "bytes": 1882890,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "af0d3594149ccfd4cce5ef638e212be4d578caaa4377b6495c850abe417aec30"
+    },
+    {
+      "bytes": 1878460,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/little-car-workshop/game-parity.json",
+      "sha256": "2a26edd8d849434983e647e1ced690b475270cc488be39d2d24f4ef2ba45e69d"
+    },
+    {
+      "bytes": 1945083,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/onu-little-picnic/game-parity.json",
+      "sha256": "849f1a9f1f39ece3e439852645cd23c071b1b969338dd9fbd789d7b8cefe1885"
+    },
+    {
+      "bytes": 1881401,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/space-return-signal/game-parity.json",
+      "sha256": "ccce9555adeb7b1cb7acc549520554fb0f1706030e68a5ce88de0882ddaef6d0"
+    },
+    {
+      "bytes": 1910468,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/starlight-post-office/game-parity.json",
+      "sha256": "653dad9a6929950aefeb25529a1b99b0520b6b317116237867a1b044e7ab688a"
+    },
+    {
+      "bytes": 1905797,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.5.0/undersea-lighthouse/game-parity.json",
+      "sha256": "94da6e8c5fdac85b8a2f067419267776fef1a9df641f4b75ba6947563b3d64d3"
+    },
+    {
+      "bytes": 2311968,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/animal-footprint-garden/game-parity.json",
+      "sha256": "e9e6708c2f2d65d7b6aa6957188ce25db25b790037fdaa05aab217fa2b08c6f3"
+    },
+    {
+      "bytes": 2066331,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "bb63d1c40bf56110708448c72260ba8a03c2e5591e5ea572eaf65da938e9e091"
+    },
+    {
+      "bytes": 2119746,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/little-car-workshop/game-parity.json",
+      "sha256": "2978b9970fc01a966a81c9b72c42fe41915edab0a0bf802f1d314b4030e0fdc0"
+    },
+    {
+      "bytes": 2087165,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/space-return-signal/game-parity.json",
+      "sha256": "f647f36d09a0ccf20650117a1f32e388b46e067fc6236312e2c912ffb96464ba"
+    },
+    {
+      "bytes": 2134591,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/starlight-post-office/game-parity.json",
+      "sha256": "2991a9cea9d9d9b623f0772619c9de5ee8d6573f200351b96f6af162b42a94ee"
+    },
+    {
+      "bytes": 2144614,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.6.0/undersea-lighthouse/game-parity.json",
+      "sha256": "16f238c852735c33967216fdf893fd63343b9b3c1df7d95c77a5f2e281022ee8"
+    },
+    {
+      "bytes": 2326017,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/animal-footprint-garden/game-parity.json",
+      "sha256": "7a25a166829c8ae7d79f4675f1c921917068a0d5b82bef761393acef1b30b4ae"
+    },
+    {
+      "bytes": 2428054,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "ffe9da82759a89dc5bf1ad0483e0aa4bfbd856702bcfed570588e5385365aeb1"
+    },
+    {
+      "bytes": 2119746,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/little-car-workshop/game-parity.json",
+      "sha256": "99617b4161d2a06d3243b8b255459492eb0cd740751e05b7e68bccfc62f6d618"
+    },
+    {
+      "bytes": 2082413,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/space-return-signal/game-parity.json",
+      "sha256": "e5972c4957a1304d332911b7c68a3563550327542db848cca9a246401e8ccd7f"
+    },
+    {
+      "bytes": 2299768,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/starlight-post-office/game-parity.json",
+      "sha256": "d97ec6727d9e2df2692f2228560c4c7a3b1d21d4463143682335e3840b7b1ee4"
+    },
+    {
+      "bytes": 2135760,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.7.0/undersea-lighthouse/game-parity.json",
+      "sha256": "6cad1ab84f11c08f506fb7cf05f3001dfcb223352e8838c8bf54e53d0f76ee07"
+    },
+    {
+      "bytes": 2317217,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/animal-footprint-garden/game-parity.json",
+      "sha256": "1ca7c62f2a9fc02f3337fc4acc5374f9c691ae32a0ed13fd70d6c40f39e18450"
+    },
+    {
+      "bytes": 2836581,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "4d3423f3e85766f15485098e9e0a6f18494a0b26b8e268395624984e628dbfd1"
+    },
+    {
+      "bytes": 2119566,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/little-car-workshop/game-parity.json",
+      "sha256": "c74c1f7f265588dba23cf78c708714b03a867dbb1e81f82385942e6588c16742"
+    },
+    {
+      "bytes": 2097371,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/space-return-signal/game-parity.json",
+      "sha256": "1cb182b4d5178fb010714334092c6045b6876dec0bb0826091c862c610fe2307"
+    },
+    {
+      "bytes": 2310479,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/starlight-post-office/game-parity.json",
+      "sha256": "2665a75a9965289e882f31985cb87420acebdb73416ff1e34afcad52b5eabd95"
+    },
+    {
+      "bytes": 2393793,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.8.0/undersea-lighthouse/game-parity.json",
+      "sha256": "bd81e4366bf621b2666cf5efd68e563693caf53da4adbb69f0d68b1be7383aaa"
+    },
+    {
+      "bytes": 2392058,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.9.0/animal-footprint-garden/game-parity.json",
+      "sha256": "66161b60a47f2c6b2f69f8872f6ad9b1e59112b167db902e862e6104e3668e26"
+    },
+    {
+      "bytes": 2499821,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.9.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "e97ddc0fe5596aa4be93c076a4b32894d156dfeab0fcc016e426bfa6ec2e3c52"
+    },
+    {
+      "bytes": 2720580,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.9.0/little-car-workshop/game-parity.json",
+      "sha256": "aae56fef4ea458e0e372f23401fb2f8cee86bdf8b076d68848dfdc198f14290f"
+    },
+    {
+      "bytes": 2859162,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.9.0/space-return-signal/game-parity.json",
+      "sha256": "fa506f899cd86a93cb3000c968457a4154cebbd2c728826c302cc62255ca9ec0"
+    },
+    {
+      "bytes": 6245369,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/little-car-workshop/game-parity.json",
+      "sha256": "541cb291e475fce4d109e9f96e599f5c0a9bcfc9a9a76e5fb7c0ebb3b6f01651"
+    },
+    {
+      "bytes": 2487012,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/onu-little-picnic/game-parity.json",
+      "sha256": "d1261c8361f8f1fb75efd37de1fd758a6413682ddd14b980913769433dcd3ed1"
+    },
+    {
+      "bytes": 44755,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/question-hint-answers.json",
+      "sha256": "c07b768e8224a0060db503f50fd8b1aa5fbd0b043099d3ae86f9e96adad5e321"
+    },
+    {
+      "bytes": 1875751,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/service-parity.json",
+      "sha256": "c6bd70534d5f1d76bc2dc97f08adabf05afd66053663c52bb8670c0f404eefc7"
+    },
+    {
+      "bytes": 6286950,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/space-return-signal/game-parity.json",
+      "sha256": "7e4925d0cce34048d319cbedfa7be487f6ab444bfb42daec49f7fa8103cc800f"
+    },
+    {
+      "bytes": 5718150,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/starlight-post-office/game-parity.json",
+      "sha256": "42be3d971374922b282c5e2f65aa0ef2a6236c665ffe18bec5b4045ef7c89e6a"
+    },
+    {
+      "bytes": 5823550,
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/undersea-lighthouse/game-parity.json",
+      "sha256": "73265fd974d63eaf9cf453a182d31f40437db18894a8a3a2c18a9e5ece8e557d"
+    },
+    {
+      "bytes": 39532,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/01-river.pcm",
+      "sha256": "68b2d7b176da8369e00b532a19023d7950c1afa942793539aaba4fb214eb75fd"
+    },
+    {
+      "bytes": 69102,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/02-tracks.pcm",
+      "sha256": "5128e8fbc930f4272b28f100e5b06f03dce8fb61ae1244a5698b37b001a9ae52"
+    },
+    {
+      "bytes": 46812,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/03-leaves.pcm",
+      "sha256": "9380d6cf413c077d7240825d558fa9b66949c0b8f8479fa462a7c97d76890edb"
+    },
+    {
+      "bytes": 51270,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/04-magnifier.pcm",
+      "sha256": "0bc4e3f705f3d09f860b04c3e4278b6257479917830d125d9775baa1db8d9312"
+    },
+    {
+      "bytes": 51270,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/05-triceratops.pcm",
+      "sha256": "c9fb8fbbab085a8497c09645024c5cc962e09cc5aa2eba904a17aabe948b565d"
+    },
+    {
+      "bytes": 55728,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/06-workshop.pcm",
+      "sha256": "a2195b344ee7823081949d9b25b7c4ca6cd3c0083ebd420e4fb0907d774015b1"
+    },
+    {
+      "bytes": 1778,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/journey-v1/manifest.json",
+      "sha256": "be795f32f6d4b0732e5f5991e9ac4d18905bca2e219f820d2b49cc88b231d869"
+    },
+    {
+      "bytes": 2307,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/river-choice.metadata.json",
+      "sha256": "558749a17568fcf154a6c507986bad8d466e3361330077c01e738af7edf3cba5"
+    },
+    {
+      "bytes": 39532,
+      "path": "apps/vehicle/app/src/androidTest/assets/pleos-pcm/river-choice.pcm",
+      "sha256": "68b2d7b176da8369e00b532a19023d7950c1afa942793539aaba4fb214eb75fd"
+    },
+    {
+      "bytes": 13634,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AaosVehicleAccessTest.kt",
+      "sha256": "7136822b7dc55e0cff52f7dec788b85a8ef7e02d02fc6e1576d599b8dacc864c"
+    },
+    {
+      "bytes": 2454,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ActivityPauseTest.kt",
+      "sha256": "41e16e43386cc556f0550ec1f526eaa773cdf7295e8e01fbff3cc782750f5416"
+    },
+    {
+      "bytes": 9999,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AddressedQuietRequestTest.kt",
+      "sha256": "4e49c647e64a7a891bbdb01c2e79d41c0d7f9edfb16c6abdd9aed2a0dc46c5b5"
+    },
+    {
+      "bytes": 8656,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AddressedVoiceTest.kt",
+      "sha256": "686440ee9787da6a844f73deff65e6ec255ce4dbb16c7e6e632f946b9be2e43d"
+    },
+    {
+      "bytes": 35617,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AdventureLibraryTest.kt",
+      "sha256": "21d0aa2ab9316eec88ee69fb5d1679f70fc5091d29206a847b2b17605d9ca24c"
+    },
+    {
+      "bytes": 6549,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AdventureParityTest.kt",
+      "sha256": "b44ca402afd26da7d4fc25e556b8f1bda3ada7545ffb230f66cedd887ad17c0d"
+    },
+    {
+      "bytes": 28872,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AndroidScenePlayerTest.kt",
+      "sha256": "8e926711997fe1c8a40dc9cf56c8539dccca9006d952a7fbedaec6cc1f71faf2"
+    },
+    {
+      "bytes": 16836,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AuthoredPcmFixtureTest.kt",
+      "sha256": "c7eb69c7be65d3e015ba7d02a33c4070e97ed02db0deaf0e1d238ca5bdcc59b0"
+    },
+    {
+      "bytes": 10465,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/CompanionGreetingTest.kt",
+      "sha256": "ff6a26bf708a1ae4ad094d527671ab380379ef86b01a66baaa9542ea62429436"
+    },
+    {
+      "bytes": 28598,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ComposedSpeechOutputTest.kt",
+      "sha256": "621923727c4309550ebec8243843afdd738550c5a957af1a0e02fb0be9453486"
+    },
+    {
+      "bytes": 12979,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ContentNarrationRevisionTest.kt",
+      "sha256": "1008fb65b2704ab703defcd99d68af504d042caff5a8e04fe8aa5a6db1f0174e"
+    },
+    {
+      "bytes": 12053,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/DinosaurAnswerRevisionTest.kt",
+      "sha256": "a98941d97cc872de134af711ac57e982630bb9d52ef48712894073b65554b04b"
+    },
+    {
+      "bytes": 14867,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/DinosaurChildScriptRevisionTest.kt",
+      "sha256": "f299689cf7dcf7c48f45949dc40382c254eb76b1bc9354d3db165be98b8ef1fc"
+    },
+    {
+      "bytes": 4939,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/DinosaurNarrationCoverageTest.kt",
+      "sha256": "891405383afda04404e7106485454eb40c9b34dc74bc803282018458bfad2566"
+    },
+    {
+      "bytes": 9470,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FamilyInterestsTest.kt",
+      "sha256": "e9138d946698a676a1eda1a691f4bba1c47965992d3f92e4ce7cf8ddca9c4d21"
+    },
+    {
+      "bytes": 70177,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FamilyUiTest.kt",
+      "sha256": "8e86b87801f8a11c4eb2a0cdf12ac63ee9b309b04fe8f4f670220de253a6f2f1"
+    },
+    {
+      "bytes": 27834,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/InteractionModeTest.kt",
+      "sha256": "40d504d89fe67957acb7f09281dfc1f6abc66f77d76a5f551ee02d2eee357765"
+    },
+    {
+      "bytes": 18505,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LocalGameClientTest.kt",
+      "sha256": "6aa3c32f263b78e5d3b651593956c0d8f3763cd5072f5f13e87be04be1731e88"
+    },
+    {
+      "bytes": 4010,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LocalGameParityTest.kt",
+      "sha256": "4d1356ab3e20d949e972fbdf98c6bfd19b5f496b47cf9ed383fc29d0e8983173"
+    },
+    {
+      "bytes": 13506,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LocalResumeNarrationTest.kt",
+      "sha256": "d4bebbc625f3ca77601e3abaa79ad199f2b207ccf16a643d4e39f0d2d1e2a20b"
+    },
+    {
+      "bytes": 26029,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LocalSpeechRepairTest.kt",
+      "sha256": "4f4aa180c97bfdd9aecf7b7bd7428d34f094d0a893e366989d003215fa25452b"
+    },
+    {
+      "bytes": 29530,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/MediaPauseResumeServiceTest.kt",
+      "sha256": "46bdd1a6c4e8e1ba955cc079ba61098137dedbba67fe0f44dca19d1203650609"
+    },
+    {
+      "bytes": 1478,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/MediaPauseTestRunner.kt",
+      "sha256": "697732a7797a721c1f53b92a0957d2aab97386bc747fed95f5ebead04925f6b8"
+    },
+    {
+      "bytes": 12520,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/NarrationAssetPlaybackTest.kt",
+      "sha256": "117997f453b472c4e21ee0b6f2bc40af3c0b4ba1b362b352ad6dfa7789a67434"
+    },
+    {
+      "bytes": 16154,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/OnuActingUiTest.kt",
+      "sha256": "cd900a7203cbec8e65ca009f28e7a50c0db8d7ef1794134cb857dc604eaae70e"
+    },
+    {
+      "bytes": 19189,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PermissionReturnUiTest.kt",
+      "sha256": "0349718e34855f33aa3c95fa93344321b4746e3f4b7cea620399a4b5e7b7038d"
+    },
+    {
+      "bytes": 20028,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PlaybackPresenceTest.kt",
+      "sha256": "7dccf65ec8044baa333641b73d6907193b091dd7ab499c00fd174a36a70ad6cd"
+    },
+    {
+      "bytes": 47312,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosPcmAdventureTest.kt",
+      "sha256": "e9554b564b1863e02e82e839fba43583b65c45883749ba6d1f9dfc206c3d4ec3"
+    },
+    {
+      "bytes": 58293,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosPcmJourneyTest.kt",
+      "sha256": "6132d341c2c73b1d623040409fe70129c03acc183a97226cd766ad722354a254"
+    },
+    {
+      "bytes": 15791,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosRuntimeTest.kt",
+      "sha256": "0024f78d5314feb81e61f02c198c5fdf890e92321634d0234cba1526414f2020"
+    },
+    {
+      "bytes": 42731,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosSpeechAdaptersTest.kt",
+      "sha256": "658a33fdeb9b91e2e0f66a05228a6d6cd107b5365dc1319fd4667bcafa0c1200"
+    },
+    {
+      "bytes": 31376,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosSpeechTimingTest.kt",
+      "sha256": "4cd6aac8772d521d3e6a38c9c28ee7174f51aced86aaa072f8e287f39b8a691a"
+    },
+    {
+      "bytes": 25682,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PrivateRecordCipherTest.kt",
+      "sha256": "c7197cec2ed41776e9bff4e4819a7b5c927a4089e5d8343e4da84fe511388a02"
+    },
+    {
+      "bytes": 6269,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PrivateRecordTestSupport.kt",
+      "sha256": "3b3b02fe02baff9487a139d8909e3a9c6289b47e2a11edf93d04c33483aa4f5f"
+    },
+    {
+      "bytes": 15111,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ProcessRestoreTest.kt",
+      "sha256": "b04899a8bfe3ee46318c2b343df696078fe8cf505f18e9242da401dfe47955d5"
+    },
+    {
+      "bytes": 10314,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ProfileEncryptionTest.kt",
+      "sha256": "47a32f23174442aa0ca723466a06301f88a01c990707a86a708d982202cc2195"
+    },
+    {
+      "bytes": 14482,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/QuestionHintAnswerRevisionTest.kt",
+      "sha256": "213d4af1eb29db233c153d5e0ac1c9552000b5ec4be80f5182a8b1941a9b35c0"
+    },
+    {
+      "bytes": 13188,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecordCipherCostTest.kt",
+      "sha256": "3610a4d296ebefc2f6729fcefefb2900b3d3a5966ccbf978fb0f975fd4d90a8e"
+    },
+    {
+      "bytes": 13623,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecordStoreIntegrityTest.kt",
+      "sha256": "e073c243a6a41839bda63ac75dd3b165dbe2c43d4dd51d4cce2f9884bb342ee5"
+    },
+    {
+      "bytes": 11369,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecordStoreInterruptedFileTest.kt",
+      "sha256": "f47db45fc66684260f6484d0d14882223f8b360c30795d793705f3f36fe4325a"
+    },
+    {
+      "bytes": 28271,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecordStoreMigrationTest.kt",
+      "sha256": "a8fd16c38d4f3aca08d81cc9de4b99acfa4446f88ee9869f2747b15f0c3f83e0"
+    },
+    {
+      "bytes": 6325,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecordsScaleStorage.kt",
+      "sha256": "a2efa2b9d53a75462cc43a14db6a3c262b389ed233656ced324e10bb6e10e74f"
+    },
+    {
+      "bytes": 26957,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecoveryGuidanceTest.kt",
+      "sha256": "79794c61f8eef1db3eb2482b8fd06ce5227ea8ade7286872587f173c2ef4e2ec"
+    },
+    {
+      "bytes": 10244,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SetupDetailUiTest.kt",
+      "sha256": "20f4042f1b384b329122c19192c27123146f0e63cc4358ad12d11decc98682b6"
+    },
+    {
+      "bytes": 6469,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SharedKeyBootstrapTest.kt",
+      "sha256": "af68cc1458872e6023b7dd93a0f539a5ff27d4c06c126df9bd3a86f2225a7ebe"
+    },
+    {
+      "bytes": 16432,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SpaceStoryRevisionTest.kt",
+      "sha256": "504c5c1f891e08961c75275aa1db8ab773f91137ace1f17469ac5d215905056b"
+    },
+    {
+      "bytes": 21622,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SpeechAdapterRecoveryTest.kt",
+      "sha256": "cb77b68527766eda923b78dd679ba07c42dac4af6e067c1588e214a1555246c3"
+    },
+    {
+      "bytes": 15744,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SpeechCaptureDeadlineTest.kt",
+      "sha256": "2f57408a1d7179119b63eb2660e88d49b678fbade4f8aae5fe26889c452217d4"
+    },
+    {
+      "bytes": 3405,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SpeechOutputTest.kt",
+      "sha256": "e2409048f6d648f941fc1334fdd7a1f5dd1506dd868f41819287d57cda282a34"
+    },
+    {
+      "bytes": 12896,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/StabilityRecoveryTest.kt",
+      "sha256": "d70d202f2cf2142c727b6af25d95f4696ed0f31ba224c379c90ccb4c0f7d55d0"
+    },
+    {
+      "bytes": 17420,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/StabilityUiTest.kt",
+      "sha256": "6184f7ad02e507bc485e37c043f88f8b5c8c3793863a96cc4a0b4bf30f2f1163"
+    },
+    {
+      "bytes": 15860,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/StorageOverviewTest.kt",
+      "sha256": "60aa033b6bf5b1e620d510f9c6bb6241c1fd224cb87f1abf6fd824ba12bce284"
+    },
+    {
+      "bytes": 15792,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/StorageResilienceTest.kt",
+      "sha256": "748296f66336a348abdc60cf173a802c49bbdb0f6914dbc8ba38aedbc118af2e"
+    },
+    {
+      "bytes": 40964,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/StorageScaleTest.kt",
+      "sha256": "9cd82103ff947783daa1aeae252733bc18ec11ed37c515fa0db0650277a317df"
+    },
+    {
+      "bytes": 18868,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SystemRecoveryUiTest.kt",
+      "sha256": "438add36a12fd30506825c3c9fcb29c0cb8012ad80493a311a79d0b3929aaf26"
+    },
+    {
+      "bytes": 14067,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VehicleAccessTest.kt",
+      "sha256": "fb905c1caf31d58ab458ef7e6fa22cd48ff659422039112e99444f674f5c6049"
+    },
+    {
+      "bytes": 14178,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VehicleFlowTest.kt",
+      "sha256": "20ce592df0ca426eb5b559f5a8cd64c19e5a8cfe14af7ecd39592af649d983b4"
+    },
+    {
+      "bytes": 40452,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/ViewModelRecoveryTest.kt",
+      "sha256": "a4b711c863220a09d4032cccb66798cef23eae1f0221a77d1e4bfe253748f69b"
+    },
+    {
+      "bytes": 43553,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VoiceAdventureUiTest.kt",
+      "sha256": "fa845ffee4865a4bf4b30da7b667d20513954f9a486d534da43010be12f5b34a"
+    },
+    {
+      "bytes": 17238,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VoiceForegroundServiceTest.kt",
+      "sha256": "a9ce04a12733d53ce8677bfdeaac49a827947e190f03f4a4220d204796376dd3"
+    },
+    {
+      "bytes": 20986,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VoiceSessionHostPolicyInstrumentedTest.kt",
+      "sha256": "951a6c5a793b017f7ca63a2f2dee178db3f93f5c880da3826487d4575be61942"
+    },
+    {
+      "bytes": 10131,
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/WelcomeVoicePreviewUiTest.kt",
+      "sha256": "c0051ede2a28e892048e4d92877afc55466e237d6e13aa462ee0c61fa1e4b745"
+    },
+    {
+      "bytes": 860,
+      "path": "apps/vehicle/app/src/androidTestDemo/AndroidManifest.xml",
+      "sha256": "e877246f9a8c7e7f0f4a429596613fadbf90693208df70edcd7ecf5ac507c00f"
+    },
+    {
+      "bytes": 202,
+      "path": "apps/vehicle/app/src/debug/AndroidManifest.xml",
+      "sha256": "875e663910225953bff31da886339ba0cb97056731c49a16fca3b44d2ae10dd4"
+    },
+    {
+      "bytes": 402,
+      "path": "apps/vehicle/app/src/debug/res/xml/network_security_config.xml",
+      "sha256": "073ac2ac23d6c6206291944d55093ad6f22a3eb4bbc16a1795905b19db171a5e"
+    },
+    {
+      "bytes": 202,
+      "path": "apps/vehicle/app/src/demo/AndroidManifest.xml",
+      "sha256": "875e663910225953bff31da886339ba0cb97056731c49a16fca3b44d2ae10dd4"
+    },
+    {
+      "bytes": 402,
+      "path": "apps/vehicle/app/src/demo/res/xml/network_security_config.xml",
+      "sha256": "073ac2ac23d6c6206291944d55093ad6f22a3eb4bbc16a1795905b19db171a5e"
+    },
+    {
+      "bytes": 2271,
+      "path": "apps/vehicle/app/src/main/AndroidManifest.xml",
+      "sha256": "c1286e5ae42648a3b80ff436fcdad3b79d7e506f228a69b8e16a0fac319561a0"
+    },
+    {
+      "bytes": 71604,
+      "path": "apps/vehicle/app/src/main/assets/content/catalog.json",
+      "sha256": "9edd52bef1ab5c37ef370fce1e32bbf8e908cad77e6c6e4a7da276a575723e1a"
+    },
+    {
+      "bytes": 20997,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/animal-footprint-garden/episode.json",
+      "sha256": "d8305f163b0ff5e5b0a5ca4c36df3e1a95559e8637602d914d69a047d3e969ba"
+    },
+    {
+      "bytes": 16797,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/dinosaurs/episode.json",
+      "sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b"
+    },
+    {
+      "bytes": 19718,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/little-car-workshop/episode.json",
+      "sha256": "f034dc55f18f0b47cc6899d1ce57d10b1b06bc9e1874fa272b30e3923953ae56"
+    },
+    {
+      "bytes": 15081,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/onu-little-picnic/episode.json",
+      "sha256": "4a0599148ab1c63f9df9019c9e9381b8af2eba773fed9c7c7fec69a7e3820c92"
+    },
+    {
+      "bytes": 18714,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/space-return-signal/episode.json",
+      "sha256": "635abc4f3e83e35e67bc781cc70fade913d97768f78fd7bbcf3c4b0bed522d69"
+    },
+    {
+      "bytes": 18128,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/starlight-post-office/episode.json",
+      "sha256": "2defb822ace14d0a4522fabb10d792a610ec3b3e3cd7199d6b88d7143c788977"
+    },
+    {
+      "bytes": 19189,
+      "path": "apps/vehicle/app/src/main/assets/content/ko-KR/undersea-lighthouse/episode.json",
+      "sha256": "0c0c436fdbeb6b54650a421ce6c210d9a8a4d15ebb62d3b35d8a4725a78254e2"
+    },
+    {
+      "bytes": 17850,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/animal-footprint-garden/episode.json",
+      "sha256": "fdda36508c927aad418a4f88975645be6b2e14d96a5c90bb150cd43b9e33ac57"
+    },
+    {
+      "bytes": 10169,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/dinosaurs/episode.json",
+      "sha256": "ab9c8330c08dbbfbb849aad1d4542a29bd2cf3bfdfe4cb0a1dfd3acdbcacd977"
+    },
+    {
+      "bytes": 17108,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/little-car-workshop/episode.json",
+      "sha256": "969123ce420c7175c91e233dd4e53ee55bd1de7b5afec943b5601e0ce7dc238c"
+    },
+    {
+      "bytes": 12431,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/onu-little-picnic/episode.json",
+      "sha256": "9d8a73898d165696f9e474119da35a59d306f2cad1f9e2cfe694a5b8e92ccd23"
+    },
+    {
+      "bytes": 15154,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/space-return-signal/episode.json",
+      "sha256": "7285597b58b530f5d07ddbbbc3e77374b481133c05fe2434ac088cfa17890dd0"
+    },
+    {
+      "bytes": 11203,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/starlight-post-office/episode.json",
+      "sha256": "26b26c625e5bc8a38020272906f048b21ed0832a04614165d99869248b4ecbea"
+    },
+    {
+      "bytes": 12568,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.1.0/undersea-lighthouse/episode.json",
+      "sha256": "98f3d8412beb4521164e1b7ec06896434ebb73fcc935babbf9bd0226bb8337d2"
+    },
+    {
+      "bytes": 20527,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.10.0/animal-footprint-garden/episode.json",
+      "sha256": "902b4b937f3df023f0be9d5f53bcac622219cbc49bac6be2276a32b037b05146"
+    },
+    {
+      "bytes": 16792,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.10.0/dinosaurs/episode.json",
+      "sha256": "c00aa0e09caa0dcea9b3945ee4fffaeee2a8a791daaf7c801c75d34d8ff6c0e0"
+    },
+    {
+      "bytes": 19671,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.10.0/little-car-workshop/episode.json",
+      "sha256": "ac9d86ebe0dc6774629926e7c7c1db956b742400ef8d53de74bb662fc97c9eef"
+    },
+    {
+      "bytes": 18720,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.10.0/space-return-signal/episode.json",
+      "sha256": "d6cd68056aa1ee661c0681bc8d67e5d7c5d735dd40a768fe7db05352694e7e09"
+    },
+    {
+      "bytes": 20889,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.11.0/animal-footprint-garden/episode.json",
+      "sha256": "5e3a173325c79539c1241fd0e3beefee1f03ce77c11636dd52aa85282d33ddb5"
+    },
+    {
+      "bytes": 16969,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/animal-footprint-garden/episode.json",
+      "sha256": "ae564240af3b36466ca921df0c2d7a330f4731a5f35b6843d66cbca2968c7b32"
+    },
+    {
+      "bytes": 12551,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/dinosaurs/episode.json",
+      "sha256": "d7132a107302d8b97d7f9a84696de8ff828b74cf17a6c82d59a07395e45d45d1"
+    },
+    {
+      "bytes": 15934,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/little-car-workshop/episode.json",
+      "sha256": "51f046cd8d751b8638c6e54fcfc03c2da0a3605562547edf29275c99f174eb2a"
+    },
+    {
+      "bytes": 14084,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/onu-little-picnic/episode.json",
+      "sha256": "e2e27ec4787a7cf4beafca9bc2a1d2ef54317534a822fc83b207c9a205372a18"
+    },
+    {
+      "bytes": 14418,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/space-return-signal/episode.json",
+      "sha256": "74940525c9c6b0ff3fa1ec8dbbde3250b20d145235747fd057ef69da9234be74"
+    },
+    {
+      "bytes": 14441,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/starlight-post-office/episode.json",
+      "sha256": "274430e9c97f76301209031cc7caca62399393627da476544427faeeea998ac6"
+    },
+    {
+      "bytes": 16181,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/undersea-lighthouse/episode.json",
+      "sha256": "ebe2f6a4ee8c6c75c4714f4a2c8997c890e27bd84da0068e3bbcc2000bd9729a"
+    },
+    {
+      "bytes": 17884,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/animal-footprint-garden/episode.json",
+      "sha256": "663cb51957a63337257fecc9ae8ea5085e07893bb98efe205c84de7b2a8b45e0"
+    },
+    {
+      "bytes": 14397,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/dinosaurs/episode.json",
+      "sha256": "fe008f7e7574ec9708b3bf17f99d6b2d41f2cf7ab86d18f03f9f99ba0f7eeedc"
+    },
+    {
+      "bytes": 16953,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/little-car-workshop/episode.json",
+      "sha256": "e560a0ce0571e84f880d44675322dcb9001eee1b281a5f706aa823d6a542178c"
+    },
+    {
+      "bytes": 14349,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/onu-little-picnic/episode.json",
+      "sha256": "ac19c817166e409aea23a89f40cec6cd34e6bb1577492c673037534785433fe3"
+    },
+    {
+      "bytes": 15265,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/space-return-signal/episode.json",
+      "sha256": "e5b6594ea0983149632349ad67149f66b371f402346d193e6d4c8e6569f9d37b"
+    },
+    {
+      "bytes": 15893,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/starlight-post-office/episode.json",
+      "sha256": "4395180acf8b51866271ddb5fcb50d75c491120957eb02f14fd01acb491a0dea"
+    },
+    {
+      "bytes": 17376,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.3.0/undersea-lighthouse/episode.json",
+      "sha256": "11026dcf5de957bf846d2f5305f71ebedaa18602fd0d551af2720ce42369c2cd"
+    },
+    {
+      "bytes": 17662,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/animal-footprint-garden/episode.json",
+      "sha256": "e01cae1687ea634dd1922f693721b76bde18f2b9705a2d4c8e3937b44323a818"
+    },
+    {
+      "bytes": 14011,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/dinosaurs/episode.json",
+      "sha256": "eded344d066055d8a1e974eb51941c5034338607b148eb9a29b01181bfe19176"
+    },
+    {
+      "bytes": 16753,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/little-car-workshop/episode.json",
+      "sha256": "7260440baf4d32a1e1f91b633eebcf8719476bb09a0dca71cadba70f5c76217c"
+    },
+    {
+      "bytes": 14417,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/onu-little-picnic/episode.json",
+      "sha256": "479eb4ce3aa109fc6d66209226151cd1d3f6fe03ea6e802fb34513cbdd63c116"
+    },
+    {
+      "bytes": 15126,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/space-return-signal/episode.json",
+      "sha256": "59f2f84c947526def3a9f1ca488ef36f4f072b7fcf7b993de1bfba7be7617e4f"
+    },
+    {
+      "bytes": 15644,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/starlight-post-office/episode.json",
+      "sha256": "49f5c34319cca0591463ef88913aff4138939fb9f82ca987604f105bd7ff98fb"
+    },
+    {
+      "bytes": 17082,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.4.0/undersea-lighthouse/episode.json",
+      "sha256": "e7b372fbd79e3b8cd43142183539b294966d9e67ebc8a44ddaf3c5e72ddf4673"
+    },
+    {
+      "bytes": 18130,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/animal-footprint-garden/episode.json",
+      "sha256": "2acc7ce878c6e134c88595d1bc34434c8cd307ee4d772090788107602a696935"
+    },
+    {
+      "bytes": 14467,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/dinosaurs/episode.json",
+      "sha256": "ecb10c249516a170be805b79e9ca1e42d8be7f515775ae1d3d3d8a9579c048e0"
+    },
+    {
+      "bytes": 17312,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/little-car-workshop/episode.json",
+      "sha256": "6816ad401be1be45f57dc7ea263983503ac2b4c3dc07b02e0e509840f400f755"
+    },
+    {
+      "bytes": 14669,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/onu-little-picnic/episode.json",
+      "sha256": "2d8ff28298be3b433589e96a8ecd1e93b8e5598d79639e2eccf3ed10d13c34cc"
+    },
+    {
+      "bytes": 15567,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/space-return-signal/episode.json",
+      "sha256": "1c83b29d07e5381b9e12abc74e34044274613f48f2b0e3cce57c5d9303b0c6fb"
+    },
+    {
+      "bytes": 16103,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/starlight-post-office/episode.json",
+      "sha256": "4aac63b206ccd59ba0420b9b9244a359fd1dad5671b24e1b1ca2713d8df87155"
+    },
+    {
+      "bytes": 17670,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.5.0/undersea-lighthouse/episode.json",
+      "sha256": "f19ff3a15aae230908da3a5eac954608bdd0d95b46be7dfc5dbbeae8adf0816a"
+    },
+    {
+      "bytes": 20046,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/animal-footprint-garden/episode.json",
+      "sha256": "332694325b271cc13bdceaad207c6f734fcd93ed568f912a4f43d4c7fb93d463"
+    },
+    {
+      "bytes": 16211,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/dinosaurs/episode.json",
+      "sha256": "849b2c5ae52c5ad11d6687362512646981769f582e07db441685361d9c87ee52"
+    },
+    {
+      "bytes": 19521,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/little-car-workshop/episode.json",
+      "sha256": "1f8edee60150e7df59cff77cd2af29e5c9cb5539122f30b48f562d337e1e2f4e"
+    },
+    {
+      "bytes": 17414,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/space-return-signal/episode.json",
+      "sha256": "59135de21436614c9d512f5cee406cf6c49e9910b030d9753a3fe0194bbbcaf1"
+    },
+    {
+      "bytes": 18125,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/starlight-post-office/episode.json",
+      "sha256": "4106191e1284224e0d699c13fa9278fcbb4ccbbb6e0991e0c100b3ba8ac47c28"
+    },
+    {
+      "bytes": 19834,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.6.0/undersea-lighthouse/episode.json",
+      "sha256": "5422ec0dd01c5d550fa727e5143b6a6683fa40746af2a2c65cff921afd35bdd6"
+    },
+    {
+      "bytes": 19493,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/animal-footprint-garden/episode.json",
+      "sha256": "aa2c481fab05ef14b8eea79da071b036a83a508c341213689ece33c6ed9827fa"
+    },
+    {
+      "bytes": 15635,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/dinosaurs/episode.json",
+      "sha256": "2b482c1854918fe2d11f934ae106356ccd0e6a6baef78400a5b4b6285f41cc0c"
+    },
+    {
+      "bytes": 19921,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/little-car-workshop/episode.json",
+      "sha256": "a4338e44267118017a7ac0154c3b42ed9a9dd1ded1b0b40fc1d3f9f77332da94"
+    },
+    {
+      "bytes": 16784,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/space-return-signal/episode.json",
+      "sha256": "3b9aed0562e7b2660cef06cc224c9007cdeabe61dc7ff786ffd43b1e95cc7e50"
+    },
+    {
+      "bytes": 17528,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/starlight-post-office/episode.json",
+      "sha256": "25ce6be112f7722daabf510faa3d1e327574e7a2840a8925d0ee4f2e413a5885"
+    },
+    {
+      "bytes": 19011,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.7.0/undersea-lighthouse/episode.json",
+      "sha256": "e2bb8a5e545290c61ddbc90a34220a5e4e67b8f1e9c9507533427c09e0ed4ac2"
+    },
+    {
+      "bytes": 20105,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/animal-footprint-garden/episode.json",
+      "sha256": "c1c09e0ed505ee3135e7555271548c3b7ac4235bec7b01cfefc5b5605e890705"
+    },
+    {
+      "bytes": 15936,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/dinosaurs/episode.json",
+      "sha256": "b72c84b453a71733251233a879a453b2cae8ba9a20e5f06c0e3fe320b598699d"
+    },
+    {
+      "bytes": 19323,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/little-car-workshop/episode.json",
+      "sha256": "f14aa5ba5910a4e943d7e58526a0a4ce8407bde4f10c2aa0b12e0dc7eb5d2f2b"
+    },
+    {
+      "bytes": 18237,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/space-return-signal/episode.json",
+      "sha256": "a463aa211b5a7225788de6ce9a164608a057be01a674b8a64de73ffc556ad1fc"
+    },
+    {
+      "bytes": 17599,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/starlight-post-office/episode.json",
+      "sha256": "570ea85cc89c52c9b552e3d633c16c3fee532945a41e9b314882bc64829cd13a"
+    },
+    {
+      "bytes": 19008,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.8.0/undersea-lighthouse/episode.json",
+      "sha256": "9c796a798f466c89da6469345d9a7337c76c729389d77f9f7e8b9638f7a566e5"
+    },
+    {
+      "bytes": 20329,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.9.0/animal-footprint-garden/episode.json",
+      "sha256": "f0df4e5675c00d6fc16e3e7862c4fe405e5089a0c73b1f72d9b1048db564a032"
+    },
+    {
+      "bytes": 16237,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.9.0/dinosaurs/episode.json",
+      "sha256": "fee86690b26f46da2d3619c5c43314d6dad369299b47be0020c03002a2c7ca97"
+    },
+    {
+      "bytes": 19340,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.9.0/little-car-workshop/episode.json",
+      "sha256": "41e9d500c84f71317140109eda5a6e4ef38b920071021e8992b6cfdd2c8f4dae"
+    },
+    {
+      "bytes": 18176,
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.9.0/space-return-signal/episode.json",
+      "sha256": "280ae677236a659493250ec3558603ba099f00d1675039d2322078a7d924be1f"
+    },
+    {
+      "bytes": 23415,
+      "path": "apps/vehicle/app/src/main/assets/legal/THIRD_PARTY_NOTICES.txt",
+      "sha256": "4e6f7755448fca43ef5fd19abb8ba0fceb4da22b558d76b2b33ed65de760ebb9"
+    },
+    {
+      "bytes": 273644,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/cue_dino_arrival.wav",
+      "sha256": "cd27ec4dd291413378fd6f779610f92d96fde87b405aa0d37636af9acafb4d78"
+    },
+    {
+      "bytes": 38444,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/cue_discovery.wav",
+      "sha256": "8f8d0dc57c76ad5f56a840bd35a731b885396d01889cde8d399d3bcc7f0dce51"
+    },
+    {
+      "bytes": 230444,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/cue_forest.wav",
+      "sha256": "babc1c4c94bdf0cc11531df43df95c7c0a0458b122d0718fb84a30912b4d3446"
+    },
+    {
+      "bytes": 230444,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/cue_stream.wav",
+      "sha256": "f1b165ea3f942b8c034baca535c15fd0e2ac872decd58aa2ceda2b964aa37032"
+    },
+    {
+      "bytes": 541518,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_00dbe4f2313f6ae8.wav",
+      "sha256": "7d55cf88ba275b7e4721cbfd9c261071c20801407c602ffce1e9f8695afeeebd"
+    },
+    {
+      "bytes": 376400,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_08a517ef648e0b9d.wav",
+      "sha256": "24d24c908cd4ba8464e307eff351953910d109204ad715a5cfd3c5202506df76"
+    },
+    {
+      "bytes": 307278,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_09abbdcf15614e68.wav",
+      "sha256": "091c6ff7ee7e11cc0c0d7ebadcf79accf48a82e0ef434710eefb043cac7c10d2"
+    },
+    {
+      "bytes": 314958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_1bc65dc63e7a639e.wav",
+      "sha256": "0020e970facf1131fbb8790b6b8126e749082170506bd4bbb4c1a3060b64d5c1"
+    },
+    {
+      "bytes": 314958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_21070815a2b7637f.wav",
+      "sha256": "3dd7d0805b5498a25d77f12f412d5433288509f67d8b0019b478a07342e4f437"
+    },
+    {
+      "bytes": 276558,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_2fe8f75b763cf176.wav",
+      "sha256": "3011c846ee93c487cd5d78ff08d5c60b1e9311a3e361d6734df161fb643269a2"
+    },
+    {
+      "bytes": 437838,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3160815e826a2f33.wav",
+      "sha256": "9abce5970f39677bcc85fae5506c1164dd08ee2df0ce8958c1a8a851745186f5"
+    },
+    {
+      "bytes": 119118,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_32fcb4b6f679647b.wav",
+      "sha256": "13f08074a84fc56d2fa06379ae6272b7ba7182b309e553f52bf9c799f7e8d866"
+    },
+    {
+      "bytes": 314958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_341904e9437afa5c.wav",
+      "sha256": "8ac33d6eaaa680ef4a9ffc6966adda0e0f4daeb07d56a523259b3cb893cf5c77"
+    },
+    {
+      "bytes": 253520,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_350bcbfbd123f73b.wav",
+      "sha256": "bb401a5268f4af1e504f1618a607ed4455965d8a17b19374a39cc1a328d3e46e"
+    },
+    {
+      "bytes": 111438,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_382e0da11d641004.wav",
+      "sha256": "f12ca8eddb8170ccc8ba8976688fe41a2dbaf1ca06a4957513731a490ca9ff1a"
+    },
+    {
+      "bytes": 480078,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3c169544bd866d05.wav",
+      "sha256": "314afb1ce63ebabbdd3504222663d65c0e4158578478f736e79baf27d1c655a4"
+    },
+    {
+      "bytes": 384078,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3c284e943b0ee75e.wav",
+      "sha256": "128b8456a158adda5221f50cf5de615baaa124a51c24f4f21f83a4087913afa8"
+    },
+    {
+      "bytes": 295758,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3d4b5ea30d2dff85.wav",
+      "sha256": "5f1d56d12646ecb4acb218b18f2e5e7dc802db84543d9b588cc6f96b06671e1f"
+    },
+    {
+      "bytes": 334158,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3d8ac55e5e46fafb.wav",
+      "sha256": "85f000b10a1dd1dbd7505bf8983018a04593983fdf46c91012f72bbf85763563"
+    },
+    {
+      "bytes": 514638,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3dbb193344056c44.wav",
+      "sha256": "06e6fa711ba111c3f0e872a95e931884fdc71a9c4606503948e9826670edd1cb"
+    },
+    {
+      "bytes": 349518,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3f68c1762767a28a.wav",
+      "sha256": "5b5881ea6a75d5b294eca8c939e10577d2820686a24b330a00165e53a23054ab"
+    },
+    {
+      "bytes": 226640,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_42de5c0d7a8d6365.wav",
+      "sha256": "c014107a2102e490301f28aadbb008566bf9777372042e70557a8cee5ef6dc2f"
+    },
+    {
+      "bytes": 376400,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_46c40d48180ed3c8.wav",
+      "sha256": "3acea99dd05f6423f6fa13f3af08e6292d1fe3e91e71f57da637c06a9aa1920d"
+    },
+    {
+      "bytes": 314958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4a318149b75c90de.wav",
+      "sha256": "ea1c0d07ee06ae7df4f7ce8986d7d88e85c8c4256e6ab600af5916528dd7c5a7"
+    },
+    {
+      "bytes": 307278,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4f1c5768d15dd855.wav",
+      "sha256": "169e9cba71504d6e92f4345e01ceebb8974a66a19ce719a70806cd2dc182035b"
+    },
+    {
+      "bytes": 291918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4fdac28db0a99adb.wav",
+      "sha256": "b4fa7a3b7850ab6f756565bc8492c47c64f759c78da0611afe3ceaa70004f787"
+    },
+    {
+      "bytes": 468558,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_520207372643609d.wav",
+      "sha256": "783bf195030f378d474f17579a8a46ea50ce1f6bb5ff96462952e09355c77dee"
+    },
+    {
+      "bytes": 337998,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_5eeb02a4b6b92c12.wav",
+      "sha256": "6007c802b3599edbbed857b06fe076698d13d759424dcff26e0a9d36dfa55299"
+    },
+    {
+      "bytes": 307278,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_63dfd30158419890.wav",
+      "sha256": "fa68356ed542a4ff35d3fed28972a170fd574ba7c68fb356a2841453f7144594"
+    },
+    {
+      "bytes": 337998,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_6d1af0571fbb38aa.wav",
+      "sha256": "1aa7890a4d3e70dee4beea6f71ab0a28debcd18a636b64bcf22e96758d9f9c7f"
+    },
+    {
+      "bytes": 291918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_741013816237ecb6.wav",
+      "sha256": "334f76da957e887ea5afa38147f8247735066994943acc4dcefab04a2de3be56"
+    },
+    {
+      "bytes": 334158,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_7d91d8bc0a744ed7.wav",
+      "sha256": "a8f205c8e96475c1d50eecd78e802238797e4a68ba2b6cc5627080f87476493d"
+    },
+    {
+      "bytes": 265038,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_823088a509da2235.wav",
+      "sha256": "f474c9155d3f78f67291b7b256fbe2275b1a184caabf692884dc64f020a7a962"
+    },
+    {
+      "bytes": 341840,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_838fe3e372b1270b.wav",
+      "sha256": "5c844b3ef3b8ae47db4368c5bb44ec2b0b84105219298605703554d141529ec1"
+    },
+    {
+      "bytes": 387918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_8ea2246b880d3f27.wav",
+      "sha256": "a09af0b52f9b56a23b49f6e0592af5dede6a4d2a5fe75bdca291b1b27295b9a6"
+    },
+    {
+      "bytes": 314958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_98a5f9eff626721e.wav",
+      "sha256": "f19a94b34ed876e25d2438c426411c9184a4c3fca5d4f86d61725eadb75f1d1b"
+    },
+    {
+      "bytes": 372558,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_9d7c579e227e5115.wav",
+      "sha256": "ae7dd188f82596f4f392d73cb36c1ab4fd2040c30564a167aeb3c441822abf10"
+    },
+    {
+      "bytes": 364878,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a1329bedadd84032.wav",
+      "sha256": "891d52e9b5861b2d4b067f202ce5e92dc159819034b6a0f5730400910eb37040"
+    },
+    {
+      "bytes": 510798,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a2feba86cc363503.wav",
+      "sha256": "7d9df0abd8d0ec38bdcead2f5d10a390b18fff09f86d1bfc186c5468a710cd10"
+    },
+    {
+      "bytes": 495438,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a5dae647ab4a6993.wav",
+      "sha256": "1f26de10dc0ea84bba3a5bd82f59a2a74087ffa3cb7053131296ccccb91e143f"
+    },
+    {
+      "bytes": 249678,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a70d680c2a1c7ad0.wav",
+      "sha256": "cfecb6a99b1195cd6f5ca64135fbc985a00c925a6c21ad3ecf7aa4f7ecc2fb9d"
+    },
+    {
+      "bytes": 353358,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a9d70186c036fec7.wav",
+      "sha256": "2993e8a1224261e82b6e64159c21f626d6d8ca2ba4728c73ac1591f0c863ab53"
+    },
+    {
+      "bytes": 192078,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_b60583bb4ad0b558.wav",
+      "sha256": "01078be9ad1c7eefb55d580966de80bd6576177227ccaef69ee944962012a5d3"
+    },
+    {
+      "bytes": 510798,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_c0649c5b57a424c1.wav",
+      "sha256": "b9c540ec2931162d857638864994a1c6e1ade2db3c54afefe8262c123f381c4c"
+    },
+    {
+      "bytes": 487758,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d1f01756b2b39712.wav",
+      "sha256": "5c4e46c5e6fe552255fd6973a42ac159ecec7b1902023b250c1bfb676a51ed8a"
+    },
+    {
+      "bytes": 215118,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d50f7ee068802340.wav",
+      "sha256": "86454703590dbaaf174379dc336396fd9f8afa928a4013fb13f8b0a6d1efae27"
+    },
+    {
+      "bytes": 272718,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e566c68f0d20b5e0.wav",
+      "sha256": "3a822f1940838841568428610555ac9570cfbc2928e7e8e8dab6a3a356f676c9"
+    },
+    {
+      "bytes": 245838,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e7f22b727e22e3c6.wav",
+      "sha256": "4954c789de262b03ac3396d6a3631c5bab78dfc66787caba0e0f20192df5170d"
+    },
+    {
+      "bytes": 341840,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e92826c9a6ad84c9.wav",
+      "sha256": "605ee1eef41aebf5559126e6e59330c12d0a80c4f4aec8c592bd5cbea31a13f8"
+    },
+    {
+      "bytes": 426318,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_ea738eaf324cb2b1.wav",
+      "sha256": "01e6ef0a03a464bebae363f3609ea4b7565c9f255a76ac807575e89204035a15"
+    },
+    {
+      "bytes": 483918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fac7a4fade3d402b.wav",
+      "sha256": "e446af738385b74ef64fa01f07fba23af1c5b84334e04b5223e96cf7338d5ec7"
+    },
+    {
+      "bytes": 268878,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcb1e1f2a1cd6567.wav",
+      "sha256": "53f5bc87d9091211550ae2ffd8050927e9e1fc8171a2504ca96d8ec3fd3aa22b"
+    },
+    {
+      "bytes": 526158,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcbf9927c305e23a.wav",
+      "sha256": "1e182212b947472291cf8e16a676a774ef8be82447eec5ea28576a68362155f8"
+    },
+    {
+      "bytes": 245838,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcd97438d8bc56b2.wav",
+      "sha256": "e616155fa362c460bef8b7b836bcf106fa0a91d81d424a7f64658f8b696d094e"
+    },
+    {
+      "bytes": 26989,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/manifest.json",
+      "sha256": "d8c028c6d3cc515844631c388808f712081737f40b5c3383321ec8f9c49134ce"
+    },
+    {
+      "bytes": 122958,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_02f1703fbae8c937.wav",
+      "sha256": "afbc4269d5eb9804d4a6cd26aa54fefd18ca87a3337f0fb7ec5dbab73b8df7ae"
+    },
+    {
+      "bytes": 241998,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_2b7b75a34f51025e.wav",
+      "sha256": "626665282ef79de4c9c7582fb43a31fe664b080f14cfcf3401f37a5f4a9739d0"
+    },
+    {
+      "bytes": 103758,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_592e066f5753dfcf.wav",
+      "sha256": "82dd89b95b77f6e068e9588550ae6714cf3c9b8524957f78655e3d5a58b01959"
+    },
+    {
+      "bytes": 195918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8688d8bb463f9b8e.wav",
+      "sha256": "a81cf3bb7b993799b6dac48aedc74e5d91725dce55bc7660d9b0be9a0d4515ad"
+    },
+    {
+      "bytes": 215118,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8a2aa0dc157d243e.wav",
+      "sha256": "31549a39df8e6e670b510b1d23fce2279a782163242014c74ac1ec420c32e33b"
+    },
+    {
+      "bytes": 249678,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8f8aac8ebce45da4.wav",
+      "sha256": "b3a7991caa46a40c4a285cae61dbf20365643d14cb04829e18a4427be745279e"
+    },
+    {
+      "bytes": 195918,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_a29b4330cfc58198.wav",
+      "sha256": "e2d8597d538baf725271ac7fbde949cb8f457ef4174dd0595ac3be9090f12492"
+    },
+    {
+      "bytes": 261198,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_c89f2f9319ad37d2.wav",
+      "sha256": "4de7d9590631650074c64e8f9331e162b982c8060114faca786dce2b55c19fa1"
+    },
+    {
+      "bytes": 407118,
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_welcome_b2.wav",
+      "sha256": "272a338d70966d15f0c33f1724713c2f7aa6b139b53584d10432b2b5a8537592"
+    },
+    {
+      "bytes": 7611,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AdventureCatalog.kt",
+      "sha256": "3795ffd86d1be38b8822c9eded9b0ab8ce4c1a77b9b830845be99c0ec96eaf62"
+    },
+    {
+      "bytes": 1214,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AdventureScenery.kt",
+      "sha256": "5550429d45402b3bbb0dcfb63ae51a89dcdd3f19dcee55edf0c2843784bf6f56"
+    },
+    {
+      "bytes": 5088,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidClipPlayer.kt",
+      "sha256": "21a5e7782f89b412996ce08a976bb3287cbd434d67a6e3eb30ee1c8f35a8bbef"
+    },
+    {
+      "bytes": 2666,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidNarrationAssets.kt",
+      "sha256": "e0c2af16d287dcca0609049ba54c4f8334bc483e92f3bbe0975cc59457c979b2"
+    },
+    {
+      "bytes": 11435,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidOnDeviceSpeechInput.kt",
+      "sha256": "65dd258e45e7bf77746eda940aff5241c2aafefa7fd7af76a9adbbb9f5e09b8a"
+    },
+    {
+      "bytes": 9500,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidScenePlayer.kt",
+      "sha256": "022b6b55d8d250c269dd8b7b31da7c9dcaf1e30c63a5ad5038e0ca6fffcb2029"
+    },
+    {
+      "bytes": 14272,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidTtsOutput.kt",
+      "sha256": "99f2246012fe7eae7296f885e2b5c382f5253f39a11f7989954e89997b583eac"
+    },
+    {
+      "bytes": 3519,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/ApiClient.kt",
+      "sha256": "8f4dcd76781b585881f90947c1468098e9fb041160fbc94865ee9d44df7d80ca"
+    },
+    {
+      "bytes": 5808,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AutomotiveCarAccessProvider.kt",
+      "sha256": "42d6ae92e28776a498747e3a986a9e3b2865c9ea003d6a3e937b5e7ba113e9a3"
+    },
+    {
+      "bytes": 3097,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/BundledNarration.kt",
+      "sha256": "593a856bde50409fbe44768969076a448b011bc989fd92f6573006a8ec08b34b"
+    },
+    {
+      "bytes": 2415,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/CaptureDeadline.kt",
+      "sha256": "2e60969f789152e6f5d22baa90ccdb04c27f2548f0956c86e1c770b94f3bc417"
+    },
+    {
+      "bytes": 1121,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/CaptureGate.kt",
+      "sha256": "ac2df2086a8b989a9ced16a9176b3083e594f9b5ed6eccc73c14426b0cd05db3"
+    },
+    {
+      "bytes": 2487,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/CaptureSignals.kt",
+      "sha256": "630a310c78ac377d1aa5b0399a2724809919f55791adccb1e41be509630cbd8e"
+    },
+    {
+      "bytes": 11578,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/ComposedSpeechOutput.kt",
+      "sha256": "23335455b136aec2611df206b576365744949d190ca6033923237af99e37eb4a"
+    },
+    {
+      "bytes": 9370,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/DeveloperScreen.kt",
+      "sha256": "0ebd814c48d0c6c695b51fc9663e15a764cc06aefa8b4e87452754813a1db733"
+    },
+    {
+      "bytes": 8854,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/DeveloperViewModel.kt",
+      "sha256": "d5b16a5926819f9c9943e8e855ac9741533a21f8a5b17512603af26b8f7b6f29"
+    },
+    {
+      "bytes": 1336,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyDeletionJournal.kt",
+      "sha256": "8926e143e8c41c9caf45752e453b3b7920bc904cc58aa6da6e996c72ac70b99e"
+    },
+    {
+      "bytes": 24319,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyLibrary.kt",
+      "sha256": "7c70299d02ff62974a95892f0ce1354304b0a8597c08f986c24e7958a003b971"
+    },
+    {
+      "bytes": 3823,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyPermissionReturns.kt",
+      "sha256": "4fb54695a0a64069ee6f09bcc8f47f50672f1fde5dc21292ab368616a63aaea3"
+    },
+    {
+      "bytes": 35167,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyPlay.kt",
+      "sha256": "09286fefd1817caa9850e26905db6d0608616237576d723527e0ecce2c13ab39"
+    },
+    {
+      "bytes": 15847,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyProfile.kt",
+      "sha256": "d350fccf32f1a9deb2f3ec6e69272733bd2a19b48fdd110f2fc1f9132c7709d1"
+    },
+    {
+      "bytes": 25197,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyScreen.kt",
+      "sha256": "a06394901e2bdf34b4359118e3424962bcdcd8032f0451243585ffa5e6bf3620"
+    },
+    {
+      "bytes": 37382,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilySetup.kt",
+      "sha256": "3f6772c9c7896217e64d60a97ff0ce4c04f7ac06378de4d88fb450bd3325b09d"
+    },
+    {
+      "bytes": 9632,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyWidgets.kt",
+      "sha256": "6f22275f991bfdbd89ab1ddabcdf78f3103ae5627dcf20ca31d1c9333ea22226"
+    },
+    {
+      "bytes": 733,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/GameClient.kt",
+      "sha256": "cf8eee32d31505ec6f35f2cf8b453f770e49b64608826e84882e48db326f4dd5"
+    },
+    {
+      "bytes": 34241,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/GameRecordStore.kt",
+      "sha256": "82c72f4601dd4d069fbfc92b0955e917e0b2fa2eb58ac14c23d1c713116c321a"
+    },
+    {
+      "bytes": 1472,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/InputAudioFocus.kt",
+      "sha256": "81f75d9c3a307f7d0d71cf490fedd4388e0666fb185861539bef6f1f1b735ef3"
+    },
+    {
+      "bytes": 2561,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/InteractionPreferences.kt",
+      "sha256": "7bfef3d466928db7fb7b8a8795b97bf8d943126532830410b4eda39afb5e7f62"
+    },
+    {
+      "bytes": 6544,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/InterestMatching.kt",
+      "sha256": "f905696745fab9e2af49ec9f34481e4ff938366cccdcfa828ebe926f9bb25dc7"
+    },
+    {
+      "bytes": 12131,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/InterestSetup.kt",
+      "sha256": "aaf014a48fc072b7f258251df32f5df7e1564afce4985fae6c5af3ed08e17ce4"
+    },
+    {
+      "bytes": 2022,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LocalCheckpoint.kt",
+      "sha256": "2e14100871e3b9e7893e2edffe070358ea2d0776a8a4e563c242cce797e82f32"
+    },
+    {
+      "bytes": 42753,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LocalGameClient.kt",
+      "sha256": "c5a59f1a695f9316d84187c4cc97b3f0214acc140c0b193273af585340cdc4e0"
+    },
+    {
+      "bytes": 23929,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LocalGameEngine.kt",
+      "sha256": "156dbf800efbd12e70c80be4bf05b2f524b01652415dd23acc573c514519d4b7"
+    },
+    {
+      "bytes": 1005,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/MainActivity.kt",
+      "sha256": "1ac6c613f50869a720cbae8ce861036e98b61c39ddd94dbe0d97449edcf2b863"
+    },
+    {
+      "bytes": 1393,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/MediaPauseLease.kt",
+      "sha256": "3a4adfdc94d9d18a2fd1d2fc7200e3ea9811cce0c9cb8562d218dcc79af2a20e"
+    },
+    {
+      "bytes": 298,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuApplication.kt",
+      "sha256": "a9f5a85788329ba6609f02494e068fe855ca1f8eb92943776f22e15dce8f5bff"
+    },
+    {
+      "bytes": 3905,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuArrivalScene.kt",
+      "sha256": "5158b487317e6b6c39310b379b77dcfc959edcd97f8e2ee1c7dc4a65400dc55a"
+    },
+    {
+      "bytes": 8342,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuArtwork.kt",
+      "sha256": "75d91e2c919d8f5c4f6bbf48d9916a140c5ab9686eba8b396d80d6539dd4f63f"
+    },
+    {
+      "bytes": 4707,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuJourneyStage.kt",
+      "sha256": "d5d6423493467aa8d7fe3dac41d16c1ebdeb18f94a6431affdec1ba21fae535f"
+    },
+    {
+      "bytes": 9187,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuSetupScene.kt",
+      "sha256": "7c4411c5010850f727fa1765e90299bbe56f8e700529fdc0b37534789a1de01d"
+    },
+    {
+      "bytes": 4344,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OpenSourceNotices.kt",
+      "sha256": "7f83499b6fc533d7011f6830844cfa91d94a612d7cc1503ac33beea0944e1188"
+    },
+    {
+      "bytes": 763,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OutputGate.kt",
+      "sha256": "6e2f99b626f4a8cdf1df7e83877f7c692dde4e0e9d5443b1c5e649cf31dfe04a"
+    },
+    {
+      "bytes": 1838,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/PlaybackAudioFocus.kt",
+      "sha256": "fe197507b7e6b21d5d4509819b8438328da6313bc9278501d9f57315ec5be067"
+    },
+    {
+      "bytes": 5829,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/PlaymateTheme.kt",
+      "sha256": "afb94bdad3c5feb9db6bf304b270140333a2232e57cfd6dc73e3a1fe4ffa7976"
+    },
+    {
+      "bytes": 15671,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/PleosSpeechInput.kt",
+      "sha256": "c5427693e2e83106a0e4c29c0a5fd563d2e4fe68bfa0fcd05d4676c838c45980"
+    },
+    {
+      "bytes": 14519,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/PleosSpeechOutput.kt",
+      "sha256": "66f838688a6fd6d6d37c173a72f1789fa3c33e6e25f742c0e00b39efb6aeaca6"
+    },
+    {
+      "bytes": 6499,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/PrivateRecordCipher.kt",
+      "sha256": "08be1193c0e862b1a9af46e0738375754c1387fb93cb8716e467412cdd91ca38"
+    },
+    {
+      "bytes": 2551,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/Protocol.kt",
+      "sha256": "8862f85b736f0e655bf715ccb63123136f089c1aba676714b36740cda46d8a31"
+    },
+    {
+      "bytes": 2868,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/QuietRequest.kt",
+      "sha256": "282ae95ffc3ae0af470446a17196a8210dd9b00e8004fd520d1f150fcd3dda5a"
+    },
+    {
+      "bytes": 474,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecognitionProgress.kt",
+      "sha256": "5930c7731402b56c25682e5d633aaaec33b65814f946173f59cbcf550ab8c32a"
+    },
+    {
+      "bytes": 589,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecordStoreStage.kt",
+      "sha256": "94524ef7abc3bb4bba7c9bfcd4ec042a9d36e518c5d3e05713f5e48fc28fca23"
+    },
+    {
+      "bytes": 809,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecoveryCause.kt",
+      "sha256": "9c4a4d842c61dcdfea8eb58f5383a714c2f1df4dd6032395c598ad3b9f4d22eb"
+    },
+    {
+      "bytes": 5163,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecoveryNotice.kt",
+      "sha256": "7c89aa7795c5bdfb9c4b055b8291aa7d93519e95a0b91fb88b9b3095cb93277b"
+    },
+    {
+      "bytes": 773,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SpeechInput.kt",
+      "sha256": "38ce6aa5b7689b69b982e29d3b97c782cc1266194042b0b966439ee9108dfd44"
+    },
+    {
+      "bytes": 1921,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SpeechPorts.kt",
+      "sha256": "419a7896aa567a302ec3832d8bcaf196c1cd920fd3af083043df89299e2bd5c2"
+    },
+    {
+      "bytes": 1718,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SpeechProviders.kt",
+      "sha256": "8201e2ac15530a02d09b0665eb47e1f2eb96b3187f81ec486b5a0cffc00637d9"
+    },
+    {
+      "bytes": 8110,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/StoryArtwork.kt",
+      "sha256": "d4b83da1c4741ea939aac6f47761d375350356c5fd76dbc9684193094751304b"
+    },
+    {
+      "bytes": 12625,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/StorySceneMixer.kt",
+      "sha256": "3527d8703169dbf1de495fc624d3f3d9fac46671d60943add84ff6d35f12cbc6"
+    },
+    {
+      "bytes": 4601,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SystemRecoveryScreen.kt",
+      "sha256": "e3155e00df1ad5f3f27d0bdc9a5a836b4ecc70116ced50f01da8c75c78ca1543"
+    },
+    {
+      "bytes": 5868,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/TopicArtwork.kt",
+      "sha256": "b03a13a553c63f456157aa3226dec8b063266bcb1afabdb21e5ec75036818370"
+    },
+    {
+      "bytes": 3364,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VehicleAccess.kt",
+      "sha256": "aab071451770d8180c32a3be41ba70fd68c87e28e987bd579c05dba935398a4c"
+    },
+    {
+      "bytes": 1883,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VehicleAccessProvider.kt",
+      "sha256": "6d5236a632a54ba1f7653ab29fc52abb24839e528a600bced5023ac0e994313d"
+    },
+    {
+      "bytes": 2420,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VehicleInteractionPolicy.kt",
+      "sha256": "0f06c5d05fb6d9ea7b7190103eb0cd1fe1d51ff067922ac454e47bb614e990fe"
+    },
+    {
+      "bytes": 13073,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceAdventurePanel.kt",
+      "sha256": "13adc30e332411ecc3e6d519eb88cfcdc3f7364b9f81593aae824ccc21069894"
+    },
+    {
+      "bytes": 79888,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceSessionController.kt",
+      "sha256": "ec5aba6b009a9afc3d945ba3ae28550d73ca5b6f62066ec9dc66efe032ce73d6"
+    },
+    {
+      "bytes": 14926,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceSessionHost.kt",
+      "sha256": "dbee2e90bd3edb3c6a9aec19915921922d2430028974f96937a68512f7051c0a"
+    },
+    {
+      "bytes": 18645,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceSessionService.kt",
+      "sha256": "ca6f60289b592e104eae2187b53ed209c51854208d1c8cfb5a18057b09fc3259"
+    },
+    {
+      "bytes": 4592,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/WelcomeVoicePreview.kt",
+      "sha256": "97f786531b670ab48d505894048a9bee38b7e99800b58ad9afd55a148e6db2f9"
+    },
+    {
+      "bytes": 7558,
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/WorldArtwork.kt",
+      "sha256": "e03e6e2db50b8f1d0297f3967bf79f5c62f270a8927dc78816d6a4d030804efe"
+    },
+    {
+      "bytes": 2795567,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_arrival_world.png",
+      "sha256": "c7b979de46e6a0c9c624e7879afd9b1043a6d76865f25307ce3e29b98300ab72"
+    },
+    {
+      "bytes": 768412,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_delighted.png",
+      "sha256": "f709df0ffe2d6475c989985dc1fe73c21589d6626ea27dee947d2a22c636bea4"
+    },
+    {
+      "bytes": 3012254,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_dinosaur_world.png",
+      "sha256": "0cf62d5c42c144e03b790529abcecca3e55eb4709984321e9375054211139214"
+    },
+    {
+      "bytes": 727606,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_listening.png",
+      "sha256": "8b1e5cf02b5469da7fb00e2f0da1c3abc3cac33b0bfb05033a4ba66e33dc4e19"
+    },
+    {
+      "bytes": 756237,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_ready.png",
+      "sha256": "4d487cdbfa530158f4c93aa4b7a61406282e8d10f9bdb1027e8f3dc4b7184470"
+    },
+    {
+      "bytes": 780122,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_ready_blink.png",
+      "sha256": "68a9712d9307fe7cd0b84aba1a74fa766e73ba002a22350039194b77862ee4c6"
+    },
+    {
+      "bytes": 675656,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_resting.png",
+      "sha256": "48974be0d51c47aafd1c669121936afbfeef5fc638f5af8babb22b6419d7641d"
+    },
+    {
+      "bytes": 753555,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_speaking_closed.png",
+      "sha256": "717f981de5ba872849df8fda0f3dd250c650027f2fc19edda46e56d36aa4580b"
+    },
+    {
+      "bytes": 735893,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_speaking_small.png",
+      "sha256": "7c72fdfe9a0fd3747e2ca7a35318924d6db0dfe16235e5cedefd8c0365847f9a"
+    },
+    {
+      "bytes": 719270,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_storytelling.png",
+      "sha256": "d7d2970a0f561c6dfe3edfb49010f84fea8b03c0ef61ab6214f646e330936792"
+    },
+    {
+      "bytes": 715955,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_thinking.png",
+      "sha256": "0404738567ce39ddf717ca0dfdc72e4e9a18e15b86d7e1530a533ce0cdcc8498"
+    },
+    {
+      "bytes": 2037271,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_animals.png",
+      "sha256": "7180164559c998d73e79afd5ba298b2751d46431ccc10bd665e752722307d54e"
+    },
+    {
+      "bytes": 1985461,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_dinosaurs.png",
+      "sha256": "67050e9516d0afd355e8041c8cfcc9000d02337df6b0e0e7e6d481335a1d3ba1"
+    },
+    {
+      "bytes": 2069791,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_ocean.png",
+      "sha256": "15d768c49ab50fe1574d96d625f71f42a73319af351b760321ecc5db411ba440"
+    },
+    {
+      "bytes": 1864154,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_picnic.png",
+      "sha256": "1661a2bc0587dafd3fde223d93b9674274f3f7bf48038b2667d91c4e3719d8b3"
+    },
+    {
+      "bytes": 1564443,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_space.png",
+      "sha256": "c6702dbbe3838622dc4e71da4445d7a5eb75cec4c6501128a28c22eb58205d50"
+    },
+    {
+      "bytes": 1972718,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_stories.png",
+      "sha256": "bef38908ee25bba7afaa777f37ca6e148a1064e205be405215b2dbd3cdfba92d"
+    },
+    {
+      "bytes": 2048687,
+      "path": "apps/vehicle/app/src/main/res/drawable-nodpi/onu_world_vehicles.png",
+      "sha256": "352c669f207f02d539f835a98fa49b11ed819bae46d3338c0d49ffbb05889156"
+    },
+    {
+      "bytes": 2891,
+      "path": "apps/vehicle/app/src/main/res/drawable/ic_companion_foreground.xml",
+      "sha256": "0e47e38635fbbf3ef5bbb64493e9d7d8792989131530d562129ae79fc677047e"
+    },
+    {
+      "bytes": 987,
+      "path": "apps/vehicle/app/src/main/res/drawable/ic_companion_monochrome.xml",
+      "sha256": "7a0966acba11c159f25ff9c1eb55b5584af84de9c9fc898cba5a982faa4728a0"
+    },
+    {
+      "bytes": 268,
+      "path": "apps/vehicle/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "aa338327e48313341af40d93e5c6ed8535d9bfb06fe458d25debc249fda0d5fd"
+    },
+    {
+      "bytes": 268,
+      "path": "apps/vehicle/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "aa338327e48313341af40d93e5c6ed8535d9bfb06fe458d25debc249fda0d5fd"
+    },
+    {
+      "bytes": 340,
+      "path": "apps/vehicle/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml",
+      "sha256": "99b76bfd3394d1df5139135fb215259fc37af20693a18f2fdd85f1d845f8b3dc"
+    },
+    {
+      "bytes": 340,
+      "path": "apps/vehicle/app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml",
+      "sha256": "99b76bfd3394d1df5139135fb215259fc37af20693a18f2fdd85f1d845f8b3dc"
+    },
+    {
+      "bytes": 122,
+      "path": "apps/vehicle/app/src/main/res/values/colors.xml",
+      "sha256": "5ed7b90c169918df5297c31e5a8a4ba7c7ed56e77aed790fdd7d0976ede75bad"
+    },
+    {
+      "bytes": 108,
+      "path": "apps/vehicle/app/src/main/res/values/strings.xml",
+      "sha256": "096d23b553d00f995b448d13f10bd35aeb40cfa857588a14b315877872da54ec"
+    },
+    {
+      "bytes": 340,
+      "path": "apps/vehicle/app/src/main/res/values/styles.xml",
+      "sha256": "0d931ea21957ba92c4c4d5a4292e55a868c39077619b2d193f475f96619ce4a3"
+    },
+    {
+      "bytes": 719,
+      "path": "apps/vehicle/app/src/main/res/xml/backup_rules.xml",
+      "sha256": "e996420639ca8821f35ab1dfb7a51a0bc1fbe8123355f6863c82d7974c4d9138"
+    },
+    {
+      "bytes": 1281,
+      "path": "apps/vehicle/app/src/main/res/xml/data_extraction_rules.xml",
+      "sha256": "c35d4fdde63e57cafeb5c3e6a6e5bc4f1b5fec2db5fe264f9fff0e22811fb3d8"
+    },
+    {
+      "bytes": 3332,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/BundledNarrationTest.kt",
+      "sha256": "c3933a06d74f78523623dfb90d9c8dce89cf73d80c19d13a45196c361edbb03e"
+    },
+    {
+      "bytes": 3267,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/CaptureDeadlineTest.kt",
+      "sha256": "9e0c49ba25cd9b9adcb33db3731629f875a09719424c4b1b0aa5d3b7bbd5c77a"
+    },
+    {
+      "bytes": 2052,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/CaptureGateTest.kt",
+      "sha256": "05ee80787cd4c14b130a4959a8a0ea48fca354698008271e3aa53a6f3192deee"
+    },
+    {
+      "bytes": 2935,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/FamilyProfileTest.kt",
+      "sha256": "f4f4b2b72a7e6c5256f7e4dafcf151c205e93aacf3d02f54d1400e583c1c598c"
+    },
+    {
+      "bytes": 4841,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/HomeRecommendationReasonTest.kt",
+      "sha256": "d50c49b1877fed507de99d1a9492659a996555540884bd42d3a47633c0765f15"
+    },
+    {
+      "bytes": 7213,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/InterestMatchingTest.kt",
+      "sha256": "b04af80ea095ed3b6f855f8b04af4843c2803e3231bdfd552abc2d198c6ca152"
+    },
+    {
+      "bytes": 2771,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/MediaPauseLeaseTest.kt",
+      "sha256": "ff86d9b929b236f03e068c29a9d85d8b461df43e0abb8a20556a115b9d0a489d"
+    },
+    {
+      "bytes": 966,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/OutputGateTest.kt",
+      "sha256": "13dd4e8d1242a270b3784e006241002e41510f558a65301f732975519f6d33f1"
+    },
+    {
+      "bytes": 6482,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/QuietRequestTest.kt",
+      "sha256": "3ef48210225a4c3ffd9c8f52c63120be09523b03d74eb1c2519716d558512b63"
+    },
+    {
+      "bytes": 899,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/RecognitionProgressTest.kt",
+      "sha256": "32e584ecb7e4a71a430396699f8b38951ca4f6611b3e8528f3444cac304ceec1"
+    },
+    {
+      "bytes": 17816,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/StorySceneMixerTest.kt",
+      "sha256": "bea373317eb742b410533bff65560dcf0f18d6d241bd7574054d850119c4ad53"
+    },
+    {
+      "bytes": 2892,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/VehicleInteractionPolicyTest.kt",
+      "sha256": "15f98544cf6c2a63ca6a84a8e68cffec2a11d650f1a6372e6fad2cb9ed0b7311"
+    },
+    {
+      "bytes": 3057,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/VehicleRestrictionGateTest.kt",
+      "sha256": "fc76e47f92a30f08e5d785f12488890a35bab9fb004ba9065b2a7e4ce69cdef8"
+    },
+    {
+      "bytes": 6145,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/VehicleUxSnapshotTest.kt",
+      "sha256": "84b7b867530eb5c3fd15472bfe772de9c95457119f40d0c3676c81108568ab95"
+    },
+    {
+      "bytes": 9062,
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/WelcomeVoicePreviewTest.kt",
+      "sha256": "09feafce0253bda9764959a54c269ed81115a66b36d673225efdf168a7ec49cd"
+    },
+    {
+      "bytes": 217,
+      "path": "apps/vehicle/build.gradle.kts",
+      "sha256": "3a4b82559d8b90403bfd8c7fb5cefd394097fc1cfe6a2de77cf2741bac4288e8"
+    },
+    {
+      "bytes": 136,
+      "path": "apps/vehicle/gradle.properties",
+      "sha256": "678c35a27eeda302d6a960484179d118d08fb1edf05c1b40745bc7aed6e88f03"
+    },
+    {
+      "bytes": 43504,
+      "path": "apps/vehicle/gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "498495120a03b9a6ab5d155f5de3c8f0d986a449153702fb80fc80e134484f17"
+    },
+    {
+      "bytes": 337,
+      "path": "apps/vehicle/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "dc0c4f45f299ac2d51077dd1587e619128d091816ad9170d535a23694ddf355b"
+    },
+    {
+      "bytes": 8762,
+      "path": "apps/vehicle/gradlew",
+      "sha256": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3"
+    },
+    {
+      "bytes": 2966,
+      "path": "apps/vehicle/gradlew.bat",
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f"
+    },
+    {
+      "bytes": 1290,
+      "path": "apps/vehicle/integration-fixtures/gleo-app-schema.example.json",
+      "sha256": "0bb81a9246ea615ac84157e2e9d3ec2718309c1651d229e0bb8be7440a151ceb"
+    },
+    {
+      "bytes": 165,
+      "path": "apps/vehicle/integration-fixtures/gleo-pause-callback.example.json",
+      "sha256": "16005b2e8c333ac4a1f0fb1896cf83a0b0ce63b57fd440ef049cd218382cc297"
+    },
+    {
+      "bytes": 529,
+      "path": "apps/vehicle/settings.gradle.kts",
+      "sha256": "28cb2e41e1b2183bbd6c6bb6acf9bfe80d0fd161c97b2cdbdb4bc4445600bf97"
+    },
+    {
+      "bytes": 71604,
+      "path": "content/catalog.json",
+      "sha256": "9edd52bef1ab5c37ef370fce1e32bbf8e908cad77e6c6e4a7da276a575723e1a"
+    },
+    {
+      "bytes": 8600,
+      "path": "content/ko-KR/animal-footprint-garden/REVIEW.md",
+      "sha256": "e206ec93ba531a67076f016cd2691581204952268108e5c91b770d49f2ba0144"
+    },
+    {
+      "bytes": 20997,
+      "path": "content/ko-KR/animal-footprint-garden/episode.json",
+      "sha256": "d8305f163b0ff5e5b0a5ca4c36df3e1a95559e8637602d914d69a047d3e969ba"
+    },
+    {
+      "bytes": 4710,
+      "path": "content/ko-KR/dinosaurs/REVIEW.md",
+      "sha256": "4ec7c9c55d0b9acdc5e6a9c0469d70221a037aa056ea1c458cda228da32d2ba7"
+    },
+    {
+      "bytes": 16797,
+      "path": "content/ko-KR/dinosaurs/episode.json",
+      "sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b"
+    },
+    {
+      "bytes": 8719,
+      "path": "content/ko-KR/little-car-workshop/REVIEW.md",
+      "sha256": "8aaf769db682ac211cee051bbc96a6766240b8f14bf459fa797898702009cf03"
+    },
+    {
+      "bytes": 19718,
+      "path": "content/ko-KR/little-car-workshop/episode.json",
+      "sha256": "f034dc55f18f0b47cc6899d1ce57d10b1b06bc9e1874fa272b30e3923953ae56"
+    },
+    {
+      "bytes": 4690,
+      "path": "content/ko-KR/onu-little-picnic/REVIEW.md",
+      "sha256": "bccdd9d6d8528e2b26716abe9edbb7d7585b23e5550572796f2ea22306e271bc"
+    },
+    {
+      "bytes": 15081,
+      "path": "content/ko-KR/onu-little-picnic/episode.json",
+      "sha256": "4a0599148ab1c63f9df9019c9e9381b8af2eba773fed9c7c7fec69a7e3820c92"
+    },
+    {
+      "bytes": 8629,
+      "path": "content/ko-KR/space-return-signal/REVIEW.md",
+      "sha256": "e8b1d8bfb7939304c0237ea3bc5f1623335fbd4a4915cd3430cc0f61f33e2f60"
+    },
+    {
+      "bytes": 18714,
+      "path": "content/ko-KR/space-return-signal/episode.json",
+      "sha256": "635abc4f3e83e35e67bc781cc70fade913d97768f78fd7bbcf3c4b0bed522d69"
+    },
+    {
+      "bytes": 4125,
+      "path": "content/ko-KR/starlight-post-office/REVIEW.md",
+      "sha256": "842bf37a360a0e2e447cd5a80066e0d0ffb56bd65da18026b3f0c368c2ee958f"
+    },
+    {
+      "bytes": 18128,
+      "path": "content/ko-KR/starlight-post-office/episode.json",
+      "sha256": "2defb822ace14d0a4522fabb10d792a610ec3b3e3cd7199d6b88d7143c788977"
+    },
+    {
+      "bytes": 4990,
+      "path": "content/ko-KR/undersea-lighthouse/REVIEW.md",
+      "sha256": "2f0c7b627c7fe41aea4f1394806bd68de37ae2fe0a7f69b9c403f119c394dd1e"
+    },
+    {
+      "bytes": 19189,
+      "path": "content/ko-KR/undersea-lighthouse/episode.json",
+      "sha256": "0c0c436fdbeb6b54650a421ce6c210d9a8a4d15ebb62d3b35d8a4725a78254e2"
+    },
+    {
+      "bytes": 17850,
+      "path": "content/legacy/0.1.0/animal-footprint-garden/episode.json",
+      "sha256": "fdda36508c927aad418a4f88975645be6b2e14d96a5c90bb150cd43b9e33ac57"
+    },
+    {
+      "bytes": 10169,
+      "path": "content/legacy/0.1.0/dinosaurs/episode.json",
+      "sha256": "ab9c8330c08dbbfbb849aad1d4542a29bd2cf3bfdfe4cb0a1dfd3acdbcacd977"
+    },
+    {
+      "bytes": 17108,
+      "path": "content/legacy/0.1.0/little-car-workshop/episode.json",
+      "sha256": "969123ce420c7175c91e233dd4e53ee55bd1de7b5afec943b5601e0ce7dc238c"
+    },
+    {
+      "bytes": 12431,
+      "path": "content/legacy/0.1.0/onu-little-picnic/episode.json",
+      "sha256": "9d8a73898d165696f9e474119da35a59d306f2cad1f9e2cfe694a5b8e92ccd23"
+    },
+    {
+      "bytes": 15154,
+      "path": "content/legacy/0.1.0/space-return-signal/episode.json",
+      "sha256": "7285597b58b530f5d07ddbbbc3e77374b481133c05fe2434ac088cfa17890dd0"
+    },
+    {
+      "bytes": 11203,
+      "path": "content/legacy/0.1.0/starlight-post-office/episode.json",
+      "sha256": "26b26c625e5bc8a38020272906f048b21ed0832a04614165d99869248b4ecbea"
+    },
+    {
+      "bytes": 12568,
+      "path": "content/legacy/0.1.0/undersea-lighthouse/episode.json",
+      "sha256": "98f3d8412beb4521164e1b7ec06896434ebb73fcc935babbf9bd0226bb8337d2"
+    },
+    {
+      "bytes": 20527,
+      "path": "content/legacy/0.10.0/animal-footprint-garden/episode.json",
+      "sha256": "902b4b937f3df023f0be9d5f53bcac622219cbc49bac6be2276a32b037b05146"
+    },
+    {
+      "bytes": 16792,
+      "path": "content/legacy/0.10.0/dinosaurs/episode.json",
+      "sha256": "c00aa0e09caa0dcea9b3945ee4fffaeee2a8a791daaf7c801c75d34d8ff6c0e0"
+    },
+    {
+      "bytes": 19671,
+      "path": "content/legacy/0.10.0/little-car-workshop/episode.json",
+      "sha256": "ac9d86ebe0dc6774629926e7c7c1db956b742400ef8d53de74bb662fc97c9eef"
+    },
+    {
+      "bytes": 18720,
+      "path": "content/legacy/0.10.0/space-return-signal/episode.json",
+      "sha256": "d6cd68056aa1ee661c0681bc8d67e5d7c5d735dd40a768fe7db05352694e7e09"
+    },
+    {
+      "bytes": 20889,
+      "path": "content/legacy/0.11.0/animal-footprint-garden/episode.json",
+      "sha256": "5e3a173325c79539c1241fd0e3beefee1f03ce77c11636dd52aa85282d33ddb5"
+    },
+    {
+      "bytes": 16969,
+      "path": "content/legacy/0.2.0/animal-footprint-garden/episode.json",
+      "sha256": "ae564240af3b36466ca921df0c2d7a330f4731a5f35b6843d66cbca2968c7b32"
+    },
+    {
+      "bytes": 12551,
+      "path": "content/legacy/0.2.0/dinosaurs/episode.json",
+      "sha256": "d7132a107302d8b97d7f9a84696de8ff828b74cf17a6c82d59a07395e45d45d1"
+    },
+    {
+      "bytes": 15934,
+      "path": "content/legacy/0.2.0/little-car-workshop/episode.json",
+      "sha256": "51f046cd8d751b8638c6e54fcfc03c2da0a3605562547edf29275c99f174eb2a"
+    },
+    {
+      "bytes": 14084,
+      "path": "content/legacy/0.2.0/onu-little-picnic/episode.json",
+      "sha256": "e2e27ec4787a7cf4beafca9bc2a1d2ef54317534a822fc83b207c9a205372a18"
+    },
+    {
+      "bytes": 14418,
+      "path": "content/legacy/0.2.0/space-return-signal/episode.json",
+      "sha256": "74940525c9c6b0ff3fa1ec8dbbde3250b20d145235747fd057ef69da9234be74"
+    },
+    {
+      "bytes": 14441,
+      "path": "content/legacy/0.2.0/starlight-post-office/episode.json",
+      "sha256": "274430e9c97f76301209031cc7caca62399393627da476544427faeeea998ac6"
+    },
+    {
+      "bytes": 16181,
+      "path": "content/legacy/0.2.0/undersea-lighthouse/episode.json",
+      "sha256": "ebe2f6a4ee8c6c75c4714f4a2c8997c890e27bd84da0068e3bbcc2000bd9729a"
+    },
+    {
+      "bytes": 17884,
+      "path": "content/legacy/0.3.0/animal-footprint-garden/episode.json",
+      "sha256": "663cb51957a63337257fecc9ae8ea5085e07893bb98efe205c84de7b2a8b45e0"
+    },
+    {
+      "bytes": 14397,
+      "path": "content/legacy/0.3.0/dinosaurs/episode.json",
+      "sha256": "fe008f7e7574ec9708b3bf17f99d6b2d41f2cf7ab86d18f03f9f99ba0f7eeedc"
+    },
+    {
+      "bytes": 16953,
+      "path": "content/legacy/0.3.0/little-car-workshop/episode.json",
+      "sha256": "e560a0ce0571e84f880d44675322dcb9001eee1b281a5f706aa823d6a542178c"
+    },
+    {
+      "bytes": 14349,
+      "path": "content/legacy/0.3.0/onu-little-picnic/episode.json",
+      "sha256": "ac19c817166e409aea23a89f40cec6cd34e6bb1577492c673037534785433fe3"
+    },
+    {
+      "bytes": 15265,
+      "path": "content/legacy/0.3.0/space-return-signal/episode.json",
+      "sha256": "e5b6594ea0983149632349ad67149f66b371f402346d193e6d4c8e6569f9d37b"
+    },
+    {
+      "bytes": 15893,
+      "path": "content/legacy/0.3.0/starlight-post-office/episode.json",
+      "sha256": "4395180acf8b51866271ddb5fcb50d75c491120957eb02f14fd01acb491a0dea"
+    },
+    {
+      "bytes": 17376,
+      "path": "content/legacy/0.3.0/undersea-lighthouse/episode.json",
+      "sha256": "11026dcf5de957bf846d2f5305f71ebedaa18602fd0d551af2720ce42369c2cd"
+    },
+    {
+      "bytes": 17662,
+      "path": "content/legacy/0.4.0/animal-footprint-garden/episode.json",
+      "sha256": "e01cae1687ea634dd1922f693721b76bde18f2b9705a2d4c8e3937b44323a818"
+    },
+    {
+      "bytes": 14011,
+      "path": "content/legacy/0.4.0/dinosaurs/episode.json",
+      "sha256": "eded344d066055d8a1e974eb51941c5034338607b148eb9a29b01181bfe19176"
+    },
+    {
+      "bytes": 16753,
+      "path": "content/legacy/0.4.0/little-car-workshop/episode.json",
+      "sha256": "7260440baf4d32a1e1f91b633eebcf8719476bb09a0dca71cadba70f5c76217c"
+    },
+    {
+      "bytes": 14417,
+      "path": "content/legacy/0.4.0/onu-little-picnic/episode.json",
+      "sha256": "479eb4ce3aa109fc6d66209226151cd1d3f6fe03ea6e802fb34513cbdd63c116"
+    },
+    {
+      "bytes": 15126,
+      "path": "content/legacy/0.4.0/space-return-signal/episode.json",
+      "sha256": "59f2f84c947526def3a9f1ca488ef36f4f072b7fcf7b993de1bfba7be7617e4f"
+    },
+    {
+      "bytes": 15644,
+      "path": "content/legacy/0.4.0/starlight-post-office/episode.json",
+      "sha256": "49f5c34319cca0591463ef88913aff4138939fb9f82ca987604f105bd7ff98fb"
+    },
+    {
+      "bytes": 17082,
+      "path": "content/legacy/0.4.0/undersea-lighthouse/episode.json",
+      "sha256": "e7b372fbd79e3b8cd43142183539b294966d9e67ebc8a44ddaf3c5e72ddf4673"
+    },
+    {
+      "bytes": 18130,
+      "path": "content/legacy/0.5.0/animal-footprint-garden/episode.json",
+      "sha256": "2acc7ce878c6e134c88595d1bc34434c8cd307ee4d772090788107602a696935"
+    },
+    {
+      "bytes": 14467,
+      "path": "content/legacy/0.5.0/dinosaurs/episode.json",
+      "sha256": "ecb10c249516a170be805b79e9ca1e42d8be7f515775ae1d3d3d8a9579c048e0"
+    },
+    {
+      "bytes": 17312,
+      "path": "content/legacy/0.5.0/little-car-workshop/episode.json",
+      "sha256": "6816ad401be1be45f57dc7ea263983503ac2b4c3dc07b02e0e509840f400f755"
+    },
+    {
+      "bytes": 14669,
+      "path": "content/legacy/0.5.0/onu-little-picnic/episode.json",
+      "sha256": "2d8ff28298be3b433589e96a8ecd1e93b8e5598d79639e2eccf3ed10d13c34cc"
+    },
+    {
+      "bytes": 15567,
+      "path": "content/legacy/0.5.0/space-return-signal/episode.json",
+      "sha256": "1c83b29d07e5381b9e12abc74e34044274613f48f2b0e3cce57c5d9303b0c6fb"
+    },
+    {
+      "bytes": 16103,
+      "path": "content/legacy/0.5.0/starlight-post-office/episode.json",
+      "sha256": "4aac63b206ccd59ba0420b9b9244a359fd1dad5671b24e1b1ca2713d8df87155"
+    },
+    {
+      "bytes": 17670,
+      "path": "content/legacy/0.5.0/undersea-lighthouse/episode.json",
+      "sha256": "f19ff3a15aae230908da3a5eac954608bdd0d95b46be7dfc5dbbeae8adf0816a"
+    },
+    {
+      "bytes": 20046,
+      "path": "content/legacy/0.6.0/animal-footprint-garden/episode.json",
+      "sha256": "332694325b271cc13bdceaad207c6f734fcd93ed568f912a4f43d4c7fb93d463"
+    },
+    {
+      "bytes": 16211,
+      "path": "content/legacy/0.6.0/dinosaurs/episode.json",
+      "sha256": "849b2c5ae52c5ad11d6687362512646981769f582e07db441685361d9c87ee52"
+    },
+    {
+      "bytes": 19521,
+      "path": "content/legacy/0.6.0/little-car-workshop/episode.json",
+      "sha256": "1f8edee60150e7df59cff77cd2af29e5c9cb5539122f30b48f562d337e1e2f4e"
+    },
+    {
+      "bytes": 17414,
+      "path": "content/legacy/0.6.0/space-return-signal/episode.json",
+      "sha256": "59135de21436614c9d512f5cee406cf6c49e9910b030d9753a3fe0194bbbcaf1"
+    },
+    {
+      "bytes": 18125,
+      "path": "content/legacy/0.6.0/starlight-post-office/episode.json",
+      "sha256": "4106191e1284224e0d699c13fa9278fcbb4ccbbb6e0991e0c100b3ba8ac47c28"
+    },
+    {
+      "bytes": 19834,
+      "path": "content/legacy/0.6.0/undersea-lighthouse/episode.json",
+      "sha256": "5422ec0dd01c5d550fa727e5143b6a6683fa40746af2a2c65cff921afd35bdd6"
+    },
+    {
+      "bytes": 19493,
+      "path": "content/legacy/0.7.0/animal-footprint-garden/episode.json",
+      "sha256": "aa2c481fab05ef14b8eea79da071b036a83a508c341213689ece33c6ed9827fa"
+    },
+    {
+      "bytes": 15635,
+      "path": "content/legacy/0.7.0/dinosaurs/episode.json",
+      "sha256": "2b482c1854918fe2d11f934ae106356ccd0e6a6baef78400a5b4b6285f41cc0c"
+    },
+    {
+      "bytes": 19921,
+      "path": "content/legacy/0.7.0/little-car-workshop/episode.json",
+      "sha256": "a4338e44267118017a7ac0154c3b42ed9a9dd1ded1b0b40fc1d3f9f77332da94"
+    },
+    {
+      "bytes": 16784,
+      "path": "content/legacy/0.7.0/space-return-signal/episode.json",
+      "sha256": "3b9aed0562e7b2660cef06cc224c9007cdeabe61dc7ff786ffd43b1e95cc7e50"
+    },
+    {
+      "bytes": 17528,
+      "path": "content/legacy/0.7.0/starlight-post-office/episode.json",
+      "sha256": "25ce6be112f7722daabf510faa3d1e327574e7a2840a8925d0ee4f2e413a5885"
+    },
+    {
+      "bytes": 19011,
+      "path": "content/legacy/0.7.0/undersea-lighthouse/episode.json",
+      "sha256": "e2bb8a5e545290c61ddbc90a34220a5e4e67b8f1e9c9507533427c09e0ed4ac2"
+    },
+    {
+      "bytes": 20105,
+      "path": "content/legacy/0.8.0/animal-footprint-garden/episode.json",
+      "sha256": "c1c09e0ed505ee3135e7555271548c3b7ac4235bec7b01cfefc5b5605e890705"
+    },
+    {
+      "bytes": 15936,
+      "path": "content/legacy/0.8.0/dinosaurs/episode.json",
+      "sha256": "b72c84b453a71733251233a879a453b2cae8ba9a20e5f06c0e3fe320b598699d"
+    },
+    {
+      "bytes": 19323,
+      "path": "content/legacy/0.8.0/little-car-workshop/episode.json",
+      "sha256": "f14aa5ba5910a4e943d7e58526a0a4ce8407bde4f10c2aa0b12e0dc7eb5d2f2b"
+    },
+    {
+      "bytes": 18237,
+      "path": "content/legacy/0.8.0/space-return-signal/episode.json",
+      "sha256": "a463aa211b5a7225788de6ce9a164608a057be01a674b8a64de73ffc556ad1fc"
+    },
+    {
+      "bytes": 17599,
+      "path": "content/legacy/0.8.0/starlight-post-office/episode.json",
+      "sha256": "570ea85cc89c52c9b552e3d633c16c3fee532945a41e9b314882bc64829cd13a"
+    },
+    {
+      "bytes": 19008,
+      "path": "content/legacy/0.8.0/undersea-lighthouse/episode.json",
+      "sha256": "9c796a798f466c89da6469345d9a7337c76c729389d77f9f7e8b9638f7a566e5"
+    },
+    {
+      "bytes": 20329,
+      "path": "content/legacy/0.9.0/animal-footprint-garden/episode.json",
+      "sha256": "f0df4e5675c00d6fc16e3e7862c4fe405e5089a0c73b1f72d9b1048db564a032"
+    },
+    {
+      "bytes": 16237,
+      "path": "content/legacy/0.9.0/dinosaurs/episode.json",
+      "sha256": "fee86690b26f46da2d3619c5c43314d6dad369299b47be0020c03002a2c7ca97"
+    },
+    {
+      "bytes": 19340,
+      "path": "content/legacy/0.9.0/little-car-workshop/episode.json",
+      "sha256": "41e9d500c84f71317140109eda5a6e4ef38b920071021e8992b6cfdd2c8f4dae"
+    },
+    {
+      "bytes": 18176,
+      "path": "content/legacy/0.9.0/space-return-signal/episode.json",
+      "sha256": "280ae677236a659493250ec3558603ba099f00d1675039d2322078a7d924be1f"
+    },
+    {
+      "bytes": 7619,
+      "path": "docs/audio/onu-0.35.0-sfx-provenance.json",
+      "sha256": "154502c9b9339ebc7fb3de2054fbc1970017e5f941dea038d1c57a0023e02bfd"
+    },
+    {
+      "bytes": 3282,
+      "path": "docs/audio/onu-0.35.0-sources.json",
+      "sha256": "4e80c847f4eb137e91e11196e5987c59eadc91464cd9dafc1dbcaba19ada9440"
+    },
+    {
+      "bytes": 41285,
+      "path": "docs/audio/onu-0.47.0-voice-plan.json",
+      "sha256": "8a4d90ff36cb70020b0219d8973c4083478d5b0abce023dd8a8fe5d82ed76b22"
+    },
+    {
+      "bytes": 131011,
+      "path": "docs/audio/onu-0.47.0-voice-provenance.json",
+      "sha256": "95247778893d8786f8473872eaa8739cf939559e28532a1539b90bcfa88b2cb6"
+    },
+    {
+      "bytes": 1842,
+      "path": "docs/audio/reproduction/onu-b2/README.txt",
+      "sha256": "86393c08170211f609975a7657612cf64cdc41727b3d1415859478b8b8a5a51a"
+    },
+    {
+      "bytes": 792,
+      "path": "docs/audio/reproduction/onu-b2/REFERENCE.json",
+      "sha256": "288221f6d0f7b50156e0d8c633f3593e4d12b7c6e4c28c1f4640d8d0b391a962"
+    },
+    {
+      "bytes": 890960,
+      "path": "docs/audio/reproduction/onu-b2/reference.wav",
+      "sha256": "0f82fd62111f95092aeef39f733da5458bf79be829f678147f1d8ebc919b5d1c"
+    },
+    {
+      "bytes": 191542,
+      "path": "docs/audio/sources/onu-0.35.0/dino_350bcbfbd123f73b.wav",
+      "sha256": "14454a62dc8faf42d22545fcbd402e183fa044fd150dd781e84e7bc076dbef10"
+    },
+    {
+      "bytes": 242070,
+      "path": "docs/audio/sources/onu-0.35.0/dino_e92826c9a6ad84c9.wav",
+      "sha256": "3c124adf543af029714dd7b7e143799a043fa4968cd0a510e2d60c28f13b54da"
+    },
+    {
+      "bytes": 652228,
+      "path": "docs/audio/sources/onu-0.35.0/forest.ogg",
+      "sha256": "1e7c54ea1f754676ed794079cd7942cb7b0dc4b928e1e6e9925ddf4a9497134e"
+    },
+    {
+      "bytes": 422974,
+      "path": "docs/audio/sources/onu-0.35.0/pig.mp3",
+      "sha256": "2f8184ca64b7fea4f5e6d71fa40259c21f97b4f4feeebb1d213c237d8a3c7935"
+    },
+    {
+      "bytes": 140016,
+      "path": "docs/audio/sources/onu-0.35.0/pigeon.mp3",
+      "sha256": "dd85e4442c97d4751a8d1e09fb4326b4e5985b4ae088ef72852dc4e0fe0e45fa"
+    },
+    {
+      "bytes": 1092440,
+      "path": "docs/audio/sources/onu-0.35.0/stream.ogg",
+      "sha256": "b71def4798508e588229a5f801fefaed9ac51c5dbad224274123c92e6d183fff"
+    },
+    {
+      "bytes": 23415,
+      "path": "docs/release-preparation/THIRD_PARTY_NOTICES.txt",
+      "sha256": "4e6f7755448fca43ef5fd19abb8ba0fceb4da22b558d76b2b33ed65de760ebb9"
+    },
+    {
+      "bytes": 1131,
+      "path": "packages/contracts/action.submit.schema.json",
+      "sha256": "e2b3fce4306323372b1bc93aa558ea72bbfdf91e61a0d11c39ca4529f801023f"
+    },
+    {
+      "bytes": 12621,
+      "path": "packages/contracts/openapi.json",
+      "sha256": "9231dfa75d9155c9e9050f912eabc7f4c010b377d7ca0dd8d618c971acdf28e0"
+    },
+    {
+      "bytes": 327,
+      "path": "packages/contracts/playback.completed.schema.json",
+      "sha256": "f222cebd6743c46fbcfb12e0dd34ed966d536113d711c99e95fef0d2aa7f1a53"
+    },
+    {
+      "bytes": 1142,
+      "path": "packages/contracts/semantic-candidate.schema.json",
+      "sha256": "2295c8c3d9fcabfbe182e1b3133cac6510b7951fa93df0906c2e1ec36a123d5a"
+    },
+    {
+      "bytes": 109,
+      "path": "packages/contracts/session.end.schema.json",
+      "sha256": "6f0feb8ee46a910474ada85084d0cd4fbd49e673487d25efb42dfd6d0776c2bb"
+    },
+    {
+      "bytes": 433,
+      "path": "packages/contracts/session.pause.schema.json",
+      "sha256": "945c484cef2c10c8cd5e49d0e1cfbe17a23c3168304d9f89adebbb8e63b27a0a"
+    },
+    {
+      "bytes": 109,
+      "path": "packages/contracts/session.resume.schema.json",
+      "sha256": "6f0feb8ee46a910474ada85084d0cd4fbd49e673487d25efb42dfd6d0776c2bb"
+    },
+    {
+      "bytes": 791,
+      "path": "pyproject.toml",
+      "sha256": "b6672bcbeabaf6ff080923bb4317cf7ee3caa536554c08717207f589f14ee35b"
+    },
+    {
+      "bytes": 493,
+      "path": "requirements.lock",
+      "sha256": "411d4fbf87c2f896dca612125b4d478ee85dda315226d5a60cc57fd45312013a"
+    },
+    {
+      "bytes": 67,
+      "path": "services/api/carplay/__init__.py",
+      "sha256": "2b1b51bd0c5d5fab148d4c6a80aa183b9a863f18027bc269085022158b9382eb"
+    },
+    {
+      "bytes": 3963,
+      "path": "services/api/carplay/catalog.py",
+      "sha256": "706716a7eb618815a2e3f26c96615de6f87a198b469d7c7758ea25cf67e9c22e"
+    },
+    {
+      "bytes": 3132,
+      "path": "services/api/carplay/contracts.py",
+      "sha256": "da7d7a3f589ff6b71b6c91b00738b79be75859967edcf8adb2e1ff95327be915"
+    },
+    {
+      "bytes": 28640,
+      "path": "services/api/carplay/game/__init__.py",
+      "sha256": "b3fb5134ff3600124600a121798174a256011974e552305d01274a20dd3d1830"
+    },
+    {
+      "bytes": 6127,
+      "path": "services/api/carplay/main.py",
+      "sha256": "4b51ee2f4569f9dcb4f1bd0be75dd071fb697c7c9677001c71fc196256e5d08c"
+    },
+    {
+      "bytes": 2385,
+      "path": "services/api/carplay/semantic.py",
+      "sha256": "2038f7d7d192b8f9f90bdb43212570e4983da7c2cf6603d923e8f0cbaf1d9ba1"
+    },
+    {
+      "bytes": 25854,
+      "path": "services/api/carplay/service.py",
+      "sha256": "593fa633cee5dcb4022ef7f247955cb0d8106435bd52f2a4934f09192be591a9"
+    },
+    {
+      "bytes": 2429,
+      "path": "services/api/carplay/settings.py",
+      "sha256": "de13b6f00d0d32702d593b084c2d4ac898f20c888496c29c6d6145dc0adbec5b"
+    },
+    {
+      "bytes": 2599,
+      "path": "services/api/carplay/storage.py",
+      "sha256": "e62b879a8b64f1bda080c228636a71fae5ec99fd69072f9c58365196a44aee1b"
+    },
+    {
+      "bytes": 4321,
+      "path": "tests/content_release_expectations.py",
+      "sha256": "1cef84eb853a4bddd0f92e69e9151d9f251e3b79ae6199970859432f85578eef"
+    },
+    {
+      "bytes": 2978,
+      "path": "tests/fixtures/authored_request_cases.json",
+      "sha256": "4afb7629ed7a4e681ce12f8da818983bd4504ee29ee012a69a358319d3d5bbaa"
+    },
+    {
+      "bytes": 16125,
+      "path": "tests/fixtures/companion-greetings.json",
+      "sha256": "debfe08d452dabe8798f37cc73045f6555fa726f6ae84dc576eb19b0ec856dc0"
+    },
+    {
+      "bytes": 10195,
+      "path": "tests/fixtures/dinosaur_child_script_revision.json",
+      "sha256": "3dbf25a7b08b131b16bdf3064d227adf330cfc237f74820e5be4f39e001938ef"
+    },
+    {
+      "bytes": 3936,
+      "path": "tests/fixtures/dinosaur_question_answers.json",
+      "sha256": "a8c4022dc88006bf235094ff080e2234331b34be6c779bfc89add45a8386d769"
+    },
+    {
+      "bytes": 8467,
+      "path": "tests/fixtures/published_onu_010_content.json",
+      "sha256": "5ed48626209062a74f20f1a012d5e35cc21acf01d3e804b77f0d982380f483a9"
+    },
+    {
+      "bytes": 5844,
+      "path": "tests/fixtures/published_onu_011_content.json",
+      "sha256": "9b68998710340f8e01b34786a6668e15dfde189ef37987635dc23ff19dbc4986"
+    },
+    {
+      "bytes": 1252,
+      "path": "tests/fixtures/published_onu_014_space.json",
+      "sha256": "5f37160b13a802cf1f702091a992f6e3986399983e8fa5990924a7be208ca5df"
+    },
+    {
+      "bytes": 2948,
+      "path": "tests/fixtures/published_onu_015_content.json",
+      "sha256": "436c11c904052763fcc49fdde1b04fbe3b676065e6724edcdb284156e0a83b4f"
+    },
+    {
+      "bytes": 4151,
+      "path": "tests/fixtures/published_onu_017_content.json",
+      "sha256": "376b2cdcf6329ec6e99043a435b83226cd4bd1129bb0ec8b47d79c7eb87456de"
+    },
+    {
+      "bytes": 5510,
+      "path": "tests/fixtures/published_onu_030_content.json",
+      "sha256": "a59ea8c4df7a83e9876ad51affd1fe0aa68189791e7d081172750e969003e77b"
+    },
+    {
+      "bytes": 44755,
+      "path": "tests/fixtures/question_hint_answers.json",
+      "sha256": "c07b768e8224a0060db503f50fd8b1aa5fbd0b043099d3ae86f9e96adad5e321"
+    },
+    {
+      "bytes": 4247,
+      "path": "tests/fixtures/short_preference_answers.json",
+      "sha256": "644c4608341ce6bf8ab63c1094c63eb665de1df8a7a626ff8f592dbe66ee72e9"
+    },
+    {
+      "bytes": 6048,
+      "path": "tests/test_android_backup_policy.py",
+      "sha256": "2e0c3d8f1cd76dfd7aca5fd5c75611cca0198a8d190ccd8073ffbda3472a4844"
+    },
+    {
+      "bytes": 55864,
+      "path": "tests/test_api.py",
+      "sha256": "ca8dea0d92cf220019fb29d537a27af9ee4bde5ac613a2cdf5f570142ddcdcda"
+    },
+    {
+      "bytes": 5673,
+      "path": "tests/test_authored_voice_requests.py",
+      "sha256": "dff83dd1400e2d8ec5716889a7e6275e7c87bf1fbab8083ad611ef26249243bf"
+    },
+    {
+      "bytes": 9454,
+      "path": "tests/test_catalog_versions.py",
+      "sha256": "d8b1a362162c1353f30802b92683b9d40234f83d8d472c5816f8ef3cf981c266"
+    },
+    {
+      "bytes": 7117,
+      "path": "tests/test_companion_greetings.py",
+      "sha256": "cd69adec30b3a3052cafd7fc480de89507653f4dd6110f8ce3e55734ce133c76"
+    },
+    {
+      "bytes": 10869,
+      "path": "tests/test_content_agency.py",
+      "sha256": "1aa4f71659e8627a33add45cd5fe3c1192d32bae220d87e432fc8c7f3f0a5d21"
+    },
+    {
+      "bytes": 18171,
+      "path": "tests/test_content_catalog.py",
+      "sha256": "d6d22c5a7bf985214aefc334ada9c75452a5eb790c00fee3881995bb8c9e2209"
+    },
+    {
+      "bytes": 8807,
+      "path": "tests/test_content_dinosaurs_ocean.py",
+      "sha256": "e88c851489fc352275a31c5411983df766ed5993f9ac8658dc24a3332b4a14a8"
+    },
+    {
+      "bytes": 3569,
+      "path": "tests/test_content_editions.py",
+      "sha256": "092d4dc71026c818b41dedb97ac8497afdc595a65bfe37795385b254903dd3e9"
+    },
+    {
+      "bytes": 14350,
+      "path": "tests/test_content_narrative_connections.py",
+      "sha256": "0a097582679ff5567113768eb633b8e27080775b9e22e98aabee3b7c2dfd03fd"
+    },
+    {
+      "bytes": 8054,
+      "path": "tests/test_content_particles.py",
+      "sha256": "dec37d8ab5aec754d884faed2147a17e856f37952985521df60169a85001c153"
+    },
+    {
+      "bytes": 2933,
+      "path": "tests/test_content_picnic.py",
+      "sha256": "07bfd9a32a4357a794a474ffa9e3ebdb0ccb469f779fb91d9f973225b4ba62c4"
+    },
+    {
+      "bytes": 4396,
+      "path": "tests/test_content_polish_preservation.py",
+      "sha256": "02e1319cafd1aa228e1e498c7bff3ce2a0b2fc9ebab1b74a757f0b11c15394a5"
+    },
+    {
+      "bytes": 4375,
+      "path": "tests/test_content_release_compatibility.py",
+      "sha256": "0c14baec60a43c81b0764aeca6e97b24e5c92f64a3a772f13be487160029f44c"
+    },
+    {
+      "bytes": 12313,
+      "path": "tests/test_content_request_contract.py",
+      "sha256": "916afbd3932a2b07e36736a106c2de18107f87e46a021cc1058f35b22119b786"
+    },
+    {
+      "bytes": 11439,
+      "path": "tests/test_content_space_recall.py",
+      "sha256": "a3a9f9d0ccac3258568f65061c729893d8e9579871294a452eb183a6571ddfb1"
+    },
+    {
+      "bytes": 13040,
+      "path": "tests/test_content_space_vehicles.py",
+      "sha256": "42e1d9b3fbda2136097b435d3d816f9d787bc1a8f01d295aba179ffb2dcd1e4b"
+    },
+    {
+      "bytes": 14688,
+      "path": "tests/test_content_stories_animals.py",
+      "sha256": "a769cc046d1db97a013d8abcb65afb6efc8c6c29d022e8c8fd2148475e04f3b3"
+    },
+    {
+      "bytes": 9067,
+      "path": "tests/test_content_voice_editing.py",
+      "sha256": "9bf27082e832d8eaccde552c7cedf4549bc63550858206c3c06a3c2dc1b24bc9"
+    },
+    {
+      "bytes": 11541,
+      "path": "tests/test_dinosaur_child_script_revision.py",
+      "sha256": "8bdbb78809a0556a78ee8e496f5775d41d4739031c3f1ddfffe1d22e171d0166"
+    },
+    {
+      "bytes": 10693,
+      "path": "tests/test_dinosaur_question_answers.py",
+      "sha256": "9fcc6fc4ee0972e3d8ab2e90457baf6b2f9416d1921cdef125906943d0ac0068"
+    },
+    {
+      "bytes": 21514,
+      "path": "tests/test_fixture_export.py",
+      "sha256": "d1b808d2f2ba169667061aecfffb7ecaa65ced20c209c9f13c80881eed6f5ee5"
+    },
+    {
+      "bytes": 13175,
+      "path": "tests/test_game.py",
+      "sha256": "39765d27f2ee40defd33c497fe802f30a416ff6d2cff4aa280645ef449da02ce"
+    },
+    {
+      "bytes": 11900,
+      "path": "tests/test_onu_address.py",
+      "sha256": "5995ba47e61987cb43f7ca141a6b0fd52f4c9e31eac2dec5d9f610fbb426052a"
+    },
+    {
+      "bytes": 12115,
+      "path": "tests/test_question_hint_answers.py",
+      "sha256": "126ded6d1281da3fba13ca6cc78fb1c8e224a8dce4f2e43807f44266e5e704d9"
+    },
+    {
+      "bytes": 17967,
+      "path": "tests/test_release_apk.py",
+      "sha256": "c70589656138ef63d17d3f6c4952f1847e200d38248fd1f60dfd5e5b4324f0cc"
+    },
+    {
+      "bytes": 8357,
+      "path": "tests/test_service_versions.py",
+      "sha256": "0e49ca8f7766156e43c9e5a598e6bd82c9ed1c3df63e2a5a75f2f891714c227f"
+    },
+    {
+      "bytes": 8682,
+      "path": "tests/test_short_preference_answers.py",
+      "sha256": "503486b476d1134465f050530c649dbf5d42f5f296b39109045f49df8b179c4b"
+    },
+    {
+      "bytes": 2520,
+      "path": "tests/test_storage.py",
+      "sha256": "c44aac9727f21dbc243094f51eba8f14d185291e79e497978e1146db72e39f8d"
+    },
+    {
+      "bytes": 3329,
+      "path": "tests/test_voice_choice_reason.py",
+      "sha256": "5544e1c31dcfe47efd680d9885e1d22b55a9e7bae56744e5031c71dc91174154"
+    },
+    {
+      "bytes": 16690,
+      "path": "tools/android_aaos_smoke.py",
+      "sha256": "21b61534e7fc281fc16dbecc027447ae722471c1547f207d30b85a297c2ffea5"
+    },
+    {
+      "bytes": 14411,
+      "path": "tools/android_layout_smoke.py",
+      "sha256": "46bb063a56c4a0cd4de829d41c7c72fd5033e0e24088ba2c4778f7de99113394"
+    },
+    {
+      "bytes": 13064,
+      "path": "tools/android_process_restore.py",
+      "sha256": "dbf29af38a9e2bfade361771474f646ef0910201b9b8bd545592cad65c94e270"
+    },
+    {
+      "bytes": 11170,
+      "path": "tools/android_smoke.py",
+      "sha256": "05b7f9fcfcb8d7307aaed5a0015b95af0d6963b7aecd0ca86c166bf580f4b05d"
+    },
+    {
+      "bytes": 13137,
+      "path": "tools/build_natural_story_audio.py",
+      "sha256": "9caf0b03fc43722b3c55b9ee2a650e0142f330faa4275a82b87dc809983fa133"
+    },
+    {
+      "bytes": 10109,
+      "path": "tools/build_qwen_voice.py",
+      "sha256": "16d9219d461f0c1c517a893bc004147f5139f967cd1fed63169515c7439123fa"
+    },
+    {
+      "bytes": 32024,
+      "path": "tools/build_story_audio.py",
+      "sha256": "31b4418caca5d9f0375eb6bc4e9ed451831d4debe67a4ee2d8ab4342d8747983"
+    },
+    {
+      "bytes": 8228,
+      "path": "tools/check_android_backup.py",
+      "sha256": "0b0dc97ec3288192def5798b5b96d50efeb095011461188aa756742f75d2e8aa"
+    },
+    {
+      "bytes": 6764,
+      "path": "tools/check_content.py",
+      "sha256": "f747cce7dc56e375a965abff20d58db7f46afb48878f2acca517112e1139eb9a"
+    },
+    {
+      "bytes": 3816,
+      "path": "tools/check_pleos_sdk_logs.py",
+      "sha256": "7c33a73d17447b7da0826ea74e69663bd69ca09a1bdf3a4f263b2b671fa46454"
+    },
+    {
+      "bytes": 18105,
+      "path": "tools/check_release_apk.py",
+      "sha256": "8c57c8d047793b04460e4ed25a81acd042341f0109c3a0303f732fac02ccf497"
+    },
+    {
+      "bytes": 870,
+      "path": "tools/demo_config.py",
+      "sha256": "b6735c50665ec24e7f0d8448f25843f29f74ed1bb9262666084adff618131bea"
+    },
+    {
+      "bytes": 50274,
+      "path": "tools/export_android_fixtures.py",
+      "sha256": "b1c0aa3df861395cf36b2f2ca2d9500c345cf0cf845dd8cb6f7b1024cff837b4"
+    },
+    {
+      "bytes": 1533,
+      "path": "tools/export_contracts.py",
+      "sha256": "02bb053b3bc1750c1ebb9bb09492cbbd063ae06d343c213b082535aec9f93032"
+    },
+    {
+      "bytes": 3177,
+      "path": "tools/http_smoke.py",
+      "sha256": "77fec386cdd22c6f384c173481307af21b6a4b494d73b0d601a0da73fcc4eb10"
+    },
+    {
+      "bytes": 6363,
+      "path": "tools/make_story_cues.py",
+      "sha256": "a5d132ec6e1c10648afedc3ca741c44218ee327e9765bcf4bd5cc91932cee719"
+    },
+    {
+      "bytes": 8107,
+      "path": "tools/play_cli.py",
+      "sha256": "9ba111631d12e71f471e50b147c735d9a59f7220d39e404c547bce526a7c7d13"
+    },
+    {
+      "bytes": 10772,
+      "path": "tools/retime_story_audio.py",
+      "sha256": "38eedf452e2109b97abbff9f45f5412eb4d6bdf96572b373dfe156058844c1f7"
+    },
+    {
+      "bytes": 1178,
+      "path": "tools/run_server.py",
+      "sha256": "22777f2ae33de6dda1a17f554205686753d68179f642dc917bf2897c93650cd5"
+    }
+  ],
+  "input_inventory_sha256": "8fb936b6b5d48062bac48bd579f871db521444d1e54c7977aea094f60fe93f6b",
+  "relocated_nonbuild_inputs": [
+    {
+      "bytes": 3508,
+      "original_path": ".github/workflows/verify.yml",
+      "path": "ci/verify-workflow.yml.example",
+      "sha256": "c6213fac27cbcf82ed2f40eb0837eecc0e6c84d5324d58afa083b68e16fcb39c"
+    }
+  ],
+  "replaced_nonbuild_inputs": [
+    {
+      "original_sha256": "a2785c6743f35b4df78fe13b8ed4f8b4aefd5d50689054c6b63bf2451ccf45be",
+      "path": "apps/vehicle/README.md",
+      "reason": "Non-build reviewer documentation"
+    }
+  ],
+  "schema_version": 1,
+  "source_basis": "Explicitly allowlisted working-tree bytes; commit alone does not identify uncommitted changes.",
+  "source_commit_at_freeze": "a9c20ad303d34e562bca23a68c8c6d1867b53a8e",
+  "version_code": 49,
+  "version_name": "0.47.0"
+}

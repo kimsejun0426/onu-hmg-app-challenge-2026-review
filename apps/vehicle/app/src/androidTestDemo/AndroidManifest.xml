@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Demo-only second runner. The generated AndroidJUnitRunner remains the default.
+         This component uses fixture voice ports and must never be used for the full suite. -->
+    <!-- AGP overrides the first instrumentation node; keep the normal runner first. -->
+    <instrumentation
+        android:name="androidx.test.runner.AndroidJUnitRunner"
+        android:targetPackage="dev.carplaymate.demo.demo"
+        android:functionalTest="false"
+        android:handleProfiling="false" />
+    <instrumentation
+        android:name="dev.carplaymate.demo.MediaPauseTestRunner"
+        android:targetPackage="dev.carplaymate.demo.demo"
+        android:functionalTest="false"
+        android:handleProfiling="false" />
+</manifest>

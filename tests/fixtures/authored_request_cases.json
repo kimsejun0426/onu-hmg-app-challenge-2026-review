@@ -1,0 +1,124 @@
+{
+  "synthetic_inputs_only": true,
+  "cases": [
+    {
+      "id": "dinosaur-search",
+      "pack_id": "dinosaur-lab-missing-egg",
+      "path": [],
+      "text": "물가에서 찾아 줘",
+      "action": "RIVER",
+      "other": "숲에서 찾아 줘",
+      "other_action": "FOREST",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "letter-route",
+      "pack_id": "starlight-post-office",
+      "path": [],
+      "text": "달다리로 가 줘",
+      "action": "MOON_BRIDGE",
+      "other": "바람정원으로 가 줘",
+      "other_action": "WIND_GARDEN",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "ocean-light",
+      "pack_id": "undersea-lighthouse",
+      "path": [
+        "CORAL_ARCH",
+        "READ_SIGN",
+        "KEEP_MAP"
+      ],
+      "text": "빛거울로 비춰 줘",
+      "action": "LIGHT_PRISM",
+      "other": "메아리 조개로 들려 줘",
+      "other_action": "ECHO_SHELL",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "space-checklist",
+      "pack_id": "space-return-signal",
+      "path": [
+        "MOON",
+        "PANORAMA",
+        "PHOTO"
+      ],
+      "text": "확인표 읽어 줘",
+      "action": "READ_CHECKLIST",
+      "other": "하나둘 세어 줘",
+      "other_action": "COUNT_STEPS",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "animal-note",
+      "pack_id": "animal-footprint-garden",
+      "path": [
+        "POND"
+      ],
+      "text": "움직임 적어 줘",
+      "action": "MOVEMENT",
+      "other": "머문 자리를 그려 줘",
+      "other_action": "REST",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "car-cargo",
+      "pack_id": "little-car-workshop",
+      "path": [],
+      "text": "화분을 챙기자",
+      "action": "PLANTS",
+      "other": "책을 챙기자",
+      "other_action": "BOOKS",
+      "prior_version": "0.5.0"
+    },
+    {
+      "id": "picnic-kite",
+      "pack_id": "onu-little-picnic",
+      "path": [
+        "HILL",
+        "KITE"
+      ],
+      "text": "높이 올려 줘",
+      "action": "HIGH",
+      "other": "가까이 두어 줘",
+      "other_action": "NEAR",
+      "prior_version": "0.1.0"
+    },
+    {
+      "id": "animal-draw-request",
+      "pack_id": "animal-footprint-garden",
+      "path": [
+        "POND",
+        "MOVEMENT",
+        "PHOTO_ZOOM"
+      ],
+      "text": "이어서 그려 줘",
+      "action": "DRAW_TOGETHER",
+      "other": "문장으로 남겨 줘",
+      "other_action": "SAY_ONE",
+      "prior_version": "0.9.0",
+      "versions": [
+        "0.9.0",
+        "0.10.0"
+      ]
+    },
+    {
+      "id": "picnic-keep-request",
+      "pack_id": "onu-little-picnic",
+      "path": [
+        "HILL",
+        "KITE",
+        "HIGH"
+      ],
+      "text": "풍경을 조용히 간직해 줘",
+      "action": "KEEP_SCENE",
+      "other": "짧은 인사를 남겨 줘",
+      "other_action": "FAREWELL",
+      "prior_version": "0.3.0",
+      "versions": [
+        "0.3.0",
+        "0.4.0"
+      ]
+    }
+  ]
+}

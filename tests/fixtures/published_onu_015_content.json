@@ -1,0 +1,72 @@
+{
+  "source_release": "0.15.0-demo",
+  "source_commit": "da28dfc46f7a7b7f5be63e3d6d23dc4c3610dd4b",
+  "source_apk_sha256": "62cb7510cd403e37ead1799fcaa721650a71b6f1cfac864f6ec0284638452af7",
+  "source_catalog_sha256": "54d437ea22e57a230faf341e03e7fae8114f038a4ca20f8564c824966b2a1804",
+  "packs": [
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/little-car-workshop/episode.json",
+      "sha256": "1f8edee60150e7df59cff77cd2af29e5c9cb5539122f30b48f562d337e1e2f4e",
+      "bytes": 19521,
+      "catalog_metadata": {
+        "pack_id": "little-car-workshop",
+        "version": "0.6.0",
+        "title": "꼬마 자동차의 배달 준비",
+        "subtitle": "두리를 배웅하는 시간",
+        "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+        "art_key": "vehicles",
+        "estimated_minutes": 6,
+        "duration_label": "약 4–6분",
+        "total_choices": 6,
+        "interest_tags": [
+          "vehicles"
+        ],
+        "play_style": "solve",
+        "endings": {
+          "DELIVERY_READY": {
+            "title": "두리에게 전한 준비 완료",
+            "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+          },
+          "DELIVERY_HANDOVER": {
+            "title": "친구와 이어 한 배달 준비",
+            "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+          }
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/onu-little-picnic/episode.json",
+      "sha256": "e2e27ec4787a7cf4beafca9bc2a1d2ef54317534a822fc83b207c9a205372a18",
+      "bytes": 14084,
+      "catalog_metadata": {
+        "pack_id": "onu-little-picnic",
+        "version": "0.2.0",
+        "title": "오누와 작은 소풍",
+        "subtitle": "어디로 갈까, 어떻게 놀까",
+        "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+        "art_key": "little-picnic",
+        "estimated_minutes": 4,
+        "duration_label": "약 3–4분",
+        "total_choices": 4,
+        "interest_tags": [
+          "stories"
+        ],
+        "play_style": "imagine",
+        "endings": {
+          "SHORT_FAREWELL": {
+            "title": "작은 소풍에 건넨 인사",
+            "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+          },
+          "QUIET_SCENE": {
+            "title": "곁에 남은 작은 풍경",
+            "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Transparent eyes and smile retain the same face when the system tints it. -->
+    <group android:scaleX="0.53" android:scaleY="0.53"
+        android:translateX="27.5" android:translateY="27.5">
+        <path android:fillColor="#000000" android:fillType="evenOdd"
+            android:pathData="M21,44 C12,40 13,29 20,24 C10,20 14,7 28,10 C27,0 41,0 51,11 C57,3 74,8 77,18 C87,13 88,7 82,3 C98,5 98,18 89,25 C94,28 94,31 91,32 C96,42 91,52 85,55 C92,55 92,66 82,68 C77,75 68,79 60,79 L60,81 C73,79 86,85 88,98 L12,98 C14,85 29,79 42,81 L42,77 C24,73 17,59 20,45 Z M38,47.4 A2.6,2.6 0,1 1,38 52.6 A2.6,2.6 0,1 1,38 47.4 Z M64,52.4 A2.6,2.6 0,1 1,64 57.6 A2.6,2.6 0,1 1,64 52.4 Z M42.8,62.4 Q51,71 62.2,64.6 L60.8,62.4 Q51,67 45.2,60.6 Z" />
+    </group>
+</vector>

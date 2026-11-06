@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "pack_id": "onu-little-picnic",
+  "version": "0.3.0",
+  "locale": "ko-KR",
+  "title": "오누와 작은 소풍",
+  "fiction_notice": "오누와 떠나는 장소와 종이 놀이, 바람과 물결은 모두 상상 속 이야기입니다. 아이가 몸을 움직이거나 실제 차창을 보지 않아도 함께할 수 있습니다.",
+  "review_status": "authored; automated paths checked separately; family listening and playtest pending",
+  "roles": [
+    "소풍 친구",
+    "소풍 친구"
+  ],
+  "solo_role": "소풍 친구",
+  "solo_prompt_style": "nickname",
+  "max_turns": 4,
+  "start_scene": "choose_place",
+  "initial_resources": {
+    "hint_tokens": 4
+  },
+  "hint_score_penalty": 0,
+  "sources": {},
+  "template_labels": {
+    "place_label": {
+      "flag": "place",
+      "values": {
+        "HILL": "바람 언덕",
+        "POND": "잔잔한 연못"
+      },
+      "default": "소풍 자리"
+    },
+    "toy_label": {
+      "flag": "toy",
+      "values": {
+        "KITE": "종이 연",
+        "PINWHEEL": "바람개비",
+        "LEAF_BOAT": "나뭇잎 배",
+        "PAPER_BOAT": "종이배"
+      },
+      "default": "작은 놀이"
+    },
+    "toy_object": {
+      "flag": "toy",
+      "values": {
+        "KITE": "종이 연을",
+        "PINWHEEL": "바람개비를",
+        "LEAF_BOAT": "나뭇잎 배를",
+        "PAPER_BOAT": "종이배를"
+      },
+      "default": "놀이 도구를"
+    },
+    "hill_question": {
+      "flag": "toy",
+      "values": {
+        "KITE": "오누가 줄을 잡고 있어. 연을 높이 올릴까, 가까이 둘까?",
+        "PINWHEEL": "오누가 막대를 잡고 있어. 바람개비를 높이 들까, 가까이 둘까?"
+      },
+      "default": "높이 들까, 가까이 둘까?"
+    },
+    "motion_scene": {
+      "flag": "movement",
+      "values": {
+        "HIGH": "하늘 가까이에서 바람을 만났어.",
+        "NEAR": "돗자리 곁에서 살랑살랑 움직였어.",
+        "WIDE": "물 위에 커다란 동그라미를 그렸어.",
+        "SMALL": "바로 곁에서 작은 동그라미를 그렸어."
+      },
+      "default": "잠깐 함께 놀았어."
+    },
+    "toy_with": {
+      "flag": "toy",
+      "values": {
+        "KITE": "종이 연과",
+        "PINWHEEL": "바람개비와",
+        "LEAF_BOAT": "나뭇잎 배와",
+        "PAPER_BOAT": "종이배와"
+      },
+      "default": "작은 놀이와"
+    }
+  },
+  "scenes": {
+    "choose_place": {
+      "kind": "choice",
+      "title": "오누랑 떠나는 소풍",
+      "art_key": "little-picnic",
+      "prompt": "오누랑 상상 속 작은 소풍을 가자. 바람 언덕으로 갈까, 잔잔한 연못으로 갈까?",
+      "hint": "바람 부는 언덕과 잔잔한 연못 중 더 머물고 싶은 곳을 골라 줘.",
+      "actions": [
+        {
+          "id": "HILL",
+          "label": "바람 언덕",
+          "aliases": [
+            "언덕",
+            "바람언덕",
+            "언덕으로",
+            "언덕으로 갈래",
+            "언덕에 갈래",
+            "바람 언덕으로 가자",
+            "언덕으로 가자"
+          ],
+          "set_flags": {
+            "place": "HILL"
+          },
+          "next": "hill_play",
+          "score": 0,
+          "feedback": "언덕 풀밭에 돗자리를 폈어. 바람이 돗자리 끝을 살짝 들추네."
+        },
+        {
+          "id": "POND",
+          "label": "잔잔한 연못",
+          "aliases": [
+            "연못",
+            "잔잔한연못",
+            "연못으로",
+            "연못으로 갈래",
+            "연못에 갈래",
+            "잔잔한 연못으로 가자",
+            "연못으로 가자"
+          ],
+          "set_flags": {
+            "place": "POND"
+          },
+          "next": "pond_play",
+          "score": 0,
+          "feedback": "연못가에 돗자리를 폈어. 물에 비친 구름이 천천히 지나가네."
+        }
+      ]
+    },
+    "hill_play": {
+      "kind": "choice",
+      "title": "바람과 놀 것 하나",
+      "art_key": "little-picnic",
+      "prompt": "오누가 소풍 가방을 열었어. 바람에 종이 연을 띄울까, 바람개비를 돌릴까?",
+      "hint": "연은 줄을 잡고 띄울 수 있어. 바람개비는 날개가 빙글빙글 돌아.",
+      "actions": [
+        {
+          "id": "KITE",
+          "label": "종이 연",
+          "aliases": [
+            "연",
+            "종이연",
+            "연을 띄울래",
+            "종이 연을 띄울래",
+            "연 날리기",
+            "종이 연을 띄워 줘",
+            "종이 연을 띄워줘",
+            "연을 띄워 줘",
+            "연을 띄워줘"
+          ],
+          "set_flags": {
+            "toy": "KITE"
+          },
+          "next": "hill_movement",
+          "score": 0,
+          "feedback": "오누가 연줄을 잡았어. 종이 연의 긴 꼬리가 팔랑거려."
+        },
+        {
+          "id": "PINWHEEL",
+          "label": "바람개비",
+          "aliases": [
+            "바람개비 돌리기",
+            "바람개비를 돌릴래",
+            "바람개비로",
+            "바람개비를 돌려 줘",
+            "바람개비를 돌려줘",
+            "바람개비 돌려 줘",
+            "바람개비 돌려줘"
+          ],
+          "set_flags": {
+            "toy": "PINWHEEL"
+          },
+          "next": "hill_movement",
+          "score": 0,
+          "feedback": "오누가 바람개비 막대를 잡았어. 작은 날개가 빙글빙글 돌아."
+        }
+      ]
+    },
+    "pond_play": {
+      "kind": "choice",
+      "title": "물결에 띄울 것 하나",
+      "art_key": "little-picnic",
+      "prompt": "오누가 소풍 가방을 열었어. 물에 나뭇잎 배를 띄울까, 종이배를 띄울까?",
+      "hint": "나뭇잎 배는 넓적하고, 접어 온 종이배는 뾰족해. 모양이 다른 두 배야.",
+      "actions": [
+        {
+          "id": "LEAF_BOAT",
+          "label": "나뭇잎 배",
+          "aliases": [
+            "나뭇잎",
+            "잎 배",
+            "나뭇잎배",
+            "나뭇잎 배를 띄울래",
+            "나뭇잎으로",
+            "나뭇잎 배를 띄워 줘",
+            "나뭇잎 배를 띄워줘",
+            "나뭇잎 배 띄워 줘",
+            "나뭇잎 배 띄워줘"
+          ],
+          "set_flags": {
+            "toy": "LEAF_BOAT"
+          },
+          "next": "pond_movement",
+          "score": 0,
+          "feedback": "오누가 나뭇잎 배를 띄웠어. 넓적한 배 끝에 물방울이 반짝여."
+        },
+        {
+          "id": "PAPER_BOAT",
+          "label": "종이배",
+          "aliases": [
+            "종이 배",
+            "접은 배",
+            "종이배를 띄울래",
+            "종이로",
+            "종이배를 띄워 줘",
+            "종이배를 띄워줘",
+            "종이배 띄워 줘",
+            "종이배 띄워줘"
+          ],
+          "set_flags": {
+            "toy": "PAPER_BOAT"
+          },
+          "next": "pond_movement",
+          "score": 0,
+          "feedback": "오누가 접어 온 종이배를 띄웠어. 뾰족한 배 앞이 물결에 살짝 들려."
+        }
+      ]
+    },
+    "hill_movement": {
+      "kind": "choice",
+      "title": "바람을 만나는 자리",
+      "art_key": "little-picnic",
+      "prompt": "{hill_question}",
+      "hint": "높이 두면 하늘 쪽에서, 가까이 두면 돗자리 곁에서 바람을 만나. 오누가 잡고 있을게.",
+      "actions": [
+        {
+          "id": "HIGH",
+          "label": "높이",
+          "aliases": [
+            "높이 올리기",
+            "높이 올릴래",
+            "높이 들기",
+            "높이 들래",
+            "높게",
+            "높이 올려 줘",
+            "높이 올려줘",
+            "높이 들어 줘",
+            "높이 들어줘"
+          ],
+          "set_flags": {
+            "movement": "HIGH"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "toy": "KITE"
+              },
+              "next": "choose_goodbye",
+              "score": 0,
+              "feedback": "오누가 줄을 조금 풀자 연이 높이 올랐어. 연 꼬리가 구름 아래를 스치네."
+            },
+            {
+              "next": "choose_goodbye",
+              "score": 0,
+              "feedback": "오누가 바람개비를 높이 들었어. 하늘을 뒤로 두고 날개가 빙글 돌아."
+            }
+          ]
+        },
+        {
+          "id": "NEAR",
+          "label": "가까이",
+          "aliases": [
+            "가까이 두기",
+            "가까이 둘래",
+            "곁에",
+            "돗자리 옆",
+            "가까이에서",
+            "가까이 두어 줘",
+            "가까이 두어줘",
+            "가까이 놔 줘",
+            "가까이 놔줘"
+          ],
+          "set_flags": {
+            "movement": "NEAR"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "toy": "KITE"
+              },
+              "next": "choose_goodbye",
+              "score": 0,
+              "feedback": "오누가 연줄을 조금 감았어. 가까이 온 연 꼬리가 돗자리 곁에서 살랑거려."
+            },
+            {
+              "next": "choose_goodbye",
+              "score": 0,
+              "feedback": "오누가 바람개비를 돗자리 곁에 두었어. 낮은 풀 옆에서 날개가 천천히 돌아."
+            }
+          ]
+        }
+      ]
+    },
+    "pond_movement": {
+      "kind": "choice",
+      "title": "물 위에 그리는 동그라미",
+      "art_key": "little-picnic",
+      "prompt": "{toy_label}에 오누가 물결을 보낼게. 큰 원으로 돌까, 작은 원으로 돌까?",
+      "hint": "큰 원은 연못 가운데를 돌아오고, 작은 원은 돗자리 가까이에 머물러.",
+      "actions": [
+        {
+          "id": "WIDE",
+          "label": "큰 원",
+          "aliases": [
+            "크게",
+            "큰원",
+            "큰 동그라미",
+            "크게 돌기",
+            "큰 원으로",
+            "크게 돌래",
+            "큰 원으로 돌려 줘",
+            "큰 원으로 돌려줘",
+            "크게 돌려 줘",
+            "크게 돌려줘"
+          ],
+          "set_flags": {
+            "movement": "WIDE"
+          },
+          "next": "choose_goodbye",
+          "score": 0,
+          "feedback": "오누가 물결을 보내자 배가 크게 돌아왔어. 물에 비친 구름도 한 바퀴 지나갔네."
+        },
+        {
+          "id": "SMALL",
+          "label": "작은 원",
+          "aliases": [
+            "작게",
+            "작은원",
+            "작은 동그라미",
+            "작게 돌기",
+            "작은 원으로",
+            "작게 돌래",
+            "작은 원으로 돌려 줘",
+            "작은 원으로 돌려줘",
+            "작게 돌려 줘",
+            "작게 돌려줘"
+          ],
+          "set_flags": {
+            "movement": "SMALL"
+          },
+          "next": "choose_goodbye",
+          "score": 0,
+          "feedback": "오누가 작은 물결을 보냈어. 배가 바로 곁에서 동그랗게 한 바퀴 돌았네."
+        }
+      ]
+    },
+    "choose_goodbye": {
+      "kind": "choice",
+      "title": "소풍 끝의 한 장면",
+      "art_key": "little-picnic",
+      "prompt": "오누가 {toy_object} 챙겼어. 짧은 인사를 남길까, 풍경을 조용히 간직할까?",
+      "hint": "인사 남기기는 오누가 오늘 놀이에 한마디 건네는 거야. 풍경 간직하기는 마지막 장면으로 마치는 거고.",
+      "actions": [
+        {
+          "id": "FAREWELL",
+          "label": "인사 남기기",
+          "aliases": [
+            "인사",
+            "짧은 인사",
+            "인사 남길래",
+            "인사할래",
+            "인사를 남길래",
+            "인사 남겨 줘",
+            "인사 남겨줘",
+            "짧은 인사를 남겨 줘",
+            "짧은 인사를 남겨줘"
+          ],
+          "set_flags": {
+            "goodbye": "FAREWELL"
+          },
+          "next": "ending_farewell",
+          "score": 0,
+          "feedback": ""
+        },
+        {
+          "id": "KEEP_SCENE",
+          "label": "풍경 간직하기",
+          "aliases": [
+            "풍경",
+            "간직하기",
+            "풍경 간직할래",
+            "풍경을 간직할래",
+            "간직할래",
+            "풍경을 간직하자",
+            "풍경으로 마무리해 줘",
+            "풍경으로 마무리해줘"
+          ],
+          "set_flags": {
+            "goodbye": "KEEP_SCENE"
+          },
+          "next": "ending_quiet",
+          "score": 0,
+          "feedback": ""
+        }
+      ]
+    },
+    "ending_farewell": {
+      "kind": "ending",
+      "ending_id": "SHORT_FAREWELL",
+      "title": "작은 소풍에 건넨 인사",
+      "ending_title": "작은 소풍에 건넨 인사",
+      "art_key": "little-picnic",
+      "summary": "{place_label}에서 {toy_with} 놀고 짧은 인사를 남겼어요.",
+      "prompt": "{place_label}에서 고른 {toy_label}, {motion_scene} 오누가 인사할게. 오늘 같이 놀아서 반가웠어!",
+      "hint": "",
+      "actions": []
+    },
+    "ending_quiet": {
+      "kind": "ending",
+      "ending_id": "QUIET_SCENE",
+      "title": "곁에 남은 작은 풍경",
+      "ending_title": "곁에 남은 작은 풍경",
+      "art_key": "little-picnic",
+      "summary": "{place_label}에서 고른 {toy_label}의 마지막 장면으로 소풍을 마쳤어요.",
+      "prompt": "{place_label}의 {toy_label}, {motion_scene} 이 장면으로 작은 소풍을 마칠게. 오누도 잠시 조용히 있을게.",
+      "hint": "",
+      "actions": []
+    }
+  }
+}

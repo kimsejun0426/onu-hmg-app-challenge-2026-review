@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "reason": {
+      "default": "QUIET_REQUEST",
+      "enum": [
+        "USER",
+        "QUIET_REQUEST",
+        "NO_RESPONSE",
+        "AUDIO_FOCUS",
+        "NETWORK",
+        "MIC_PERMISSION",
+        "VEHICLE_POLICY",
+        "SUSPEND"
+      ],
+      "title": "Reason",
+      "type": "string"
+    }
+  },
+  "title": "PausePayload",
+  "type": "object"
+}

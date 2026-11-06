@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "playback_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "title": "Playback Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "playback_id"
+  ],
+  "title": "PlaybackPayload",
+  "type": "object"
+}

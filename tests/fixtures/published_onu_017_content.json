@@ -1,0 +1,104 @@
+{
+  "source_release": "0.17.0-demo",
+  "source_commit": "3d6931f8d42cb7c3b2457063c8018083a45b25e6",
+  "source_apk_sha256": "a375df2437118dc4967f03efaddd862e5df853135ef7478dc2116163adc67929",
+  "source_catalog_sha256": "05aa3fa1cbfa385ef276a0fb3bc4c02fc9f2206c153620a82eeb15dbdb1bbd6e",
+  "packs": [
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/animal-footprint-garden/episode.json",
+      "sha256": "c1c09e0ed505ee3135e7555271548c3b7ac4235bec7b01cfefc5b5605e890705",
+      "bytes": 20105,
+      "catalog_metadata": {
+        "pack_id": "animal-footprint-garden",
+        "version": "0.8.0",
+        "title": "동물 마을의 관찰 수첩",
+        "subtitle": "오누와 천천히 보는 하루",
+        "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+        "art_key": "animals",
+        "estimated_minutes": 6,
+        "duration_label": "약 4–6분",
+        "total_choices": 6,
+        "interest_tags": [
+          "animals"
+        ],
+        "play_style": "observe",
+        "endings": {
+          "PATIENT_OBSERVATION": {
+            "title": "기다림까지 담은 수첩",
+            "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+          },
+          "SHARED_FIELD_NOTE": {
+            "title": "함께 펼친 관찰 수첩",
+            "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+          }
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/little-car-workshop/episode.json",
+      "sha256": "f14aa5ba5910a4e943d7e58526a0a4ce8407bde4f10c2aa0b12e0dc7eb5d2f2b",
+      "bytes": 19323,
+      "catalog_metadata": {
+        "pack_id": "little-car-workshop",
+        "version": "0.8.0",
+        "title": "꼬마 자동차의 배달 준비",
+        "subtitle": "두리를 배웅하는 시간",
+        "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+        "art_key": "vehicles",
+        "estimated_minutes": 6,
+        "duration_label": "약 4–6분",
+        "total_choices": 6,
+        "interest_tags": [
+          "vehicles"
+        ],
+        "play_style": "solve",
+        "endings": {
+          "DELIVERY_READY": {
+            "title": "두리에게 전한 준비 완료",
+            "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+          },
+          "DELIVERY_HANDOVER": {
+            "title": "친구와 이어 한 배달 준비",
+            "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+          }
+        }
+      }
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/space-return-signal/episode.json",
+      "sha256": "a463aa211b5a7225788de6ce9a164608a057be01a674b8a64de73ffc556ad1fc",
+      "bytes": 18237,
+      "catalog_metadata": {
+        "pack_id": "space-return-signal",
+        "version": "0.8.0",
+        "title": "우주 정거장의 귀환 신호",
+        "subtitle": "함께 보고 가져온 발견",
+        "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+        "art_key": "space",
+        "estimated_minutes": 6,
+        "duration_label": "약 4–6분",
+        "total_choices": 6,
+        "interest_tags": [
+          "space"
+        ],
+        "play_style": "solve",
+        "endings": {
+          "MISSION_GALLERY": {
+            "title": "정거장의 작은 전시",
+            "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+          },
+          "MISSION_STORY": {
+            "title": "다 함께 들은 탐사 이야기",
+            "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+          }
+        }
+      }
+    }
+  ]
+}

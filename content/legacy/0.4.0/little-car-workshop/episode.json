@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "pack_id": "little-car-workshop",
+  "version": "0.4.0",
+  "locale": "ko-KR",
+  "title": "꼬마 자동차의 배달 준비",
+  "fiction_notice": "말하는 꼬마 자동차, 짐차의 특징과 배달 규칙은 상상 놀이입니다. 실제 차량의 운전·수리·도로 교통 교육이나 적재 지침이 아닙니다. 아이는 이야기 속 준비와 선택에만 참여합니다.",
+  "review_status": "authored fiction; exhaustive paths checked separately; family listening and playtest pending",
+  "roles": [
+    "짐칸 설계사",
+    "출발 확인사"
+  ],
+  "solo_role": "꼬마 정비소 팀",
+  "max_turns": 6,
+  "start_scene": "choose_delivery",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {},
+  "template_labels": {
+    "cargo_label": {
+      "flag": "delivery",
+      "values": {
+        "PLANTS": "키 큰 화분",
+        "BOOKS": "그림책 상자"
+      },
+      "default": "배달할 짐"
+    },
+    "trip_label": {
+      "flag": "delivery",
+      "values": {
+        "PLANTS": "마을 정원",
+        "BOOKS": "작은 도서관"
+      },
+      "default": "배달 장소"
+    },
+    "vehicle_label": {
+      "flag": "vehicle",
+      "values": {
+        "OPEN_CART": "지붕 없는 초록 짐차",
+        "COVERED_VAN": "덮개 있는 파란 밴"
+      },
+      "default": "꼬마 자동차"
+    },
+    "tool_label": {
+      "flag": "tool_used",
+      "values": {
+        "CHECK_LIGHT": "점검등",
+        "CHECK_MIRROR": "점검 거울"
+      },
+      "default": "점검 도구"
+    },
+    "first_box_label": {
+      "flag": "delivery",
+      "values": {
+        "PLANTS": "별 상자",
+        "BOOKS": "달 상자"
+      },
+      "default": "먼저 내릴 상자"
+    },
+    "inner_box_label": {
+      "flag": "delivery",
+      "values": {
+        "PLANTS": "달 상자",
+        "BOOKS": "별 상자"
+      },
+      "default": "안쪽에 놓을 상자"
+    },
+    "check_memory": {
+      "flag": "tool_used",
+      "values": {
+        "CHECK_LIGHT": "빛을 비춰 고리를 확인했어.",
+        "CHECK_MIRROR": "거울에 비친 고리를 확인했어."
+      },
+      "default": "짐칸의 고리도 확인했어."
+    }
+  },
+  "scenes": {
+    "choose_delivery": {
+      "kind": "choice",
+      "title": "오늘의 배달 요청",
+      "prompt": "오누랑 상상 정비소에서 두리를 돕자. 정원에 화분을 보낼까, 도서관에 책을 보낼까?",
+      "hint": "두리는 배달을 맡을 꼬마 자동차야. 화분과 책 중 함께 준비하고 싶은 짐을 골라 줘.",
+      "actions": [
+        {
+          "id": "PLANTS",
+          "label": "화분 배달",
+          "aliases": [
+            "화분",
+            "정원",
+            "화분을 보낼래",
+            "정원으로"
+          ],
+          "set_flags": {
+            "delivery": "PLANTS"
+          },
+          "add_clues": [
+            "PLANT_ORDER"
+          ],
+          "next": "plant_order",
+          "score": 1,
+          "feedback": "정원에 보낼 키 큰 화분 두 상자야. 하나는 별, 하나는 달 표시가 있어."
+        },
+        {
+          "id": "BOOKS",
+          "label": "책 배달",
+          "aliases": [
+            "책",
+            "도서관",
+            "책을 보낼래",
+            "도서관으로"
+          ],
+          "set_flags": {
+            "delivery": "BOOKS"
+          },
+          "add_clues": [
+            "BOOK_ORDER"
+          ],
+          "next": "book_order",
+          "score": 1,
+          "feedback": "도서관에 보낼 그림책 두 상자야. 하나는 별, 하나는 달 표시가 있어."
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "plant_order": {
+      "kind": "choice",
+      "title": "화분 상자의 부탁",
+      "prompt": "두리가 화분 상자 옆에 주문표를 놓았어. 주문표를 읽을까, 상자를 살펴볼까?",
+      "hint": "주문표에는 부탁이, 상자에는 크기와 표지가 있어. 어느 쪽부터 살펴봐도 돼.",
+      "actions": [
+        {
+          "id": "READ_ORDER",
+          "label": "주문표 읽기",
+          "aliases": [
+            "주문표",
+            "주문",
+            "주문표를 읽을래",
+            "조건을 볼래"
+          ],
+          "add_clues": [
+            "PLANT_REQUIREMENTS_READ"
+          ],
+          "next": "choose_vehicle",
+          "score": 1,
+          "feedback": "위가 트인 짐칸을 부탁했네. 화분이 키가 크대. 정원에서는 별 상자를 먼저 내려."
+        },
+        {
+          "id": "LOOK_CARGO",
+          "label": "상자 살피기",
+          "aliases": [
+            "상자",
+            "크기",
+            "상자를 볼래",
+            "크기를 볼래"
+          ],
+          "add_clues": [
+            "TALL_PLANTS_SEEN"
+          ],
+          "next": "choose_vehicle",
+          "score": 1,
+          "feedback": "상자 위로 줄기가 나왔네. 오누도 표지를 봤어. 별 상자를 먼저 내려 달래."
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "book_order": {
+      "kind": "choice",
+      "title": "그림책 상자의 부탁",
+      "prompt": "두리가 그림책 상자 옆에 주문표를 놓았어. 주문표를 읽을까, 상자를 살펴볼까?",
+      "hint": "주문표에는 부탁이, 상자에는 덮개 그림과 표지가 있어. 어느 쪽부터 봐도 돼.",
+      "actions": [
+        {
+          "id": "READ_ORDER",
+          "label": "주문표 읽기",
+          "aliases": [
+            "주문표",
+            "주문",
+            "주문표를 읽을래",
+            "조건을 볼래"
+          ],
+          "add_clues": [
+            "BOOK_REQUIREMENTS_READ"
+          ],
+          "next": "choose_vehicle",
+          "score": 1,
+          "feedback": "비를 막을 덮개를 부탁했네. 마을에 비가 온대. 도서관에서는 달 상자를 먼저 내려."
+        },
+        {
+          "id": "LOOK_CARGO",
+          "label": "상자 살피기",
+          "aliases": [
+            "상자",
+            "모습",
+            "상자를 볼래",
+            "상자 모양"
+          ],
+          "add_clues": [
+            "BOOK_COVER_LABEL_SEEN"
+          ],
+          "next": "choose_vehicle",
+          "score": 1,
+          "feedback": "상자에 비 덮개 그림이 있네. 오누도 표지를 봤어. 달 상자를 먼저 내려 달래."
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "choose_vehicle": {
+      "kind": "choice",
+      "title": "어떤 짐칸을 고를까",
+      "prompt": "{cargo_label}에 맞춰 보자. 위가 트인 초록 짐차일까, 덮개 있는 파란 밴일까?",
+      "hint": "화분은 키가 크고, 책은 비를 피해야 해. 고른 짐칸에 더 필요한 것이 있으면 두리와 준비하자.",
+      "actions": [
+        {
+          "id": "OPEN_CART",
+          "label": "초록 짐차",
+          "aliases": [
+            "짐차",
+            "초록 차",
+            "초록 짐차를 고를래",
+            "열린 짐칸"
+          ],
+          "set_flags": {
+            "vehicle": "OPEN_CART"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "delivery": "PLANTS"
+              },
+              "set_flags": {
+                "vehicle_adapted": false
+              },
+              "add_clues": [
+                "OPEN_TOP_FOR_PLANTS"
+              ],
+              "next": "check_vehicle",
+              "score": 1,
+              "feedback": "트인 짐칸이면 화분이 덮개에 닿지 않겠어. 두리가 화분 받침을 준비했어."
+            },
+            {
+              "set_flags": {
+                "vehicle_adapted": true
+              },
+              "add_clues": [
+                "BOOK_RAIN_COVER_ADDED"
+              ],
+              "next": "check_vehicle",
+              "score": 1,
+              "feedback": "열린 짐칸에는 비가 들겠네. 두리가 책을 위한 상자용 비 덮개를 준비했어."
+            }
+          ]
+        },
+        {
+          "id": "COVERED_VAN",
+          "label": "파란 밴",
+          "aliases": [
+            "밴",
+            "파란 차",
+            "파란 밴을 고를래",
+            "덮개 차"
+          ],
+          "set_flags": {
+            "vehicle": "COVERED_VAN"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "delivery": "BOOKS"
+              },
+              "set_flags": {
+                "vehicle_adapted": false
+              },
+              "add_clues": [
+                "COVERED_BOOK_CARGO"
+              ],
+              "next": "check_vehicle",
+              "score": 1,
+              "feedback": "이 덮개로 책에 비가 닿지 않게 할 수 있겠어. 두리가 빈 짐칸을 준비했어."
+            },
+            {
+              "set_flags": {
+                "vehicle_adapted": true
+              },
+              "add_clues": [
+                "TALL_ROOF_PREPARED"
+              ],
+              "next": "check_vehicle",
+              "score": 1,
+              "feedback": "낮은 덮개에는 화분이 닿겠네. 상상 정비소에서 높은 덮개로 바꿔 준비했어."
+            }
+          ]
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "check_vehicle": {
+      "kind": "choice",
+      "title": "출발 전에 서로 확인",
+      "prompt": "{vehicle_label}의 짐칸이 준비됐어. 옆면 고리를 점검등으로 볼까, 점검 거울로 볼까?",
+      "hint": "점검등은 어두운 곳에 빛을 비추고, 거울은 안쪽 모습을 보여 줘.",
+      "actions": [
+        {
+          "id": "CHECK_LIGHT",
+          "label": "점검등",
+          "aliases": [
+            "등",
+            "점검 등",
+            "등으로 볼래",
+            "점검등을 쓸래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "CHECK_LIGHT"
+          },
+          "add_clues": [
+            "LATCH_LIT_AND_CHECKED"
+          ],
+          "next": "load_order",
+          "score": 1,
+          "feedback": "빛을 비추니 옆면 고리가 열려 있네. 멈춰 있는 두리가 잠갔어. 오누도 확인했어."
+        },
+        {
+          "id": "CHECK_MIRROR",
+          "label": "점검 거울",
+          "aliases": [
+            "거울",
+            "점검거울",
+            "거울로 볼래",
+            "점검 거울을 쓸래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "CHECK_MIRROR"
+          },
+          "add_clues": [
+            "LATCH_REFLECTED_AND_CHECKED"
+          ],
+          "next": "load_order",
+          "score": 1,
+          "feedback": "거울에 열린 옆면 고리가 비쳤어. 멈춰 있는 두리가 잠갔고, 함께 다시 봤어."
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "load_order": {
+      "kind": "choice",
+      "title": "문 앞에 남겨 둘 상자",
+      "prompt": "{first_box_label}를 먼저 꺼내게 문 가까이에 둘 거야. 안쪽에 둘 상자는 별 상자일까, 달 상자일까?",
+      "hint": "안쪽에는 {inner_box_label}, 문 가까이에는 {first_box_label}야. 두리가 그 순서로 실을 거야.",
+      "actions": [
+        {
+          "id": "STAR_FIRST",
+          "label": "별 상자 안쪽",
+          "aliases": [
+            "별 상자",
+            "별",
+            "별부터",
+            "별 상자를 먼저 실을래",
+            "별 상자 먼저",
+            "별 상자 안쪽",
+            "별 상자는 안쪽",
+            "안쪽에 별 상자"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "delivery": "BOOKS"
+              },
+              "set_flags": {
+                "load_order_recalled": true
+              },
+              "add_clues": [
+                "CARGO_ORDER_READY"
+              ],
+              "next": "handover",
+              "score": 1,
+              "feedback": "두리가 별 상자는 안쪽, 달 상자는 문 가까이에 실었어. 달 상자를 바로 꺼낼 수 있겠어."
+            },
+            {
+              "set_flags": {
+                "load_order_recalled": false
+              },
+              "add_clues": [
+                "CARGO_ORDER_READY"
+              ],
+              "next": "handover",
+              "score": 1,
+              "feedback": "별 상자가 안쪽에 있으면 먼저 꺼내기 어렵네. 두리가 별 상자는 문 가까이, 달 상자는 안쪽에 다시 실었어."
+            }
+          ]
+        },
+        {
+          "id": "MOON_FIRST",
+          "label": "달 상자 안쪽",
+          "aliases": [
+            "달 상자",
+            "달",
+            "달부터",
+            "달 상자를 먼저 실을래",
+            "달 상자 먼저",
+            "달 상자 안쪽",
+            "달 상자는 안쪽",
+            "안쪽에 달 상자"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "delivery": "PLANTS"
+              },
+              "set_flags": {
+                "load_order_recalled": true
+              },
+              "add_clues": [
+                "CARGO_ORDER_READY"
+              ],
+              "next": "handover",
+              "score": 1,
+              "feedback": "두리가 달 상자는 안쪽, 별 상자는 문 가까이에 실었어. 별 상자를 바로 꺼낼 수 있겠어."
+            },
+            {
+              "set_flags": {
+                "load_order_recalled": false
+              },
+              "add_clues": [
+                "CARGO_ORDER_READY"
+              ],
+              "next": "handover",
+              "score": 1,
+              "feedback": "달 상자가 안쪽에 있으면 먼저 꺼내기 어렵네. 두리가 달 상자는 문 가까이, 별 상자는 안쪽에 다시 실었어."
+            }
+          ]
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "handover": {
+      "kind": "choice",
+      "title": "준비를 다음 친구에게",
+      "prompt": "{check_memory} 오누가 두리에게 차례표를 읽어 줄까, 배달 친구에게 확인표를 건넬까?",
+      "hint": "두리에게 바로 알려 줘도, 친구에게 확인한 내용을 건네도 돼. 두 방법 모두 준비를 전할 수 있어.",
+      "actions": [
+        {
+          "id": "READ_DELIVERY_ORDER",
+          "label": "차례표 읽어 주기",
+          "aliases": [
+            "차례표",
+            "읽어 주기",
+            "차례표를 읽을래",
+            "두리에게 알려줄래"
+          ],
+          "set_flags": {
+            "handover": "DIRECT"
+          },
+          "next": "ending_ready",
+          "score": 1,
+          "feedback": "오누가 두리에게 내릴 순서를 읽어 줬어. 두리가 한 번 더 확인하고 배달을 맡았어."
+        },
+        {
+          "id": "PASS_CHECKLIST",
+          "label": "확인표 건네기",
+          "aliases": [
+            "확인표",
+            "건네기",
+            "확인표를 줄래",
+            "친구에게 맡길래"
+          ],
+          "set_flags": {
+            "handover": "RELAY"
+          },
+          "next": "ending_relay",
+          "score": 1,
+          "feedback": "오누가 배달 친구에게 확인표를 건넸어. 친구가 두리와 내릴 순서를 함께 확인했어."
+        }
+      ],
+      "art_key": "vehicles"
+    },
+    "ending_ready": {
+      "kind": "ending",
+      "ending_id": "DELIVERY_READY",
+      "title": "두리에게 전한 준비 완료",
+      "ending_title": "두리에게 전한 준비 완료",
+      "summary": "{trip_label}에 보낼 {cargo_label} 준비를 마치고 두리에게 순서를 알려 줬어요.",
+      "prompt": "{trip_label}에 보낼 {cargo_label} 준비가 끝났어. 두리는 {first_box_label}부터 꺼내기로 했지. 오누랑 할 준비는 여기까지야.",
+      "hint": "",
+      "actions": [],
+      "art_key": "vehicles"
+    },
+    "ending_relay": {
+      "kind": "ending",
+      "ending_id": "DELIVERY_HANDOVER",
+      "title": "친구와 이어 한 배달 준비",
+      "ending_title": "친구와 이어 한 배달 준비",
+      "summary": "{trip_label}에 보낼 {cargo_label} 준비 내용을 배달 친구에게 건넸어요.",
+      "prompt": "{trip_label}에 보낼 {cargo_label} 준비가 끝났어. 오누가 친구에게 {first_box_label}부터 꺼낸다고 전했어. 배달은 두리와 친구가 맡아.",
+      "hint": "",
+      "actions": [],
+      "art_key": "vehicles"
+    }
+  },
+  "solo_prompt_style": "nickname"
+}

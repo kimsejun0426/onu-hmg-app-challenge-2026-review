@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "pack_id": "animal-footprint-garden",
+  "version": "0.2.0",
+  "locale": "ko-KR",
+  "title": "동물 마을의 관찰 수첩",
+  "fiction_notice": "동물 마을과 관찰대는 상상 이야기입니다. 오리의 물갈퀴와 나비의 여섯 다리에 관한 설명은 공식 자연사 자료에 근거합니다. 장면 속 행동만으로 모든 동물의 습성이나 감정을 판단하지 않습니다.",
+  "review_status": "authored; primary facts checked; family listening and playtest pending",
+  "roles": [
+    "모습 탐정",
+    "기록 탐정"
+  ],
+  "solo_role": "동물 관찰대",
+  "max_turns": 6,
+  "start_scene": "choose_place",
+  "initial_resources": {
+    "tool_tokens": 1,
+    "hint_tokens": 6
+  },
+  "hint_score_penalty": 0,
+  "sources": {
+    "nps_duck_feet": {
+      "title": "U.S. National Park Service: The Remarkable Adaptations of Birds to Their Environment",
+      "url": "https://www.nps.gov/cabr/blogs/the-remarkable-adaptations-of-birds-to-their-environment.htm",
+      "checked_at": "2026-10-26",
+      "claims_used": [
+        "오리의 물갈퀴가 있는 발은 헤엄치는 데 도움이 된다."
+      ]
+    },
+    "smithsonian_insect_legs": {
+      "title": "Smithsonian National Museum of Natural History: Insect Illustration",
+      "url": "https://naturalhistory.si.edu/education/school-programs/grades-3-5/insect-illustration",
+      "checked_at": "2026-10-26",
+      "claims_used": [
+        "나비는 곤충이며 곤충은 다리가 여섯 개다. 실제 관찰에서 여섯 다리가 모두 보인다는 주장은 하지 않는다."
+      ]
+    }
+  },
+  "template_labels": {
+    "animal_label": {
+      "flag": "habitat",
+      "values": {
+        "POND": "오리",
+        "FLOWER_GARDEN": "나비"
+      },
+      "default": "동물 친구"
+    },
+    "place_label": {
+      "flag": "habitat",
+      "values": {
+        "POND": "연못",
+        "FLOWER_GARDEN": "꽃밭"
+      },
+      "default": "관찰 장소"
+    },
+    "feature_label": {
+      "flag": "habitat",
+      "values": {
+        "POND": "헤엄을 돕는 물갈퀴",
+        "FLOWER_GARDEN": "여섯 개의 다리"
+      },
+      "default": "몸의 특징"
+    },
+    "watch_label": {
+      "flag": "observation",
+      "values": {
+        "MOVEMENT": "움직이는 모습",
+        "REST": "잠시 머문 모습"
+      },
+      "default": "관찰한 모습"
+    },
+    "teamwork_label": {
+      "flag": "teamwork",
+      "values": {
+        "SAY_ONE": "한 가지씩 말을 보태고",
+        "DRAW_TOGETHER": "서로의 그림을 이으며"
+      },
+      "default": "함께"
+    },
+    "tool_label": {
+      "flag": "tool_used",
+      "values": {
+        "PHOTO_ZOOM": "확대 사진",
+        "GUIDE_BOOK": "해설 수첩"
+      },
+      "default": "관찰 도구"
+    }
+  },
+  "scenes": {
+    "choose_place": {
+      "kind": "choice",
+      "title": "빈 수첩을 들고 출발",
+      "prompt": "오누랑 상상 속 동물 마을을 살펴보자. 멀리서 연못의 오리를 볼까, 꽃밭의 나비를 볼까?",
+      "hint": "더 궁금한 동물을 골라 줘. 가까이 다가가지 않고 살펴볼 거야.",
+      "actions": [
+        {
+          "id": "POND",
+          "label": "오리 연못",
+          "aliases": [
+            "연못",
+            "오리",
+            "연못으로",
+            "오리를 볼래"
+          ],
+          "set_flags": {
+            "habitat": "POND"
+          },
+          "add_clues": [
+            "POND_VISITED"
+          ],
+          "next": "pond_watch",
+          "score": 1,
+          "feedback": "연못의 오리 한 마리가 물 위를 천천히 지나가."
+        },
+        {
+          "id": "FLOWER_GARDEN",
+          "label": "나비 꽃밭",
+          "aliases": [
+            "꽃밭",
+            "나비",
+            "꽃밭으로",
+            "나비를 볼래"
+          ],
+          "set_flags": {
+            "habitat": "FLOWER_GARDEN"
+          },
+          "add_clues": [
+            "GARDEN_VISITED"
+          ],
+          "next": "garden_watch",
+          "score": 1,
+          "feedback": "꽃밭의 나비 한 마리가 꽃 사이를 날아가."
+        }
+      ],
+      "art_key": "animals"
+    },
+    "pond_watch": {
+      "kind": "choice",
+      "title": "지금 보이는 오리",
+      "prompt": "오리가 헤엄치다 돌 옆에 멈췄어. 움직임을 적을까, 머문 자리를 그릴까?",
+      "hint": "어디로 움직였는지, 어디에 멈췄는지 남겨 보자. 기분은 아직 몰라.",
+      "actions": [
+        {
+          "id": "MOVEMENT",
+          "label": "움직임 적기",
+          "aliases": [
+            "움직임",
+            "움직이는 모습",
+            "움직임을 적을래",
+            "헤엄을 볼래"
+          ],
+          "set_flags": {
+            "observation": "MOVEMENT"
+          },
+          "add_clues": [
+            "DUCK_WAKE"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "오리가 지나간 자리에 잔물결이 남았어. 수첩에 물결을 그렸어."
+        },
+        {
+          "id": "REST",
+          "label": "머문 자리 그리기",
+          "aliases": [
+            "자리",
+            "머문 자리",
+            "자리를 그릴래",
+            "멈춘 곳"
+          ],
+          "set_flags": {
+            "observation": "REST"
+          },
+          "add_clues": [
+            "DUCK_STONE_PLACE"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "오리가 멈춘 돌 옆을 수첩에 표시했어. 왜 멈췄는지는 아직 몰라."
+        }
+      ],
+      "art_key": "animals"
+    },
+    "garden_watch": {
+      "kind": "choice",
+      "title": "꽃 사이의 나비",
+      "prompt": "나비가 노란 꽃에 앉았어. 움직임을 적을까, 머문 자리를 그릴까?",
+      "hint": "어디로 움직였는지, 어디에 앉았는지 남겨 보자. 기분은 아직 몰라.",
+      "actions": [
+        {
+          "id": "MOVEMENT",
+          "label": "움직임 적기",
+          "aliases": [
+            "움직임",
+            "움직이는 모습",
+            "움직임을 적을래",
+            "날갯짓을 볼래"
+          ],
+          "set_flags": {
+            "observation": "MOVEMENT"
+          },
+          "add_clues": [
+            "BUTTERFLY_FLIGHT"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "하얀 꽃에서 노란 꽃으로 날아갔어. 수첩에서 두 꽃을 선으로 이었어."
+        },
+        {
+          "id": "REST",
+          "label": "머문 자리 그리기",
+          "aliases": [
+            "자리",
+            "머문 자리",
+            "자리를 그릴래",
+            "멈춘 곳"
+          ],
+          "set_flags": {
+            "observation": "REST"
+          },
+          "add_clues": [
+            "BUTTERFLY_YELLOW_FLOWER"
+          ],
+          "next": "choose_tool",
+          "score": 1,
+          "feedback": "나비가 앉은 노란 꽃을 표시했어. 얼마나 머물지는 아직 몰라."
+        }
+      ],
+      "art_key": "animals"
+    },
+    "choose_tool": {
+      "kind": "choice",
+      "title": "몸의 작은 특징",
+      "prompt": "{animal_label}의 몸을 살펴보자. 확대 사진을 볼까, 해설 수첩을 읽을까?",
+      "hint": "사진은 몸을 크게 보여 줘. 수첩은 몸의 특징을 알려 줘.",
+      "actions": [
+        {
+          "id": "PHOTO_ZOOM",
+          "label": "확대 사진",
+          "aliases": [
+            "사진",
+            "확대",
+            "사진을 볼래",
+            "확대 사진을 볼래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "PHOTO_ZOOM"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "habitat": "POND"
+              },
+              "add_clues": [
+                "DUCK_WEBBING_PHOTO"
+              ],
+              "next": "compare_notes",
+              "score": 1,
+              "feedback": "오리 발가락 사이에 물갈퀴가 보여. 물에서 헤엄치는 데 도움이 돼."
+            },
+            {
+              "add_clues": [
+                "BUTTERFLY_LEG_PHOTO"
+              ],
+              "next": "compare_notes",
+              "score": 1,
+              "feedback": "설명 그림에 나비의 여섯 다리가 표시돼 있어. 나비는 곤충이야. 실제로는 다리가 가려질 수도 있어."
+            }
+          ]
+        },
+        {
+          "id": "GUIDE_BOOK",
+          "label": "해설 수첩",
+          "aliases": [
+            "해설",
+            "수첩",
+            "수첩을 읽을래",
+            "해설을 들을래"
+          ],
+          "cost": {
+            "tool_tokens": 1
+          },
+          "set_flags": {
+            "tool_used": "GUIDE_BOOK"
+          },
+          "outcomes": [
+            {
+              "when": {
+                "habitat": "POND"
+              },
+              "add_clues": [
+                "DUCK_WEBBING_EXPLAINED"
+              ],
+              "next": "compare_notes",
+              "score": 1,
+              "feedback": "오리의 물갈퀴는 헤엄치는 데 도움이 된대. 아까 본 물결도 떠올려 보자."
+            },
+            {
+              "add_clues": [
+                "BUTTERFLY_LEGS_EXPLAINED"
+              ],
+              "next": "compare_notes",
+              "score": 1,
+              "feedback": "나비는 곤충이고 다리는 여섯 개야. 멀리서는 다리가 모두 보이지 않을 수도 있어."
+            }
+          ]
+        }
+      ],
+      "source_ids": [
+        "nps_duck_feet",
+        "smithsonian_insect_legs"
+      ],
+      "art_key": "animals"
+    },
+    "compare_notes": {
+      "kind": "choice",
+      "title": "같은 장면, 다른 발견",
+      "prompt": "이야기 속 수첩을 함께 채우자. 한 가지씩 말할까, 그림을 이어 그릴까?",
+      "hint": "본 것을 하나씩 보태면 돼. 아직 모르는 것은 빈칸으로 남겨 두자.",
+      "actions": [
+        {
+          "id": "SAY_ONE",
+          "label": "한 가지씩 말하기",
+          "aliases": [
+            "하나씩 말하기",
+            "말하기",
+            "한 가지씩 말할래",
+            "말을 보탤래"
+          ],
+          "set_flags": {
+            "teamwork": "SAY_ONE"
+          },
+          "add_clues": [
+            "OBSERVATIONS_SPOKEN"
+          ],
+          "next": "match_feature",
+          "score": 1,
+          "feedback": "발견한 모습을 하나씩 보탰어. 아직 모르는 까닭은 빈칸으로 남겼어."
+        },
+        {
+          "id": "DRAW_TOGETHER",
+          "label": "그림 이어 그리기",
+          "aliases": [
+            "그림",
+            "같이 그리기",
+            "그림을 이을래",
+            "이어서 그릴래"
+          ],
+          "set_flags": {
+            "teamwork": "DRAW_TOGETHER"
+          },
+          "add_clues": [
+            "OBSERVATIONS_DRAWN"
+          ],
+          "next": "match_feature",
+          "score": 1,
+          "feedback": "몸의 모습과 움직임을 그림으로 이었어. 이야기 속 수첩에 모였지."
+        }
+      ],
+      "art_key": "animals"
+    },
+    "match_feature": {
+      "kind": "choice",
+      "title": "맞는 설명을 붙여 보자",
+      "prompt": "{animal_label} 수첩에 설명을 붙이자. 물갈퀴 설명일까, 여섯 다리 설명일까?",
+      "hint": "같이 다시 보자. {animal_label}의 특징은 {feature_label}였어.",
+      "actions": [
+        {
+          "id": "WEBBED_FEET",
+          "label": "물갈퀴",
+          "aliases": [
+            "물갈퀴 발",
+            "헤엄을 돕는 발",
+            "물갈퀴야",
+            "물갈퀴를 붙일래"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "habitat": "POND"
+              },
+              "set_flags": {
+                "feature_matched": true
+              },
+              "add_clues": [
+                "FEATURE_RECORDED"
+              ],
+              "next": "finish_watch",
+              "score": 1,
+              "feedback": "오리의 물갈퀴 설명을 붙였어. 헤엄치는 모습과 함께 남겼지."
+            },
+            {
+              "set_flags": {
+                "feature_matched": false
+              },
+              "add_clues": [
+                "FEATURE_RECORDED"
+              ],
+              "next": "finish_watch",
+              "score": 1,
+              "feedback": "이번에 본 건 나비였어. 수첩을 다시 보고 여섯 다리 설명을 붙였어."
+            }
+          ]
+        },
+        {
+          "id": "SIX_LEGS",
+          "label": "여섯 다리",
+          "aliases": [
+            "다리 여섯 개",
+            "여섯 개",
+            "여섯 개의 다리",
+            "여섯 다리야"
+          ],
+          "outcomes": [
+            {
+              "when": {
+                "habitat": "FLOWER_GARDEN"
+              },
+              "set_flags": {
+                "feature_matched": true
+              },
+              "add_clues": [
+                "FEATURE_RECORDED"
+              ],
+              "next": "finish_watch",
+              "score": 1,
+              "feedback": "나비의 여섯 다리 설명을 붙였어. 곤충의 몸을 담은 수첩이 됐네."
+            },
+            {
+              "set_flags": {
+                "feature_matched": false
+              },
+              "add_clues": [
+                "FEATURE_RECORDED"
+              ],
+              "next": "finish_watch",
+              "score": 1,
+              "feedback": "이번에 본 건 오리였어. 수첩을 다시 보고 물갈퀴 설명을 붙였어."
+            }
+          ]
+        }
+      ],
+      "source_ids": [
+        "nps_duck_feet",
+        "smithsonian_insect_legs"
+      ],
+      "art_key": "animals"
+    },
+    "finish_watch": {
+      "kind": "choice",
+      "title": "관찰을 마치는 방법",
+      "prompt": "수첩 한 장이 채워졌어. 조금 더 기다릴까, 기록을 함께 나눌까?",
+      "hint": "어느 쪽도 괜찮아. 기다려도 새로운 모습을 못 볼 수 있어.",
+      "actions": [
+        {
+          "id": "WAIT_A_LITTLE",
+          "label": "잠깐 기다리기",
+          "aliases": [
+            "기다리기",
+            "조금 더",
+            "기다릴래",
+            "잠깐 더 볼래"
+          ],
+          "set_flags": {
+            "finish_style": "WAIT"
+          },
+          "next": "ending_wait",
+          "score": 1,
+          "feedback": "잠깐 기다렸지만 새 움직임은 없었어. 오늘 본 모습만 남겨 두자."
+        },
+        {
+          "id": "SHARE_NOTE",
+          "label": "기록 나누기",
+          "aliases": [
+            "기록",
+            "나누기",
+            "기록을 볼래",
+            "기록을 나눌래"
+          ],
+          "set_flags": {
+            "finish_style": "SHARE"
+          },
+          "next": "ending_share",
+          "score": 1,
+          "feedback": "오늘의 수첩을 함께 펼쳤어. 본 것과 아직 모르는 것을 나눴어."
+        }
+      ],
+      "art_key": "animals"
+    },
+    "ending_wait": {
+      "kind": "ending",
+      "ending_id": "PATIENT_OBSERVATION",
+      "title": "기다림까지 담은 수첩",
+      "ending_title": "기다림까지 담은 수첩",
+      "summary": "보이는 모습을 기록하고, 새로운 장면을 재촉하지 않고 관찰을 마쳤어요.",
+      "prompt": "{place_label}에서 {animal_label}의 모습을 살폈어. 우리가 고른 방식으로 수첩을 채웠지. 오늘은 여기서 쉬어도 좋아.",
+      "hint": "",
+      "actions": [],
+      "art_key": "animals"
+    },
+    "ending_share": {
+      "kind": "ending",
+      "ending_id": "SHARED_FIELD_NOTE",
+      "title": "함께 펼친 관찰 수첩",
+      "ending_title": "함께 펼친 관찰 수첩",
+      "summary": "오늘 본 모습과 아직 모르는 것을 구분해 관찰 기록을 나눴어요.",
+      "prompt": "{animal_label}의 모습을 담은 수첩을 함께 나눴어. 다음에는 다른 곳도 볼 수 있어. 지금은 편히 쉬어도 좋아.",
+      "hint": "",
+      "actions": [],
+      "art_key": "animals"
+    }
+  }
+}

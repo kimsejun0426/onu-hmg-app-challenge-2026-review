@@ -1,0 +1,7 @@
+오누 소개영상 · 2026년 11월 6일
+
+MP4: 새 49.3초 영상입니다.
+provenance/PRODUCTION.md: 이번 영상의 제작·출처 안내입니다.
+provenance/PRODUCTION-0.47-history.md: 이전 62초 영상의 원본 제작 기록이며, 현재 영상의 구성 설명이 아닙니다. 출처 이력을 함께 보존했습니다.
+provenance/validation.json: 새 영상의 검증 기록입니다.
+provenance/source-video-manifest.json: 원 제작 폴더의 파일 식별 기록입니다. 이 ZIP 전체 파일 목록은 아닙니다.

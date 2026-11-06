@@ -1,0 +1,54 @@
+{
+  "additionalProperties": false,
+  "description": "A model cannot issue controls, score changes, tools, URLs or DB commands.",
+  "properties": {
+    "intent": {
+      "enum": [
+        "ACTION",
+        "UNKNOWN"
+      ],
+      "title": "Intent",
+      "type": "string"
+    },
+    "declared_player_id": {
+      "anyOf": [
+        {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Declared Player Id"
+    },
+    "action_id": {
+      "anyOf": [
+        {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Action Id"
+    },
+    "needs_clarification": {
+      "title": "Needs Clarification",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "intent",
+    "declared_player_id",
+    "action_id",
+    "needs_clarification"
+  ],
+  "title": "SemanticCandidate",
+  "type": "object"
+}

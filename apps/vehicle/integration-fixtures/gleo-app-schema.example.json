@@ -1,0 +1,34 @@
+{
+  "packageName": "dev.carplaymate.pleos",
+  "appDescription": "A Korean audio adventure app for one or two registered child players. Parent setup and vehicle policy checks are required before play.",
+  "version": "0.1.0",
+  "actionCalls": [
+    {
+      "type": "function",
+      "function": {
+        "component": "activity",
+        "name": "START_PLAY",
+        "description": "Open the play-start flow for registered players after checking parental configuration and current vehicle permissions.",
+        "parameters": {"type": "object", "properties": {}, "required": []}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "activity",
+        "name": "RESUME_PLAY",
+        "description": "Explicitly resume the saved adventure after rechecking current platform and audio conditions.",
+        "parameters": {"type": "object", "properties": {}, "required": []}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "service",
+        "name": "PAUSE_PLAY",
+        "description": "Stop this app's audio immediately, preserve the quiet intent and pause the current adventure without an additional spoken confirmation.",
+        "parameters": {"type": "object", "properties": {}, "required": []}
+      }
+    }
+  ]
+}

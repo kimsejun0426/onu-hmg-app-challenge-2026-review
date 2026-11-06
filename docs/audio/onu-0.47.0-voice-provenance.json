@@ -1,0 +1,3008 @@
+{
+  "schema_version": 1,
+  "status": "integrated_app_assets_not_yet_built",
+  "created_utc": "2026-11-05T09:12:43.594017+00:00",
+  "voice": "Onu B2",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "revision": "fd4b254389122332181a7c3db7f27e918eec64e3",
+    "license": "Apache-2.0",
+    "code_repository": "https://github.com/QwenLM/Qwen3-TTS",
+    "code_license": "Apache-2.0",
+    "package": "qwen-tts==0.1.1"
+  },
+  "reference": {
+    "asset": "reference.wav",
+    "sha256": "0f82fd62111f95092aeef39f733da5458bf79be829f678147f1d8ebc919b5d1c",
+    "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+    "origin": "Self-generated fictional voice; user-selected B2; no human recording",
+    "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "design_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+    "design_seed": 2202
+  },
+  "api": {
+    "language": "Korean",
+    "x_vector_only_mode": false,
+    "non_streaming_mode": true,
+    "max_new_tokens": 320,
+    "dtype": "bfloat16",
+    "attention": "sdpa"
+  },
+  "processing": {
+    "static_gain_target_lufs": -23,
+    "true_peak_cap_dbtp": -3.25,
+    "pitch_or_time_processing": false
+  },
+  "spoken_clips": 59,
+  "current_story_clips": 44,
+  "legacy_only_story_clips": 6,
+  "common_recovery_clips": 8,
+  "welcome_clips": 1,
+  "unchanged_effects": 4,
+  "unchanged_cue_bindings": 8,
+  "manifest_sha256": "d8c028c6d3cc515844631c388808f712081737f40b5c3383321ec8f9c49134ce",
+  "app_assets_changed": true,
+  "asr": {
+    "model": "Systran/faster-whisper-small",
+    "device": "cpu",
+    "compute_type": "int8",
+    "language": "ko",
+    "initial_prompt": null,
+    "hotwords": null,
+    "network_used": false,
+    "normalized_exact_count": 30,
+    "original_asr_screen_flags_preserved_count": 3,
+    "human_naturalness_validation": false
+  },
+  "failed_automatic_screen_attempts": 12,
+  "total_generation_attempts": 77,
+  "unselected_attempts": 18,
+  "clips": [
+    {
+      "id": "onu_welcome_b2",
+      "text": "안녕, 나는 오누야. 우리 차에서 함께 모험하자. 네가 고른 길로 나도 같이 갈게.",
+      "text_sha256": "1aae8a7fbbe4d545d75f29f291d13346a99e3be2cd6b9a21975b8064ca0ec6d2",
+      "asset": "story_audio/onu_welcome_b2.wav",
+      "sha256": "272a338d70966d15f0c33f1724713c2f7aa6b139b53584d10432b2b5a8537592",
+      "duration_ms": 8480,
+      "kind": "welcome",
+      "selected_attempt": 1,
+      "seed": 47101,
+      "sample_rate": 24000,
+      "frames": 203520,
+      "duration_s": 8.48,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.92,
+        "static_gain_db": -4.350000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 203520,
+        "duration_s": 8.48,
+        "sample_peak": 0.395355224609375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.95,
+        "core_seconds_proxy": 7.55,
+        "characters": 30,
+        "characters_per_active_second_proxy": 6.0606060606060606,
+        "characters_per_core_second_proxy": 3.9735099337748347,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "0f0924b3c6ec89d9e287436c3b2f10d591608554c47e3803fc7c46f81f6a27fd",
+      "asr": {
+        "status": "checked",
+        "transcript": "안녕. 나는 온우야. 우리 차에서 함께 모험하자. 내가 고른 길로 나도 같이 갈게.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          },
+          {
+            "kind": "replace",
+            "expected": "네",
+            "transcribed": "내"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. All three takes yield 네/내 ambiguity. Keep the slower original 8.48-second candidate; do not rewrite the script merely to match ASR. 오누/온우 spelling ambiguity also persists. This does not establish the intended pronoun acoustically."
+    },
+    {
+      "id": "dino_ea738eaf324cb2b1",
+      "text": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+      "text_sha256": "ea738eaf324cb2b144e23a1e25ca904f40de4442e0d38c32b81635f0e18e6bc4",
+      "asset": "story_audio/dino_ea738eaf324cb2b1.wav",
+      "sha256": "01e6ef0a03a464bebae363f3609ea4b7565c9f255a76ac807575e89204035a15",
+      "duration_ms": 8880,
+      "kind": "current_story",
+      "selected_attempt": 3,
+      "seed": 67102,
+      "sample_rate": 24000,
+      "frames": 213120,
+      "duration_s": 8.88,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -4.99,
+        "static_gain_db": -1.6999999999999993,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 213120,
+        "duration_s": 8.88,
+        "sample_peak": 0.56207275390625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.97,
+        "core_seconds_proxy": 7.77,
+        "characters": 38,
+        "characters_per_active_second_proxy": 7.645875251509055,
+        "characters_per_core_second_proxy": 4.890604890604891,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "ad699ca712acc6d221a893624b815b7ead4e269933a245cd64b62835c4b435f3",
+      "asr": {
+        "status": "checked",
+        "transcript": "나뭇잎 표시의 로봇이 두대네. 공룡 그림은 서로 달라. 돋보기로 볼까? 듣기 장치로 설명을 들을까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Take3 is selected because the whole question including 들을까 is ASR exact; earlier 드릴까 candidates remain rejected.",
+      "active_speed_change_fraction": 0.028169014084507227
+    },
+    {
+      "id": "dino_c0649c5b57a424c1",
+      "text": "연구소 팀이 공작실에서 알 모형을 찾았대. 듣기 장치로 공룡 그림 설명을 들었지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "c0649c5b57a424c1fa3213b31a0baf9c278af1cc6f4c86b45ab234a69a8425a9",
+      "asset": "story_audio/dino_c0649c5b57a424c1.wav",
+      "sha256": "b9c540ec2931162d857638864994a1c6e1ade2db3c54afefe8262c123f381c4c",
+      "duration_ms": 10640,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47103,
+      "sample_rate": 24000,
+      "frames": 255360,
+      "duration_s": 10.64,
+      "loudness": {
+        "integrated_lufs": -23.02,
+        "true_peak_dbtp": -5.84,
+        "static_gain_db": -2.84,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 255360,
+        "duration_s": 10.64,
+        "sample_peak": 0.509857177734375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 7.54,
+        "core_seconds_proxy": 9.85,
+        "characters": 52,
+        "characters_per_active_second_proxy": 6.896551724137931,
+        "characters_per_core_second_proxy": 5.279187817258883,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "cbfeece380c93eb5cf3ee70f8c685ff7bdedc00c139637609dd21199a8af9b41",
+      "asr": {
+        "status": "checked",
+        "transcript": "연구소 팀이 공작실에서 알 모형을 찾았대. 듣기 장치로 공룡 그림 설명을 들었지. 우리가 찾은 로봇이 알 모형을 전 시대에 돌려놨어.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.011936339522546469
+    },
+    {
+      "id": "dino_00dbe4f2313f6ae8",
+      "text": "처음엔 숲에서 바퀴 자국을 봤어. 듣기 장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "00dbe4f2313f6ae8d7fb90388fd50720853a216544ff27fb76e8d55ed8be5c63",
+      "asset": "story_audio/dino_00dbe4f2313f6ae8.wav",
+      "sha256": "7d55cf88ba275b7e4721cbfd9c261071c20801407c602ffce1e9f8695afeeebd",
+      "duration_ms": 11280,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57104,
+      "sample_rate": 24000,
+      "frames": 270720,
+      "duration_s": 11.28,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.87,
+        "static_gain_db": -4.34,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 270720,
+        "duration_s": 11.28,
+        "sample_peak": 0.452667236328125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 7.53,
+        "core_seconds_proxy": 10.71,
+        "characters": 50,
+        "characters_per_active_second_proxy": 6.640106241699867,
+        "characters_per_core_second_proxy": 4.668534080298786,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "30c76506df7a6fb5d42b59ed38454a2b1af11bfcf3b3475e0c7e9dfb2b145476",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음엔 숲에서 바퀴 자국을 봤어. 듣기장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전 시대에 돌려놨어. 우리 함께 찾았네.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": -0.15670650730411695
+    },
+    {
+      "id": "dino_08a517ef648e0b9d",
+      "text": "나뭇잎 표시를 찾았어. 트리케라톱스는 식물을 먹었지. 이 표시의 로봇을 살펴보자.",
+      "text_sha256": "08a517ef648e0b9d693a85ffcab54c26b4483dea67e24d7fbe008fef2e2523f4",
+      "asset": "story_audio/dino_08a517ef648e0b9d.wav",
+      "sha256": "24d24c908cd4ba8464e307eff351953910d109204ad715a5cfd3c5202506df76",
+      "duration_ms": 7840,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47105,
+      "sample_rate": 24000,
+      "frames": 188161,
+      "duration_s": 7.840041666666667,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.61,
+        "static_gain_db": -4.239999999999998,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 188161,
+        "duration_s": 7.840041666666667,
+        "sample_peak": 0.46270751953125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.52,
+        "core_seconds_proxy": 7.14,
+        "characters": 33,
+        "characters_per_active_second_proxy": 7.300884955752213,
+        "characters_per_core_second_proxy": 4.621848739495799,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "470e77d629dc5c1f54186b2434bc1f0f247bfb7764ab147a97e957af07d67238",
+      "asr": {
+        "status": "checked",
+        "transcript": "나뭇잎 표시를 찾았어. 트리케라톱 쓰는 식물을 먹었지. 이 표시의 로봇을 살펴보자.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9696969696969697,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "스",
+            "transcribed": "쓰"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Dinosaur name final consonant tension differs in transcript; wording is not removed or silently treated as exact.",
+      "active_speed_change_fraction": -0.09292035398230081
+    },
+    {
+      "id": "dino_09abbdcf15614e68",
+      "text": "바퀴 자국에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "09abbdcf15614e68c50a30ee82cfccba8e670f77b9956b94772eea5b0e95ff4c",
+      "asset": "story_audio/dino_09abbdcf15614e68.wav",
+      "sha256": "091c6ff7ee7e11cc0c0d7ebadcf79accf48a82e0ef434710eefb043cac7c10d2",
+      "duration_ms": 6400,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47106,
+      "sample_rate": 24000,
+      "frames": 153600,
+      "duration_s": 6.4,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -6.43,
+        "static_gain_db": -4.370000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 153600,
+        "duration_s": 6.4,
+        "sample_peak": 0.47711181640625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.15,
+        "core_seconds_proxy": 5.83,
+        "characters": 29,
+        "characters_per_active_second_proxy": 6.987951807228915,
+        "characters_per_core_second_proxy": 4.974271012006861,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "b0b0d3e0cff25b32d50fc916d947927a0f4f8017f23068298cc65bd3df2412c3",
+      "asr": {
+        "status": "checked",
+        "transcript": "박희자국에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9310344827586207,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "바퀴",
+            "transcribed": "박희"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 바퀴 is transcribed as the name 박희. This may reflect ASR segmentation or pronunciation; it is not certified phonetically identical. Keep a listening-review flag.",
+      "active_speed_change_fraction": -0.07710843373493992
+    },
+    {
+      "id": "dino_1bc65dc63e7a639e",
+      "text": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
+      "text_sha256": "1bc65dc63e7a639eed50c7683e91b8cde62f8d234f3ed39ebc215c4beb0350c9",
+      "asset": "story_audio/dino_1bc65dc63e7a639e.wav",
+      "sha256": "0020e970facf1131fbb8790b6b8126e749082170506bd4bbb4c1a3060b64d5c1",
+      "duration_ms": 6560,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47107,
+      "sample_rate": 24000,
+      "frames": 157440,
+      "duration_s": 6.56,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.0,
+        "static_gain_db": -3.8500000000000014,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 157440,
+        "duration_s": 6.56,
+        "sample_peak": 0.44635009765625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.64,
+        "core_seconds_proxy": 5.85,
+        "characters": 28,
+        "characters_per_active_second_proxy": 7.692307692307692,
+        "characters_per_core_second_proxy": 4.786324786324786,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "196cea3d592c2788d593c70956307c523266eb57d9a7c8067b03a7f54aee7006",
+      "asr": {
+        "status": "checked",
+        "transcript": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.013736263736263687
+    },
+    {
+      "id": "dino_21070815a2b7637f",
+      "text": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
+      "text_sha256": "21070815a2b7637f3f8fc7da08ca036403b8c4399d5dc29ecc450034d67521cb",
+      "asset": "story_audio/dino_21070815a2b7637f.wav",
+      "sha256": "3dd7d0805b5498a25d77f12f412d5433288509f67d8b0019b478a07342e4f437",
+      "duration_ms": 6560,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47108,
+      "sample_rate": 24000,
+      "frames": 157440,
+      "duration_s": 6.56,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -8.48,
+        "static_gain_db": -5.09,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 157440,
+        "duration_s": 6.56,
+        "sample_peak": 0.36956787109375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.13,
+        "core_seconds_proxy": 5.39,
+        "characters": 32,
+        "characters_per_active_second_proxy": 7.74818401937046,
+        "characters_per_core_second_proxy": 5.936920222634509,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "b80bf05ef8678bd648abba521f248d902fa9610f8e0f5b09f0e60e3317096ea3",
+      "asr": {
+        "status": "checked",
+        "transcript": "트리케라톱스는 얼굴에 뿌리 3개 있었어. 스테고사우루 쓰는 등의 판이 있었어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.84375,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "뿔이세",
+            "transcribed": "뿌리3"
+          },
+          {
+            "kind": "replace",
+            "expected": "스",
+            "transcribed": "쓰"
+          },
+          {
+            "kind": "replace",
+            "expected": "에",
+            "transcribed": "의"
+          }
+        ],
+        "severe_text_mismatch": true,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 뿔이/뿌리 liaison and 세/3 number rendering are transcription ambiguities; baseline F2 also produces 뿌리/등의. Keep the raw mismatch count. Select a complete candidate without the separate 볼/반작 substitutions."
+    },
+    {
+      "id": "dino_2fe8f75b763cf176",
+      "text": "등에 판이 있는 건 스테고사우루스야. 뿔 세 개의 트리케라톱스 그림 로봇이 반짝였어.",
+      "text_sha256": "2fe8f75b763cf176d82aa287952425e38a1348d6dd6430e2e7c99994546e6cd7",
+      "asset": "story_audio/dino_2fe8f75b763cf176.wav",
+      "sha256": "3011c846ee93c487cd5d78ff08d5c60b1e9311a3e361d6734df161fb643269a2",
+      "duration_ms": 5760,
+      "kind": "legacy_story",
+      "selected_attempt": 3,
+      "seed": 67109,
+      "sample_rate": 24000,
+      "frames": 138240,
+      "duration_s": 5.76,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -6.59,
+        "static_gain_db": -2.0599999999999987,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 138240,
+        "duration_s": 5.76,
+        "sample_peak": 0.46221923828125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.15,
+        "core_seconds_proxy": 5.1,
+        "characters": 34,
+        "characters_per_active_second_proxy": 8.192771084337348,
+        "characters_per_core_second_proxy": 6.666666666666667,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "5fa84b74983d42d3c44c8ed4864766c54648fe9981bff65bcb94aaff47d45701",
+      "asr": {
+        "status": "checked",
+        "transcript": "등에 판이 있는 건 스테고사우루스야. 뿔 3개의 트리케라톱스 그림 로봇이 반짝였어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9705882352941176,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "세",
+            "transcribed": "3"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Choose final take3: 뿔 is retained in the transcript, resolving earlier 꿀 substitutions. Only 세/3 number rendering differs. Normal EOS and full text verified by automatic evidence; human listening remains outstanding.",
+      "active_speed_change_fraction": 0.07469879518072275
+    },
+    {
+      "id": "dino_3160815e826a2f33",
+      "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+      "text_sha256": "3160815e826a2f33bbbd4d42bce7d0d53c6be48e53dac8694bd3639a786c99d6",
+      "asset": "story_audio/dino_3160815e826a2f33.wav",
+      "sha256": "9abce5970f39677bcc85fae5506c1164dd08ee2df0ce8958c1a8a851745186f5",
+      "duration_ms": 9120,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47110,
+      "sample_rate": 24000,
+      "frames": 218880,
+      "duration_s": 9.12,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.73,
+        "static_gain_db": -3.6000000000000014,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 218880,
+        "duration_s": 9.12,
+        "sample_peak": 0.456817626953125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 5.6,
+        "core_seconds_proxy": 8.36,
+        "characters": 37,
+        "characters_per_active_second_proxy": 6.607142857142858,
+        "characters_per_core_second_proxy": 4.425837320574163,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "cf7941d2e02f1355bcd1d7b987bb7ba2b1959e103b7c9a1276871eed852682ef",
+      "asr": {
+        "status": "checked",
+        "transcript": "온우랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9459459459459459,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "cue_before": "cue_dino_arrival",
+      "active_speed_change_fraction": -0.1071428571428571
+    },
+    {
+      "id": "dino_32fcb4b6f679647b",
+      "text": "오누가 돋보기를 잡았어.",
+      "text_sha256": "32fcb4b6f679647b93b146a990a1bbff8e67f45a20b3c63b83e3cc0ea7dc23eb",
+      "asset": "story_audio/dino_32fcb4b6f679647b.wav",
+      "sha256": "13f08074a84fc56d2fa06379ae6272b7ba7182b309e553f52bf9c799f7e8d866",
+      "duration_ms": 2480,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57111,
+      "sample_rate": 24000,
+      "frames": 59520,
+      "duration_s": 2.48,
+      "loudness": {
+        "integrated_lufs": -22.98,
+        "true_peak_dbtp": -5.46,
+        "static_gain_db": -2.4200000000000017,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 59520,
+        "duration_s": 2.48,
+        "sample_peak": 0.52032470703125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 1.11,
+        "core_seconds_proxy": 1.27,
+        "characters": 10,
+        "characters_per_active_second_proxy": 9.009009009009008,
+        "characters_per_core_second_proxy": 7.874015748031496,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "78224f1c5932ddc832f29c17f39dfb4033a476a756ed5431ad0e850489e697fa",
+      "asr": {
+        "status": "checked",
+        "transcript": "온우가 돋보기를 잡았어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.8,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          }
+        ],
+        "severe_text_mismatch": true,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison."
+    },
+    {
+      "id": "dino_341904e9437afa5c",
+      "text": "오누가 읽은 상자 표지에 공작실이라고 적혀 있어. 상자에 끼워 둔 로봇의 노트도 찾았네.",
+      "text_sha256": "341904e9437afa5cab124934c74de872bf2214916954ff37ff642061d347a8c0",
+      "asset": "story_audio/dino_341904e9437afa5c.wav",
+      "sha256": "8ac33d6eaaa680ef4a9ffc6966adda0e0f4daeb07d56a523259b3cb893cf5c77",
+      "duration_ms": 6560,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47112,
+      "sample_rate": 24000,
+      "frames": 157440,
+      "duration_s": 6.56,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -7.38,
+        "static_gain_db": -3.6400000000000006,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 157440,
+        "duration_s": 6.56,
+        "sample_peak": 0.42645263671875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.62,
+        "core_seconds_proxy": 5.97,
+        "characters": 35,
+        "characters_per_active_second_proxy": 7.575757575757575,
+        "characters_per_core_second_proxy": 5.8626465661641545,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "652ee88168381e6504c29c69e0c88767087d5d850de38897720e447c77b3b732",
+      "asr": {
+        "status": "checked",
+        "transcript": "원우가 읽은 상자 표지의 공작실이라고 적혀 있어. 상자에 끼워둔 로봇의 노트도 찾았네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9142857142857143,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "원우"
+          },
+          {
+            "kind": "replace",
+            "expected": "에",
+            "transcribed": "의"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "cue_before": "cue_discovery",
+      "active_speed_change_fraction": 0.03246753246753231
+    },
+    {
+      "id": "dino_350bcbfbd123f73b",
+      "text": "물가에 바퀴 자국이 나 있어. 오누도 옆에서 흔적을 찾아볼게.",
+      "text_sha256": "350bcbfbd123f73b736827882a324bd6934adac919e7299a7b2332a70df2d3f4",
+      "asset": "story_audio/dino_350bcbfbd123f73b.wav",
+      "sha256": "bb401a5268f4af1e504f1618a607ed4455965d8a17b19374a39cc1a328d3e46e",
+      "duration_ms": 5280,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57113,
+      "sample_rate": 24000,
+      "frames": 126721,
+      "duration_s": 5.2800416666666665,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.78,
+        "static_gain_db": -3.1099999999999994,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 126721,
+        "duration_s": 5.2800416666666665,
+        "sample_peak": 0.456024169921875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.97,
+        "core_seconds_proxy": 4.48,
+        "characters": 24,
+        "characters_per_active_second_proxy": 8.08080808080808,
+        "characters_per_core_second_proxy": 5.357142857142857,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "f2f6c21b443612bd5754b813eb5a0837479450d4e5fea80dddfc3e2590a2ac25",
+      "asr": {
+        "status": "checked",
+        "transcript": "물가에 바퀴 자국이 나 있어. 온우도 옆에서 흔적을 찾아볼게.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9166666666666666,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "cue_before": "cue_stream",
+      "active_speed_change_fraction": -0.010101010101010277
+    },
+    {
+      "id": "dino_382e0da11d641004",
+      "text": "듣기 장치에서 로봇의 안내가 나와.",
+      "text_sha256": "382e0da11d6410041dade5792256f9925e6f655a17022e1f94f86179b7485ac6",
+      "asset": "story_audio/dino_382e0da11d641004.wav",
+      "sha256": "f12ca8eddb8170ccc8ba8976688fe41a2dbaf1ca06a4957513731a490ca9ff1a",
+      "duration_ms": 2320,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47114,
+      "sample_rate": 24000,
+      "frames": 55680,
+      "duration_s": 2.32,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.78,
+        "static_gain_db": -0.8000000000000007,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 55680,
+        "duration_s": 2.32,
+        "sample_peak": 0.51300048828125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 1.75,
+        "core_seconds_proxy": 1.84,
+        "characters": 14,
+        "characters_per_active_second_proxy": 8.0,
+        "characters_per_core_second_proxy": 7.608695652173913,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "9a043b1d80367bcac1e22d04eb54e4a23d62f6fc9546bbcc58c1df1ee2f3bbd2",
+      "asr": {
+        "status": "checked",
+        "transcript": "듣기 장치에서 로봇의 안내가 나와.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.1657142857142857
+    },
+    {
+      "id": "dino_3c169544bd866d05",
+      "text": "연구소 팀이 온실에서 알 모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "3c169544bd866d05c0e472ec8ce648095b5805c7d14145fe5037c305d7731a87",
+      "asset": "story_audio/dino_3c169544bd866d05.wav",
+      "sha256": "314afb1ce63ebabbdd3504222663d65c0e4158578478f736e79baf27d1c655a4",
+      "duration_ms": 10000,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47115,
+      "sample_rate": 24000,
+      "frames": 240000,
+      "duration_s": 10.0,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.16,
+        "static_gain_db": -3.5700000000000003,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 240000,
+        "duration_s": 10.0,
+        "sample_peak": 0.435089111328125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 6.99,
+        "core_seconds_proxy": 9.41,
+        "characters": 49,
+        "characters_per_active_second_proxy": 7.010014306151645,
+        "characters_per_core_second_proxy": 5.207226354941551,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "d410e3e354b82e9a87c21f600b8d92652ede9691a93175142deba31dae981d9b",
+      "asr": {
+        "status": "checked",
+        "transcript": "연구소팀이 온실에서 알모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 알모형을 전 시대에 돌려놨어.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": -0.01573676680972813
+    },
+    {
+      "id": "dino_3c284e943b0ee75e",
+      "text": "공작실에는 없네. 로봇이 연구소 팀을 불렀어. 오누가 찾은 단서를 팀에 전했어.",
+      "text_sha256": "3c284e943b0ee75e19473fdfad436cb82f22bdfab42099be38930963d4aa7fa7",
+      "asset": "story_audio/dino_3c284e943b0ee75e.wav",
+      "sha256": "128b8456a158adda5221f50cf5de615baaa124a51c24f4f21f83a4087913afa8",
+      "duration_ms": 8000,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47116,
+      "sample_rate": 24000,
+      "frames": 192000,
+      "duration_s": 8.0,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -8.2,
+        "static_gain_db": -4.550000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 192000,
+        "duration_s": 8.0,
+        "sample_peak": 0.388671875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.79,
+        "core_seconds_proxy": 7.35,
+        "characters": 31,
+        "characters_per_active_second_proxy": 6.471816283924843,
+        "characters_per_core_second_proxy": 4.217687074829932,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "c027735f420fbdd568f267656d9993ac89e87a081801ac50ce26ce315f7038c3",
+      "asr": {
+        "status": "checked",
+        "transcript": "공작실에는 없네? 로봇이 연구소 팀을 불렀어. 온우가 찾은 단서를 팀에 전했어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9354838709677419,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "active_speed_change_fraction": -0.12734864300626314
+    },
+    {
+      "id": "dino_3d4b5ea30d2dff85",
+      "text": "오누가 읽은 상자 표지에 온실이라고 적혀 있어. 상자에 끼워 둔 로봇의 노트도 찾았네.",
+      "text_sha256": "3d4b5ea30d2dff85790d8eb8a8b02245eaa3f8e38f81aeb7de91e5e7c00f9fe9",
+      "asset": "story_audio/dino_3d4b5ea30d2dff85.wav",
+      "sha256": "5f1d56d12646ecb4acb218b18f2e5e7dc802db84543d9b588cc6f96b06671e1f",
+      "duration_ms": 6160,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47117,
+      "sample_rate": 24000,
+      "frames": 147840,
+      "duration_s": 6.16,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.8,
+        "static_gain_db": -2.0100000000000016,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 147840,
+        "duration_s": 6.16,
+        "sample_peak": 0.50518798828125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.53,
+        "core_seconds_proxy": 5.48,
+        "characters": 34,
+        "characters_per_active_second_proxy": 7.505518763796909,
+        "characters_per_core_second_proxy": 6.204379562043795,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "cbf68f63267d6e2e452bcb000ac53b42713dcb1e8457fcd9beff236f8e5cbcdd",
+      "asr": {
+        "status": "checked",
+        "transcript": "온우가 읽은 상자 표지의 온실이라고 적혀 있어. 상자에 끼워둔 로봇의 노트도 찾았네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9117647058823529,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          },
+          {
+            "kind": "replace",
+            "expected": "에",
+            "transcribed": "의"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "cue_before": "cue_discovery",
+      "active_speed_change_fraction": 0.013245033112582627
+    },
+    {
+      "id": "dino_3d8ac55e5e46fafb",
+      "text": "나뭇잎 표시의 로봇이 두 대네. 작은 그림을 돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text_sha256": "3d8ac55e5e46fafb0ffbe66ba3e85d99aa752cf44d46d69cc339bc12bdcc73de",
+      "asset": "story_audio/dino_3d8ac55e5e46fafb.wav",
+      "sha256": "85f000b10a1dd1dbd7505bf8983018a04593983fdf46c91012f72bbf85763563",
+      "duration_ms": 6960,
+      "kind": "legacy_story",
+      "selected_attempt": 2,
+      "seed": 57118,
+      "sample_rate": 24000,
+      "frames": 167040,
+      "duration_s": 6.96,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -3.8,
+        "static_gain_db": -0.9299999999999997,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 167040,
+        "duration_s": 6.96,
+        "sample_peak": 0.631744384765625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.23,
+        "core_seconds_proxy": 6.28,
+        "characters": 32,
+        "characters_per_active_second_proxy": 7.565011820330969,
+        "characters_per_core_second_proxy": 5.095541401273885,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "02dbe5e499125daddfda841dfda04b7e3a907fc13b58effba518bdfc3dd12976",
+      "asr": {
+        "status": "checked",
+        "transcript": "나뭇잎 표시의 로봇이 두대네. 작은 그림을 돋보기로 볼까? 듣기 장치로 알아볼까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Risk retake2 is ASR exact, replacing the original 나뭇잎/남은이 ambiguity.",
+      "active_speed_change_fraction": -0.05200945626477549
+    },
+    {
+      "id": "dino_3dbb193344056c44",
+      "text": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+      "text_sha256": "3dbb193344056c449928d2d60d7e4fe9598cf80731c926a61454ffdb83a8485a",
+      "asset": "story_audio/dino_3dbb193344056c44.wav",
+      "sha256": "06e6fa711ba111c3f0e872a95e931884fdc71a9c4606503948e9826670edd1cb",
+      "duration_ms": 10720,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47119,
+      "sample_rate": 24000,
+      "frames": 257280,
+      "duration_s": 10.72,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.94,
+        "static_gain_db": -2.2600000000000016,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 257280,
+        "duration_s": 10.72,
+        "sample_peak": 0.448699951171875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 6.0,
+        "core_seconds_proxy": 9.87,
+        "characters": 43,
+        "characters_per_active_second_proxy": 7.166666666666667,
+        "characters_per_core_second_proxy": 4.356636271529889,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "44ede33902959bca8000fcdc50bc931d3ed95b815a2a2085150a60b9af407cad",
+      "asr": {
+        "status": "checked",
+        "transcript": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿌리 3개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9302325581395349,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "뿔이세",
+            "transcribed": "뿌리3"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 뿔이/뿌리 liaison and 세/3 number rendering are transcription ambiguities; baseline F2 also produces 뿌리/등의. Keep the raw mismatch count. Select a complete candidate without the separate 볼/반작 substitutions.",
+      "active_speed_change_fraction": -0.11666666666666659
+    },
+    {
+      "id": "dino_3f68c1762767a28a",
+      "text": "자국 끝에 파란 세모가 있어. 공작실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+      "text_sha256": "3f68c1762767a28a10efc08597db80dd32bb6f1993d4a05a37d5aa689e6839ef",
+      "asset": "story_audio/dino_3f68c1762767a28a.wav",
+      "sha256": "5b5881ea6a75d5b294eca8c939e10577d2820686a24b330a00165e53a23054ab",
+      "duration_ms": 7280,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47120,
+      "sample_rate": 24000,
+      "frames": 174720,
+      "duration_s": 7.28,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -7.99,
+        "static_gain_db": -4.039999999999999,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 174720,
+        "duration_s": 7.28,
+        "sample_peak": 0.397430419921875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.34,
+        "core_seconds_proxy": 6.75,
+        "characters": 30,
+        "characters_per_active_second_proxy": 6.912442396313364,
+        "characters_per_core_second_proxy": 4.444444444444445,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "85ec113d3c6aca9c5d41557a41edbb8505ee3694d2809c652a95ff1361a049a3",
+      "asr": {
+        "status": "checked",
+        "transcript": "자국 끝에 파란 세모가 있어. 공작실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "cue_before": "cue_discovery",
+      "active_speed_change_fraction": -0.15898617511520752
+    },
+    {
+      "id": "dino_42de5c0d7a8d6365",
+      "text": "숲길에 바퀴 자국이 보여. 오누랑 같이 살펴보자.",
+      "text_sha256": "42de5c0d7a8d6365622d2a7fed5a615e0b503f6354cad6a1a469922dfcdbdbb0",
+      "asset": "story_audio/dino_42de5c0d7a8d6365.wav",
+      "sha256": "c014107a2102e490301f28aadbb008566bf9777372042e70557a8cee5ef6dc2f",
+      "duration_ms": 4720,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57121,
+      "sample_rate": 24000,
+      "frames": 113281,
+      "duration_s": 4.720041666666667,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -4.45,
+        "static_gain_db": 0.0,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 113281,
+        "duration_s": 4.720041666666667,
+        "sample_peak": 0.59765625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.47,
+        "core_seconds_proxy": 3.58,
+        "characters": 19,
+        "characters_per_active_second_proxy": 7.692307692307692,
+        "characters_per_core_second_proxy": 5.307262569832402,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "2a753857a1d2a97e79523e1b8b18e99e749871434a2e0336ec2ab945367fbae6",
+      "asr": {
+        "status": "checked",
+        "transcript": "숲길에 바퀴 자국이 보여, 오늘랑 같이 살펴보자.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9473684210526315,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "누",
+            "transcribed": "늘"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "active_speed_change_fraction": -0.05668016194331993
+    },
+    {
+      "id": "dino_46c40d48180ed3c8",
+      "text": "오누랑 상상 속 공룡 연구소에 가자. 사라진 알 모형의 흔적을 물가에서 찾을까, 숲에서 찾을까?",
+      "text_sha256": "46c40d48180ed3c831cbd14962a7111b6d4b42c30973efa4b1850c4721c711cd",
+      "asset": "story_audio/dino_46c40d48180ed3c8.wav",
+      "sha256": "3acea99dd05f6423f6fa13f3af08e6292d1fe3e91e71f57da637c06a9aa1920d",
+      "duration_ms": 7840,
+      "kind": "legacy_story",
+      "selected_attempt": 1,
+      "seed": 47122,
+      "sample_rate": 24000,
+      "frames": 188161,
+      "duration_s": 7.840041666666667,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.38,
+        "static_gain_db": -1.6700000000000017,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 188161,
+        "duration_s": 7.840041666666667,
+        "sample_peak": 0.538238525390625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.97,
+        "core_seconds_proxy": 7.14,
+        "characters": 37,
+        "characters_per_active_second_proxy": 7.44466800804829,
+        "characters_per_core_second_proxy": 5.182072829131653,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "3037ea7337aa581cf0e84bfa98ae05276cb3ac9c8f8a34e9ed7a471767f9b449",
+      "asr": {
+        "status": "checked",
+        "transcript": "오느랑 상상 속 공룡 연구소에 가자. 사라진 알 모형의 흔적을 물가에서 찾을까? 숲에서 찾을까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.972972972972973,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "누",
+            "transcribed": "느"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "cue_before": "cue_dino_arrival",
+      "active_speed_change_fraction": 0.02213279678068414
+    },
+    {
+      "id": "dino_4a318149b75c90de",
+      "text": "상자 표지에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "4a318149b75c90de93dc37cb3f30a7815bbf657d6b9495ec07056e0182b8c95d",
+      "asset": "story_audio/dino_4a318149b75c90de.wav",
+      "sha256": "ea1c0d07ee06ae7df4f7ce8986d7d88e85c8c4256e6ab600af5916528dd7c5a7",
+      "duration_ms": 6560,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47123,
+      "sample_rate": 24000,
+      "frames": 157440,
+      "duration_s": 6.56,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.12,
+        "static_gain_db": -1.129999999999999,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 157440,
+        "duration_s": 6.56,
+        "sample_peak": 0.617340087890625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.88,
+        "core_seconds_proxy": 5.63,
+        "characters": 30,
+        "characters_per_active_second_proxy": 7.731958762886598,
+        "characters_per_core_second_proxy": 5.328596802841918,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "789ab2cd084c85e60cb01ad173b5680a56fd3481f215e06cfccd33418a2b3625",
+      "asr": {
+        "status": "checked",
+        "transcript": "상자 표지에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까? 공작실로 갈까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.09020618556701043
+    },
+    {
+      "id": "dino_4f1c5768d15dd855",
+      "text": "처음 찾은 상자 표지에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "4f1c5768d15dd8557bd3416790408959957699390dc7864589e8504338f1ca5c",
+      "asset": "story_audio/dino_4f1c5768d15dd855.wav",
+      "sha256": "169e9cba71504d6e92f4345e01ceebb8974a66a19ce719a70806cd2dc182035b",
+      "duration_ms": 6400,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47124,
+      "sample_rate": 24000,
+      "frames": 153600,
+      "duration_s": 6.4,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -4.62,
+        "static_gain_db": -1.7100000000000009,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 153600,
+        "duration_s": 6.4,
+        "sample_peak": 0.577484130859375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.6,
+        "core_seconds_proxy": 5.23,
+        "characters": 28,
+        "characters_per_active_second_proxy": 7.777777777777778,
+        "characters_per_core_second_proxy": 5.353728489483747,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "6d95880a97b008b8fc664f4b0a1519cea86b044432d9a24a09483f0a8870acc7",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음 찾은 상자 표지에서 공작실 표시를 봤어. 로봇과 그곳으로 가보자.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.13611111111111107
+    },
+    {
+      "id": "dino_4fdac28db0a99adb",
+      "text": "처음 찾은 바퀴 자국에서 온실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "4fdac28db0a99adbb65e13f0665b83c6b4f20105e2dba51e296d605c823e7976",
+      "asset": "story_audio/dino_4fdac28db0a99adb.wav",
+      "sha256": "b4fa7a3b7850ab6f756565bc8492c47c64f759c78da0611afe3ceaa70004f787",
+      "duration_ms": 6080,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47125,
+      "sample_rate": 24000,
+      "frames": 145920,
+      "duration_s": 6.08,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -6.66,
+        "static_gain_db": -2.3200000000000003,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 145920,
+        "duration_s": 6.08,
+        "sample_peak": 0.463531494140625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.75,
+        "core_seconds_proxy": 5.31,
+        "characters": 27,
+        "characters_per_active_second_proxy": 7.2,
+        "characters_per_core_second_proxy": 5.084745762711865,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "260172a545403d59004423e26bb7085dca8b8f153617b4fcd19f39dece37991e",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음 찾은 바퀴 자국에서 온실 표시를 봤어. 로봇과 그 곳으로 가보자.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.021333333333333426
+    },
+    {
+      "id": "dino_520207372643609d",
+      "text": "듣기 장치가 공룡 그림을 설명해 줬어. 얼굴에 뿔이 세 개래. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+      "text_sha256": "520207372643609d9071b56b81090aa12b94c40012263907d79ae8ca9807a04c",
+      "asset": "story_audio/dino_520207372643609d.wav",
+      "sha256": "783bf195030f378d474f17579a8a46ea50ce1f6bb5ff96462952e09355c77dee",
+      "duration_ms": 9760,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47126,
+      "sample_rate": 24000,
+      "frames": 234240,
+      "duration_s": 9.76,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.04,
+        "static_gain_db": -1.5700000000000003,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 234240,
+        "duration_s": 9.76,
+        "sample_peak": 0.6259765625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 5.55,
+        "core_seconds_proxy": 8.42,
+        "characters": 44,
+        "characters_per_active_second_proxy": 7.927927927927928,
+        "characters_per_core_second_proxy": 5.225653206650831,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "f6e06af808523d0bbb32f1db406cd160855e67d006840d4bc90c1d1ef1a6ea20",
+      "asr": {
+        "status": "checked",
+        "transcript": "듣기 장치가 공룡 그림을 설명해줬어. 얼굴에 뿌리 3개래. 이 그림은 트리캐라톱스일까, 스테고사우루스일까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9090909090909091,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "뿔이세",
+            "transcribed": "뿌리3"
+          },
+          {
+            "kind": "replace",
+            "expected": "케",
+            "transcribed": "캐"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 뿔이/뿌리 liaison and 세/3 number rendering are transcription ambiguities; baseline F2 also produces 뿌리/등의. Keep the raw mismatch count. Select a complete candidate without the separate 볼/반작 substitutions.",
+      "active_speed_change_fraction": 0.0
+    },
+    {
+      "id": "dino_5eeb02a4b6b92c12",
+      "text": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "5eeb02a4b6b92c125d1eabd5a005d566949bcb1d99c6239119de92bd5fcc3eac",
+      "asset": "story_audio/dino_5eeb02a4b6b92c12.wav",
+      "sha256": "6007c802b3599edbbed857b06fe076698d13d759424dcff26e0a9d36dfa55299",
+      "duration_ms": 7040,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47127,
+      "sample_rate": 24000,
+      "frames": 168960,
+      "duration_s": 7.04,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -3.68,
+        "static_gain_db": -0.28000000000000114,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 168960,
+        "duration_s": 7.04,
+        "sample_peak": 0.65435791015625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.05,
+        "core_seconds_proxy": 5.85,
+        "characters": 30,
+        "characters_per_active_second_proxy": 7.407407407407407,
+        "characters_per_core_second_proxy": 5.128205128205129,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "24ce9644be2b77e74be690be09e6868b635cbb8037cf566b438a8067a8b499f3",
+      "asr": {
+        "status": "checked",
+        "transcript": "박희자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까? 공작실로 갈까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9333333333333333,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "바퀴",
+            "transcribed": "박희"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 바퀴 is transcribed as the name 박희. This may reflect ASR segmentation or pronunciation; it is not certified phonetically identical. Keep a listening-review flag.",
+      "active_speed_change_fraction": 0.004938271604938427
+    },
+    {
+      "id": "dino_63dfd30158419890",
+      "text": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+      "text_sha256": "63dfd301584198906a9f9c8efd5b6bbbd69a343b6bd300a195d63615e6f39c4b",
+      "asset": "story_audio/dino_63dfd30158419890.wav",
+      "sha256": "fa68356ed542a4ff35d3fed28972a170fd574ba7c68fb356a2841453f7144594",
+      "duration_ms": 6400,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47128,
+      "sample_rate": 24000,
+      "frames": 153600,
+      "duration_s": 6.4,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -3.25,
+        "static_gain_db": -1.43,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 153600,
+        "duration_s": 6.4,
+        "sample_peak": 0.679229736328125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.77,
+        "core_seconds_proxy": 5.34,
+        "characters": 29,
+        "characters_per_active_second_proxy": 7.6923076923076925,
+        "characters_per_core_second_proxy": 5.430711610486892,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "c9d7ed4524ba481438ead9397baabe5ab12cfb76c3a316be64f79913c98d8652",
+      "asr": {
+        "status": "checked",
+        "transcript": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까? 상자 표지를 볼까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.11936339522546424
+    },
+    {
+      "id": "dino_6d1af0571fbb38aa",
+      "text": "노트를 펴 보니 트리케라톱스는 식물을 먹었어. 나뭇잎 표시의 로봇을 같이 살펴보자.",
+      "text_sha256": "6d1af0571fbb38aa85cf1b1c300ab98bd3496eb51dace69b2916a0f34ae9f75f",
+      "asset": "story_audio/dino_6d1af0571fbb38aa.wav",
+      "sha256": "1aa7890a4d3e70dee4beea6f71ab0a28debcd18a636b64bcf22e96758d9f9c7f",
+      "duration_ms": 7040,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47129,
+      "sample_rate": 24000,
+      "frames": 168960,
+      "duration_s": 7.04,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -4.29,
+        "static_gain_db": -2.1400000000000006,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 168960,
+        "duration_s": 7.04,
+        "sample_peak": 0.60150146484375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.26,
+        "core_seconds_proxy": 5.93,
+        "characters": 34,
+        "characters_per_active_second_proxy": 7.981220657276996,
+        "characters_per_core_second_proxy": 5.733558178752109,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "6fdfe38dfe49b20d099969aaa0c1ae0caa411bc861f744e0503e8036c9550a23",
+      "asr": {
+        "status": "checked",
+        "transcript": "노트를 펴보니 트리케라톱 쓰는 식물을 먹었어. 나뭇잎 표시의 로봇을 같이 살펴보자.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9705882352941176,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "스",
+            "transcribed": "쓰"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Dinosaur name final consonant tension differs in transcript; wording is not removed or silently treated as exact.",
+      "active_speed_change_fraction": 0.10563380281690149
+    },
+    {
+      "id": "dino_741013816237ecb6",
+      "text": "크게 보고 싶으면 돋보기, 설명을 듣고 싶으면 듣기 장치야. 둘 다 단서를 알려 줘.",
+      "text_sha256": "741013816237ecb64435d995de937f19d67e1f8ba6ce6646c3f11cf62ee31028",
+      "asset": "story_audio/dino_741013816237ecb6.wav",
+      "sha256": "334f76da957e887ea5afa38147f8247735066994943acc4dcefab04a2de3be56",
+      "duration_ms": 6080,
+      "kind": "legacy_story",
+      "selected_attempt": 1,
+      "seed": 47130,
+      "sample_rate": 24000,
+      "frames": 145920,
+      "duration_s": 6.08,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -5.09,
+        "static_gain_db": -2.1700000000000017,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 145920,
+        "duration_s": 6.08,
+        "sample_peak": 0.55682373046875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.7,
+        "core_seconds_proxy": 5.33,
+        "characters": 31,
+        "characters_per_active_second_proxy": 8.378378378378377,
+        "characters_per_core_second_proxy": 5.816135084427767,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "3653877c59042fa47325d59089aa0f9b5c9ab97d4cd20eea72864cba808db541",
+      "asr": {
+        "status": "checked",
+        "transcript": "크게 보고 싶으면 돋보기, 설명을 듣고 싶으면 듣기 장치야. 둘 다 단서를 알려줘.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.08648648648648627
+    },
+    {
+      "id": "dino_7d91d8bc0a744ed7",
+      "text": "등에 판이 있는 공룡은 스테고사우루스야. 뿔이 세 개인 트리케라톱스가 그려진 로봇이 반짝였어.",
+      "text_sha256": "7d91d8bc0a744ed766fbe4c14c9703f54a6a7f6b81a5af69de0f552880ad5fb7",
+      "asset": "story_audio/dino_7d91d8bc0a744ed7.wav",
+      "sha256": "a8f205c8e96475c1d50eecd78e802238797e4a68ba2b6cc5627080f87476493d",
+      "duration_ms": 6960,
+      "kind": "current_story",
+      "selected_attempt": 3,
+      "seed": 67131,
+      "sample_rate": 24000,
+      "frames": 167040,
+      "duration_s": 6.96,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.3,
+        "static_gain_db": -2.6999999999999993,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 167040,
+        "duration_s": 6.96,
+        "sample_peak": 0.42938232421875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.98,
+        "core_seconds_proxy": 6.34,
+        "characters": 39,
+        "characters_per_active_second_proxy": 7.831325301204819,
+        "characters_per_core_second_proxy": 6.151419558359621,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "041424332c2c11d1ee2d2db69826d9718bd3820c4a0d359d66dac9b11281f281",
+      "asr": {
+        "status": "checked",
+        "transcript": "등의 판이 있는 공룡은 스테고사우루스야. 뿌리 3개인 트리케라톱스가 그려진 로봇이 반짝였어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.8974358974358975,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "에",
+            "transcribed": "의"
+          },
+          {
+            "kind": "replace",
+            "expected": "뿔이세",
+            "transcribed": "뿌리3"
+          }
+        ],
+        "severe_text_mismatch": true,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 뿔이/뿌리 liaison and 세/3 number rendering are transcription ambiguities; baseline F2 also produces 뿌리/등의. Keep the raw mismatch count. Select a complete candidate without the separate 볼/반작 substitutions."
+    },
+    {
+      "id": "dino_823088a509da2235",
+      "text": "공작실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "823088a509da223548c450ce6c56426a736bcb0a08c521e285ee9637c37989e1",
+      "asset": "story_audio/dino_823088a509da2235.wav",
+      "sha256": "f474c9155d3f78f67291b7b256fbe2275b1a184caabf692884dc64f020a7a962",
+      "duration_ms": 5520,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57132,
+      "sample_rate": 24000,
+      "frames": 132480,
+      "duration_s": 5.52,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.11,
+        "static_gain_db": -1.9899999999999984,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 132480,
+        "duration_s": 5.52,
+        "sample_peak": 0.487701416015625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.07,
+        "core_seconds_proxy": 4.2,
+        "characters": 20,
+        "characters_per_active_second_proxy": 6.514657980456026,
+        "characters_per_core_second_proxy": 4.761904761904762,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "8bf899b0e7380b59aa7a9b85ea99f283661d387dc0cba4b45edfdb711ca531e0",
+      "asr": {
+        "status": "checked",
+        "transcript": "공작 실문이 열렸어. 로봇 엽상자의 알 모형이 있네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "옆",
+            "transcribed": "엽"
+          },
+          {
+            "kind": "replace",
+            "expected": "에",
+            "transcribed": "의"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Choose take2: 옆/엽 is consistent with coda realization; 에/의 remains uncertain. Take1 협 substitution is not selected. No clause was removed.",
+      "active_speed_change_fraction": 0.055374592833876246
+    },
+    {
+      "id": "dino_838fe3e372b1270b",
+      "text": "온실에는 없네. 로봇이 연구소 팀을 불렀어. 오누가 찾은 단서를 팀에 전했어.",
+      "text_sha256": "838fe3e372b1270baa26bb65f1e1d512698025fb8320e334fdbd2dfb044571df",
+      "asset": "story_audio/dino_838fe3e372b1270b.wav",
+      "sha256": "5c844b3ef3b8ae47db4368c5bb44ec2b0b84105219298605703554d141529ec1",
+      "duration_ms": 7120,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47133,
+      "sample_rate": 24000,
+      "frames": 170881,
+      "duration_s": 7.120041666666666,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -4.92,
+        "static_gain_db": -2.780000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 170881,
+        "duration_s": 7.120041666666666,
+        "sample_peak": 0.5672607421875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.05,
+        "core_seconds_proxy": 6.16,
+        "characters": 30,
+        "characters_per_active_second_proxy": 7.407407407407407,
+        "characters_per_core_second_proxy": 4.87012987012987,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "a1a9bbba738a4dbf87ecc726cc271b3746c34415833e08e10d3ff8d9eb91a9e6",
+      "asr": {
+        "status": "checked",
+        "transcript": "온실에는 없네. 로봇이 연구소 팀을 불렀어. 온우가 찾은 단서를 팀에 전했어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9333333333333333,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "오누",
+            "transcribed": "온우"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "active_speed_change_fraction": -0.08148148148148149
+    },
+    {
+      "id": "dino_8ea2246b880d3f27",
+      "text": "나뭇잎 표시가 붙은 로봇이 두 대네. 로봇의 공룡 그림을 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+      "text_sha256": "8ea2246b880d3f27909ce3f80cd838ad7300043cbcd207d666f187f30901ba5c",
+      "asset": "story_audio/dino_8ea2246b880d3f27.wav",
+      "sha256": "a09af0b52f9b56a23b49f6e0592af5dede6a4d2a5fe75bdca291b1b27295b9a6",
+      "duration_ms": 8080,
+      "kind": "legacy_story",
+      "selected_attempt": 1,
+      "seed": 47134,
+      "sample_rate": 24000,
+      "frames": 193920,
+      "duration_s": 8.08,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.02,
+        "static_gain_db": -0.4800000000000004,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 193920,
+        "duration_s": 8.08,
+        "sample_peak": 0.624664306640625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.92,
+        "core_seconds_proxy": 6.95,
+        "characters": 39,
+        "characters_per_active_second_proxy": 7.926829268292683,
+        "characters_per_core_second_proxy": 5.611510791366906,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "937daa43480c0ecf399952a2f8881e3e84eb1b6916af8a95af58120250021516",
+      "asr": {
+        "status": "checked",
+        "transcript": "나뭇잎표시가 붙은 로봇이 두대네. 로봇의 공룡 그림을 돋보기로 볼까? 듣기 장치로 설명을 들을까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.04878048780487809
+    },
+    {
+      "id": "dino_98a5f9eff626721e",
+      "text": "상자 표지에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "98a5f9eff626721e81f4a2c000d2f4b4f8b469b5a81d8874185781f06c8f4727",
+      "asset": "story_audio/dino_98a5f9eff626721e.wav",
+      "sha256": "f19a94b34ed876e25d2438c426411c9184a4c3fca5d4f86d61725eadb75f1d1b",
+      "duration_ms": 6560,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47135,
+      "sample_rate": 24000,
+      "frames": 157440,
+      "duration_s": 6.56,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -3.36,
+        "static_gain_db": -0.1700000000000017,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 157440,
+        "duration_s": 6.56,
+        "sample_peak": 0.674163818359375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.89,
+        "core_seconds_proxy": 5.52,
+        "characters": 29,
+        "characters_per_active_second_proxy": 7.4550128534704365,
+        "characters_per_core_second_proxy": 5.253623188405798,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "808dd6b6f0b20709a1e88aceca24134cc0707dfe59c78ad2dba59ea5246527ad",
+      "asr": {
+        "status": "checked",
+        "transcript": "상자 표지에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까? 공작실로 갈까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": -0.015424164524421635
+    },
+    {
+      "id": "dino_9d7c579e227e5115",
+      "text": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+      "text_sha256": "9d7c579e227e51152130acd9d8ebe26ce9f344d7802ca2b483b77e5daf7bd59a",
+      "asset": "story_audio/dino_9d7c579e227e5115.wav",
+      "sha256": "ae7dd188f82596f4f392d73cb36c1ab4fd2040c30564a167aeb3c441822abf10",
+      "duration_ms": 7760,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47136,
+      "sample_rate": 24000,
+      "frames": 186240,
+      "duration_s": 7.76,
+      "loudness": {
+        "integrated_lufs": -23.02,
+        "true_peak_dbtp": -3.94,
+        "static_gain_db": -1.6600000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 186240,
+        "duration_s": 7.76,
+        "sample_peak": 0.62921142578125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.21,
+        "core_seconds_proxy": 6.97,
+        "characters": 36,
+        "characters_per_active_second_proxy": 8.551068883610451,
+        "characters_per_core_second_proxy": 5.164992826398852,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "3f1ca0e4a615f507a402dc744793798c32d2fc18128908749e20c78b0352f152",
+      "asr": {
+        "status": "checked",
+        "transcript": "노트에는 트리캐라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까? 생선일까?",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9722222222222222,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "케",
+            "transcribed": "캐"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 케/캐 cannot be reliably resolved from this ASR output; both choice labels and full question remain present.",
+      "active_speed_change_fraction": 0.10213776722090251
+    },
+    {
+      "id": "dino_a1329bedadd84032",
+      "text": "로봇의 노트에 트리케라톱스라고 적혀 있어. 먹이 그림도 찾자. 나뭇잎일까, 생선일까?",
+      "text_sha256": "a1329bedadd84032089f4b68a370acb62e138f44a6f0adc5d31bc85aa54e70ac",
+      "asset": "story_audio/dino_a1329bedadd84032.wav",
+      "sha256": "891d52e9b5861b2d4b067f202ce5e92dc159819034b6a0f5730400910eb37040",
+      "duration_ms": 7600,
+      "kind": "legacy_story",
+      "selected_attempt": 1,
+      "seed": 47137,
+      "sample_rate": 24000,
+      "frames": 182400,
+      "duration_s": 7.6,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -7.35,
+        "static_gain_db": -3.41,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 182400,
+        "duration_s": 7.6,
+        "sample_peak": 0.427337646484375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.44,
+        "core_seconds_proxy": 7.0,
+        "characters": 34,
+        "characters_per_active_second_proxy": 7.657657657657657,
+        "characters_per_core_second_proxy": 4.857142857142857,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "e468f5c47c229cc3225667ee4d3a1caed250ce3cf17d42b841e8031a7dbea54b",
+      "asr": {
+        "status": "checked",
+        "transcript": "로봇의 노트에 트리캐라톱스라고 적혀 있어. 먹이 그림도 찾자. 나뭇잎일까. 생선일까.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9705882352941176,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "케",
+            "transcribed": "캐"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 케/캐 cannot be reliably resolved from this ASR output; both choice labels and full question remain present.",
+      "active_speed_change_fraction": -0.10810810810810834
+    },
+    {
+      "id": "dino_a2feba86cc363503",
+      "text": "처음엔 숲에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "a2feba86cc3635039a8f411eccb2a03ba634af5486737a1097d4f011cd56ec7f",
+      "asset": "story_audio/dino_a2feba86cc363503.wav",
+      "sha256": "7d9df0abd8d0ec38bdcead2f5d10a390b18fff09f86d1bfc186c5468a710cd10",
+      "duration_ms": 10640,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47138,
+      "sample_rate": 24000,
+      "frames": 255360,
+      "duration_s": 10.64,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -8.63,
+        "static_gain_db": -4.109999999999999,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 255360,
+        "duration_s": 10.64,
+        "sample_peak": 0.36505126953125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 7.16,
+        "core_seconds_proxy": 9.92,
+        "characters": 48,
+        "characters_per_active_second_proxy": 6.70391061452514,
+        "characters_per_core_second_proxy": 4.838709677419355,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "40d366b70c910beafab67d39cce0fce4d9fdec5267bfc28176d335d803c28e0d",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음에 숲에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전 시대에 돌려놨어. 우리 함께 찾았네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9791666666666666,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "엔",
+            "transcribed": "에"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 처음엔/처음에 differs by particle; complete ending sequence is retained. Human listening remains outstanding.",
+      "active_speed_change_fraction": -0.13268156424581
+    },
+    {
+      "id": "dino_a5dae647ab4a6993",
+      "text": "처음엔 물가에서 바퀴 자국을 봤어. 듣기 장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "a5dae647ab4a6993d1c5195482f99a9d2dfb46d662a4d4e15690de7da46c8d77",
+      "asset": "story_audio/dino_a5dae647ab4a6993.wav",
+      "sha256": "1f26de10dc0ea84bba3a5bd82f59a2a74087ffa3cb7053131296ccccb91e143f",
+      "duration_ms": 10320,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47139,
+      "sample_rate": 24000,
+      "frames": 247680,
+      "duration_s": 10.32,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.63,
+        "static_gain_db": -1.620000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 247680,
+        "duration_s": 10.32,
+        "sample_peak": 0.58673095703125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 6.86,
+        "core_seconds_proxy": 9.76,
+        "characters": 51,
+        "characters_per_active_second_proxy": 7.434402332361516,
+        "characters_per_core_second_proxy": 5.225409836065574,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "183216512c1069ab1db0ad79b5812cde341a463d130a4ec23f5deb07f160a824",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음엔 물가에서 바퀴 자국을 봤어. 듣기장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전 시대에 돌려놨어. 우리 함께 찾았네.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": -0.03206997084548113
+    },
+    {
+      "id": "dino_a70d680c2a1c7ad0",
+      "text": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
+      "text_sha256": "a70d680c2a1c7ad03c938749a762e553f7d209fa573a43065d9de6665cee1fd2",
+      "asset": "story_audio/dino_a70d680c2a1c7ad0.wav",
+      "sha256": "cfecb6a99b1195cd6f5ca64135fbc985a00c925a6c21ad3ecf7aa4f7ecc2fb9d",
+      "duration_ms": 5200,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47140,
+      "sample_rate": 24000,
+      "frames": 124800,
+      "duration_s": 5.2,
+      "loudness": {
+        "integrated_lufs": -23.67,
+        "true_peak_dbtp": -3.25,
+        "static_gain_db": -1.76,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 124800,
+        "duration_s": 5.2,
+        "sample_peak": 0.676239013671875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.22,
+        "core_seconds_proxy": 3.87,
+        "characters": 26,
+        "characters_per_active_second_proxy": 8.074534161490682,
+        "characters_per_core_second_proxy": 6.718346253229974,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "719be5d757e26881d4f879887332479b9e372d8c10636e089feb786dd3928dc1",
+      "asr": {
+        "status": "checked",
+        "transcript": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라줘, 오늘도 함께 찾아볼게.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9615384615384616,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "누",
+            "transcribed": "늘"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. Proper-name spelling/substitution by small ASR remains flagged; Onu name naturalness needs listening. No missing story choice or changed action is detected by the transcript comparison.",
+      "active_speed_change_fraction": 0.20186335403726696
+    },
+    {
+      "id": "dino_a9d70186c036fec7",
+      "text": "자국 끝에 초록 동그라미가 있어. 온실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+      "text_sha256": "a9d70186c036fec7d497f30afad069e955900322c379c2d75a645de62aa92244",
+      "asset": "story_audio/dino_a9d70186c036fec7.wav",
+      "sha256": "2993e8a1224261e82b6e64159c21f626d6d8ca2ba4728c73ac1591f0c863ab53",
+      "duration_ms": 7360,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47141,
+      "sample_rate": 24000,
+      "frames": 176640,
+      "duration_s": 7.36,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -6.71,
+        "static_gain_db": -3.8000000000000007,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 176640,
+        "duration_s": 7.36,
+        "sample_peak": 0.4615478515625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 4.44,
+        "core_seconds_proxy": 6.61,
+        "characters": 31,
+        "characters_per_active_second_proxy": 6.981981981981981,
+        "characters_per_core_second_proxy": 4.689863842662632,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "f7f89cd4d5d8bee7bd3aa24dfff268de270f7946454b6a4ccec83341f09a5cc3",
+      "asr": {
+        "status": "checked",
+        "transcript": "자국 끝에 초록 동그라미가 있어. 온실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "cue_before": "cue_discovery",
+      "active_speed_change_fraction": -0.2072072072072073
+    },
+    {
+      "id": "dino_b60583bb4ad0b558",
+      "text": "온실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "b60583bb4ad0b5587e73029f907929c7e795afa217c85a3a00a6e3452a2360d6",
+      "asset": "story_audio/dino_b60583bb4ad0b558.wav",
+      "sha256": "01078be9ad1c7eefb55d580966de80bd6576177227ccaef69ee944962012a5d3",
+      "duration_ms": 4000,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47142,
+      "sample_rate": 24000,
+      "frames": 96000,
+      "duration_s": 4.0,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -6.49,
+        "static_gain_db": -0.7399999999999984,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 96000,
+        "duration_s": 4.0,
+        "sample_peak": 0.4735107421875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.77,
+        "core_seconds_proxy": 3.37,
+        "characters": 19,
+        "characters_per_active_second_proxy": 6.859205776173285,
+        "characters_per_core_second_proxy": 5.637982195845697,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "019025bb1d08c5c7a4569de80435fcd59b9217d12b3efb3a41b6f6d5bf5a8f04",
+      "asr": {
+        "status": "checked",
+        "transcript": "온실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.09386281588447631
+    },
+    {
+      "id": "dino_d1f01756b2b39712",
+      "text": "연구소 팀이 온실에서 알 모형을 찾았대. 듣기 장치로 공룡 그림 설명을 들었지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "d1f01756b2b397126a61ccf58f8035f1b0be57743bc85abbbf576af583afbcf0",
+      "asset": "story_audio/dino_d1f01756b2b39712.wav",
+      "sha256": "5c4e46c5e6fe552255fd6973a42ac159ecec7b1902023b250c1bfb676a51ed8a",
+      "duration_ms": 10160,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47143,
+      "sample_rate": 24000,
+      "frames": 243840,
+      "duration_s": 10.16,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -4.49,
+        "static_gain_db": -1.1900000000000013,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 243840,
+        "duration_s": 10.16,
+        "sample_peak": 0.57904052734375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 6.81,
+        "core_seconds_proxy": 9.16,
+        "characters": 51,
+        "characters_per_active_second_proxy": 7.48898678414097,
+        "characters_per_core_second_proxy": 5.567685589519651,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "985e83ae482c23f583fc1cabe484ab18165385b3ec7cf7ef62486cc747d85260",
+      "asr": {
+        "status": "checked",
+        "transcript": "연구소 티미 온실에서 R 모형을 찾았대. 듣기장치로 공룡 그림 설명을 들었지? 우리가 찾은 로봇이 R 모형을 전시대에 돌려놨어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9215686274509803,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "팀이",
+            "transcribed": "티미"
+          },
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          },
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 알/R and 팀이/티미 are transcription/liaison ambiguities, not a detected omitted clause. All ending events are present.",
+      "active_speed_change_fraction": 0.06607929515418509
+    },
+    {
+      "id": "dino_d50f7ee068802340",
+      "text": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
+      "text_sha256": "d50f7ee06880234003668d3743ebe5745371cb71faee4a5debbe39a1e27da304",
+      "asset": "story_audio/dino_d50f7ee068802340.wav",
+      "sha256": "86454703590dbaaf174379dc336396fd9f8afa928a4013fb13f8b0a6d1efae27",
+      "duration_ms": 4480,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47144,
+      "sample_rate": 24000,
+      "frames": 107520,
+      "duration_s": 4.48,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.8,
+        "static_gain_db": -2.9899999999999984,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 107520,
+        "duration_s": 4.48,
+        "sample_peak": 0.404205322265625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.57,
+        "core_seconds_proxy": 4.11,
+        "characters": 28,
+        "characters_per_active_second_proxy": 7.843137254901961,
+        "characters_per_core_second_proxy": 6.81265206812652,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "ecac7dbc30dfcb7005aba677e8d9f9cb0f4650d65c8dca35122d065dec0c840d",
+      "asr": {
+        "status": "checked",
+        "transcript": "돋보기는 작은 그림을 크게 보여줘, 듣기장치는 그림을 말로 설명해줘.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.0
+    },
+    {
+      "id": "dino_e566c68f0d20b5e0",
+      "text": "처음 찾은 상자 표지에서 온실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "e566c68f0d20b5e034c4a574b24d19fcd014cc5c2bb57cbc3bec29029fe22ead",
+      "asset": "story_audio/dino_e566c68f0d20b5e0.wav",
+      "sha256": "3a822f1940838841568428610555ac9570cfbc2928e7e8e8dab6a3a356f676c9",
+      "duration_ms": 5680,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47145,
+      "sample_rate": 24000,
+      "frames": 136320,
+      "duration_s": 5.68,
+      "loudness": {
+        "integrated_lufs": -22.98,
+        "true_peak_dbtp": -5.44,
+        "static_gain_db": -2.6700000000000017,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 136320,
+        "duration_s": 5.68,
+        "sample_peak": 0.534271240234375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.7,
+        "core_seconds_proxy": 4.66,
+        "characters": 27,
+        "characters_per_active_second_proxy": 7.297297297297297,
+        "characters_per_core_second_proxy": 5.793991416309012,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "18b2029f15218ee2d8552408665244530d23df70e4c453f4c843a03595e002bf",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음 찾은 상자 표지에서 온실 표시를 봤어? 로봇과 그곳으로 가보자.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.0
+    },
+    {
+      "id": "dino_e7f22b727e22e3c6",
+      "text": "트리케라톱스 그림의 로봇이 반짝였어. 알 모형을 옮긴 로봇을 찾았네.",
+      "text_sha256": "e7f22b727e22e3c6db2fdd5c48f2c74055c533ac8e00bb7f27042cd3b6107100",
+      "asset": "story_audio/dino_e7f22b727e22e3c6.wav",
+      "sha256": "4954c789de262b03ac3396d6a3631c5bab78dfc66787caba0e0f20192df5170d",
+      "duration_ms": 5120,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47146,
+      "sample_rate": 24000,
+      "frames": 122880,
+      "duration_s": 5.12,
+      "loudness": {
+        "integrated_lufs": -22.98,
+        "true_peak_dbtp": -5.98,
+        "static_gain_db": -2.370000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 122880,
+        "duration_s": 5.12,
+        "sample_peak": 0.50250244140625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.42,
+        "core_seconds_proxy": 4.4,
+        "characters": 28,
+        "characters_per_active_second_proxy": 8.187134502923977,
+        "characters_per_core_second_proxy": 6.363636363636363,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "549e618c01233e943e2c2238f22f631b5c7e57aad77ccf043e627cb99976e480",
+      "asr": {
+        "status": "checked",
+        "transcript": "트리케라톱스 그림의 로봇이 반짝였어. R 모형을 옮긴 로봇을 찾았네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9642857142857143,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 알/R and 팀이/티미 are transcription/liaison ambiguities, not a detected omitted clause. All ending events are present.",
+      "active_speed_change_fraction": 0.011695906432748426
+    },
+    {
+      "id": "dino_e92826c9a6ad84c9",
+      "text": "숲길에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+      "text_sha256": "e92826c9a6ad84c99b5f6cfe4633006f20479ca165eeed37750af5e76c38053f",
+      "asset": "story_audio/dino_e92826c9a6ad84c9.wav",
+      "sha256": "605ee1eef41aebf5559126e6e59330c12d0a80c4f4aec8c592bd5cbea31a13f8",
+      "duration_ms": 7120,
+      "kind": "current_story",
+      "selected_attempt": 2,
+      "seed": 57147,
+      "sample_rate": 24000,
+      "frames": 170881,
+      "duration_s": 7.120041666666666,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.64,
+        "static_gain_db": -1.9600000000000009,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 170881,
+        "duration_s": 7.120041666666666,
+        "sample_peak": 0.586029052734375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.93,
+        "core_seconds_proxy": 6.17,
+        "characters": 29,
+        "characters_per_active_second_proxy": 7.379134860050891,
+        "characters_per_core_second_proxy": 4.700162074554295,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "9f9baab5c942000d6cae8919ee1cc788aa796dcc0c350a4b88f5193692eb98f2",
+      "asr": {
+        "status": "checked",
+        "transcript": "숲길에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까? 상자 표지를 볼까?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Risk retake2 is ASR exact, replacing original 운반/온반 ambiguity.",
+      "cue_before": "cue_forest",
+      "active_speed_change_fraction": -0.015267175572518998
+    },
+    {
+      "id": "dino_fac7a4fade3d402b",
+      "text": "연구소 팀이 공작실에서 알 모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "fac7a4fade3d402b5b234568891452c3dc199963a9d439322de278bfeb3da661",
+      "asset": "story_audio/dino_fac7a4fade3d402b.wav",
+      "sha256": "e446af738385b74ef64fa01f07fba23af1c5b84334e04b5223e96cf7338d5ec7",
+      "duration_ms": 10080,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47148,
+      "sample_rate": 24000,
+      "frames": 241920,
+      "duration_s": 10.08,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -6.74,
+        "static_gain_db": -3.3099999999999987,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 241920,
+        "duration_s": 10.08,
+        "sample_peak": 0.458984375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 7.14,
+        "core_seconds_proxy": 9.38,
+        "characters": 50,
+        "characters_per_active_second_proxy": 7.002801120448179,
+        "characters_per_core_second_proxy": 5.330490405117271,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "a4783d5219cd78a283f9ee41d4d117c15466f86076d721ff819d3cddb9c9777a",
+      "asr": {
+        "status": "checked",
+        "transcript": "연구소 팀이 공작실에서 R 모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 R 모형을 전 시대에 돌려놨어.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.96,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          },
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 알/R and 팀이/티미 are transcription/liaison ambiguities, not a detected omitted clause. All ending events are present.",
+      "active_speed_change_fraction": 0.0056022408963585235
+    },
+    {
+      "id": "dino_fcb1e1f2a1cd6567",
+      "text": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "fcb1e1f2a1cd65671b69e9431dfaaaf331f99209a4c827ecad7dee35965c4122",
+      "asset": "story_audio/dino_fcb1e1f2a1cd6567.wav",
+      "sha256": "53f5bc87d9091211550ae2ffd8050927e9e1fc8171a2504ca96d8ec3fd3aa22b",
+      "duration_ms": 5600,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47149,
+      "sample_rate": 24000,
+      "frames": 134400,
+      "duration_s": 5.6,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -3.54,
+        "static_gain_db": -0.5899999999999999,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 134400,
+        "duration_s": 5.6,
+        "sample_peak": 0.660614013671875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.89,
+        "core_seconds_proxy": 4.81,
+        "characters": 28,
+        "characters_per_active_second_proxy": 7.197943444730077,
+        "characters_per_core_second_proxy": 5.8212058212058215,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "ea62bdf5238aaf86fef0272f21ba3186575837f2fac9389b8929872e1c72d8ea",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가보자.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen",
+      "active_speed_change_fraction": 0.01285347043701801
+    },
+    {
+      "id": "dino_fcbf9927c305e23a",
+      "text": "처음엔 물가에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "fcbf9927c305e23aff084acaaa6116b25509d2e38f124a27857e4d38ee017ef7",
+      "asset": "story_audio/dino_fcbf9927c305e23a.wav",
+      "sha256": "1e182212b947472291cf8e16a676a774ef8be82447eec5ea28576a68362155f8",
+      "duration_ms": 10960,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47150,
+      "sample_rate": 24000,
+      "frames": 263040,
+      "duration_s": 10.96,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.61,
+        "static_gain_db": -4.390000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 263040,
+        "duration_s": 10.96,
+        "sample_peak": 0.41473388671875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 7.45,
+        "core_seconds_proxy": 10.07,
+        "characters": 49,
+        "characters_per_active_second_proxy": 6.577181208053691,
+        "characters_per_core_second_proxy": 4.865938430983118,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "87dfb4de136a9616e5accf57ee020299e2b07bce5ce722ce60a65c3da150ffc0",
+      "asr": {
+        "status": "checked",
+        "transcript": "처음엔 물가에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 R모형을 전 시대에 돌려놨어. 우리 함께 찾았네.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9795918367346939,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "알",
+            "transcribed": "r"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 알/R and 팀이/티미 are transcription/liaison ambiguities, not a detected omitted clause. All ending events are present.",
+      "active_speed_change_fraction": -0.14765100671140952
+    },
+    {
+      "id": "dino_fcd97438d8bc56b2",
+      "text": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
+      "text_sha256": "fcd97438d8bc56b28a9adf5089c9bd2c27cc217ab15ea82bbe622ce398a411ef",
+      "asset": "story_audio/dino_fcd97438d8bc56b2.wav",
+      "sha256": "e616155fa362c460bef8b7b836bcf106fa0a91d81d424a7f64658f8b696d094e",
+      "duration_ms": 5120,
+      "kind": "current_story",
+      "selected_attempt": 1,
+      "seed": 47151,
+      "sample_rate": 24000,
+      "frames": 122880,
+      "duration_s": 5.12,
+      "loudness": {
+        "integrated_lufs": -23.02,
+        "true_peak_dbtp": -3.95,
+        "static_gain_db": 0.05000000000000071,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 122880,
+        "duration_s": 5.12,
+        "sample_peak": 0.62860107421875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.06,
+        "core_seconds_proxy": 4.12,
+        "characters": 27,
+        "characters_per_active_second_proxy": 8.823529411764707,
+        "characters_per_core_second_proxy": 6.553398058252427,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "62bf43be6bdbeb6345cdd0020b4acb6d397ba10f56b6e1c90df9df0168150f58",
+      "asr": {
+        "status": "checked",
+        "transcript": "따라가며 찾고 싶으면 박희자국, 적힌 곳을 보고 싶으면 상자표지야.",
+        "normalized_exact_match": false,
+        "sequence_match_ratio": 0.9259259259259259,
+        "differences": [
+          {
+            "kind": "replace",
+            "expected": "바퀴",
+            "transcribed": "박희"
+          }
+        ],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "Reviewed original ASR differences without rewriting them. Full sentence and normal EOS retained; automatic screening is not human listening or native-pronunciation certification. 바퀴 is transcribed as the name 박희. This may reflect ASR segmentation or pronunciation; it is not certified phonetically identical. Keep a listening-review flag.",
+      "active_speed_change_fraction": 0.2941176470588236
+    },
+    {
+      "id": "onu_02f1703fbae8c937",
+      "text": "천천히 생각해도 괜찮아.",
+      "text_sha256": "02f1703fbae8c937dfea5064551d4e21ad7807152773a42fca5e2514e914e3a8",
+      "asset": "story_audio/onu_02f1703fbae8c937.wav",
+      "sha256": "afbc4269d5eb9804d4a6cd26aa54fefd18ca87a3337f0fb7ec5dbab73b8df7ae",
+      "duration_ms": 2560,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47152,
+      "sample_rate": 24000,
+      "frames": 61440,
+      "duration_s": 2.56,
+      "loudness": {
+        "integrated_lufs": -23.01,
+        "true_peak_dbtp": -6.35,
+        "static_gain_db": -0.019999999999999574,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 61440,
+        "duration_s": 2.56,
+        "sample_peak": 0.4715576171875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 1.33,
+        "core_seconds_proxy": 1.43,
+        "characters": 10,
+        "characters_per_active_second_proxy": 7.518796992481203,
+        "characters_per_core_second_proxy": 6.993006993006993,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "e3c47e1c53297dc3aedb661e84f134e4f2319e6ada49a26481ff296a8c062f3b",
+      "asr": {
+        "status": "checked",
+        "transcript": "천천히 생각해도 괜찮아.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_2b7b75a34f51025e",
+      "text": "둘이 함께할 때는 내 이름을 먼저 말하고, 고른 말을 이어서 말해 줘.",
+      "text_sha256": "2b7b75a34f51025ed17e403e0a86555780f7d00c7e6ae5b638217c7d3e97d98c",
+      "asset": "story_audio/onu_2b7b75a34f51025e.wav",
+      "sha256": "626665282ef79de4c9c7582fb43a31fe664b080f14cfcf3401f37a5f4a9739d0",
+      "duration_ms": 5040,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47153,
+      "sample_rate": 24000,
+      "frames": 120960,
+      "duration_s": 5.04,
+      "loudness": {
+        "integrated_lufs": -22.99,
+        "true_peak_dbtp": -4.94,
+        "static_gain_db": -0.23999999999999844,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 120960,
+        "duration_s": 5.04,
+        "sample_peak": 0.558563232421875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.31,
+        "core_seconds_proxy": 3.99,
+        "characters": 26,
+        "characters_per_active_second_proxy": 7.854984894259818,
+        "characters_per_core_second_proxy": 6.516290726817043,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "3abf8ecba30c02390cfb1bb52164f9dee16a5fb7a189b327ff8065f3330deb8a",
+      "asr": {
+        "status": "checked",
+        "transcript": "둘이 함께할 때는 내 이름을 먼저 말하고 고른 말을 이어서 말해줘.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_592e066f5753dfcf",
+      "text": "응, 여기 있어.",
+      "text_sha256": "592e066f5753dfcffa8544e9735a64dbec23c2e6323db8d3cc2a69fab7dbda28",
+      "asset": "story_audio/onu_592e066f5753dfcf.wav",
+      "sha256": "82dd89b95b77f6e068e9588550ae6714cf3c9b8524957f78655e3d5a58b01959",
+      "duration_ms": 2160,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47154,
+      "sample_rate": 24000,
+      "frames": 51840,
+      "duration_s": 2.16,
+      "loudness": {
+        "integrated_lufs": -23.02,
+        "true_peak_dbtp": -3.32,
+        "static_gain_db": 4.530000000000001,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 51840,
+        "duration_s": 2.16,
+        "sample_peak": 0.68109130859375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 0.84,
+        "core_seconds_proxy": 1.28,
+        "characters": 5,
+        "characters_per_active_second_proxy": 5.9523809523809526,
+        "characters_per_core_second_proxy": 3.90625,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "27640e0f8de255845daf17893233d4a5606e43504d0bf4b82ef3496e9a170d8c",
+      "asr": {
+        "status": "checked",
+        "transcript": "응. 여기 있어.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_8688d8bb463f9b8e",
+      "text": "어느 쪽인지 내가 잘 모르겠어. 다시 물어볼게.",
+      "text_sha256": "8688d8bb463f9b8e00344685306d57378b4e736c043cb026c968cae46ca17ae7",
+      "asset": "story_audio/onu_8688d8bb463f9b8e.wav",
+      "sha256": "a81cf3bb7b993799b6dac48aedc74e5d91725dce55bc7660d9b0be9a0d4515ad",
+      "duration_ms": 4080,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47155,
+      "sample_rate": 24000,
+      "frames": 97920,
+      "duration_s": 4.08,
+      "loudness": {
+        "integrated_lufs": -23.02,
+        "true_peak_dbtp": -4.93,
+        "static_gain_db": -1.4299999999999997,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 97920,
+        "duration_s": 4.08,
+        "sample_peak": 0.5599365234375,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.52,
+        "core_seconds_proxy": 3.76,
+        "characters": 18,
+        "characters_per_active_second_proxy": 7.142857142857143,
+        "characters_per_core_second_proxy": 4.787234042553192,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "d4aafd976401727af3e9de615bfef47c46f77e0de29d607ef35e1cdd46938ae5",
+      "asr": {
+        "status": "checked",
+        "transcript": "어느 쪽인지 내가 잘 모르겠어. 다시 물어볼게.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_8a2aa0dc157d243e",
+      "text": "천천히 생각해도 괜찮아. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "8a2aa0dc157d243eaae42b1ef7bdda3480a4ff2017a8fce09637f8ef284949d1",
+      "asset": "story_audio/onu_8a2aa0dc157d243e.wav",
+      "sha256": "31549a39df8e6e670b510b1d23fce2279a782163242014c74ac1ec420c32e33b",
+      "duration_ms": 4480,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47156,
+      "sample_rate": 24000,
+      "frames": 107520,
+      "duration_s": 4.48,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.54,
+        "static_gain_db": -1.5300000000000011,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 107520,
+        "duration_s": 4.48,
+        "sample_peak": 0.520782470703125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.21,
+        "core_seconds_proxy": 3.84,
+        "characters": 24,
+        "characters_per_active_second_proxy": 7.4766355140186915,
+        "characters_per_core_second_proxy": 6.25,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "9dd0d18d0502e6eb51d3af0c0273edb3a9e8d2c974e0dc3d760fc5e420ed06d6",
+      "asr": {
+        "status": "checked",
+        "transcript": "천천히 생각해도 괜찮아. 누구의 선택인지 이름만 말해줄래?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_8f8aac8ebce45da4",
+      "text": "아직 선택하지 않았어. 원하는 선택을 다시 말해 줘.",
+      "text_sha256": "8f8aac8ebce45da49ee6139fc95c36addd7dd315995921d18473e4fe2448bc32",
+      "asset": "story_audio/onu_8f8aac8ebce45da4.wav",
+      "sha256": "b3a7991caa46a40c4a285cae61dbf20365643d14cb04829e18a4427be745279e",
+      "duration_ms": 5200,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47157,
+      "sample_rate": 24000,
+      "frames": 124800,
+      "duration_s": 5.2,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.48,
+        "static_gain_db": -3.2699999999999996,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 124800,
+        "duration_s": 5.2,
+        "sample_peak": 0.528106689453125,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.52,
+        "core_seconds_proxy": 4.15,
+        "characters": 20,
+        "characters_per_active_second_proxy": 7.936507936507937,
+        "characters_per_core_second_proxy": 4.8192771084337345,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "d78d7604baf0dd53a2f8101e93388991b0ff5f7fccec3aa724530c7d3d7cbf28",
+      "asr": {
+        "status": "checked",
+        "transcript": "아직 선택하지 않았어. 원하는 선택을 다시 말해줘.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_a29b4330cfc58198",
+      "text": "그 말은 내가 잘 이해하지 못했어. 다시 물어볼게.",
+      "text_sha256": "a29b4330cfc58198e4dd0b7740cca06fc85e9ab0f7291ad43936c6b0677b4b8a",
+      "asset": "story_audio/onu_a29b4330cfc58198.wav",
+      "sha256": "e2d8597d538baf725271ac7fbde949cb8f457ef4174dd0595ac3be9090f12492",
+      "duration_ms": 4080,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47158,
+      "sample_rate": 24000,
+      "frames": 97920,
+      "duration_s": 4.08,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -5.03,
+        "static_gain_db": -2.8900000000000006,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 97920,
+        "duration_s": 4.08,
+        "sample_peak": 0.56011962890625,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 2.56,
+        "core_seconds_proxy": 3.44,
+        "characters": 19,
+        "characters_per_active_second_proxy": 7.421875,
+        "characters_per_core_second_proxy": 5.523255813953488,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "649dd346f119f4e08b46816eacf2437e97b24440f1ae6d79515041b8e2a7eb66",
+      "asr": {
+        "status": "checked",
+        "transcript": "그 말은 내가 잘 이해하지 못했어. 다시 물어볼게.",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    },
+    {
+      "id": "onu_c89f2f9319ad37d2",
+      "text": "무엇을 할지는 들었어. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "c89f2f9319ad37d294f3f6069fb88de20625a6e8bd651aa5ee3c81922c0d34a4",
+      "asset": "story_audio/onu_c89f2f9319ad37d2.wav",
+      "sha256": "4de7d9590631650074c64e8f9331e162b982c8060114faca786dce2b55c19fa1",
+      "duration_ms": 5440,
+      "kind": "common_recovery",
+      "selected_attempt": 1,
+      "seed": 47159,
+      "sample_rate": 24000,
+      "frames": 130560,
+      "duration_s": 5.44,
+      "loudness": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -7.88,
+        "static_gain_db": -3.8000000000000007,
+        "target_lufs": -23,
+        "peak_cap_dbtp": -3.25
+      },
+      "signal": {
+        "sample_rate": 24000,
+        "frames": 130560,
+        "duration_s": 5.44,
+        "sample_peak": 0.403533935546875,
+        "samples_at_or_above_full_scale": 0,
+        "active_seconds_proxy": 3.06,
+        "core_seconds_proxy": 4.2,
+        "characters": 23,
+        "characters_per_active_second_proxy": 7.516339869281046,
+        "characters_per_core_second_proxy": 5.476190476190476,
+        "measurement_scope": "10ms RMS above -45dBFS; not perceived speed or naturalness"
+      },
+      "raw_sha256": "40330953488afef4f07d55766fa27e38d21f1b8e9c6e9f2cece2ebeb2fb64653",
+      "asr": {
+        "status": "checked",
+        "transcript": "무엇을 할지는 들었어. 누구의 선택인지 이름만 말해줄래?",
+        "normalized_exact_match": true,
+        "sequence_match_ratio": 1.0,
+        "differences": [],
+        "severe_text_mismatch": false,
+        "human_listening_verified": false
+      },
+      "selection_reason": "automatic exact text/signal screen"
+    }
+  ],
+  "limits": [
+    "Signal and automatic transcript screening do not establish native prosody, character identity, child comprehension, or naturalness.",
+    "Dynamic nicknames and role prefixes remain device TTS.",
+    "The same reference voice is used for current and six older-only story lines; authored text and original effect assets are preserved."
+  ],
+  "app_manifest_sha256": "d8c028c6d3cc515844631c388808f712081737f40b5c3383321ec8f9c49134ce",
+  "integration_date": "2026-11-05"
+}

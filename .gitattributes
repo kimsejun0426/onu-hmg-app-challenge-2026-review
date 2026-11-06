@@ -1,0 +1,24 @@
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
+# Content hashes and generated parity fixtures depend on exact original bytes.
+# Preserve current and archived editions across platforms and Git settings.
+content/**/*.json -text
+apps/vehicle/app/src/main/assets/content/**/*.json -text
+apps/vehicle/app/src/androidTest/assets/fixtures/**/*.json -text
+tests/fixtures/**/*.json -text
+# Keep the finalized 0.17 evidence identical to the hashed, delivered files.
+docs/verification-onu-0.17.0-* -text
+docs/verification-onu-0.18.0-* -text
+docs/verification-onu-0.20.0-* -text
+docs/verification-onu-0.21.0-* -text
+docs/verification-onu-0.23.0-* -text
+# Preserve the exact source bytes bound to the separate 0.17 timing experiment.
+apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosSpeechTimingTest.kt -text
+# Fixed synthetic PCM and its provenance must retain their reviewed byte identity.
+apps/vehicle/app/src/androidTest/assets/pleos-pcm/** -text
+apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AuthoredPcmFixtureTest.kt -text
+apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosPcmAdventureTest.kt -text
+apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AaosVehicleAccessTest.kt -text
+docs/verification-pleos-integration-candidate-2026-10-29.json -text

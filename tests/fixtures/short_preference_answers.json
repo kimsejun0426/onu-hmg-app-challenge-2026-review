@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "synthetic_inputs_only": true,
+  "authorship": "Eight independently authored short preference answers to existing subjective questions; no recorded child speech. Fact and evidence questions do not acquire a preference grammar.",
+  "pack_id": "dinosaur-lab-missing-egg",
+  "prior_version": "0.8.0",
+  "current_version": "0.9.0",
+  "published_source_bytes": 15936,
+  "published_source_sha256": "b72c84b453a71733251233a879a453b2cae8ba9a20e5f06c0e3fe320b598699d",
+  "published_metadata_sha256": "6f801e149dc96d2a50710382c495595c130c50a15ab764a1d1cbfe9314c9ede2",
+  "cases": [
+    {
+      "id": "river-like",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "물가가 좋아",
+      "action": "RIVER",
+      "other": "숲이 좋아",
+      "other_action": "FOREST",
+      "negative": "물가가 안 좋아",
+      "both": "물가도 좋고 숲도 좋아"
+    },
+    {
+      "id": "river-wish",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "물가로 가고 싶어",
+      "action": "RIVER",
+      "other": "숲으로 가고 싶어",
+      "other_action": "FOREST",
+      "negative": "물가로 가고 싶지 않아",
+      "both": "물가랑 숲 둘 다 가고 싶어"
+    },
+    {
+      "id": "forest-like",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "숲이 좋아",
+      "action": "FOREST",
+      "other": "물가가 좋아",
+      "other_action": "RIVER",
+      "negative": "숲이 안 좋아",
+      "both": "숲도 좋고 물가도 좋아"
+    },
+    {
+      "id": "forest-wish",
+      "path": [],
+      "scene": "choose_path",
+      "question": "물가에서 찾을까, 숲에서 찾을까?",
+      "text": "숲으로 가고 싶어",
+      "action": "FOREST",
+      "other": "물가로 가고 싶어",
+      "other_action": "RIVER",
+      "negative": "숲으로 가고 싶지 않아",
+      "both": "숲이랑 물가 둘 다 가고 싶어"
+    },
+    {
+      "id": "magnifier-like",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS",
+        "LEAVES"
+      ],
+      "scene": "tool",
+      "question": "돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text": "돋보기가 좋아",
+      "action": "MAGNIFIER",
+      "other": "듣기 장치가 좋아",
+      "other_action": "LISTENING_DEVICE",
+      "negative": "돋보기가 안 좋아",
+      "both": "돋보기도 좋고 듣기 장치도 좋아"
+    },
+    {
+      "id": "magnifier-wish",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS",
+        "LEAVES"
+      ],
+      "scene": "tool",
+      "question": "돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text": "돋보기로 보고 싶어",
+      "action": "MAGNIFIER",
+      "other": "듣기 장치로 듣고 싶어",
+      "other_action": "LISTENING_DEVICE",
+      "negative": "돋보기로 보고 싶지 않아",
+      "both": "돋보기랑 듣기 장치 둘 다 쓰고 싶어"
+    },
+    {
+      "id": "listening-device-like",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS",
+        "LEAVES"
+      ],
+      "scene": "tool",
+      "question": "돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text": "듣기 장치가 좋아",
+      "action": "LISTENING_DEVICE",
+      "other": "돋보기가 좋아",
+      "other_action": "MAGNIFIER",
+      "negative": "듣기 장치가 안 좋아",
+      "both": "듣기 장치도 좋고 돋보기도 좋아"
+    },
+    {
+      "id": "listening-device-wish",
+      "path": [
+        "RIVER",
+        "FOLLOW_TRACKS",
+        "LEAVES"
+      ],
+      "scene": "tool",
+      "question": "돋보기로 볼까, 듣기 장치로 알아볼까?",
+      "text": "듣기 장치로 듣고 싶어",
+      "action": "LISTENING_DEVICE",
+      "other": "돋보기로 보고 싶어",
+      "other_action": "MAGNIFIER",
+      "negative": "듣기 장치로 듣고 싶지 않아",
+      "both": "듣기 장치랑 돋보기 둘 다 쓰고 싶어"
+    }
+  ]
+}

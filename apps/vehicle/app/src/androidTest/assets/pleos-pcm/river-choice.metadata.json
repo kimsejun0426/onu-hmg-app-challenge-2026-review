@@ -1,0 +1,68 @@
+{
+  "actual_mic": false,
+  "conversion": {
+    "algorithm": "audioop.ratecv",
+    "channels": 1,
+    "initial_state": null,
+    "input_rate_hz": 24000,
+    "output_rate_hz": 16000,
+    "performed": true,
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "sample_width_bytes": 2,
+    "weight_a": 1,
+    "weight_b": 0
+  },
+  "fixed_text": "물가로 갈래",
+  "fixture_id": "river_choice_v1",
+  "original_metadata_sha256": "a7907a388ab5fb0b29f454b9bae6a8217ecc33fbbbe7577a921ec4bf55a4e3e5",
+  "original_wav": {
+    "bits_per_sample": 16,
+    "bytes": 59342,
+    "channels": 1,
+    "container": "RIFF/WAVE",
+    "data_bytes": 59298,
+    "data_offset": 44,
+    "duration_ms": 1235.375,
+    "encoding": "PCM_S16LE",
+    "frames": 29649,
+    "pcm_sha256": "c4f8e72afbfb96b39038bb89ead1b82fa541f028f1a8447a7b80b77c8d0f6c81",
+    "sample_rate_hz": 24000,
+    "sha256": "b4634eeedae9fdac32231b07af2b6a7c3cab12c06e03251cc336dc890ca754c1"
+  },
+  "pcm": {
+    "bits_per_sample": 16,
+    "bytes": 39532,
+    "channels": 1,
+    "duration_ms": 1235.375,
+    "encoding": "signed_pcm_little_endian",
+    "frames": 19766,
+    "sample_rate_hz": 16000,
+    "sha256": "68b2d7b176da8369e00b532a19023d7950c1afa942793539aaba4fb214eb75fd"
+  },
+  "private_evidence_directory": ".local/authored-pcm-runs/20261028T183528913848Z-8350a449",
+  "schema_version": 1,
+  "scope": "One fixed app-authored synthetic phrase, not a real child or microphone recording; no acoustic quality claim",
+  "source": "installed_offline_android_tts_synthesize_to_file",
+  "source_app_apk": {
+    "bytes": 40614723,
+    "sha256": "c40355caeefab3a663dce4d28e1c630c4ee54eecb5da060a0cd040c35ecf54ee"
+  },
+  "source_manifest_sha256": "47bbce8d61693ff00601c4d22a42a2e7667c7508810266b4ea77d5397a9c2c7c",
+  "source_run_id": "3db38ada-6363-4fce-822b-f98fb1c8b7ed",
+  "source_test": {
+    "bytes": 16836,
+    "sha256": "c7eb69c7be65d3e015ba7d02a33c4070e97ed02db0deaf0e1d238ca5bdcc59b0"
+  },
+  "source_test_apk": {
+    "bytes": 6436572,
+    "sha256": "5319af6a6d274c64b4549de16244cde94411f349664055782cfb1f8975164547"
+  },
+  "source_voice": {
+    "engine": "com.google.android.tts",
+    "locale": "ko-KR",
+    "name": "ko-KR-language",
+    "network_required": false,
+    "not_installed": false
+  },
+  "synthetic": true
+}

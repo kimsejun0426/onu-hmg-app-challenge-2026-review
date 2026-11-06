@@ -1,0 +1,43 @@
+{
+  "status": "local_review_ready",
+  "date_kst": "2026-11-06",
+  "video_revision": 2,
+  "app_version": "0.47.0",
+  "application_version": "1.0.3",
+  "duration": 49.31666666666666,
+  "fps": 60,
+  "source_video_preserved": true,
+  "official_submission_complete": false,
+  "files": [
+    {
+      "file": "captions.srt",
+      "sha256": "e2ca6ce90a26ba4f0f8893ec381a22fa5231b1f4a5b71261c6afae4ad147dd8e",
+      "bytes": 992
+    },
+    {
+      "file": "poster.png",
+      "sha256": "eeac233c247e2d55dde58fe8c6b5c703c0231c93ce982ba8aa6c3ded56eb1c33",
+      "bytes": 2226268
+    },
+    {
+      "file": "PRODUCTION.md",
+      "sha256": "1b16b931d33dbf9a2534477d04d97ea1e03b935cd2b9085549dbf9df153beebd",
+      "bytes": 2116
+    },
+    {
+      "file": "START_HERE.html",
+      "sha256": "64098cc5845bcfa9ecdfcbf9ea87461dfa9918ba8d0947b446786fcb3b09eeb0",
+      "bytes": 2250
+    },
+    {
+      "file": "validation.json",
+      "sha256": "aa5520defb9a30531ea65d8a8d39ad8dfad62bc3635deaee6d27d79dd81d16cb",
+      "bytes": 3327
+    },
+    {
+      "file": "오누_소개영상_2026-11-06.mp4",
+      "sha256": "39e7e73a221459c7f4e9d047742a5d8f86b5217f9e226682dacd695cbe85d36f",
+      "bytes": 19418830
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "text": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Text",
+      "type": "string"
+    },
+    "is_final": {
+      "const": true,
+      "title": "Is Final",
+      "type": "boolean"
+    },
+    "capture_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "title": "Capture Id",
+      "type": "string"
+    },
+    "listen_window_id": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "title": "Listen Window Id",
+      "type": "string"
+    },
+    "locale": {
+      "const": "ko-KR",
+      "default": "ko-KR",
+      "title": "Locale",
+      "type": "string"
+    },
+    "input_source": {
+      "default": "mock",
+      "enum": [
+        "mock",
+        "pleos_stt",
+        "android_on_device",
+        "touch"
+      ],
+      "title": "Input Source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "text",
+    "is_final",
+    "capture_id",
+    "listen_window_id"
+  ],
+  "title": "ActionPayload",
+  "type": "object"
+}

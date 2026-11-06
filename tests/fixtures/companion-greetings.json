@@ -1,0 +1,703 @@
+{
+  "schema_version": 1,
+  "scope": "Synthetic authored greeting grammar, not wake-word or microphone evidence",
+  "cases": [
+    {
+      "id": "greeting-0-solo",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        }
+      ],
+      "text": "오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-0-pair",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준, 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-1-solo",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        }
+      ],
+      "text": "오누야 뭐해",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-1-pair",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준, 뭐해",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-2-solo",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        }
+      ],
+      "text": "오누야 뭐 해",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-2-pair",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준, 뭐 해",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-3-solo",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        }
+      ],
+      "text": "오누야 같이놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-3-pair",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준, 같이놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-4-solo",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        }
+      ],
+      "text": "오누야 같이 놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "greeting-4-pair",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준, 같이 놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "name-before-address",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "민준, 오누야 안녕!",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "wrong-player-declared",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "서윤, 오누야 같이 놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p2",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "rejected-address-0",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 \"안녕\"",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-1",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 (같이 놀자)",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-2",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 안녕 아니야",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-3",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 같이 놀자 말고 숲",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-4",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 숲 말고 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-5",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 안녕 하지 마",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-6",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "rejected-address-7",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 같이 놀자 오누야",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unconfirmed_expansion"
+      }
+    },
+    {
+      "id": "no-valid-address-0",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unknown_action"
+      }
+    },
+    {
+      "id": "no-valid-address-1",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "뭐해",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unknown_action"
+      }
+    },
+    {
+      "id": "no-valid-address-2",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "같이 놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unknown_action"
+      }
+    },
+    {
+      "id": "no-valid-address-3",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": null,
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unknown_action"
+      }
+    },
+    {
+      "id": "mixed-names-0",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "민준 오누야 서윤 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "multiple_players"
+      }
+    },
+    {
+      "id": "mixed-names-1",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준 서윤 같이 놀자",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "multiple_players"
+      }
+    },
+    {
+      "id": "full-name-오누야 안녕",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "오누야 안녕"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "missing_action"
+      }
+    },
+    {
+      "id": "full-name-안녕",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "안녕"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "missing_action"
+      }
+    },
+    {
+      "id": "greeting-is-name-after-address",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "안녕"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "address_only"
+      }
+    },
+    {
+      "id": "onu-name-collision-오누",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "오누"
+        }
+      ],
+      "text": "민준 오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "unknown_action"
+      }
+    },
+    {
+      "id": "onu-name-collision-오누야",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "오누야"
+        }
+      ],
+      "text": "민준 오누야 안녕",
+      "expected_candidate": {
+        "intent": "UNKNOWN",
+        "declared_player_id": "p1",
+        "action_id": null,
+        "needs_clarification": true,
+        "reason": "multiple_players"
+      }
+    },
+    {
+      "id": "exact-action-wins-0",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 민준 안녕",
+      "expected_candidate": {
+        "intent": "ACTION",
+        "declared_player_id": "p1",
+        "action_id": "RIVER",
+        "needs_clarification": false,
+        "reason": null
+      },
+      "action_alias": "안녕"
+    },
+    {
+      "id": "exact-action-wins-1",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 안녕",
+      "expected_candidate": {
+        "intent": "ACTION",
+        "declared_player_id": null,
+        "action_id": "RIVER",
+        "needs_clarification": true,
+        "reason": "missing_player"
+      },
+      "action_alias": "안녕"
+    },
+    {
+      "id": "exact-action-wins-2",
+      "players": [
+        {
+          "player_id": "p1",
+          "nickname": "민준"
+        },
+        {
+          "player_id": "p2",
+          "nickname": "서윤"
+        }
+      ],
+      "text": "오누야 서윤 안녕",
+      "expected_candidate": {
+        "intent": "ACTION",
+        "declared_player_id": "p2",
+        "action_id": "RIVER",
+        "needs_clarification": true,
+        "reason": "wrong_player"
+      },
+      "action_alias": "안녕"
+    }
+  ]
+}

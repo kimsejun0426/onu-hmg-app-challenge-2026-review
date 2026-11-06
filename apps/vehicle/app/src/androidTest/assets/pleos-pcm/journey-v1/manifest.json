@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "fixture_set_id": "dinosaur_river_journey_v1",
+  "pack_id": "dinosaur-lab-missing-egg",
+  "pack_version": "0.9.0",
+  "synthetic": true,
+  "format": {
+    "sample_rate_hz": 16000,
+    "bits_per_sample": 16,
+    "channels": 1,
+    "encoding": "signed_pcm_little_endian"
+  },
+  "fixtures": [
+    {
+      "id": "river",
+      "asset": "pleos-pcm/journey-v1/01-river.pcm",
+      "sha256": "68b2d7b176da8369e00b532a19023d7950c1afa942793539aaba4fb214eb75fd",
+      "bytes": 39532,
+      "authored_text": "물가로 갈래"
+    },
+    {
+      "id": "tracks",
+      "asset": "pleos-pcm/journey-v1/02-tracks.pcm",
+      "sha256": "5128e8fbc930f4272b28f100e5b06f03dce8fb61ae1244a5698b37b001a9ae52",
+      "bytes": 69102,
+      "authored_text": "바퀴 자국을 따라갈래"
+    },
+    {
+      "id": "leaves",
+      "asset": "pleos-pcm/journey-v1/03-leaves.pcm",
+      "sha256": "9380d6cf413c077d7240825d558fa9b66949c0b8f8479fa462a7c97d76890edb",
+      "bytes": 46812,
+      "authored_text": "나뭇잎이야"
+    },
+    {
+      "id": "magnifier",
+      "asset": "pleos-pcm/journey-v1/04-magnifier.pcm",
+      "sha256": "0bc4e3f705f3d09f860b04c3e4278b6257479917830d125d9775baa1db8d9312",
+      "bytes": 51270,
+      "authored_text": "돋보기로 볼래"
+    },
+    {
+      "id": "triceratops",
+      "asset": "pleos-pcm/journey-v1/05-triceratops.pcm",
+      "sha256": "c9fb8fbbab085a8497c09645024c5cc962e09cc5aa2eba904a17aabe948b565d",
+      "bytes": 51270,
+      "authored_text": "트리케라톱스야"
+    },
+    {
+      "id": "workshop",
+      "asset": "pleos-pcm/journey-v1/06-workshop.pcm",
+      "sha256": "a2195b344ee7823081949d9b25b7c4ca6cd3c0083ebd420e4fb0907d774015b1",
+      "bytes": 55728,
+      "authored_text": "공작실로 갈래"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "version_name": "0.47.0",
+  "version_code": 49,
+  "certificate_sha256": "67d799613d42b37ff571e8cd67f46de53a21782d144f80f3f8f9fd01d4a845b3",
+  "status": "passed",
+  "status_scope": "The newly executed checks and explicitly identified prior-candidate observations below passed within their stated scopes. This is not a declaration of unrestricted driving support or human/child validation.",
+  "candidate": "candidate2_final",
+  "created_utc": "2026-11-05T10:28:38.868342+00:00",
+  "apk_sha256": "d86beab971d9d286bb5f386c67e2064820cb4f12ea1c0fa991edc567ac591998",
+  "apk_bytes": 59942038,
+  "source_inventory_file_sha256": "1f67301314e35217ae4f106198cff1d7395c960cfbb2432e950bfae735952023",
+  "source_inventory_sha256": "8fb936b6b5d48062bac48bd579f871db521444d1e54c7977aea094f60fe93f6b",
+  "source_file_count": 591,
+  "demo_apk_sha256": "2f3950b16816e667d18d0fa3bf7c1b88e71513e9e31785cd12a434a9fe6bedaa",
+  "demo_test_apk_sha256": "25e8800fee2862e0f344df100e188fa93f14afee8237d958b378c70443e0930b",
+  "tests": {
+    "jvm": {
+      "variant": "release",
+      "execution_candidate": "candidate2_final",
+      "task_execution": "executed",
+      "executed": true,
+      "tests": 110,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "welcome_preview_tests": 10
+    },
+    "lint": {
+      "demo": {
+        "errors": 0,
+        "warnings": 13
+      },
+      "release": {
+        "errors": 0,
+        "warnings": 15
+      }
+    },
+    "welcome_ui": {
+      "apk_variant": "demo",
+      "execution_candidate": "candidate2_final",
+      "executed_apk_sha256": "2f3950b16816e667d18d0fa3bf7c1b88e71513e9e31785cd12a434a9fe6bedaa",
+      "test_methods": 2,
+      "executions_passed": 6,
+      "pngs_captured_and_model_reviewed": 9,
+      "layouts": [
+        {
+          "width": 1280,
+          "height": 800,
+          "font_scale": 1.0
+        },
+        {
+          "width": 1024,
+          "height": 600,
+          "font_scale": 1.5
+        },
+        {
+          "width": 480,
+          "height": 900,
+          "font_scale": 1.2
+        }
+      ],
+      "output": "Controlled fake output for UI state coverage",
+      "previous_low_contrast_retry_case_resolved": true
+    },
+    "signed_release_ui": {
+      "apk_sha256": "d86beab971d9d286bb5f386c67e2064820cb4f12ea1c0fa991edc567ac591998",
+      "execution_candidate": "candidate2_final",
+      "instrumentation_used": false,
+      "journey_passed": true,
+      "explicit_welcome_completion_and_stop": true,
+      "first_setup_story_choice_pause_and_force_stop_quiet_restore": true,
+      "explicit_resume_to_settled_question_and_enabled_read_next": true,
+      "raw_silent_clips": 4,
+      "selected_ui_clip_frames": [
+        100,
+        100,
+        135
+      ],
+      "selected_ui_clip_fps": 30,
+      "selected_ui_total_seconds": 11.166666666666666,
+      "continuous_resume_cut_seconds": 4.5
+    },
+    "android_selected_reused": {
+      "apk_variant": "demo",
+      "tests_passed": 59,
+      "failures": 0,
+      "skipped": 0,
+      "native_narrations": 51,
+      "mixed_scenes": 8,
+      "repeat_scenes_without_repeated_cue": 3,
+      "includes": "Production composed output fencing, actual PCM render/playback callbacks, fixed content mapping,128 dinosaur paths, resume and archived editions",
+      "execution_candidate": "candidate1",
+      "executed_apk_sha256": "0dfe0aeba0ced0f0d713232dd3871c4fa655fc75132d9f68775a5702e6fc77a7",
+      "executed_test_apk_sha256": "25e8800fee2862e0f344df100e188fa93f14afee8237d958b378c70443e0930b",
+      "reexecuted_on_final_candidate": false,
+      "reuse_basis": "589 of591 source inputs unchanged; only two greeting UI background-draw sources changed; all authored assets and Android test APK are byte-identical. See applicability evidence hash."
+    },
+    "actual_sdk_fixed_pcm_reused": {
+      "apk_variant": "demo",
+      "apk_sha256": "0dfe0aeba0ced0f0d713232dd3871c4fa655fc75132d9f68775a5702e6fc77a7",
+      "test_apk_sha256": "25e8800fee2862e0f344df100e188fa93f14afee8237d958b378c70443e0930b",
+      "experiments_passed": 2,
+      "single_choice_input_opens": 1,
+      "six_choice_input_opens": 6,
+      "six_choice_input_finals": 6,
+      "six_choice_composed_output_requests": 7,
+      "six_choice_composed_output_completions": 7,
+      "six_choice_ending": "FOUND_TOGETHER",
+      "six_choice_score": 8,
+      "fixed_input_assets_unchanged": true,
+      "errors": 0,
+      "production_release_apk_executed_for_sdk": false,
+      "execution_candidate": "candidate1",
+      "reexecuted_on_final_candidate": false,
+      "reuse_basis": "Voice, story, storage, SDK production sources, test sources, fixed PCM fixtures and authored APK assets unchanged; the unchanged test APK was used in both candidates. SDK experiments remain demo-only."
+    }
+  },
+  "reuse_applicability": {
+    "unchanged_source_inputs": 589,
+    "changed_ui_draw_sources": 2,
+    "all_four_candidate_variant_apks_authored_assets_byte_equal": 135,
+    "test_apk_byte_identical": true,
+    "pngs_unchanged_within_variant": {
+      "demo": 202,
+      "release": 183
+    },
+    "generated_dexopt_profiles": "Separately recorded and allowed to differ with compiled UI code; not authored story or audio assets.",
+    "report_sha256": "e75ce590af36625f1bd863ece11af755acf767c0bd25418886c0640b33383a88",
+    "does_not_claim_final_apk_sdk_or_android59_execution": true
+  },
+  "preservation": {
+    "content_assets": 70,
+    "png_resources_demo": 202,
+    "png_resources_signed_release": 183,
+    "cue_wavs": 4,
+    "prior_50_spoken_text_id_cue_bindings": true,
+    "spoken_clips": 59,
+    "new_common_guidance_and_welcome": 9,
+    "all_authored_apk_assets": 135
+  },
+  "evidence_sha256": {
+    "demo_build": "a99739c14143c98c6245f5d53d4d267dfe6847a4e3d6325512f77be1e411de41",
+    "release_build": "cb358135d8a50d8ac0c320096cdd2cfe17402341b3e68b44b73f99cb2230d6ac",
+    "release_preserved": "f846fd8eef7458aa3de7dc2decaee4eebf41877728a1229bddc660f211457f14",
+    "welcome_ui": "075b52b2e110ff79724604d6765b6ec300871a5e01d3e1677d204ef84558757b",
+    "welcome_visual_review": "3a1111eb2a1b21c34f4afdff406794cfeefb24106ff5e674cd281495820e5e10",
+    "signed_release_ui": "55d9441e6197649ec507a2b4ca9e7391d24ee148c7febe33f484344d21ea6c44",
+    "footage": "ef08cd0dcd96e23004f81731ec954c490179d521cc3ad1dd2749930b1cc6c55c",
+    "footage_frame_proof": "6b9183e8260d4b4358d0a3ee629ad64a235827fdd4db90fbd04d771d7f515d60",
+    "applicability": "e75ce590af36625f1bd863ece11af755acf767c0bd25418886c0640b33383a88",
+    "reused_android59": "df9b01c80984a93f9d2f3f80497f3e9dd5c834d872e5ad1a6eb0b6a6cebaddd0",
+    "reused_sdk_one": "fb153c7fe14e43e66a38facf8145f075f67cb8939aa36970ed6db89ca2180eea",
+    "reused_sdk_six": "234887a2fe3d4fe4c20207e9421ec5af9a3ae01c8c51872d26b5e32e92287083"
+  },
+  "visual_observations": [
+    "Nine final-candidate welcome screenshots were inspected across landscape, compact font1.5 and portrait font1.2. The feathered wash resolves the scrolled retry heading contrast without a visible rectangular card edge or overlapping controls.",
+    "The final release resume clip preserves the actual explicit tap, preparation and completed question in one continuous4.5-second window. It is not an automatic resume demonstration."
+  ],
+  "limits": [
+    "The59 selected Android audio/story/storage tests and2 actual Pleos SDK fixed-PCM experiments ran on candidate1 demo APK; they were not rerun on final candidate2. Scoped reuse is supported by source, fixture, test APK and authored asset byte equality.",
+    "The final signed optimized release APK was tested through external actual UI. Pleos SDK fixed synthetic PCM evidence remains from the earlier demo APK and is not described as execution on the submitted release APK.",
+    "The110 JVM tests and6 welcome UI executions were newly run for final candidate2. Earlier-candidate110 JVM/UI6 executions are not added to these counts.",
+    "Emulator host microphone and host audio output were disabled. Playback callbacks, exact rendered PCM and UI state observations do not establish human-audible quality or physical microphone behavior.",
+    "Welcome UI state tests use fake output. Local greeting start, completion and explicit stop were separately observed in the actual final signed release UI.",
+    "Real children, comprehension, enjoyment, human listening, TalkBack speech, car-cabin acoustics, physical microphone input and real driving support remain unvalidated. restrictedVoiceSupported remains false.",
+    "Dynamic nicknames and unbundled narrative TTS remain platform dependent.",
+    "Failed environment/capture-helper/preview attempts are retained separately and excluded from passing test counts.",
+    "No full Python rerun or whole-app UI regression was performed for this narrowly scoped final UI draw change."
+  ]
+}

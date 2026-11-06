@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "title": "오누 실제 동작 시연",
+  "created_at_utc": "2026-11-06T02:09:39.002350+00:00",
+  "video": "오누_실제동작시연_0.47.0.mp4",
+  "poster": "poster.png",
+  "files": [
+    {
+      "name": "오누_실제동작시연_0.47.0.mp4",
+      "bytes": 2421914,
+      "sha256": "9862cb1758bfec3c60bcf02a088077eb57ceec16cae41a4d34faefc843d100a7"
+    },
+    {
+      "name": "poster.png",
+      "bytes": 851480,
+      "sha256": "4a008e065c402ee85abb603e7724e0d65fa67a31da4f25d76c2459d4ea160717"
+    },
+    {
+      "name": "README.md",
+      "bytes": 2542,
+      "sha256": "31e5d0b789cb22cd22282b8c0417c8ff6d3410cb3b7a32ed3ab335903e46a65e"
+    }
+  ],
+  "duration_seconds": 48.933333,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "frame_rate": 30,
+  "audio_tracks": 0,
+  "app": "0.47.0/code49 signed release",
+  "app_sha256": "d86beab971d9d286bb5f386c67e2064820cb4f12ea1c0fa991edc567ac591998",
+  "persistent_scope_label": "실제 0.47.0 release / 읽기 체험 · 마이크 입력 없음",
+  "timeline": [
+    {
+      "id": "intro",
+      "start": 0,
+      "end": 4.5
+    },
+    {
+      "id": "choice",
+      "start": 4.5,
+      "end": 25.833333333333332
+    },
+    {
+      "id": "between",
+      "start": 25.833333333333332,
+      "end": 29.333333333333332
+    },
+    {
+      "id": "resume",
+      "start": 29.333333333333332,
+      "end": 44.43333333333333
+    },
+    {
+      "id": "outro",
+      "start": 44.43333333333333,
+      "end": 48.93333333333333
+    }
+  ],
+  "sources": [
+    {
+      "id": "choice",
+      "sha256": "9fb786287e611f3b56c1ab483d1320bce1302b5b0c9c764635b0f6ca2570c15a",
+      "source_seconds": 20.5297,
+      "source_frames": 63,
+      "source_has_audio": false,
+      "presentation_seconds": 21.333333333333332,
+      "source_speed": 1.0,
+      "source_range_seconds": [
+        0,
+        20.5297
+      ],
+      "source_cfr_frames": 616,
+      "cfr_tail_rounding_seconds": 0.003633333333336708,
+      "duplicate_first_and_last_transition_hold_seconds": 0.4,
+      "capture_kept_uncropped": true,
+      "all_source_frames_before_decode_unchanged": true,
+      "local_evidence_file": "clip-02-story-first-choice.mp4"
+    },
+    {
+      "id": "resume",
+      "sha256": "c8d3da3ad2ecbc9c2752235f44c56c836df3db4a32d83ff2934e1287c27ee786",
+      "source_seconds": 14.2745,
+      "source_frames": 52,
+      "source_has_audio": false,
+      "presentation_seconds": 15.1,
+      "source_speed": 1.0,
+      "source_range_seconds": [
+        0,
+        14.2745
+      ],
+      "source_cfr_frames": 429,
+      "cfr_tail_rounding_seconds": 0.025500000000000966,
+      "duplicate_first_and_last_transition_hold_seconds": 0.4,
+      "capture_kept_uncropped": true,
+      "all_source_frames_before_decode_unchanged": true,
+      "local_evidence_file": "clip-03-quiet-resume.mp4"
+    }
+  ],
+  "source_evidence_sha256": "55d9441e6197649ec507a2b4ca9e7391d24ee148c7febe33f484344d21ea6c44",
+  "source_recordings_packaged": false,
+  "source_recordings_retained_unchanged_locally": true,
+  "transitions": "원본 시간 구간 밖에 첫/마지막 프레임0.4초 복제하여 부드러운 불투명도 전환. 원본 내부 편집·배속·줌·가짜 터치 표시 없음. VFR를30fps 반복 프레임으로 표시; 끝에서만33.4ms 미만 정렬.",
+  "gap_disclosure": "두 원본 사이 별도 녹화 안내, 쉬기·앱 종료 조작 미포함 표시",
+  "limits": [
+    "읽기 모드의 선택과 복원 UI 증거",
+    "실제 음성·아동·물리 마이크·차량·주행 실증 아님",
+    "물리 음향은 녹음되지 않았음"
+  ],
+  "new_app_execution": false,
+  "new_recording": false,
+  "new_narration_or_music": false,
+  "visual_review": {
+    "source_contact_sheet": true,
+    "final_frames_directly_reviewed": 5,
+    "parent_direct_review_frames": 3,
+    "persistent_label_legible": true,
+    "app_content_not_obscured": true,
+    "separate_recording_disclosure_legible": true
+  },
+  "full_decode": "passed",
+  "time_sample_matches": 10,
+  "timing_samples_sha256": "0cacff283d1fe6ce48d286539ef7763edb9bd08c0a4ed1c3ca7e4a617552989a",
+  "qa_scope": "Original videos and final output fully decoded; ten output/source time samples compared; five final still frames visually reviewed. No new app execution, microphone, acoustic, child or vehicle test.",
+  "production_helper_sha256": "9d3a4f152a6947bc70dddf8b0ea64571f6207de54e72c398173199286f614a0a",
+  "font": "Windows Malgun Gothic rendered graphics; font files not redistributed",
+  "local_source_evidence_file": "result.json",
+  "public_export": {
+    "local_absolute_paths_removed": true,
+    "source_recordings_included": false,
+    "original_local_manifest_sha256": "fa40a27cae1c9d772593c4367f582e61256a44dcf9885ffbdbd72eb73004ec19",
+    "media_bytes_unchanged": true
+  }
+}

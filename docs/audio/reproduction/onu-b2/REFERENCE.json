@@ -1,0 +1,18 @@
+{
+  "asset": "reference.wav",
+  "sha256": "0f82fd62111f95092aeef39f733da5458bf79be829f678147f1d8ebc919b5d1c",
+  "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+  "origin": "Self-generated fictional voice; user-selected B2; no human recording",
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "design_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "design_seed": 2202,
+  "sample_rate": 24000,
+  "frames": 222720,
+  "duration_s": 9.28,
+  "human_recording_used": false,
+  "pitch_or_time_processing": false,
+  "license_sources": [
+    "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "https://github.com/QwenLM/Qwen3-TTS/blob/main/LICENSE"
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "version": "0.35.0",
+  "source_manifest_sha256": "4e80c847f4eb137e91e11196e5987c59eadc91464cd9dafc1dbcaba19ada9440",
+  "builder_sha256": "9caf0b03fc43722b3c55b9ee2a650e0142f330faa4275a82b87dc809983fa133",
+  "baseline_manifest_sha256": "f9a65a8290716062ae39ff7ba78773a0dd87c673a49a88803fc6e45e04d99534",
+  "cues": [
+    {
+      "id": "cue_dino_arrival",
+      "sha256": "cd27ec4dd291413378fd6f779610f92d96fde87b405aa0d37636af9acafb4d78",
+      "sample_rate": 48000,
+      "channels": 1,
+      "duration_ms": 2850,
+      "frames": 136800,
+      "rms_dbfs": -24.0,
+      "peak_dbfs": -11.547,
+      "integrated_lufs": -22.64,
+      "true_peak_dbtp": -11.52,
+      "clipped_samples": 0,
+      "endpoint_max_abs": 0.0
+    },
+    {
+      "id": "cue_forest",
+      "sha256": "babc1c4c94bdf0cc11531df43df95c7c0a0458b122d0718fb84a30912b4d3446",
+      "sample_rate": 48000,
+      "channels": 1,
+      "duration_ms": 2400,
+      "frames": 115200,
+      "rms_dbfs": -28.5,
+      "peak_dbfs": -14.482,
+      "integrated_lufs": -26.14,
+      "true_peak_dbtp": -14.37,
+      "clipped_samples": 0,
+      "endpoint_max_abs": 0.0
+    },
+    {
+      "id": "cue_stream",
+      "sha256": "f1b165ea3f942b8c034baca535c15fd0e2ac872decd58aa2ceda2b964aa37032",
+      "sample_rate": 48000,
+      "channels": 1,
+      "duration_ms": 2400,
+      "frames": 115200,
+      "rms_dbfs": -29.392,
+      "peak_dbfs": -10.0,
+      "integrated_lufs": -26.56,
+      "true_peak_dbtp": -10.0,
+      "clipped_samples": 0,
+      "endpoint_max_abs": 0.0
+    }
+  ],
+  "mixes": [
+    {
+      "id": "dino_e92826c9a6ad84c9",
+      "kind": "forest",
+      "dry_sha256": "3c124adf543af029714dd7b7e143799a043fa4968cd0a510e2d60c28f13b54da",
+      "source_offset_seconds": 16.55,
+      "start_ms": 120,
+      "end_ms": 2120,
+      "relative_active_speech_rms_db": -27,
+      "fade_ms": [
+        300,
+        350
+      ],
+      "unchanged_dry_frame_count": true,
+      "sha256": "053d47891910ee9bf4741748273c6e9cc95c9bbbed635278428a7680bedec491",
+      "sample_rate": 24000,
+      "channels": 1,
+      "duration_ms": 5042,
+      "frames": 120996,
+      "rms_dbfs": -22.155,
+      "peak_dbfs": -3.245,
+      "integrated_lufs": -22.03,
+      "true_peak_dbtp": -3.24,
+      "clipped_samples": 0,
+      "endpoint_max_abs": 6.103515625e-05
+    },
+    {
+      "id": "dino_350bcbfbd123f73b",
+      "kind": "stream",
+      "dry_sha256": "14454a62dc8faf42d22545fcbd402e183fa044fd150dd781e84e7bc076dbef10",
+      "source_offset_seconds": 8.8,
+      "start_ms": 120,
+      "end_ms": 1820,
+      "relative_active_speech_rms_db": -27,
+      "fade_ms": [
+        300,
+        350
+      ],
+      "unchanged_dry_frame_count": true,
+      "sha256": "83cd0a81e31d9e90679a95c92613fda2d38bcadfc5d2d2980d053c6632257a30",
+      "sample_rate": 24000,
+      "channels": 1,
+      "duration_ms": 3989,
+      "frames": 95732,
+      "rms_dbfs": -20.634,
+      "peak_dbfs": -3.489,
+      "integrated_lufs": -20.65,
+      "true_peak_dbtp": -3.36,
+      "clipped_samples": 0,
+      "endpoint_max_abs": 3.0517578125e-05
+    }
+  ],
+  "human_listening_verified": false,
+  "real_dinosaur_reconstruction": false,
+  "generative_audio_model_used": false,
+  "child_or_vehicle_evaluation": false,
+  "voice_model_or_script_changed": false,
+  "runtime_loop": false,
+  "manifest_sha256": "20de8da59bf21adffff5637ed48eda46d283bcd854c11474889832b7c1957ba5",
+  "comparisons": [
+    {
+      "id": "cue_dino_arrival",
+      "target_integrated_lufs": -24,
+      "files": [
+        {
+          "version": "before",
+          "sha256": "16481c45090c25ff1bf266270797026e4eaf9b4432aa7a72e5150d8308f1072b",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 2600,
+          "frames": 124800,
+          "rms_dbfs": -24.924,
+          "peak_dbfs": -11.994,
+          "integrated_lufs": -23.99,
+          "true_peak_dbtp": -11.99,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        },
+        {
+          "version": "after",
+          "sha256": "390861b771f6f13249c62a9a3c60dfcd2f460ccc58c46c58fa52d164a27430f2",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 2850,
+          "frames": 136800,
+          "rms_dbfs": -25.36,
+          "peak_dbfs": -12.907,
+          "integrated_lufs": -24.01,
+          "true_peak_dbtp": -12.88,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        }
+      ]
+    },
+    {
+      "id": "cue_forest",
+      "target_integrated_lufs": -24,
+      "files": [
+        {
+          "version": "before",
+          "sha256": "e6d6194afffa85dae9a7a1cde83fc35652b5b86db14796470b6933d4db88c908",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 1650,
+          "frames": 79200,
+          "rms_dbfs": -26.731,
+          "peak_dbfs": -12.425,
+          "integrated_lufs": -24.0,
+          "true_peak_dbtp": -12.42,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        },
+        {
+          "version": "after",
+          "sha256": "344c5724965c37fc16ae59cf28f81bf5b5b087cfea3a16abc28e6559a89eb6f4",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 2400,
+          "frames": 115200,
+          "rms_dbfs": -26.36,
+          "peak_dbfs": -12.342,
+          "integrated_lufs": -24.01,
+          "true_peak_dbtp": -12.23,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        }
+      ]
+    },
+    {
+      "id": "cue_stream",
+      "target_integrated_lufs": -24,
+      "files": [
+        {
+          "version": "before",
+          "sha256": "efe9ff3e5fbeed37c4e8ccb5afcbb6c7b3f782d3f64b13bfb66839b122144e7b",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 1650,
+          "frames": 79200,
+          "rms_dbfs": -25.564,
+          "peak_dbfs": -10.62,
+          "integrated_lufs": -24.0,
+          "true_peak_dbtp": -10.59,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        },
+        {
+          "version": "after",
+          "sha256": "8eaead1b7b2e5a14a95bc9623e10fd6bc0a0a392831f35bccccaabda4ecb194b",
+          "sample_rate": 48000,
+          "channels": 1,
+          "duration_ms": 2400,
+          "frames": 115200,
+          "rms_dbfs": -26.832,
+          "peak_dbfs": -7.44,
+          "integrated_lufs": -24.0,
+          "true_peak_dbtp": -7.44,
+          "clipped_samples": 0,
+          "endpoint_max_abs": 0.0
+        }
+      ]
+    }
+  ],
+  "scene_comparison": "Offline cue then same narration at app gains; not an app playback recording.",
+  "preserved_voice_files": 22,
+  "discovery_preserved": true,
+  "recipe": {
+    "forest_cue_source_start": 14.15,
+    "stream_cue_source_start": 6.4,
+    "dinosaur_layers": [
+      {
+        "source": "pigeon",
+        "start": 2.45,
+        "duration": 1.35,
+        "speed": 0.9,
+        "at": 0.35
+      },
+      {
+        "source": "pig",
+        "start": 2.5,
+        "duration": 0.75,
+        "speed": 0.86,
+        "at": 0.42
+      },
+      {
+        "source": "pigeon",
+        "start": 4.0,
+        "duration": 0.48,
+        "speed": 1.05,
+        "at": 2.04
+      }
+    ],
+    "dinosaur_forest_bed_rms_dbfs": -46,
+    "stream_cue_transient_control": "highpass=f=150,lowpass=f=11000,acompressor=threshold=0.025:ratio=3:attack=1:release=100:knee=4,alimiter=limit=0.12:attack=5:release=80:level=0:latency=1"
+  }
+}

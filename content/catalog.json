@@ -1,0 +1,1802 @@
+{
+  "schema_version": 1,
+  "default_pack_id": "dinosaur-lab-missing-egg",
+  "packs": [
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.11.0",
+      "content_asset": "content/ko-KR/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.9.0",
+      "content_asset": "content/ko-KR/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "우리 인사가 닿는 밤",
+      "description": "작은 봉투를 찾아 인사를 보태고, 친구에게 전할 방법을 골라요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.9.0",
+      "content_asset": "content/ko-KR/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "누리에게 건네는 작은 빛",
+      "description": "산호문과 조개터널에서 찾은 빛의 약속으로 누리의 돌아오는 길을 밝혀요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.11.0",
+      "content_asset": "content/ko-KR/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.12.0",
+      "content_asset": "content/ko-KR/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.11.0",
+      "content_asset": "content/ko-KR/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.6.0",
+      "content_asset": "content/ko-KR/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    }
+  ],
+  "legacy_packs": [
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "작은 흔적이 모이는 숲",
+      "description": "흔적을 따라가고 도구를 골라, 사라진 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "작은 마음을 전하는 밤",
+      "description": "다른 길에서 찾은 별편지에 우리 인사를 보태고, 마음에 맞는 방식으로 전해요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "친구 곁에서 별편지와 우리 인사를 함께 읽었어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "빛의 순서를 잇는 바다",
+      "description": "길표지를 관찰하고 빛의 순서를 이어, 우편잠수정이 돌아갈 등대를 찾아요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "관측하고 순서를 맞추는 귀환",
+      "description": "달과 화성을 관찰하고 탐사 기록을 골라, 토리의 귀환 순서를 함께 준비해요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "우리 손으로 연 작은 전시",
+          "summary": "탐사 기록을 가지고 돌아와 정거장 전시판을 함께 꾸몄어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "탐사 기록을 가지고 돌아와 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "본 것과 모르는 것을 나누는 관찰",
+      "description": "오리와 나비의 움직임과 몸을 살펴보고, 함께 발견한 모습을 수첩에 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "보이는 모습을 기록하고, 새로운 장면을 재촉하지 않고 관찰을 마쳤어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오늘 본 모습과 아직 모르는 것을 구분해 관찰 기록을 나눴어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "짐칸부터 상자 순서까지",
+      "description": "배송물에 맞는 차와 도구를 고르고, 내릴 순서를 생각하며 꼬마 자동차의 배달을 준비해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "작은 흔적이 모이는 숲",
+      "description": "흔적을 따라가고 도구를 골라, 사라진 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "작은 마음을 전하는 밤",
+      "description": "다른 길에서 찾은 별편지에 우리 인사를 보태고, 마음에 맞는 방식으로 전해요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "친구 곁에서 별편지와 우리 인사를 함께 읽었어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "빛의 순서를 잇는 바다",
+      "description": "길표지를 관찰하고 빛의 순서를 이어, 우편잠수정이 돌아갈 등대를 찾아요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "관측하고 순서를 맞추는 귀환",
+      "description": "달과 화성을 관찰하고 탐사 기록을 골라, 토리의 귀환 순서를 함께 준비해요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "우리 손으로 연 작은 전시",
+          "summary": "탐사 기록을 가지고 돌아와 정거장 전시판을 함께 꾸몄어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "탐사 기록을 가지고 돌아와 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "본 것과 모르는 것을 나누는 관찰",
+      "description": "오리와 나비의 움직임과 몸을 살펴보고, 함께 발견한 모습을 수첩에 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "보이는 모습을 기록하고, 새로운 장면을 재촉하지 않고 관찰을 마쳤어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오늘 본 모습과 아직 모르는 것을 구분해 관찰 기록을 나눴어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "짐칸부터 상자 순서까지",
+      "description": "배송물에 맞는 차와 도구를 고르고, 내릴 순서를 생각하며 꼬마 자동차의 배달을 준비해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "작은 흔적이 모이는 숲",
+      "description": "흔적을 따라가고 도구를 골라, 사라진 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "작은 마음을 전하는 밤",
+      "description": "다른 길에서 찾은 별편지에 우리 인사를 보태고, 마음에 맞는 방식으로 전해요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "친구 곁에서 별편지와 우리 인사를 함께 읽었어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "빛의 순서를 잇는 바다",
+      "description": "길표지를 관찰하고 빛의 순서를 이어, 우편잠수정이 돌아갈 등대를 찾아요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "관측하고 순서를 맞추는 귀환",
+      "description": "달과 화성을 관찰하고 탐사 기록을 골라, 토리의 귀환 순서를 함께 준비해요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "우리 손으로 연 작은 전시",
+          "summary": "탐사 기록을 가지고 돌아와 정거장 전시판을 함께 꾸몄어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "탐사 기록을 가지고 돌아와 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "본 것과 모르는 것을 나누는 관찰",
+      "description": "오리와 나비의 움직임과 몸을 살펴보고, 함께 발견한 모습을 수첩에 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "보이는 모습을 기록하고, 새로운 장면을 재촉하지 않고 관찰을 마쳤어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오늘 본 모습과 아직 모르는 것을 구분해 관찰 기록을 나눴어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "짐칸부터 상자 순서까지",
+      "description": "배송물에 맞는 차와 도구를 고르고, 내릴 순서를 생각하며 꼬마 자동차의 배달을 준비해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "작은 흔적이 모이는 숲",
+      "description": "흔적을 따라가고 도구를 골라, 사라진 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "작은 마음을 전하는 밤",
+      "description": "다른 길에서 찾은 별편지에 우리 인사를 보태고, 마음에 맞는 방식으로 전해요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "빛의 순서를 잇는 바다",
+      "description": "길표지를 관찰하고 빛의 순서를 이어, 우편잠수정이 돌아갈 등대를 찾아요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "관측하고 순서를 맞추는 귀환",
+      "description": "달과 화성을 관찰하고 탐사 기록을 골라, 토리의 귀환 순서를 함께 준비해요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "본 것과 모르는 것을 나누는 관찰",
+      "description": "이야기 속 오리와 나비를 살펴보고, 오누의 수첩에 남길 모습과 방법을 골라요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "짐칸부터 상자 순서까지",
+      "description": "배송물에 맞는 차와 도구를 고르고, 내릴 순서를 생각하며 꼬마 자동차의 배달을 준비해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "우리 인사가 닿는 밤",
+      "description": "작은 봉투를 찾아 인사를 보태고, 친구에게 전할 방법을 골라요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "누리에게 건네는 작은 빛",
+      "description": "산호문과 조개터널에서 찾은 빛의 약속으로 누리의 돌아오는 길을 밝혀요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.1.0",
+      "content_asset": "content/legacy/0.1.0/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "우리 인사가 닿는 밤",
+      "description": "작은 봉투를 찾아 인사를 보태고, 친구에게 전할 방법을 골라요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "누리에게 건네는 작은 빛",
+      "description": "산호문과 조개터널에서 찾은 빛의 약속으로 누리의 돌아오는 길을 밝혀요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.6.0",
+      "content_asset": "content/legacy/0.6.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.2.0",
+      "content_asset": "content/legacy/0.2.0/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.9.0",
+      "content_asset": "content/legacy/0.9.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.3.0",
+      "content_asset": "content/legacy/0.3.0/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "누리에게 건네는 작은 빛",
+      "description": "산호문과 조개터널에서 찾은 빛의 약속으로 누리의 돌아오는 길을 밝혀요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.7.0",
+      "content_asset": "content/legacy/0.7.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "우리 인사가 닿는 밤",
+      "description": "작은 봉투를 찾아 인사를 보태고, 친구에게 전할 방법을 골라요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "undersea-lighthouse",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/undersea-lighthouse/episode.json",
+      "title": "바닷속 등대의 약속",
+      "subtitle": "누리에게 건네는 작은 빛",
+      "description": "산호문과 조개터널에서 찾은 빛의 약속으로 누리의 돌아오는 길을 밝혀요.",
+      "art_key": "undersea-lighthouse",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "LIGHT_CONNECTED": {
+          "title": "이어진 빛, 도착한 누리",
+          "summary": "길표지와 빛의 순서를 이어 누리를 등대로 안내했어요."
+        },
+        "LIGHT_RELAY": {
+          "title": "서로 건네 준 빛",
+          "summary": "모은 단서를 등대 친구에게 전해 누리의 길을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "ocean"
+      ],
+      "play_style": "solve"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.9.0",
+      "content_asset": "content/legacy/0.9.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.10.0",
+      "content_asset": "content/legacy/0.10.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.9.0",
+      "content_asset": "content/legacy/0.9.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.4.0",
+      "content_asset": "content/legacy/0.4.0/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "space-return-signal",
+      "version": "0.10.0",
+      "content_asset": "content/legacy/0.10.0/space-return-signal/episode.json",
+      "title": "우주 정거장의 귀환 신호",
+      "subtitle": "함께 보고 가져온 발견",
+      "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+      "art_key": "space",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "space"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "MISSION_GALLERY": {
+          "title": "정거장의 작은 전시",
+          "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+        },
+        "MISSION_STORY": {
+          "title": "다 함께 들은 탐사 이야기",
+          "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "animal-footprint-garden",
+      "version": "0.11.0",
+      "content_asset": "content/legacy/0.11.0/animal-footprint-garden/episode.json",
+      "title": "동물 마을의 관찰 수첩",
+      "subtitle": "오누와 천천히 보는 하루",
+      "description": "오리와 나비를 멀리서 보고, 오누의 수첩에 오늘 본 한 장면을 남겨요.",
+      "art_key": "animals",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "animals"
+      ],
+      "play_style": "observe",
+      "endings": {
+        "PATIENT_OBSERVATION": {
+          "title": "기다림까지 담은 수첩",
+          "summary": "오누가 더 기다려도 새 움직임은 없었어요. 오늘 본 모습만 수첩에 남겼어요."
+        },
+        "SHARED_FIELD_NOTE": {
+          "title": "함께 펼친 관찰 수첩",
+          "summary": "오누가 수첩을 펼쳐 오늘 본 모습과 아직 모르는 것을 짚어 줬어요."
+        }
+      }
+    },
+    {
+      "pack_id": "little-car-workshop",
+      "version": "0.10.0",
+      "content_asset": "content/legacy/0.10.0/little-car-workshop/episode.json",
+      "title": "꼬마 자동차의 배달 준비",
+      "subtitle": "두리를 배웅하는 시간",
+      "description": "화분이나 책을 고르고 짐칸을 준비해, 꼬마 자동차 두리의 배달을 배웅해요.",
+      "art_key": "vehicles",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "interest_tags": [
+        "vehicles"
+      ],
+      "play_style": "solve",
+      "endings": {
+        "DELIVERY_READY": {
+          "title": "두리에게 전한 준비 완료",
+          "summary": "짐칸과 고리, 상자 순서를 확인하고 두리에게 배달을 맡겼어요."
+        },
+        "DELIVERY_HANDOVER": {
+          "title": "친구와 이어 한 배달 준비",
+          "summary": "확인한 내용을 배달 친구에게 건네 함께 출발 준비를 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.9.0",
+      "content_asset": "content/legacy/0.9.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "starlight-post-office",
+      "version": "0.8.0",
+      "content_asset": "content/legacy/0.8.0/starlight-post-office/episode.json",
+      "title": "별빛 우체국",
+      "subtitle": "우리 인사가 닿는 밤",
+      "description": "작은 봉투를 찾아 인사를 보태고, 친구에게 전할 방법을 골라요.",
+      "art_key": "starlight-post-office",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "QUIET_DELIVERY": {
+          "title": "조용히 도착한 마음",
+          "summary": "친구의 편지함에 별편지와 우리 인사를 남겼어요."
+        },
+        "SHARED_READING": {
+          "title": "곁에서 읽은 별편지",
+          "summary": "고른 인사를 모모가 친구 곁에서 별편지와 함께 읽어 줬어요."
+        }
+      },
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine"
+    },
+    {
+      "pack_id": "onu-little-picnic",
+      "version": "0.5.0",
+      "content_asset": "content/legacy/0.5.0/onu-little-picnic/episode.json",
+      "title": "오누와 작은 소풍",
+      "subtitle": "어디로 갈까, 어떻게 놀까",
+      "description": "오누와 언덕이나 연못에 앉아, 바람과 물결로 작은 놀이를 만들어요. 네 번의 선택으로 마치는 짧은 소풍이에요.",
+      "art_key": "little-picnic",
+      "estimated_minutes": 4,
+      "duration_label": "약 3–4분",
+      "total_choices": 4,
+      "interest_tags": [
+        "stories"
+      ],
+      "play_style": "imagine",
+      "endings": {
+        "SHORT_FAREWELL": {
+          "title": "작은 소풍에 건넨 인사",
+          "summary": "고른 장소와 놀이에 오누가 짧은 인사를 건넸어요."
+        },
+        "QUIET_SCENE": {
+          "title": "곁에 남은 작은 풍경",
+          "summary": "고른 놀이가 움직이던 마지막 풍경으로 소풍을 마쳤어요."
+        }
+      }
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.10.0",
+      "content_asset": "content/legacy/0.10.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    }
+  ]
+}

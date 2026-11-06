@@ -1,0 +1,34 @@
+{
+  "source_release": "0.14.0-demo",
+  "source_apk_sha256": "c33eca0350a578d71387ed41ede0084cca6aeecbabc71a3fce3dc5c00cd938e1",
+  "pack_id": "space-return-signal",
+  "version": "0.7.0",
+  "content_asset": "content/legacy/0.7.0/space-return-signal/episode.json",
+  "sha256": "3b9aed0562e7b2660cef06cc224c9007cdeabe61dc7ff786ffd43b1e95cc7e50",
+  "bytes": 16784,
+  "catalog_metadata": {
+    "pack_id": "space-return-signal",
+    "version": "0.7.0",
+    "title": "우주 정거장의 귀환 신호",
+    "subtitle": "함께 보고 가져온 발견",
+    "description": "달과 화성을 살펴보고, 함께 본 장면을 사진이나 이야기로 가져와요.",
+    "art_key": "space",
+    "estimated_minutes": 6,
+    "duration_label": "약 4–6분",
+    "total_choices": 6,
+    "interest_tags": [
+      "space"
+    ],
+    "play_style": "solve",
+    "endings": {
+      "MISSION_GALLERY": {
+        "title": "정거장의 작은 전시",
+        "summary": "고른 탐사 기록으로 토리가 정거장에 작은 전시를 열었어요."
+      },
+      "MISSION_STORY": {
+        "title": "다 함께 들은 탐사 이야기",
+        "summary": "고른 탐사 기록을 보며 토리가 친구들에게 발견을 들려줬어요."
+      }
+    }
+  }
+}
