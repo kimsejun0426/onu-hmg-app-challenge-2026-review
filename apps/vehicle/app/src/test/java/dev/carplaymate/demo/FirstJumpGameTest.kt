@@ -6,6 +6,29 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class FirstJumpGameTest {
+    @Test fun slowButAdvancingPlaybackCanOutliveItsNominalDuration() {
+        val started = 15_000L
+        val progress = LetterPlaybackProgress(11_338L, started)
+        for (second in 1L..36L) {
+            assertFalse(progress.stalled(started + second * 1_000L, second * 300L))
+        }
+        assertFalse(progress.stalled(started + 38_000L, 11_338L))
+        // Reaching the final position still leaves time for the native completion callback.
+        assertFalse(progress.stalled(started + 39_000L, 11_338L))
+        assertTrue(progress.stalled(started + 38_000L + LetterPlaybackProgress.STALL_MS, 11_999L))
+    }
+
+    @Test fun stoppedOrMissingPositionsCannotKeepAudioFocusIndefinitely() {
+        val started = 5_000L
+        val progress = LetterPlaybackProgress(11_338L, started)
+        assertFalse(progress.stalled(started + 1_000L, 300L))
+        assertFalse(progress.stalled(started + 2_000L, 290L))
+        assertTrue(progress.stalled(started + 1_000L + LetterPlaybackProgress.STALL_MS, null))
+        val unknown = LetterPlaybackProgress(11_338L, started)
+        assertFalse(unknown.stalled(started + 11_338L, null))
+        assertTrue(unknown.stalled(started + 11_338L + LetterPlaybackProgress.STALL_MS, null))
+    }
+
     private fun hear(turn: JumpTurn, text: String?) = FirstJumpGame.hear(turn.state, text)
     private fun choose(turn: JumpTurn, id: String) = FirstJumpGame.choose(turn.state, id)
     private fun open() = choose(FirstJumpGame.initial(), "open")

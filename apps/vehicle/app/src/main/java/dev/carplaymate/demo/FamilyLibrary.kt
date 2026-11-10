@@ -49,7 +49,7 @@ internal fun homeRecommendationReason(
 internal fun shouldFeatureFirstJump(children: List<ChildProfile>, hasSavedAdventure: Boolean): Boolean =
     !hasSavedAdventure && children.isNotEmpty() && children.all { it.interests.isEmpty() || "ocean" in it.interests }
 
-private const val LETTER_HOME_ACTION = "바다 소리 편지 · 첫 점프를 들려줘!"
+private const val LETTER_HOME_ACTION = "바다에서 온 첫 편지"
 
 @Composable
 internal fun FamilyLanding(
@@ -101,8 +101,8 @@ internal fun FamilyLanding(
                     lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase)),
                     modifier = Modifier.testTag("recommendation.title").semantics { heading() })
                 Text(when {
-                    replyFeatured -> "펭귄이 우리 차의 빗소리를 듣고 싶대. 차창에서 나는 소리로 방송 첫 음악을 만들자."
-                    letterFeatured -> "누가 첫 점프 소리를 보냈을까? 오누와 소리를 듣고 그 친구의 첫 점프를 중계해 줘."
+                    replyFeatured -> "펭귄이 다음 방송에 쓸 음악을 부탁했어. 우리 차의 빗소리로 만들어 보자."
+                    letterFeatured -> "바위 끝에 선 친구가 우리 차에 소리를 보냈어. 누가 보냈는지 같이 맞혀 볼래?"
                     else -> checkNotNull(card).subtitle
                 }, style = MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink)
                 if (!letterFeatured && card != null) Text(homeRecommendationReason(card.packId, recommended, ui.children, saved != null),
@@ -142,7 +142,7 @@ internal fun FamilyLanding(
                     PrimaryButton(
                         when {
                             replyFeatured -> replyAction
-                            letterFeatured -> LETTER_HOME_ACTION
+                            letterFeatured -> "편지 보러 가기"
                             !ui.speechReady && !ui.simulation -> "함께할 방식 선택하기"
                             saved != null -> "이어서 함께하기"
                             else -> "함께 모험 시작하기"

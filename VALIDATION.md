@@ -1,14 +1,10 @@
 # 검증 범위
 
-[제공된 최종 release 검증 JSON](verification/final-validation.json)의 조건과 한계를 따릅니다.
-이 snapshot 내보내기 자체는 새로운 빌드·사용자 조사·실차 시험을 실행하지 않았습니다.
+오누 0.51.0의 실제 결과는 [검증 JSON](verification.json)에 있습니다.
 
-- The59 selected Android audio/story/storage tests and2 actual Pleos SDK fixed-PCM experiments ran on candidate1 demo APK; they were not rerun on final candidate2. Scoped reuse is supported by source, fixture, test APK and authored asset byte equality.
-- The final signed optimized release APK was tested through external actual UI. Pleos SDK fixed synthetic PCM evidence remains from the earlier demo APK and is not described as execution on the submitted release APK.
-- The110 JVM tests and6 welcome UI executions were newly run for final candidate2. Earlier-candidate110 JVM/UI6 executions are not added to these counts.
-- Emulator host microphone and host audio output were disabled. Playback callbacks, exact rendered PCM and UI state observations do not establish human-audible quality or physical microphone behavior.
-- Welcome UI state tests use fake output. Local greeting start, completion and explicit stop were separately observed in the actual final signed release UI.
-- Real children, comprehension, enjoyment, human listening, TalkBack speech, car-cabin acoustics, physical microphone input and real driving support remain unvalidated. restrictedVoiceSupported remains false.
-- Dynamic nicknames and unbundled narrative TTS remain platform dependent.
-- Failed environment/capture-helper/preview attempts are retained separately and excluded from passing test counts.
-- No full Python rerun or whole-app UI regression was performed for this narrowly scoped final UI draw change.
+- 서명 APK에서 새 가족 설정, 첫 편의 다시 듣기와 점프 결말, 다음 편의 오답 힌트·앱 종료 후 이어하기·두 음악 결말을 확인했습니다. Pleos Connect 2.1.0 / API 34의 화면 선택으로 실행했습니다.
+- JVM 131개와 Python 1,612개·하위 시험 44개가 통과했습니다. lint 오류 0개, 경고 13개입니다.
+- 긴 소리가 진행 중이어도 시간이 지났다는 이유로 중단하던 검사를 실제 재생 위치 기반으로 바꿨습니다. 준비 실패와 재생 정체는 제한 시간 뒤 오류로 돌아옵니다.
+- 브라우저 체험의 오누 음원 22개는 APK 안의 음원과 동일합니다. 브라우저에서는 답을 눌러 고릅니다.
+- 기존 79.9초 영상과 verification/ 폴더의 과거 기록은 촬영·검증 당시 버전의 자료입니다. 영상 촬영 버전은 0.50.1입니다.
+- 실제 아동 발화, 차량 내부 소음 속 인식, 실차 및 학습 효과는 검증 대상입니다.

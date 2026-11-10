@@ -8,11 +8,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -43,7 +41,7 @@ internal fun LetterGameSurface(
     statusIcon: FamilyIcon?,
     scrollKey: String,
     stage: Int,
-    choices: List<String>,
+    choices: List<JumpChoice>,
     onChoice: (Int) -> Unit,
     onBack: () -> Unit,
     onPauseOrResume: () -> Unit,
@@ -117,29 +115,29 @@ internal fun LetterGameSurface(
             )
             if (line.isNotBlank() && line != title) Text(
                 line, Modifier.padding(top = 8.dp, bottom = 12.dp).testTag("letter.line"),
-                style = if (spacious) MaterialTheme.typography.titleLarge else MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink,
+                style = if (spacious) MaterialTheme.typography.bodyLarge else MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink,
             )
             when {
                 paused -> Button(onClick = onPauseOrResume, modifier = Modifier.heightIn(min = 54.dp).testTag("letter.resume")) {
                     Text("이어 하기", style = MaterialTheme.typography.titleSmall)
                 }
                 showChoices && complete -> {
-                    choices.forEachIndexed { index, label ->
+                    choices.forEachIndexed { index, choice ->
                         if (index == 0) Button(onClick = { onChoice(index) },
                             modifier = Modifier.padding(top = 6.dp).heightIn(min = 60.dp).testTag("letter.choice.$index")) {
-                            Text(label, style = MaterialTheme.typography.titleSmall)
+                            Text(choice.label, style = MaterialTheme.typography.titleSmall)
                             Spacer(Modifier.width(8.dp))
                             FamilyIcon(FamilyIcon.NEXT, Modifier.size(19.dp), tint = MaterialTheme.colorScheme.onPrimary)
                         } else TextButton(onClick = { onChoice(index) },
                             modifier = Modifier.heightIn(min = 52.dp).testTag("letter.choice.$index")) {
-                            Text(label, style = MaterialTheme.typography.bodyMedium)
+                            Text(choice.label, style = MaterialTheme.typography.bodyMedium)
                         }
                     }
                 }
                 showChoices && choices.size == 1 -> Button(
                     onClick = { onChoice(0) },
                     modifier = Modifier.padding(top = 8.dp).heightIn(min = 58.dp).testTag("letter.choice.0"),
-                ) { Text(choices.first(), style = MaterialTheme.typography.titleSmall) }
+                ) { Text(choices.first().label, style = MaterialTheme.typography.titleSmall) }
                 showChoices && choices.isNotEmpty() -> LetterChoices(choices, onChoice)
                 canShowChoices -> TextButton(onClick = onShowChoices, modifier = Modifier.heightIn(min = 52.dp).testTag("letter.showChoices")) {
                     Text("화면으로 고르기", color = PlaymateColors.Forest, style = MaterialTheme.typography.titleSmall)
@@ -216,33 +214,58 @@ private fun LetterProgress(stage: Int) {
 }
 
 @Composable
-private fun LetterChoices(choices: List<String>, onChoice: (Int) -> Unit) {
-    BoxWithConstraints(Modifier.fillMaxWidth().padding(vertical = 10.dp)) {
-        val paired = choices.size == 2 && maxWidth / LocalDensity.current.fontScale >= 460.dp
-        val outline = MaterialTheme.shapes.medium
-        val group = Modifier.fillMaxWidth().clip(outline)
-            .background(PlaymateColors.Paper).border(1.dp, PlaymateColors.Line, outline)
-        val answer: @Composable (Int, Modifier) -> Unit = { index, modifier ->
-            Row(modifier.heightIn(min = 64.dp)
-                .clickable(role = Role.Button) { onChoice(index) }
-                .testTag("letter.choice.$index").padding(horizontal = 18.dp, vertical = 10.dp),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
+private fun LetterChoices(choices: List<JumpChoice>, onChoice: (Int) -> Unit) {
+    BoxWithConstraints(Modifier.fillMaxWidth().padding(top = 14.dp, bottom = 6.dp)) {
+        val paired = choices.size == 2 && maxWidth / LocalDensity.current.fontScale >= 480.dp
+        val shape = MaterialTheme.shapes.medium
+        val answer: @Composable (Int, Modifier) -> Unit = { index, slot ->
+            val choice = choices[index]
+            Row(
+                slot.heightIn(min = 76.dp).clip(shape)
+                    .background(PlaymateColors.Paper).border(1.dp, PlaymateColors.Line, shape)
+                    .clickable(role = Role.Button) { onChoice(index) }
+                    .testTag("letter.choice.$index").padding(horizontal = 14.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(choices[index], Modifier.weight(1f), style = MaterialTheme.typography.titleSmall,
+                LetterChoiceDrawing(choice.id)
+                Text(choice.label, Modifier.weight(1f), style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.SemiBold, color = PlaymateColors.DeepForest)
-                FamilyIcon(FamilyIcon.NEXT, Modifier.size(18.dp))
             }
         }
-        if (paired) Row(group.height(IntrinsicSize.Min), verticalAlignment = Alignment.CenterVertically) {
+        if (paired) Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             answer(0, Modifier.weight(1f).fillMaxHeight())
-            VerticalDivider(color = PlaymateColors.Line)
             answer(1, Modifier.weight(1f).fillMaxHeight())
-        } else Column(group) {
-            choices.indices.forEach { index ->
-                if (index > 0) HorizontalDivider(Modifier.padding(horizontal = 18.dp), color = PlaymateColors.SoftLine)
-                answer(index, Modifier.fillMaxWidth())
-            }
+        } else Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            choices.indices.forEach { index -> answer(index, Modifier.fillMaxWidth()) }
         }
     }
+}
+
+// Each answer gets the same illustration treatment. The correct answer stays hidden until the child chooses.
+@Composable
+private fun LetterChoiceDrawing(id: String) {
+    if (id == "both") {
+        Box(Modifier.size(50.dp)) {
+            Image(painterResource(R.drawable.onu_choice_otter), null, Modifier.size(36.dp).align(Alignment.TopStart))
+            Image(painterResource(R.drawable.onu_choice_penguin), null, Modifier.size(36.dp).align(Alignment.BottomEnd))
+        }
+        return
+    }
+    val drawing = when (id) {
+        "wet", "soft" -> R.drawable.onu_choice_splash
+        "steps" -> R.drawable.onu_choice_steps
+        "otter" -> R.drawable.onu_choice_otter
+        "penguin" -> R.drawable.onu_choice_penguin
+        "feathers" -> R.drawable.onu_choice_feather
+        "wings" -> R.drawable.onu_choice_wing
+        "swim" -> R.drawable.onu_choice_swim
+        "bold" -> R.drawable.onu_choice_plop
+        "drops" -> R.drawable.onu_choice_drops
+        "wiper" -> R.drawable.onu_choice_wiper
+        "faster" -> R.drawable.onu_choice_faster
+        "slower" -> R.drawable.onu_choice_slower
+        else -> return
+    }
+    Image(painterResource(drawing), null, Modifier.size(50.dp))
 }

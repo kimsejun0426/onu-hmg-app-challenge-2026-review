@@ -3,6 +3,7 @@ package dev.carplaymate.demo
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -34,6 +35,32 @@ internal fun restoreLetter(saved: String?): JumpState? = runCatching {
         fields[2].takeIf(String::isNotEmpty)?.let(JumpEnding::valueOf),
         fields[3].toBooleanStrict(), fields[4].toBooleanStrict())
 }.getOrNull()
+
+/** Only a native completion callback finishes a letter. Progress may outlive its nominal duration. */
+internal class LetterPlaybackProgress(private val durationMs: Long, private val startedAtMs: Long) {
+    private var highWaterMs = 0L
+    private var lastAdvanceMs = startedAtMs
+    private var sawPosition = false
+
+    fun stalled(nowMs: Long, positionMs: Long?): Boolean {
+        if (positionMs != null && positionMs >= 0) {
+            sawPosition = true
+            val bounded = positionMs.coerceAtMost(durationMs)
+            if (bounded > highWaterMs) {
+                highWaterMs = bounded
+                lastAdvanceMs = nowMs
+            }
+        }
+        // Some renderers temporarily have no position. Give one nominal clip from actual start;
+        // once a timeline is observed, identical, backwards and missing samples cannot renew it.
+        val deadline = if (sawPosition) lastAdvanceMs + STALL_MS else startedAtMs + durationMs + STALL_MS
+        return nowMs >= deadline
+    }
+
+    companion object {
+        const val STALL_MS = 12_000L
+    }
+}
 
 /** One foreground, parked letter. The serial invalidates callbacks before revoking either lease. */
 internal class LetterSession<S : Any>(
@@ -165,20 +192,30 @@ internal class LetterSession<S : Any>(
         if (asset == null) { outputProblem(); return }
         val token = ++clipToken
         fun current() = token == clipToken && accepts(key)
-        val watchdog = Runnable { if (current()) outputProblem() }
-        timeout = watchdog
-        timer.postDelayed(watchdog, asset.durationMillis + 8_000)
+        val preparationTimeout = Runnable { if (current()) outputProblem() }
+        timeout = preparationTimeout
+        timer.postDelayed(preparationTimeout, 15_000L)
         try {
             player.play(asset, {
                 if (current()) {
                     ++clipToken
                     stopWatchingPosition()
-                    timer.removeCallbacks(watchdog)
-                    timeout = null
+                    clearClipTimeout()
                     playClip(key, index + 1)
                 }
             }, { if (current()) outputProblem() }, {
-                if (current()) {
+                if (current() && timeout === preparationTimeout) {
+                    clearClipTimeout()
+                    val progress = LetterPlaybackProgress(asset.durationMillis, SystemClock.uptimeMillis())
+                    val playbackWatch = object : Runnable {
+                        override fun run() {
+                            if (timeout !== this || !current()) return
+                            if (progress.stalled(SystemClock.uptimeMillis(), player.positionMillis())) outputProblem()
+                            else timer.postDelayed(this, 1_000L)
+                        }
+                    }
+                    timeout = playbackWatch
+                    timer.postDelayed(playbackWatch, 1_000L)
                     val window = asset.speechWindow
                     if (window != null) trackMixedVoice(window, ::current)
                     else if (!soundOnly) mutable.value = mutable.value.copy(speaking = true)
@@ -212,6 +249,11 @@ internal class LetterSession<S : Any>(
         }
         watchPosition = observer
         observer.run()
+    }
+
+    private fun clearClipTimeout() {
+        timeout?.let(timer::removeCallbacks)
+        timeout = null
     }
 
     private fun stopWatchingPosition() {
@@ -281,8 +323,7 @@ internal class LetterSession<S : Any>(
         ++serial
         ++clipToken
         stopWatchingPosition()
-        timeout?.let(timer::removeCallbacks)
-        timeout = null
+        clearClipTimeout()
         gate.close()
         signals.close()
         microphone.close()

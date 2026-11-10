@@ -4,9 +4,11 @@
 
 [![오누와 만드는 펭귄의 방송](video/poster.jpg)](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/)
 
-[브라우저로 바로 보기](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/) · [시연 MP4 내려받기](https://github.com/kimsejun0426/onu-hmg-app-challenge-2026-review/releases/download/v0.50.1-contest-film2/onu-0.50.1-judging-film.mp4) · [한국어 자막](video/captions.ko.vtt)
+[**설치 없이 첫 소리 편지 해 보기**](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/try/) · [차량 화면 시연 보기](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/) · [시연 MP4 내려받기](https://github.com/kimsejun0426/onu-hmg-app-challenge-2026-review/releases/download/v0.50.1-contest-film2/onu-0.50.1-judging-film.mp4) · [한국어 자막](video/captions.ko.vtt)
 
-## 설치
+브라우저에서는 첫 편을 화면 선택으로 끝까지 해 볼 수 있습니다. 소개 영상은 이전 버전 0.50.1에서 촬영했습니다.
+
+## 차량용 앱 0.51.0 설치
 
 Pleos Connect 2.1.0 에뮬레이터(Android 14)에서 정차 상태로 실행합니다. [서명 APK](apk/오누_오누_release.apk)를 설치하고 앱 목록에서 오누를 엽니다. 기존 release를 쓰고 있다면 같은 앱에 업데이트할 수 있습니다. 개발용 demo와 debug는 별도 앱입니다.
 
@@ -15,7 +17,7 @@ Android SDK의 adb를 쓰는 경우 `adb install -r "apk/오누_오누_release.a
 ## 첫 편에서 답장까지
 
 1. 처음 여는 가족은 별명을 정하고 관심사에서 바다를 고릅니다. 마이크가 꺼진 에뮬레이터에서는 ‘듣고 선택하기’를 고릅니다. 오누의 대사와 효과음이 끝나기를 기다린 뒤 화면에서 답할 수 있습니다.
-2. 홈에서 ‘첫 점프를 들려줘!’를 엽니다. 물소리를 듣고 동물을 추측해 보세요. ‘깃털이 있어?’라는 질문으로 한 번 더 확인한 뒤 ‘성큼성큼, 작게 퐁당!’을 고르면 아이가 정한 점프가 중계됩니다.
+2. 홈에서 ‘편지 보러 가기’를 누릅니다. 물소리를 듣고 동물을 추측해 보세요. ‘깃털이 있어?’라는 질문으로 한 번 더 확인한 뒤 ‘성큼성큼, 작게 퐁당!’을 고르면 아이가 정한 점프가 중계됩니다.
 3. 중계를 끝까지 들으면 첫 편의 마지막 화면과 홈에서 펭귄의 답장을 열 수 있습니다. 오누가 아이가 고른 점프를 떠올립니다. 빗방울과 와이퍼를 알아맞히고, 처음과 나중에 소리가 얼마나 촘촘해지는지 들어 보세요.
 4. ‘톡톡 먼저’로 곡을 듣고 ‘다른 순서로 듣기’에서 ‘슥삭 먼저’를 골라 보세요. 두 곡은 첫 두 박자부터 다릅니다. 중간에 ‘잠깐 쉬기’를 누르면 다음 정차에서 그 문제로 돌아옵니다.
 

@@ -93,11 +93,11 @@ private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: Develo
         playing -> "오누가 들려주는 중"
         view.phase == LetterPhase.INPUT_START -> "마이크 준비 중"
         view.phase == LetterPhase.LISTENING -> "네 차례야. 오누에게 말해 줘."
-        view.phase == LetterPhase.PROCESSING -> "오누가 네 말을 생각하는 중"
-        complete -> "소리 편지를 다 들었어"
+        view.phase == LetterPhase.PROCESSING -> "잠깐만 기다려 줘"
+        complete -> ""
         stage == 0 -> episode.invitation
         mode == LetterMode.READ -> "읽고 골라 줘"
-        else -> "네 차례야. 하나 골라 줘."
+        else -> "네 차례야"
     }
     val caption = letterCaption(mode, episode, view)
     // A read-only turn still needs every clue. In audio modes only the line being
@@ -129,7 +129,7 @@ private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: Develo
     }
     LetterGameSurface(title = heading, line = body, precedingClues = precedingClues,
         status = status, statusIcon = statusIcon, stage = stage, scrollKey = turn.title,
-        choices = choices.map { it.label },
+        choices = choices,
         onChoice = { i -> choices.getOrNull(i)?.let { choice ->
             if (choice.id == "open_reply" && complete) { session.pause(); onReply?.invoke() }
             else session.choose(choice.id)

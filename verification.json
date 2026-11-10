@@ -5,17 +5,17 @@
   },
   "development_ui_absent": true,
   "jvm": {
-    "errors": 0,
+    "tests": 131,
     "failures": 0,
-    "skipped": 0,
-    "tests": 129
+    "errors": 0,
+    "skipped": 0
   },
   "lint": {
     "errors": 0,
     "warnings": 13
   },
   "physical_vehicle_and_child_speech_tested": false,
-  "release_apk_sha256": "a4e110980038a7693cd5a0e929c2a3a22c9de2ed386b272ce6fd32741cc4fed5",
+  "release_apk_sha256": "9ae3a59f7f1efa8a212da5049f9475c6a0307de4cecf4824c666bd53da233b24",
   "sdk_payload_loggers_absent": true,
   "test_fixtures_and_credential_files_absent": true,
   "vehicle_screen_recording": {
@@ -36,13 +36,45 @@
     "held_capture_tail_seconds": 0.726
   },
   "video_sha256": "16a4ec11a690672ff3855de239c171948be6594e65cb29a12d2f1a1a07bf3de2",
-  "device_checks": {
+  "captions_count": 19,
+  "captions_sha256": "cb13493ad278b19b9849a594f36b2b60ad99b4a3ac937bb7602f7639cf7704ea",
+  "film_revision": 2,
+  "film_player": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/",
+  "historical_device_checks_0.50.1": {
     "family_screens": 37,
     "permissions_and_recovery": 10,
     "sound_letters": 15
   },
-  "captions_count": 19,
-  "captions_sha256": "cb13493ad278b19b9849a594f36b2b60ad99b4a3ac937bb7602f7639cf7704ea",
-  "film_revision": 2,
-  "film_player": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/"
+  "release_version": "0.51.0",
+  "native_signed_journey": {
+    "install": {
+      "sha256": "9ae3a59f7f1efa8a212da5049f9475c6a0307de4cecf4824c666bd53da233b24",
+      "previous_apk_sha256": "4dccb5b1665a2c21364f5ac9b164395de2afe1e4d0d1f32fe4480971858ed66f",
+      "updated_from_previous": false,
+      "platform": "Pleos Connect 2.1.0 / API 34",
+      "serial": "emulator-5586",
+      "virtual_host_mic": false
+    },
+    "onboard": true,
+    "first_letter": {
+      "replayed": true,
+      "confirmed_feathers": true,
+      "jump": "BOLD"
+    },
+    "second_letter": {
+      "wrong_then_hint": true,
+      "paused_and_restored_after_restart": true,
+      "music_orders": [
+        "WIPER",
+        "DROPS"
+      ],
+      "mic_permission": false
+    }
+  },
+  "web_try": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/try/",
+  "film_version": "0.50.1",
+  "python_tests": {
+    "passed": 1612,
+    "subtests_passed": 44
+  }
 }

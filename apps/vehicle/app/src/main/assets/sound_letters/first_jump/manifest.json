@@ -3,17 +3,17 @@
   "clips": [
     {
       "id": "opening",
-      "text": "우리 차에 소리 편지가 왔어. 누가 보냈는지 맞혀 보자. 그 친구의 첫 점프도 같이 중계해 달래.",
+      "text": "어? 우리 차에 편지가 왔어. 누가 보냈지? 같이 들어 보자.",
       "asset": "sound_letters/first_jump/audio/opening.mp3",
-      "sha256": "d394f1185042a3fc59fc5458a27f037e32234a376e5bd8b5f352e92a896f7895",
-      "duration_ms": 6321
+      "sha256": "00b2912c84b9e2f33b9c3d9ee2546c30faef47924d3324f744db5713881a6199",
+      "duration_ms": 5641
     },
     {
       "id": "splash",
       "text": "타닥타닥… 첨벙!",
       "asset": "sound_letters/first_jump/audio/splash.mp3",
-      "sha256": "aa7b2266762a77149903059b2791bac93e04be190c6de7698ceefffb71f60ed3",
-      "duration_ms": 4200
+      "sha256": "ff7f4284361acbc640104ab05adcd91843eaac27d234ac8ad888e996dbbc646f",
+      "duration_ms": 3500
     },
     {
       "id": "water_q",
@@ -24,10 +24,10 @@
     },
     {
       "id": "water_ack",
-      "text": "응, 나도 물에 뛰어든 소리로 들었어.",
+      "text": "응, 물이 튀었어! 뭐가 빠졌나 봐.",
       "asset": "sound_letters/first_jump/audio/water_ack.mp3",
-      "sha256": "25e001ce695fc61bd0b8e895180b31258e6e254de9ebd4c3d9723659bdcfac54",
-      "duration_ms": 2954
+      "sha256": "d6f33a8e506c19abffdc059006fded7d5739b8d80a244b43e2bea53ef90c1a5e",
+      "duration_ms": 3467
     },
     {
       "id": "steps_ack",
@@ -38,10 +38,10 @@
     },
     {
       "id": "candidates",
-      "text": "편지에 이렇게 썼네. 나는 해달이랑 펭귄 중 하나야. 물속에서 헤엄쳐.",
+      "text": "편지에 힌트가 있어. 해달 아니면 펭귄이래.",
       "asset": "sound_letters/first_jump/audio/candidates.mp3",
-      "sha256": "36ab8046385790e47781a2d10689f9cb26ca780c1656e197c1c8383fbf4e8bb8",
-      "duration_ms": 5381
+      "sha256": "69883fb023ce35d38ff02ba42c346c6b0c28866c027d671302f70306731af5aa",
+      "duration_ms": 3561
     },
     {
       "id": "guess_q",
@@ -59,10 +59,10 @@
     },
     {
       "id": "guess_penguin",
-      "text": "펭귄? 그럴 수도 있지. 나는 해달도 떠올랐어.",
+      "text": "펭귄 같아? 난 아직 잘 모르겠어.",
       "asset": "sound_letters/first_jump/audio/guess_penguin.mp3",
-      "sha256": "24ba774770f55a48a06bad6da8678cf64593e6667e5e503bfb55b58abeab4dcb",
-      "duration_ms": 4093
+      "sha256": "027a6875e4420ad635d4623e2d9521ce57e079203c4c5f2d68bfbe3b4c6db155",
+      "duration_ms": 3067
     },
     {
       "id": "guess_both",
@@ -87,10 +87,10 @@
     },
     {
       "id": "feather_evidence",
-      "text": "그 질문에 답이 왔어. 내 몸엔 깃털이 있어. 날개로 헤엄을 쳐.",
+      "text": "답장 왔다! 깃털이 있대. 날개로 헤엄친대.",
       "asset": "sound_letters/first_jump/audio/feather_evidence.mp3",
-      "sha256": "5dcf7fc9b7d123141cbc77e1ba0888c2ad4cd32877af2162a087cec079cc1465",
-      "duration_ms": 5196
+      "sha256": "8409ebc296ca2110594bbc9e92f918d293d458d396cd0a31a7c47a21519494e2",
+      "duration_ms": 4298
     },
     {
       "id": "who_q",
@@ -101,10 +101,10 @@
     },
     {
       "id": "reveal",
-      "text": "편지를 보낸 친구는 펭귄이었어!",
+      "text": "편지를 보낸 친구는 펭귄이었어! 첫 점프를 어떤 소리로 들려줄까?",
       "asset": "sound_letters/first_jump/audio/reveal.mp3",
-      "sha256": "388b5f8e653e7b4b4775c8146dba5371f6450ccba958510be28d1852473c8b10",
-      "duration_ms": 2840
+      "sha256": "903c8b64f9bcfeacd0ef70fd200cd7f31a1a08cc5629977b3074a1f45a81f63f",
+      "duration_ms": 4938
     },
     {
       "id": "direct_q",
