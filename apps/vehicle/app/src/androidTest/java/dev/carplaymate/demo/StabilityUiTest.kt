@@ -89,6 +89,13 @@ class StabilityUiTest {
                                     }
                                 },
                                 outputFactory = { output },
+                                // This isolated ViewModel has no Activity to attach a real vehicle display.
+                                // The deletion test begins from the parked guardian settings.
+                                vehicleAccessProvider = object : VehicleAccessProvider {
+                                    override val initialState = VehicleAccessState.UNRESTRICTED
+                                    override fun start(context: Context, changed: (VehicleAccessState) -> Unit) = changed(initialState)
+                                    override fun close() = Unit
+                                },
                             )
                                 as T
                     },

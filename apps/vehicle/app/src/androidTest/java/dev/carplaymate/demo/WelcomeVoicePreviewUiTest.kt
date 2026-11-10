@@ -96,7 +96,10 @@ class WelcomeVoicePreviewUiTest {
             awaitReady()
         }
         fun awaitReady() {
-            compose.waitUntil(5_000) { preview.state.value.available }
+            compose.waitUntil(5_000) {
+                preview.state.value.available && compose.onAllNodes(hasTestTag("welcome.voicePreview") and isEnabled())
+                    .fetchSemanticsNodes().size == 1
+            }
             compose.onNodeWithTag("welcome.voicePreview").performScrollTo().assertIsEnabled()
         }
         fun start() {

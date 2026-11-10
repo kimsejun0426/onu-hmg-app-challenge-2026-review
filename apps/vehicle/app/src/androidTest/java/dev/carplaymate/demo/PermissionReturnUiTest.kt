@@ -2,7 +2,6 @@ package dev.carplaymate.demo
 
 import android.Manifest
 import android.app.Activity
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -207,17 +206,24 @@ class PermissionReturnUiTest {
             assertTrue(family.saveInterests(setOf("space"), emptySet()))
             if (mode != null) assertTrue(InteractionPreferences(app).save(mode))
             model = main {
+                // The production host owns the RECORD_AUDIO request even when the installed
+                // Pleos SDK permissions do not require a runtime dialog.
+                app.testHost = VoiceSessionHost(app) { scope ->
+                    VoiceSessionController(app, null, outputFactory = { output },
+                        vehicleAccessProvider = vehicle, inputFactory = { input },
+                        captureSignalOutput = capture, inputFocusFactory = { capture },
+                        requireForegroundHostForVoice = true, sessionScope = scope)
+                }
                 ViewModelProvider(store, object : ViewModelProvider.Factory {
                     @Suppress("UNCHECKED_CAST")
                     override fun <T : ViewModel> create(modelClass: Class<T>): T =
-                        DeveloperViewModel(app, null, outputFactory = { output },
-                            vehicleAccessProvider = vehicle, inputFactory = { input },
-                            captureSignalOutput = capture, inputFocusFactory = { capture }) as T
+                        DeveloperViewModel(app) as T
                 })[DeveloperViewModel::class.java]
             }
             withTimeout(15_000) { model.ui.first { !it.busy && it.onboarded && !it.interestSetupNeeded } }
             main {
                 lifecycle.registry.currentState = Lifecycle.State.RESUMED
+                app.voiceSessionHost.activityResumed(compose.activity)
                 model.foreground(compose.activity)
                 vehicle.emit(VehicleAccessState.UNRESTRICTED)
                 compose.activity.setContent {
@@ -246,7 +252,9 @@ class PermissionReturnUiTest {
             assertEquals("The real UI must launch a permission contract, not bypass it.",
                 before + 1, registry.launches.size)
             return registry.launches.last().also {
-                assertTrue(it.input is Array<*> && (it.input as Array<*>).isNotEmpty())
+                val permissions = it.input as? Array<*>
+                assertTrue("The real host must request the denied microphone grant.",
+                    permissions != null && Manifest.permission.RECORD_AUDIO in permissions)
             }
         }
 
@@ -267,7 +275,11 @@ class PermissionReturnUiTest {
         }
 
         suspend fun background() {
-            main { lifecycle.registry.currentState = Lifecycle.State.STARTED; model.background() }
+            main {
+                lifecycle.registry.currentState = Lifecycle.State.STARTED
+                app.voiceSessionHost.activityPaused(compose.activity)
+                model.background()
+            }
             await { !it.busy && it.quiet && it.vehicleAccess == VehicleAccessState.UNKNOWN }
         }
 
@@ -275,6 +287,7 @@ class PermissionReturnUiTest {
             main {
                 model.foreground(compose.activity)
                 lifecycle.registry.currentState = if (resumed) Lifecycle.State.RESUMED else Lifecycle.State.STARTED
+                if (resumed) app.voiceSessionHost.activityResumed(compose.activity)
             }
             await { !it.busy && it.vehicleAccess == VehicleAccessState.UNKNOWN }
         }
@@ -310,7 +323,12 @@ class PermissionReturnUiTest {
         }
 
         suspend fun close() {
-            main { store.clear(); lifecycle.registry.currentState = Lifecycle.State.DESTROYED }
+            main {
+                store.clear()
+                app.testHost?.close()
+                app.testHost = null
+                lifecycle.registry.currentState = Lifecycle.State.DESTROYED
+            }
             backend.deleteAll()
             withContext(Dispatchers.IO) { app.clean() }
         }
@@ -375,7 +393,10 @@ class PermissionReturnUiTest {
         override fun stop() = Unit
         override fun release() = Unit
     }
-    private class ScopedApplication(context: Context) : Application() {
+    private class ScopedApplication(context: Context) : OnuApplication() {
+        var testHost: VoiceSessionHost? = null
+        internal override val voiceSessionHost: VoiceSessionHost
+            get() = checkNotNull(testHost)
         private val prefix = "permission_return_" + UUID.randomUUID()
         private val base = context.noBackupFilesDir.canonicalFile
         private val directory = File(base, prefix).also { check(it.mkdir()) }

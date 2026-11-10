@@ -66,7 +66,6 @@ internal fun InterestSetupScreen(
     fun editChild(index: Int) {
         childIndex = index
         if (index == 1) secondVisited = true
-        error = null
     }
     val currentChild = if (childIndex == 1 && secondChild != null) secondChild else firstChild
     val selected = if (currentChild.id == firstChild.id) first else second

@@ -498,6 +498,13 @@ class InteractionModeTest {
         val output = Output()
         val focus = Focus()
         val signals = Signals(focus)
+        // Mode selection needs a parked vehicle. This standalone ViewModel has no Activity
+        // to connect AAOS vehicle services; restriction transitions have their own tests.
+        private val parkedVehicle = object : VehicleAccessProvider {
+            override val initialState = VehicleAccessState.UNRESTRICTED
+            override fun start(context: Context, changed: (VehicleAccessState) -> Unit) = changed(initialState)
+            override fun close() = Unit
+        }
         private var store = ViewModelStore()
         lateinit var model: DeveloperViewModel
         fun create() {
@@ -508,6 +515,7 @@ class InteractionModeTest {
                     override fun <T : ViewModel> create(modelClass: Class<T>): T =
                         DeveloperViewModel(application, null, outputFactory = { output },
                             inputFactory = { input }, captureSignalOutput = signals,
+                            vehicleAccessProvider = parkedVehicle,
                             inputFocusFactory = { lost -> focus.also { it.onLost = lost } }) as T
                 })[DeveloperViewModel::class.java]
             }
