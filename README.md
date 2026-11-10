@@ -1,6 +1,10 @@
 # 오누
 
-아이와 오누가 차 스피커에서 들리는 소리를 맞히고, 그 답으로 다음 여행의 이야기를 만드는 한국어 차량용 앱입니다.
+우리 차가 아이의 친구가 되도록, 오누와 듣고 고른 소리를 다음 여행의 이야기로 이어 가는 차량용 앱입니다.
+
+[![오누와 만드는 펭귄의 방송](video/poster.jpg)](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/)
+
+[브라우저로 바로 보기](https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/) · [시연 MP4 내려받기](https://github.com/kimsejun0426/onu-hmg-app-challenge-2026-review/releases/download/v0.50.1-contest-film2/onu-0.50.1-judging-film.mp4) · [한국어 자막](video/captions.ko.vtt)
 
 ## 설치
 
@@ -17,9 +21,7 @@ Android SDK의 adb를 쓰는 경우 `adb install -r "apk/오누_오누_release.a
 
 게임을 끝낸 뒤 보호자 설정의 기록에서 두 편을 다시 찾을 수 있습니다. 완성한 방송 음악에는 어느 소리를 먼저 골랐는지도 남습니다.
 
-[![Pleos에서 실행한 오누의 소리 편지](video/poster.jpg)](video/오누_차량화면_시연.mp4)
-
-[시연 MP4](video/오누_차량화면_시연.mp4) · [브라우저용 WebM](video/onu-preview.webm) · [빌드와 시연 검증 기록](verification.json) · [파일 해시](SHA256SUMS.txt)
+[빌드와 시연 검증 기록](verification.json) · [파일 해시](SHA256SUMS.txt)
 
 ## 소스에서 실행
 

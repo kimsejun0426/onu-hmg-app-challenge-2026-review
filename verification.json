@@ -1,9 +1,7 @@
 {
   "browser_preview": {
-    "VP9_decoded_frames": 1913,
-    "duration_seconds": 63.794,
-    "end_decoded": true,
-    "sha256": "7a3f4db9f85686c5838e711af18e9c393b00b1a88f3c5a4a4ff052ea25c9f4ec"
+    "sha256": "abed057079ba2216b69ef2c68bdf2b2124c0296458df92d6ca70076a36ae7d81",
+    "duration_seconds": 79.944
   },
   "development_ui_absent": true,
   "jvm": {
@@ -21,16 +19,30 @@
   "sdk_payload_loggers_absent": true,
   "test_fixtures_and_credential_files_absent": true,
   "vehicle_screen_recording": {
-    "H264_decoded_frames": 1913,
-    "child_audio_used": false,
+    "seconds": 79.933333,
+    "moving_screenrecord_seconds": 48.041,
+    "width": 1600,
+    "height": 900,
     "device_input": "화면 선택",
-    "height": 720,
-    "integrated_lufs": -20.7,
-    "moving_screenrecord_seconds": 46.824,
-    "seconds": 63.766667,
+    "child_audio_used": false,
+    "emulator_gear": "P-D-P at 0 km/h",
+    "scope": "0.50.1 signed APK recordings, in-app audio, illustrated introduction and separately captured gear transition.",
+    "H264_decoded_frames": 2398,
+    "fps": 30,
+    "integrated_lufs": -20.9,
     "true_peak_dbfs": -4.3,
-    "voice_source": "Bundled first_jump and rain_music MP3s, verified against the signed APK manifests.",
-    "width": 1280
+    "opening_illustration_seconds": 3.333,
+    "vehicle_capture_seconds": 27.833,
+    "held_capture_tail_seconds": 0.726
   },
-  "video_sha256": "b92ac5b3c141a873e7b10028163102687b33d675ebb26b081d714e6135db3f71"
+  "video_sha256": "16a4ec11a690672ff3855de239c171948be6594e65cb29a12d2f1a1a07bf3de2",
+  "device_checks": {
+    "family_screens": 37,
+    "permissions_and_recovery": 10,
+    "sound_letters": 15
+  },
+  "captions_count": 19,
+  "captions_sha256": "cb13493ad278b19b9849a594f36b2b60ad99b4a3ac937bb7602f7639cf7704ea",
+  "film_revision": 2,
+  "film_player": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/"
 }
