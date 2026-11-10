@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
@@ -100,6 +101,7 @@ internal fun PrimaryButton(
     enabled: Boolean = true,
     modifier: Modifier = Modifier,
     trailingIcon: FamilyIcon? = FamilyIcon.NEXT,
+    labelStyle: TextStyle = MaterialTheme.typography.labelLarge,
 ) {
     Button(
         onClick = onClick,
@@ -112,7 +114,7 @@ internal fun PrimaryButton(
         ),
         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 18.dp),
     ) {
-        Text(label, modifier = Modifier.weight(1f), style = MaterialTheme.typography.labelLarge)
+        Text(label, modifier = Modifier.weight(1f), style = labelStyle)
         if (trailingIcon != null) {
             Spacer(Modifier.width(12.dp))
             // One action, one surface: the glyph is part of the button, not a second control.

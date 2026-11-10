@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "opening",
+      "text": "우리 차에 소리 편지가 왔어. 누가 보냈는지 맞혀 보자. 그 친구의 첫 점프도 같이 중계해 달래.",
+      "asset": "sound_letters/first_jump/audio/opening.mp3",
+      "sha256": "d394f1185042a3fc59fc5458a27f037e32234a376e5bd8b5f352e92a896f7895",
+      "duration_ms": 6321
+    },
+    {
+      "id": "splash",
+      "text": "타닥타닥… 첨벙!",
+      "asset": "sound_letters/first_jump/audio/splash.mp3",
+      "sha256": "aa7b2266762a77149903059b2791bac93e04be190c6de7698ceefffb71f60ed3",
+      "duration_ms": 4200
+    },
+    {
+      "id": "water_q",
+      "text": "어떤 소리가 들렸어?",
+      "asset": "sound_letters/first_jump/audio/water_q.mp3",
+      "sha256": "ec3cd14a63c05e751ef671e1dc8955801247cf667e36cddb4869bcba2f17abb0",
+      "duration_ms": 1561
+    },
+    {
+      "id": "water_ack",
+      "text": "응, 나도 물에 뛰어든 소리로 들었어.",
+      "asset": "sound_letters/first_jump/audio/water_ack.mp3",
+      "sha256": "25e001ce695fc61bd0b8e895180b31258e6e254de9ebd4c3d9723659bdcfac54",
+      "duration_ms": 2954
+    },
+    {
+      "id": "steps_ack",
+      "text": "발소리 들었구나. 나도 타닥타닥 들었어.",
+      "asset": "sound_letters/first_jump/audio/steps_ack.mp3",
+      "sha256": "8cc631785692b761a5a3c031357545cf8af753c81aca71592041bfd37118c321",
+      "duration_ms": 3643
+    },
+    {
+      "id": "candidates",
+      "text": "편지에 이렇게 썼네. 나는 해달이랑 펭귄 중 하나야. 물속에서 헤엄쳐.",
+      "asset": "sound_letters/first_jump/audio/candidates.mp3",
+      "sha256": "36ab8046385790e47781a2d10689f9cb26ca780c1656e197c1c8383fbf4e8bb8",
+      "duration_ms": 5381
+    },
+    {
+      "id": "guess_q",
+      "text": "지금은 누가 떠올라?",
+      "asset": "sound_letters/first_jump/audio/guess_q.mp3",
+      "sha256": "31d63a9a9a3a525670f450430d24a59d930a268de33cb9a85b50776b3bd3d3cc",
+      "duration_ms": 1567
+    },
+    {
+      "id": "guess_otter",
+      "text": "해달? 나도 해달이 떠올랐어.",
+      "asset": "sound_letters/first_jump/audio/guess_otter.mp3",
+      "sha256": "b951b40a6aac935aca83c8a315664b663eff8e82f99202ba042ad0bb9bf32e95",
+      "duration_ms": 2379
+    },
+    {
+      "id": "guess_penguin",
+      "text": "펭귄? 그럴 수도 있지. 나는 해달도 떠올랐어.",
+      "asset": "sound_letters/first_jump/audio/guess_penguin.mp3",
+      "sha256": "24ba774770f55a48a06bad6da8678cf64593e6667e5e503bfb55b58abeab4dcb",
+      "duration_ms": 4093
+    },
+    {
+      "id": "guess_both",
+      "text": "둘 다 떠오르지? 나도 아직 헷갈려.",
+      "asset": "sound_letters/first_jump/audio/guess_both.mp3",
+      "sha256": "f5a4341831b3e20b9c76a6fc30671259ed708868455122cbae3d970a5de525e4",
+      "duration_ms": 3249
+    },
+    {
+      "id": "ask_question",
+      "text": "둘 다 헤엄을 잘 치는데, 뭘 더 물어볼까?",
+      "asset": "sound_letters/first_jump/audio/ask_question.mp3",
+      "sha256": "44aa16fc93cb745f3daf18a2d33c35ab3d00fa63bad4772e4b01d14e37db2129",
+      "duration_ms": 3302
+    },
+    {
+      "id": "weak_shared",
+      "text": "둘 다 물에서 헤엄을 친대. 몸에 뭐가 났는지 물어볼까?",
+      "asset": "sound_letters/first_jump/audio/weak_shared.mp3",
+      "sha256": "d6aca787940ce8322310c08df4e5b5626efe169f9ac175b9d83341c21edb0c10",
+      "duration_ms": 4145
+    },
+    {
+      "id": "feather_evidence",
+      "text": "그 질문에 답이 왔어. 내 몸엔 깃털이 있어. 날개로 헤엄을 쳐.",
+      "asset": "sound_letters/first_jump/audio/feather_evidence.mp3",
+      "sha256": "5dcf7fc9b7d123141cbc77e1ba0888c2ad4cd32877af2162a087cec079cc1465",
+      "duration_ms": 5196
+    },
+    {
+      "id": "who_q",
+      "text": "누가 보낸 편지일까?",
+      "asset": "sound_letters/first_jump/audio/who_q.mp3",
+      "sha256": "47521e4fb887ccd13d01b7af6c6cc53170242b6e64aad835f06c28da9f890f12",
+      "duration_ms": 1639
+    },
+    {
+      "id": "reveal",
+      "text": "편지를 보낸 친구는 펭귄이었어!",
+      "asset": "sound_letters/first_jump/audio/reveal.mp3",
+      "sha256": "388b5f8e653e7b4b4775c8146dba5371f6450ccba958510be28d1852473c8b10",
+      "duration_ms": 2840
+    },
+    {
+      "id": "direct_q",
+      "text": "살금살금 걷다가 크게 첨벙할까? 아니면 성큼성큼 걷다가 작게 퐁당할까?",
+      "asset": "sound_letters/first_jump/audio/direct_q.mp3",
+      "sha256": "334bf45e50a9850b9b14069b6509335647fc9451ab767f1e41a7195e28faf82e",
+      "duration_ms": 5221
+    },
+    {
+      "id": "finale_soft",
+      "text": "펭귄 선수가 바위 끝까지 살금살금 다가옵니다. 하나, 둘, 폴짝! 물 위로 고개가 쏙! 첫 점프 성공이야.",
+      "asset": "sound_letters/first_jump/audio/finale_soft.mp3",
+      "sha256": "0a10d2ea18b41f0cbecfe6d51415592ea560bcff102a548a0e4a6be9f6c7d36f",
+      "duration_ms": 10683
+    },
+    {
+      "id": "finale_bold",
+      "text": "펭귄 선수가 바위 끝까지 성큼성큼 다가옵니다. 하나, 둘, 폴짝! 물 위로 고개가 쏙! 첫 점프 성공이야.",
+      "asset": "sound_letters/first_jump/audio/finale_bold.mp3",
+      "sha256": "8361e6bf983ab155755fe4365da279f05c8a34d87fc82ac8fa053f105cfae108",
+      "duration_ms": 11338
+    },
+    {
+      "id": "repeat_prompt",
+      "text": "좋아. 다시 한번 들어 보자.",
+      "asset": "sound_letters/first_jump/audio/repeat_prompt.mp3",
+      "sha256": "004fe60d7556cd27899198f01eda71640e48062e5cc52e0c15e3c787de2186db",
+      "duration_ms": 3115
+    },
+    {
+      "id": "hint_body",
+      "text": "몸을 덮은 게 털일까, 깃털일까? 그걸 물어보자.",
+      "asset": "sound_letters/first_jump/audio/hint_body.mp3",
+      "sha256": "f61468b4806c99fe3f40dab81e4f20e7aa006d0957874e8b27c52e59bbe9c19e",
+      "duration_ms": 4108
+    },
+    {
+      "id": "water_hint",
+      "text": "타닥타닥 걷더니, 첨벙! 어디에 뛰어든 걸까?",
+      "asset": "sound_letters/first_jump/audio/water_hint.mp3",
+      "sha256": "51f70980156dc5c882e6548e289bfbab0cffcc20881d8c7efc7b2a824755313c",
+      "duration_ms": 4067
+    },
+    {
+      "id": "unheard",
+      "text": "내가 잘 못 들었어. 한 번만 더 말해 줄래?",
+      "asset": "sound_letters/first_jump/audio/unheard.mp3",
+      "sha256": "27be4846c0e9565a2cc075e029a89cd8a51c877669be83a0b2d20150fe7e43e7",
+      "duration_ms": 3478
+    }
+  ],
+  "credits": {
+    "voice": "Onu, original synthetic Korean boy. Qwen3-TTS-12Hz-1.7B-VoiceDesign and Base. No human or child recording.",
+    "effects": "Footfalls and droplets authored for Onu. Water layers adapted from Swale by Siddharth Patil (Ksd5 / Sidpatil), CC0 1.0, https://commons.wikimedia.org/wiki/File:Swale.ogg"
+  }
+}

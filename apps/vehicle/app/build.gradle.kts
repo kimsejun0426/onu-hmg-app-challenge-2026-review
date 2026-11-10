@@ -59,8 +59,8 @@ android {
         applicationId = "dev.carplaymate.demo"
         minSdk = 28
         targetSdk = 35
-        versionCode = 49
-        versionName = "0.47.0"
+        versionCode = 52
+        versionName = "0.50.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {

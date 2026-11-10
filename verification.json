@@ -1,0 +1,36 @@
+{
+  "browser_preview": {
+    "VP9_decoded_frames": 1938,
+    "duration_seconds": 64.626,
+    "end_decoded": true,
+    "sha256": "8eedf529d10989d1377dab3408d6b30eabdce31ee010627814c397e220db2ea3"
+  },
+  "development_ui_absent": true,
+  "jvm": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 129
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 13
+  },
+  "physical_vehicle_and_child_speech_tested": false,
+  "release_apk_sha256": "8702d14e953a9e45ddb073da0a7824a6e9ea8af1f0a90ddbd968842ab3901c93",
+  "sdk_payload_loggers_absent": true,
+  "test_fixtures_and_credential_files_absent": true,
+  "vehicle_screen_recording": {
+    "H264_decoded_frames": 1938,
+    "child_audio_used": false,
+    "device_input": "화면 선택",
+    "height": 720,
+    "integrated_lufs": -20.8,
+    "moving_screenrecord_seconds": 46.3,
+    "seconds": 64.6,
+    "true_peak_dbfs": -4.3,
+    "voice_source": "Bundled first_jump and rain_music MP3s, verified against the signed APK manifests.",
+    "width": 1280
+  },
+  "video_sha256": "f6106b1c477bbca88fab9f8ca05fcf41f87ff179cf814dd0ef1dba47c5f4207e"
+}

@@ -35,6 +35,53 @@ class SetupDetailUiTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     private val context get() = InstrumentationRegistry.getInstrumentation().targetContext
 
+    @Test fun interestLandscapeFollowsTheCurrentChildAndRemainingChoicesAtLargeType() {
+        val ui = DeveloperUiState(
+            onboarded = true, quiet = true, interactionConfigured = false, twoPlayers = true,
+            children = listOf(ChildProfile("first", "별"), ChildProfile("second", "달")),
+        )
+        val saved = mutableListOf<Pair<Set<String>, Set<String>>>()
+        var skips = 0
+        compose.activity.setContent {
+            val density = LocalDensity.current.density
+            androidx.compose.runtime.CompositionLocalProvider(
+                LocalDensity provides androidx.compose.ui.unit.Density(density, 1.3f),
+            ) {
+                PlaymateTheme {
+                    BoxWithConstraints(Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars)) {
+                        InterestSetupScreen(ui, wide = maxWidth >= 840.dp,
+                            onSave = { first, second -> saved.add(first to second) }, onSkip = { skips++ })
+                    }
+                }
+            }
+        }
+        compose.onNodeWithTag("interests.skip").assertIsDisplayed().performClick()
+        compose.onNodeWithTag("interests.scene.dinosaurs").assertExists()
+        compose.onNodeWithText("요즘 뭘 좋아해?").assertExists()
+        compose.onNodeWithTag("interests.childTitle").assertContentDescriptionEquals("별의 관심사")
+        for (option in InterestOptions.all) {
+            compose.onNodeWithTag("interest.${option.id}").performScrollTo().assertIsOff()
+        }
+        compose.onNodeWithTag("interest.space").performScrollTo().performClick()
+        compose.onNodeWithTag("interest.animals").performScrollTo().performClick()
+        compose.onNodeWithTag("interests.scene.animals").assertExists()
+        compose.onNodeWithTag("interest.animals").performClick()
+        compose.onNodeWithTag("interests.scene.space").assertExists()
+        compose.onNodeWithTag("interests.child.1").performScrollTo().performClick()
+        compose.onNodeWithTag("interests.childTitle").assertContentDescriptionEquals("달의 관심사")
+        compose.onNodeWithTag("interests.scene.dinosaurs").assertExists()
+        compose.onNodeWithTag("interest.space").performScrollTo().assertIsOff()
+        compose.onNodeWithTag("interest.ocean").performScrollTo().performClick()
+        compose.onNodeWithTag("interests.scene.ocean").assertExists()
+        compose.onNodeWithTag("interests.child.0").performScrollTo().performClick()
+        compose.onNodeWithTag("interests.scene.space").assertExists()
+        compose.onNodeWithTag("interests.save").assertIsDisplayed().performClick()
+        compose.runOnIdle {
+            assertEquals(1, skips)
+            assertEquals(listOf(setOf("space") to setOf("ocean")), saved)
+        }
+    }
+
     @Test fun failedInterestSaveKeepsBothDraftsAndShowsVisibleRetry() {
         val ui = DeveloperUiState(
             onboarded = true, quiet = true, simulation = true, interactionConfigured = true,

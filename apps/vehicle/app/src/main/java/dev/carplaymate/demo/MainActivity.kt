@@ -11,7 +11,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProvider(this)[DeveloperViewModel::class.java]
-        setContent { PlaymateTheme { FamilyScreen(model, onHide = { moveTaskToBack(true) }) } }
+        setContent {
+            VehicleWindow {
+                PlaymateTheme { FamilyScreen(model, onHide = { moveTaskToBack(true) }) }
+            }
+        }
     }
 
     override fun onResume() {

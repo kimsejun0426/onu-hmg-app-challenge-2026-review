@@ -1,5 +1,6 @@
 package dev.carplaymate.demo
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.Role
@@ -45,16 +47,22 @@ internal fun WelcomeScreen(
     var error by remember { mutableStateOf<String?>(null) }
     val welcomeScroll = rememberScrollState()
     val secondNicknameFocus = remember { FocusRequester() }
-    BoxWithConstraints(modifier.testTag("family.onboarding")) {
+    BoxWithConstraints(
+        modifier.fillMaxSize().testTag("family.onboarding"),
+        contentAlignment = Alignment.Center,
+    ) {
+        val spacious = wide && spaciousSetup(maxWidth, maxHeight, LocalDensity.current.fontScale)
         val shortViewport = maxHeight < 500.dp
         val sceneHeight = when {
+            spacious -> (maxHeight * .39f).coerceIn(310.dp, 420.dp)
             wide && !shortViewport -> 330.dp
             wide -> 210.dp
             shortViewport -> 128.dp
             else -> 180.dp
         }
         Column(
-            Modifier.fillMaxSize()
+            Modifier.widthIn(max = 1440.dp).fillMaxWidth()
+                .then(if (spacious) Modifier else Modifier.fillMaxHeight())
                 .familyScrollIndicator(welcomeScroll, trailingOffset = 8.dp)
                 .verticalScroll(welcomeScroll)
                 .padding(top = 12.dp, bottom = 32.dp),
@@ -77,20 +85,14 @@ internal fun WelcomeScreen(
                             ) {
                                 Text(
                                     "안녕, 나는 오누야.",
-                                    style = MaterialTheme.typography.headlineMedium.copy(
+                                    style = (if (spacious) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.headlineMedium).copy(
                                         lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase),
                                     ),
                                     color = PlaymateColors.Ink,
                                     modifier = Modifier.semantics { heading() },
                                 )
                                 Text(
-                                    "자동차와 함께하는 이야기 친구",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = PlaymateColors.Forest,
-                                )
-                                // The small first viewport keeps the nickname field close to the greeting.
-                                if (wide) Text(
-                                    "가는 길에, 우리 같이 놀자.",
+                                    "가는 길에 나랑 소리 퀴즈 풀어 볼래? 단서를 들려줄게.",
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = PlaymateColors.Ink,
                                 )
@@ -112,15 +114,15 @@ internal fun WelcomeScreen(
                                 OnuSetupProgress(1)
                                 Text(
                                     "어떻게 불러 줄까요?",
-                                    style = MaterialTheme.typography.headlineMedium.copy(
+                                    style = (if (spacious) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.headlineMedium).copy(
                                         lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase),
                                     ),
                                     modifier = Modifier.semantics { heading() },
                                 )
                             }
                             Row(Modifier.selectableGroup(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                                SelectButton("한 명", !two, { two = false }, Modifier.weight(1f))
-                                SelectButton("두 명", two, { two = true }, Modifier.weight(1f))
+                                SelectButton("한 명", !two, { two = false; error = null }, Modifier.weight(1f))
+                                SelectButton("두 명", two, { two = true; error = null }, Modifier.weight(1f))
                             }
                             OutlinedTextField(
                                 first,
@@ -174,12 +176,11 @@ internal fun WelcomeScreen(
                                     preview.stop()
                                     val a = first.trim()
                                     val b = second.trim().takeIf { two }
+                                    val problem = FamilyProfile.problem(a, b)
                                     error =
                                         when {
-                                            a.isBlank() || (two && b.isNullOrBlank()) ->
-                                                "함께할 아이의 별명을 적어 주세요."
-                                            a == b -> "서로 구별되는 별명을 적어 주세요."
-                                            !onSave(a, b) -> "별명을 확인하고 다시 저장해 주세요."
+                                            problem != null -> problem
+                                            !onSave(a, b) -> "이 기기에 별명을 저장하지 못했어요. 다시 시도해 주세요."
                                             else -> {
                                                 focusManager.clearFocus()
                                                 null
@@ -194,14 +195,17 @@ internal fun WelcomeScreen(
                                 style = MaterialTheme.typography.bodySmall,
                                 color = PlaymateColors.Muted,
                             )
+                            Text(
+                                "처음 설정은 차가 멈춰 있을 때 보호자와 함께해요.",
+                                modifier = Modifier.background(
+                                    PlaymateColors.Ivory.copy(alpha = .97f), RoundedCornerShape(8.dp),
+                                ).padding(horizontal = 10.dp, vertical = 6.dp),
+                                style = if (spacious) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodySmall,
+                                color = PlaymateColors.Ink,
+                            )
                         }
                     }
                 },
-            )
-            Text(
-                "보호자와 함께 정차 중에 시작해 주세요.\n주행 중 사용은 아직 검증되지 않았어요.",
-                style = MaterialTheme.typography.bodySmall,
-                color = PlaymateColors.Muted,
             )
         }
     }
@@ -248,7 +252,7 @@ internal fun FamilySettings(
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.semantics { heading() },
         )
-        Text("설정을 바꾸는 동안에는 조용히 쉬어요.\n다시 시작할 때만 목소리와 마이크를 사용해요.", color = PlaymateColors.Muted)
+        Text("설정 중에는 마이크가 꺼져 있어요. 음성 놀이에서 아이가 대답할 차례에만 켜져요.", color = PlaymateColors.Muted)
         AdaptiveColumns(
             wide,
             first = {
@@ -420,7 +424,7 @@ internal fun FamilySettings(
                     Text("이 기기에서만 진행하기")
                 }
             Text(
-                "현재 버전은 정차한 환경에서 보호자와 함께 체험해 주세요. Pleos 차량 연결과 주행 중 사용은 아직 검증되지 않았어요.",
+                "차량의 주행 제한이 켜지면 모험이 쉬어요. 정차한 뒤 이어갈 수 있어요.",
                 style = MaterialTheme.typography.bodySmall,
                 color = PlaymateColors.Muted,
             )
@@ -510,19 +514,20 @@ internal fun InteractionSetupScreen(
         else -> "선택한 방식 · 듣고 선택하기"
     }
     OnuSetupScene(
-        step = 3, title = "어떻게 함께할까요?",
-        detail = "설정만으로는 소리나 마이크가 켜지지 않아요. 홈에서 직접 시작해요.",
+        step = 3, title = "어떻게 대답할까요?",
+        detail = "놀이를 시작하면 고른 방식으로 오누와 함께해요.",
         wide = wide, modifier = Modifier.testTag("family.interactionSetup"),
-    ) { area ->
+    ) { area, spacious ->
         BoxWithConstraints(area) {
             val compactChoices = wide && maxHeight < 500.dp
             LaunchedEffect(compactChoices, ui.interactionConfigured, ui.simulation, ui.voiceInput,
                 permissionProblem, ui.failure, ui.voiceInputProblem, ui.speechReady, ui.recoveryCause) {
                 if (compactChoices) scroll.scrollTo(0)
             }
-            Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            val formSize = if (spacious) Modifier.fillMaxWidth() else Modifier.fillMaxSize()
+            Column(formSize, verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 if (compactChoices) CompactInteractionChoices(ui, requestVoice, onListen, onRead)
-                Column(Modifier.weight(1f).fillMaxWidth()
+                Column(Modifier.weight(1f, fill = !spacious).fillMaxWidth()
                     .familyScrollIndicator(scroll, trailingOffset = 6.dp).verticalScroll(scroll)
                     .padding(vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     if (compactChoices) {
@@ -537,7 +542,7 @@ internal fun InteractionSetupScreen(
                         }
                         Text(detail, style = MaterialTheme.typography.bodySmall,
                             color = PlaymateColors.Muted, modifier = Modifier.testTag("interaction.compact.detail"))
-                        InteractionListeningNotice()
+                        InteractionListeningNotice(ui)
                     } else {
                         InteractionChoices(ui, permissionProblem, requestVoice, onListen, onRead,
                             onRetry, onAppPermissions)
@@ -564,7 +569,8 @@ internal fun canFinishInteractionSetup(ui: DeveloperUiState): Boolean =
         (ui.simulation || (ui.speechReady && (!ui.voiceInput || ui.voiceInputProblem == null)))
 
 private fun voiceModeDetail(ui: DeveloperUiState): String =
-    if (ui.twoPlayers) "이야기를 듣고, 이름과 선택을 말해요." else "이야기를 듣고, 선택을 말해요."
+    if (ui.twoPlayers) "오누의 질문에 말로 답해요. 차례 놀이에서는 별명도 함께 말해요."
+    else "오누의 질문을 듣고 말로 답해요."
 
 @Composable
 private fun InteractionChoices(
@@ -584,7 +590,7 @@ private fun InteractionChoices(
         ui.interactionConfigured && !ui.simulation && !ui.voiceInput, !ui.busy, onListen)
     ModeOption("읽으며 체험", "소리 없이, 보호자와 읽으며 선택해요.",
         ui.interactionConfigured && ui.simulation, !ui.busy, onRead)
-    InteractionListeningNotice()
+    InteractionListeningNotice(ui)
     InteractionAvailability(ui, permissionProblem, onRetry, onAppPermissions, showFailure)
 }
 
@@ -647,9 +653,11 @@ private fun InteractionRecoveryNotice(ui: DeveloperUiState) {
 }
 
 @Composable
-private fun InteractionListeningNotice() {
-    Text("음성으로 함께할 때는 안내를 마친 뒤 한 차례씩 들어요. 안내 중에는 화면의 쉬기 버튼으로 멈출 수 있어요.",
-        style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
+private fun InteractionListeningNotice(ui: DeveloperUiState) {
+    if (ui.interactionConfigured && ui.voiceInput && !ui.simulation) {
+        Text("마이크는 오누의 질문이 끝나고 대답할 차례에만 켜져요.",
+            style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Forest)
+    }
 }
 
 @Composable

@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.drawscope.scale
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.platform.testTag
@@ -29,13 +30,17 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 
 /** Preparation only: this visual sequence never requests speech, microphone or permissions. */
 @Composable
-internal fun OnuSetupProgress(step: Int, modifier: Modifier = Modifier, compact: Boolean = false) {
+internal fun OnuSetupProgress(step: Int, modifier: Modifier = Modifier) {
     val label = when (step) { 1 -> "별명"; 2 -> "좋아하는 것"; else -> "함께할 방식" }
-    Text(if (compact) "$step / 3 · $label" else "보호자와 준비해요 · $step / 3 · $label", modifier.testTag("setup.step.$step"),
+    Text("$step / 3 · $label", modifier.testTag("setup.step.$step"),
         style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Forest)
 }
 
-/** One arrival space. Short viewports keep the full form width and a compact companion. */
+// A large split-screen window has room to put the question immediately above its choices.
+internal fun spaciousSetup(width: Dp, height: Dp, fontScale: Float): Boolean =
+    width >= 960.dp && height / fontScale.coerceAtLeast(1f) >= 680.dp
+
+/** A large pane groups each question with its answers. Short panes retain a fixed action area. */
 @Composable
 internal fun OnuSetupScene(
     step: Int?,
@@ -43,9 +48,10 @@ internal fun OnuSetupScene(
     detail: String,
     wide: Boolean,
     modifier: Modifier = Modifier,
-    content: @Composable (Modifier) -> Unit,
+    content: @Composable (Modifier, Boolean) -> Unit,
 ) {
     BoxWithConstraints(modifier.fillMaxSize().padding(horizontal = if (wide) 28.dp else 20.dp, vertical = 10.dp)) {
+        val spacious = wide && step != null && spaciousSetup(maxWidth, maxHeight, LocalDensity.current.fontScale)
         val compactWide = wide && maxHeight < 500.dp
         val expanded = step != null && wide
         val characterHeight = if (compactWide) (maxHeight * .27f).coerceIn(104.dp, 136.dp)
@@ -53,7 +59,29 @@ internal fun OnuSetupScene(
         val introScroll = rememberScrollState()
         val titleStyle = MaterialTheme.typography.headlineMedium.copy(
             lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase))
-        if (expanded) {
+        val spaciousCharacterHeight = (maxHeight * .42f).coerceIn(280.dp, 440.dp)
+        if (spacious) {
+            Row(
+                Modifier.align(Alignment.Center).widthIn(max = 1440.dp).fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(44.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                OnuCompanion(
+                    Modifier.weight(.37f).height(spaciousCharacterHeight),
+                    OnuMood.READY, decorative = true,
+                )
+                Column(
+                    Modifier.weight(.63f).padding(horizontal = 8.dp),
+                    verticalArrangement = Arrangement.spacedBy(14.dp),
+                ) {
+                    OnuSetupProgress(requireNotNull(step))
+                    Text(title, style = MaterialTheme.typography.headlineLarge,
+                        modifier = Modifier.semantics { heading() })
+                    Text(detail, style = MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink)
+                    content(Modifier.fillMaxWidth().weight(1f, fill = false), true)
+                }
+            }
+        } else if (expanded) {
             Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(28.dp),
                 verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(.31f).fillMaxHeight().familyScrollIndicator(introScroll).verticalScroll(introScroll)
@@ -61,27 +89,27 @@ internal fun OnuSetupScene(
                     verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically)) {
                     OnuCompanion(Modifier.fillMaxWidth().height(characterHeight), OnuMood.READY, decorative = true)
                     Column(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        OnuSetupProgress(requireNotNull(step), compact = compactWide)
+                        OnuSetupProgress(requireNotNull(step))
                         Text(title, style = titleStyle, modifier = Modifier.semantics { heading() })
                         Text(detail, style = if (compactWide) MaterialTheme.typography.bodySmall else MaterialTheme.typography.bodyMedium,
                             color = PlaymateColors.Muted)
                     }
                 }
-                content(Modifier.weight(.69f).fillMaxHeight())
+                content(Modifier.weight(.69f).fillMaxHeight(), false)
             }
         } else {
             Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        if (step != null) OnuSetupProgress(step, compact = true)
+                        if (step != null) OnuSetupProgress(step)
                         Text(title, style = titleStyle, modifier = Modifier.semantics { heading() })
                     }
                     if (step != null) OnuCompanion(Modifier.size(88.dp),
                         OnuMood.READY, decorative = true)
                 }
                 Text(detail, style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
-                content(Modifier.weight(1f).fillMaxWidth())
+                content(Modifier.weight(1f).fillMaxWidth(), false)
             }
         }
     }

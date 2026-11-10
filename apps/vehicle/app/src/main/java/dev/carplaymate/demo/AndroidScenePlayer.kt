@@ -3,6 +3,7 @@ package dev.carplaymate.demo
 import android.content.Context
 import android.media.AudioFormat
 import android.media.AudioTrack
+import android.media.PlaybackParams
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
@@ -11,6 +12,12 @@ import java.util.concurrent.Future
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
+
+private const val STANDALONE_NARRATION_SPEED = 0.94f
+
+// Conservative even on devices that decline stretching and play at 1x.
+internal fun standaloneNarrationMillis(assetMillis: Long): Long =
+    kotlin.math.ceil(assetMillis / STANDALONE_NARRATION_SPEED.toDouble()).toLong()
 
 /** One sample-aligned scene; speech state excludes its cue-only lead and tail. */
 internal interface StoryScenePlayer {
@@ -74,7 +81,9 @@ internal class AndroidScenePlayer(context: Context) : StoryScenePlayer {
             cue?.let { BundledNarration.validateAudio(it, 3_000L) }
             BundledNarration.validateAudio(narration, 60_000L)
         } catch (_: Exception) { failure(); return }
-        val ttl = ((cue?.durationMillis ?: 0L) + narration.durationMillis + 15_000L).coerceIn(25_000L, 120_000L)
+        val playbackMillis = if (cue == null) standaloneNarrationMillis(narration.durationMillis)
+            else cue.durationMillis + narration.durationMillis
+        val ttl = (playbackMillis + 15_000L).coerceIn(25_000L, 120_000L)
         val request = Attempt(complete, failure, speechState, SystemClock.elapsedRealtime() + ttl)
         active = request
         request.timeout = Runnable { fail(request) }.also { handler.postDelayed(it, ttl) }
@@ -97,6 +106,18 @@ internal class AndroidScenePlayer(context: Context) : StoryScenePlayer {
                     // This bounded, single write copies the prepared clip; it never starts playback.
                     check(track.write(pcm.samples, 0, pcm.samples.size, AudioTrack.WRITE_BLOCKING) == pcm.samples.size)
                     check(track.state == AudioTrack.STATE_INITIALIZED)
+                    if (cue == null) {
+                        // Slow only standalone narration. Mixed scenes keep their authored cue timing.
+                        try {
+                            track.playbackParams = PlaybackParams().allowDefaults()
+                                .setAudioFallbackMode(PlaybackParams.AUDIO_FALLBACK_MODE_FAIL)
+                                .setPitch(1.0f).setSpeed(STANDALONE_NARRATION_SPEED)
+                        } catch (_: IllegalArgumentException) {
+                            // A renderer can decline time stretching. Play at its original rate.
+                        } catch (_: IllegalStateException) {
+                            // Some routes reject parameters in this state. play() still checks the track.
+                        }
+                    }
                     interrupted()
                     val prepared = Prepared(track, pcm.samples.size, pcm.speechStartFrame, pcm.speechEndFrame)
                     // Keep local ownership until a closure has actually accepted responsibility.

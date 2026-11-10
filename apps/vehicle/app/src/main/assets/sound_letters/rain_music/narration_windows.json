@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "finale_drops",
+      "sha256": "551ad7fb77c9b22185fcf6f4e27c8063c6f4f2ed7316e8815095cd9b246e8378",
+      "start_ms": 5880,
+      "end_ms": 10375
+    },
+    {
+      "id": "finale_wiper",
+      "sha256": "60f8ba082440b71fa69b9ec0e176862d470910ad2f2576f5ab8a20d5410e346c",
+      "start_ms": 5880,
+      "end_ms": 10375
+    }
+  ]
+}

@@ -10,6 +10,8 @@ import java.util.concurrent.Future
 
 internal interface StoryClipPlayer {
     fun play(audio: BundledAudio, complete: () -> Unit, failure: () -> Unit, started: () -> Unit)
+    /** Actual media timeline, available after this clip has started. */
+    fun positionMillis(): Long? = null
     fun stop()
     fun shutdown()
 }
@@ -25,6 +27,7 @@ internal class AndroidClipPlayer(context: Context) : StoryClipPlayer {
     private var sequence = 0L
     private var closed = false
     private var player: MediaPlayer? = null
+    private var startedPlayer: MediaPlayer? = null
     private val verified = mutableSetOf<String>()
 
     override fun play(audio: BundledAudio, complete: () -> Unit, failure: () -> Unit, started: () -> Unit) {
@@ -49,6 +52,7 @@ internal class AndroidClipPlayer(context: Context) : StoryClipPlayer {
                         // A manifest must describe the actual asset within encoding/rounding tolerance.
                         require(kotlin.math.abs(media.duration.toLong() - audio.durationMillis) <= 750L)
                         media.start()
+                        startedPlayer = media
                         started()
                     } catch (_: Exception) {
                         stop()
@@ -104,12 +108,15 @@ internal class AndroidClipPlayer(context: Context) : StoryClipPlayer {
         }
     }
 
+    override fun positionMillis(): Long? = runCatching { startedPlayer?.currentPosition?.toLong() }.getOrNull()
+
     override fun stop() {
         check(Looper.myLooper() == Looper.getMainLooper())
         sequence++
         verification?.cancel(true)
         verification = null
         val previous = player
+        startedPlayer = null
         player = null
         // Detach callbacks before releasing; a queued callback also checks identity above.
         runCatching { previous?.setOnPreparedListener(null) }

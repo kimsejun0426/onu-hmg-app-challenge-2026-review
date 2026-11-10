@@ -20,11 +20,13 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 internal fun ImmersiveAdventure(
@@ -64,7 +66,8 @@ internal fun ImmersiveAdventure(
                         OnuCompanion(Modifier.size(192.dp), OnuMood.THINKING)
                         Text("우리의 이야기를 준비하고 있어요.", style = MaterialTheme.typography.titleLarge)
                     }
-                    else -> Column(Modifier.fillMaxSize().padding(horizontal = if (wide) 28.dp else 16.dp),
+                    else -> Column(Modifier.align(Alignment.Center).widthIn(max = 1240.dp)
+                        .fillMaxSize().padding(horizontal = if (wide) 28.dp else 16.dp),
                         verticalArrangement = Arrangement.spacedBy(10.dp)) {
                         AdventureProgress(ui, card, onChoose)
                         if (ui.voiceInput && !ui.simulation)
@@ -90,16 +93,34 @@ private fun ReadingJourney(ui: DeveloperUiState, wide: Boolean, onChoose: (Strin
     val listening = snapshot.phase == "LISTENING" && !ui.busy && !ui.quiet
     BoxWithConstraints(modifier) {
         val companionHeight = (maxHeight * .25f).coerceIn(72.dp, 200.dp)
+        val spacious = wide && maxWidth >= 900.dp && maxHeight >= 380.dp
         val dialogue: @Composable ColumnScope.() -> Unit = {
-            StoryPanel(ui, "", Modifier.weight(1f, fill = false).fillMaxWidth())
-            if (listening) AdventureChoices(snapshot, onChoose, Modifier.fillMaxWidth().padding(top = 8.dp))
+            StoryPanel(ui, Modifier.weight(1f, fill = false).fillMaxWidth(), spacious)
+            if (listening) {
+                Spacer(Modifier.height(if (spacious) 16.dp else 8.dp))
+                AdventureChoices(snapshot, onChoose, Modifier.fillMaxWidth())
+            }
         }
-        if (wide) Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(20.dp)) {
-            OnuJourneyCharacter(ui, Modifier.weight(.36f).fillMaxHeight())
-            Column(Modifier.weight(.64f).fillMaxHeight(), verticalArrangement = Arrangement.Center, content = dialogue)
-        } else Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            OnuJourneyCharacter(ui, Modifier.fillMaxWidth().height(companionHeight))
-            dialogue()
+        if (wide) {
+            Row(
+                Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.spacedBy(if (spacious) 36.dp else 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                OnuJourneyCharacter(ui, Modifier.weight(.40f).fillMaxHeight())
+                Box(Modifier.weight(.60f).fillMaxHeight(), contentAlignment = Alignment.CenterStart) {
+                    Column(
+                        Modifier.widthIn(max = 648.dp).fillMaxWidth().fillMaxHeight(),
+                        verticalArrangement = Arrangement.Center,
+                        content = dialogue,
+                    )
+                }
+            }
+        } else {
+            Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                OnuJourneyCharacter(ui, Modifier.fillMaxWidth().height(companionHeight))
+                dialogue()
+            }
         }
     }
 }
@@ -108,33 +129,43 @@ private fun ReadingJourney(ui: DeveloperUiState, wide: Boolean, onChoose: (Strin
 @Composable
 private fun JourneyControls(ui: DeveloperUiState, wide: Boolean, reading: Boolean,
                             onPause: () -> Unit, onReadDone: () -> Unit) {
-    Row(Modifier.fillMaxWidth().padding(horizontal = if (wide) 28.dp else 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-        if (ui.quiet && ui.newAdventureStart != NewAdventureStart.PREPARING)
-            Row(Modifier.weight(1f).heightIn(min = 80.dp).testTag("family.pauseStatus"),
-                horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
-                FamilyIcon(FamilyIcon.PAUSE, tint = PlaymateColors.Muted)
+    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        Row(
+            Modifier.widthIn(max = 1240.dp).fillMaxWidth()
+                .padding(horizontal = if (wide) 28.dp else 16.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+        ) {
+            if (ui.quiet && ui.newAdventureStart != NewAdventureStart.PREPARING)
+                Row((if (wide) Modifier.width(208.dp) else Modifier.weight(1f)).heightIn(min = 80.dp).testTag("family.pauseStatus"),
+                    horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+                    FamilyIcon(FamilyIcon.PAUSE, tint = PlaymateColors.Muted)
+                    Spacer(Modifier.width(12.dp))
+                    Text("쉬고 있어요", style = MaterialTheme.typography.labelLarge, color = PlaymateColors.Muted)
+                }
+            else OutlinedButton(onClick = onPause,
+                modifier = (if (wide) Modifier.width(208.dp) else Modifier.weight(if (reading) .85f else 1f))
+                    .heightIn(min = 80.dp).testTag("family.pause"),
+                shape = RoundedCornerShape(28.dp), border = BorderStroke(1.dp, PlaymateColors.Forest.copy(alpha = .28f)),
+                colors = ButtonDefaults.outlinedButtonColors(containerColor = PlaymateColors.Ivory.copy(alpha = .64f),
+                    contentColor = PlaymateColors.Forest), contentPadding = PaddingValues(14.dp)) {
+                FamilyIcon(FamilyIcon.PAUSE)
                 Spacer(Modifier.width(12.dp))
-                Text("쉬고 있어요", style = MaterialTheme.typography.labelLarge, color = PlaymateColors.Muted)
+                Text("잠깐 쉬기", style = MaterialTheme.typography.labelLarge)
             }
-        else OutlinedButton(onClick = onPause,
-            modifier = Modifier.weight(if (reading) .85f else 1f).heightIn(min = 80.dp).testTag("family.pause"),
-            shape = RoundedCornerShape(28.dp), border = BorderStroke(1.dp, PlaymateColors.Forest.copy(alpha = .28f)),
-            colors = ButtonDefaults.outlinedButtonColors(containerColor = PlaymateColors.Ivory.copy(alpha = .64f),
-                contentColor = PlaymateColors.Forest), contentPadding = PaddingValues(14.dp)) {
-            FamilyIcon(FamilyIcon.PAUSE)
-            Spacer(Modifier.width(12.dp))
-            Text("잠깐 쉬기", style = MaterialTheme.typography.labelLarge)
+            if (reading && wide) Spacer(Modifier.weight(1f))
+            if (reading) Button(onClick = onReadDone, enabled = !ui.busy,
+                modifier = (if (wide) Modifier.width(340.dp) else Modifier.weight(1.35f))
+                    .heightIn(min = 80.dp).testTag("family.readDone"),
+                shape = RoundedCornerShape(28.dp), contentPadding = PaddingValues(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = PlaymateColors.Forest, contentColor = PlaymateColors.Paper)) {
+                Text("다 읽었어요 · 다음으로", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge)
+                if (wide) FamilyIcon(FamilyIcon.NEXT, tint = PlaymateColors.Paper)
+            } else if (wide && ui.microphoneListening) {
+                Text("짧게 대답해도 괜찮아요.", Modifier.weight(1f),
+                    style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
+            }
         }
-        if (reading) Button(onClick = onReadDone, enabled = !ui.busy,
-            modifier = Modifier.weight(if (wide) 1.5f else 1.35f).heightIn(min = 80.dp).testTag("family.readDone"),
-            shape = RoundedCornerShape(28.dp), contentPadding = PaddingValues(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = PlaymateColors.Forest, contentColor = PlaymateColors.Paper)) {
-            Text("다 읽었어요 · 다음으로", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge)
-            if (wide) FamilyIcon(FamilyIcon.NEXT, tint = PlaymateColors.Paper)
-        } else if (wide) Text(if (ui.quiet) "내가 준비됐을 때, 다시 함께."
-            else if (ui.microphoneListening) "짧게 대답해도 괜찮아요." else "언제든 쉬어도 괜찮아요.",
-            Modifier.weight(1.5f), style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
     }
 }
 
@@ -281,36 +312,29 @@ private fun AdventureProgress(
         Row(
             Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Text(
                 snapshot.presentation.optString("scene_title").ifBlank { card?.title ?: "우리의 모험" },
                 Modifier.weight(1f),
                 style = MaterialTheme.typography.labelMedium,
-                color = PlaymateColors.Leaf,
+                color = PlaymateColors.Muted,
             )
-            Surface(color = PlaymateColors.Mist, shape = RoundedCornerShape(10.dp)) {
-                Text(
-                    "$turn / $total",
-                    modifier = Modifier.padding(horizontal = 10.dp),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = PlaymateColors.Forest,
-                )
-            }
+            LinearProgressIndicator(
+                progress = { turn.toFloat() / total },
+                modifier = Modifier.width(92.dp).height(5.dp).clip(CircleShape),
+                color = PlaymateColors.Leaf,
+                trackColor = PlaymateColors.Sage,
+                drawStopIndicator = {},
+            )
+            Text("$turn / $total", style = MaterialTheme.typography.labelMedium,
+                color = PlaymateColors.Forest)
         }
-        LinearProgressIndicator(
-            progress = { turn.toFloat() / total },
-            modifier = Modifier.fillMaxWidth().height(5.dp).clip(CircleShape),
-            color = PlaymateColors.Leaf,
-            trackColor = PlaymateColors.Sage,
-            // The default far-end marker looks like progress before the first choice.
-            drawStopIndicator = {},
-        )
     }
 }
 
 @Composable
-private fun StoryPanel(ui: DeveloperUiState, art: String, modifier: Modifier) {
+private fun StoryPanel(ui: DeveloperUiState, modifier: Modifier, spacious: Boolean) {
     val snapshot = ui.snapshot ?: return
     val scroll = rememberScrollState()
     var readMore by remember(snapshot.turnId, snapshot.phase) { mutableIntStateOf(0) }
@@ -327,9 +351,9 @@ private fun StoryPanel(ui: DeveloperUiState, art: String, modifier: Modifier) {
     Surface(modifier, color = Color.Transparent) {
         BoxWithConstraints(Modifier.fillMaxWidth()) {
             val compact = maxHeight < 280.dp
-            Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = if (compact) 8.dp else 12.dp)) {
-                SpeechPresence(ui, compact)
-                Spacer(Modifier.height(12.dp))
+            Column(Modifier.fillMaxWidth().padding(vertical = if (compact) 4.dp else 8.dp)) {
+                SpeechPresence(ui, spacious)
+                Spacer(Modifier.height(if (spacious) 14.dp else 8.dp))
                 Column(
                     Modifier.weight(1f, fill = false)
                         .fillMaxWidth()
@@ -339,7 +363,9 @@ private fun StoryPanel(ui: DeveloperUiState, art: String, modifier: Modifier) {
                 ) {
                     Text(
                         text.ifBlank { "다음 이야기를 준비하고 있어요." },
-                        style = MaterialTheme.typography.bodyLarge,
+                        style = if (spacious) MaterialTheme.typography.headlineMedium.copy(
+                            lineHeight = 46.sp, fontWeight = FontWeight.SemiBold,
+                        ) else MaterialTheme.typography.bodyLarge,
                         color = PlaymateColors.Ink,
                         modifier = Modifier.testTag("family.storyText"),
                     )
@@ -369,7 +395,7 @@ private fun WorldStage(ui: DeveloperUiState, art: String, modifier: Modifier) {
 }
 
 @Composable
-private fun SpeechPresence(ui: DeveloperUiState, compact: Boolean = false) {
+private fun SpeechPresence(ui: DeveloperUiState, spacious: Boolean) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -385,7 +411,7 @@ private fun SpeechPresence(ui: DeveloperUiState, compact: Boolean = false) {
                 ui.outputStage == OutputStage.PREPARING -> "오누가 목소리를 준비하고 있어요"
                 else -> "다음 장면을 준비하고 있어요"
             },
-            style = MaterialTheme.typography.labelMedium,
+            style = if (spacious) MaterialTheme.typography.labelLarge else MaterialTheme.typography.labelMedium,
             color = PlaymateColors.Forest,
         )
     }
@@ -399,29 +425,31 @@ private fun AdventureChoices(snapshot: Snapshot, onChoose: (String) -> Unit, mod
         else List(array.length()) { array.getJSONObject(it).getString("label") }
     val scroll = rememberScrollState()
     LaunchedEffect(snapshot.turnId) { scroll.scrollTo(0) }
-    Column(modifier.verticalScroll(scroll), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-        choices.chunked(2).forEachIndexed { row, pair ->
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                pair.forEachIndexed { column, label ->
-                    OutlinedButton(
-                        onClick = { onChoose(label) },
-                        modifier =
-                            Modifier.weight(1f)
-                                .heightIn(min = 80.dp)
-                                .testTag("family.choice.${row*2+column}"),
-                        shape = RoundedCornerShape(22.dp),
-                        border = BorderStroke(1.dp, PlaymateColors.Leaf.copy(alpha = .45f)),
-                        contentPadding = PaddingValues(horizontal = 14.dp, vertical = 16.dp),
-                        colors =
-                            ButtonDefaults.outlinedButtonColors(
-                                containerColor = PlaymateColors.OnuCream.copy(alpha = .9f),
-                                contentColor = PlaymateColors.Forest,
+    BoxWithConstraints(modifier) {
+        val columns = if (maxWidth / LocalDensity.current.fontScale >= 340.dp) 2 else 1
+        Column(Modifier.fillMaxWidth().verticalScroll(scroll), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            choices.chunked(columns).forEachIndexed { row, labels ->
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    labels.forEachIndexed { column, label ->
+                        OutlinedButton(
+                            onClick = { onChoose(label) },
+                            modifier = Modifier.weight(1f).heightIn(min = 80.dp)
+                                .testTag("family.choice.${row * columns + column}"),
+                            shape = RoundedCornerShape(20.dp),
+                            border = BorderStroke(1.dp, PlaymateColors.Leaf.copy(alpha = .55f)),
+                            contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp),
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                containerColor = PlaymateColors.Paper.copy(alpha = .94f),
+                                contentColor = PlaymateColors.DeepForest,
                             ),
-                    ) {
-                        Text(label, style = MaterialTheme.typography.titleMedium)
+                        ) {
+                            Text(label, Modifier.weight(1f), style = MaterialTheme.typography.titleMedium)
+                            Spacer(Modifier.width(8.dp))
+                            FamilyIcon(FamilyIcon.NEXT, Modifier.size(20.dp))
+                        }
                     }
+                    if (labels.size < columns) Spacer(Modifier.weight(1f))
                 }
-                if (pair.size == 1) Spacer(Modifier.weight(1f))
             }
         }
     }
@@ -633,10 +661,13 @@ private fun JourneyReflection(
                     verticalArrangement = Arrangement.spacedBy(16.dp), content = content)
             }
         }
-        if (wide) Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.spacedBy(28.dp),
+        if (wide) Row(Modifier.align(Alignment.Center).widthIn(max = 1200.dp).fillMaxSize(),
+            horizontalArrangement = Arrangement.spacedBy(28.dp),
             verticalAlignment = Alignment.CenterVertically) {
             OnuJourneyCharacter(ui, Modifier.weight(.38f).fillMaxHeight().padding(16.dp), mood = mood)
-            dialogue(Modifier.weight(.62f).fillMaxHeight().padding(horizontal = 16.dp))
+            Box(Modifier.weight(.62f).fillMaxHeight(), contentAlignment = Alignment.CenterStart) {
+                dialogue(Modifier.widthIn(max = 648.dp).fillMaxWidth().fillMaxHeight().padding(horizontal = 12.dp))
+            }
         } else Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             OnuJourneyCharacter(ui, Modifier.fillMaxWidth().height(portraitHeight), mood = mood)
             dialogue(Modifier.weight(1f).fillMaxWidth())

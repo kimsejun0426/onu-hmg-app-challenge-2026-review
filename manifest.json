@@ -1,0 +1,15 @@
+{
+  "android_source_file_count": 481,
+  "apk_sha256": "8702d14e953a9e45ddb073da0a7824a6e9ea8af1f0a90ddbd968842ab3901c93",
+  "application_id": "dev.carplaymate.demo",
+  "film_duration_s": 64.6,
+  "film_sha256": "f6106b1c477bbca88fab9f8ca05fcf41f87ff179cf814dd0ef1dba47c5f4207e",
+  "release_certificate_sha256": "67d799613d42b37ff571e8cd67f46de53a21782d144f80f3f8f9fd01d4a845b3",
+  "sound_letter_clips": {
+    "first_jump": 22,
+    "rain_music": 20
+  },
+  "source_manifest_sha256": "794949f34bb145cd9926d06068fee18eb2de4bbbdcb319e9442de5d2b542a527",
+  "version_code": 52,
+  "version_name": "0.50.0"
+}

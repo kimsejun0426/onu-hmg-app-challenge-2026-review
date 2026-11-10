@@ -271,6 +271,9 @@ class FamilyPreferences(context: Context) {
     }
 
     private fun write(profile: FamilyProfile): Boolean =
+        synchronized(prefs) { writeLocked(profile) }
+
+    private fun writeLocked(profile: FamilyProfile): Boolean =
         try {
             val data =
                 JSONObject()
@@ -337,7 +340,7 @@ class FamilyPreferences(context: Context) {
     @Synchronized
     fun clear(): Boolean =
         try {
-            prefs.edit().clear().commit()
+            synchronized(prefs) { prefs.edit().clear().commit() }
         } catch (_: Exception) {
             false
         }

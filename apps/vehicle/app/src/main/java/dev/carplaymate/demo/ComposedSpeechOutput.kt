@@ -79,7 +79,9 @@ internal class ComposedSpeechOutput(
         if (parts.isEmpty()) { stop(); failure(SpeechOutputFailure("안내할 내용을 확인하지 못해 조용히 멈췄어요.")); return }
         val estimated = parts.sumOf { when (it) {
             is NarrationPart.Text -> it.text.length * 220L
-            is NarrationPart.Audio -> it.audio.durationMillis
+            // Use the slower bound for speech; a cue-mixed part actually finishes at native pace.
+            is NarrationPart.Audio -> if (scenes != null && it.spokenText != null)
+                standaloneNarrationMillis(it.audio.durationMillis) else it.audio.durationMillis
         } }
         val limit = (estimated + 15_000L).coerceIn(25_000L, 120_000L)
         val current = Attempt(plan, generation, parts, complete, failure, started, timer.nowMillis() + limit, preserveOriginalPlan)

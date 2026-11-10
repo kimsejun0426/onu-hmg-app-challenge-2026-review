@@ -2,11 +2,14 @@ package dev.carplaymate.demo
 
 import java.security.MessageDigest
 
+internal data class AudioSpeechWindow(val startMillis: Long, val endMillis: Long)
+
 internal data class BundledAudio(
     val id: String,
     val asset: String,
     val sha256: String,
     val durationMillis: Long,
+    val speechWindow: AudioSpeechWindow? = null,
 )
 
 internal data class NarrationClip(

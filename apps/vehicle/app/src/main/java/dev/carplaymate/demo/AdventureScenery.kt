@@ -19,10 +19,12 @@ internal fun AdventureScenery(key: String, modifier: Modifier = Modifier) {
     )
 }
 
-private fun worldIllustration(key: String): Int = when (key) {
+internal fun worldIllustration(key: String): Int = when (key) {
     "space", "space-return-signal" -> R.drawable.onu_world_space
     "stories", "starlight-post-office" -> R.drawable.onu_world_stories
     "ocean", "undersea-lighthouse" -> R.drawable.onu_world_ocean
+    "first_jump" -> R.drawable.onu_letter_shore
+    "rain_music" -> R.drawable.onu_letter_rain
     "animals", "animal-footprint-garden" -> R.drawable.onu_world_animals
     "vehicles", "little-car-workshop" -> R.drawable.onu_world_vehicles
     "little-picnic", "onu-little-picnic" -> R.drawable.onu_world_picnic

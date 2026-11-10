@@ -864,6 +864,11 @@ class FamilyUiTest {
         assertEquals(packId, recommendation.packId)
         assertTrue(childId in recommendation.matchedChildIds)
         assertTrue(interestId in recommendation.matchedInterestIds)
+        if (interestId == "ocean" && state().savedAdventures.isEmpty()) {
+            compose.onNodeWithTag("recommendation.title").assertTextEquals("첫 점프를 들려줘!")
+            compose.onNodeWithTag("family.firstJump").assertIsDisplayed()
+            return
+        }
         val card = state().adventures.single { it.packId == packId }
         compose.onNodeWithTag("recommendation.title").assertTextEquals(card.title)
         compose
@@ -979,11 +984,12 @@ class FamilyUiTest {
         compose.onNodeWithTag("family.home.mode").assertTextEquals("선택한 방식 · $firstMode")
         assertFullyVisible(compose.onNodeWithTag("family.home.mode"), "Initial home mode")
         assertTextFits("family.home.mode", minimumSp = 20f)
-        assertFullyVisible(compose.onNodeWithTag("recommendation.reason"), "Initial home recommendation explanation")
+        val letterHome = shouldFeatureFirstJump(state().children, state().savedAdventures.isNotEmpty())
+        assertFullyVisible(compose.onNodeWithTag(if (letterHome) "recommendation.title" else "recommendation.reason"), "Initial home invitation")
         // No scroll here: the primary action must be fully visible on the initial home viewport.
         val startButton =
             compose
-                .onNodeWithTag("family.start")
+                .onNodeWithTag(if (letterHome) "family.firstJump" else "family.start")
                 .assertIsDisplayed()
                 .assertHeightIsAtLeast(80.dp)
                 .fetchSemanticsNode()
@@ -1018,7 +1024,9 @@ class FamilyUiTest {
         compose.onNodeWithTag("family.home.mode").assertTextEquals("선택한 방식 · 읽으며 체험")
         assertFullyVisible(compose.onNodeWithTag("family.home.mode"), "Updated home mode")
         assertTextFits("family.home.mode", minimumSp = 20f)
-        assertFullyVisible(compose.onNodeWithTag("family.start"), "Home action after changing mode")
+        val primary = if (shouldFeatureFirstJump(state().children, state().savedAdventures.isNotEmpty()))
+            "family.firstJump" else "family.start"
+        assertFullyVisible(compose.onNodeWithTag(primary), "Home action after changing mode")
     }
 
     private fun assertCompactInteractionChoice(mode: String, voiceDescription: String) {
