@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f2e8">
+<title>바다에서 온 소리 편지 · 오누</title>
+<link rel="stylesheet" href="letter.css">
+<script defer src="clips.js"></script>
+<script defer src="letter.js"></script>
+</head>
+<body>
+<header class="mast"><a class="logo" href="../index.html" aria-label="오누 시연 영상"><img src="art/wordmark.webp" alt="오누"></a><a class="film-link" href="../index.html">차량 시연 영상 <span aria-hidden="true">↗</span></a></header>
+<main>
+<article class="letter" aria-labelledby="title">
+<div class="picture" id="picture">
+<img class="shore" id="scene" src="art/shore.webp" alt="노을이 내려앉은 바닷가. 낮은 바위 끝에서 물결이 반짝인다.">
+<img class="onu" id="onu" src="art/ready.webp" alt="">
+</div>
+<div class="page">
+<p class="chapter" id="chapter">첫 번째 소리 편지</p>
+<h1 id="title" tabindex="-1">바다에서 온 <br>소리 편지</h1>
+<div id="intro"><p class="intro">바닷가에서 누군가 편지를 보냈어.<br>눈을 감고 들어 볼래? 누군지 알지도 몰라.</p><button class="open" id="open" type="button"><span class="play-icon" aria-hidden="true"></span> 편지 열기</button></div>
+<div id="play-area" hidden>
+<div class="voice"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="speaker">오누</span></div>
+<p class="caption" id="caption" aria-live="polite" aria-atomic="true"></p>
+<p id="notice" role="status" class="notice"></p>
+<div class="choices" id="choices" role="group" aria-label="답 고르기"></div>
+<div class="listening-tools"><button id="replay" type="button" hidden>다시 듣기</button><button id="pause" type="button" hidden>잠깐 멈추기</button><button id="skip" type="button" hidden>글로 이어가기</button></div>
+</div>
+</div>
+</article>
+<p class="scope">브라우저 체험에서는 답을 눌러 골라요. 차량 앱에서는 Pleos 한국어 음성 서비스와 마이크 권한이 있으면, 정차 중 오누에게 말로 대답할 수 있어요.</p>
+<noscript>편지를 열려면 자바스크립트를 켜 주세요. <a href="../index.html">차량 시연 영상 보기</a></noscript>
+</main>
+<audio id="sound" preload="auto" aria-hidden="true"></audio>
+</body></html>
