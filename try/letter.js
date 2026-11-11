@@ -24,6 +24,7 @@ const art = {shore:"노을빛 바닷가와 낮은 바위.",rain:"차창에 빗�
 
 function drawPlayback() {
   document.body.classList.toggle("playing",state === "playing");
+  $("notice").classList.toggle("complete",state === "answered" && stage === "reply");
   $("replay").hidden = state !== "answered";
   $("pause").hidden = state === "answered" || state === "ready";
   $("pause").textContent = state === "error" ? "소리 다시 재생" : state === "paused" ? "이어서 듣기" : "잠깐 멈추기";
@@ -47,7 +48,7 @@ function showChoices(asText) {
     $("caption").textContent = queue.map(key => clips[key].text).join(" ");
     $("speaker").textContent = "편지 내용";
   }
-  $("notice").textContent = "";
+  $("notice").textContent = stage === "reply" ? "이번 체험은 여기까지예요. 다른 점프도 들어 볼 수 있어요." : "";
   $("choices").replaceChildren();
   for (const [value, label] of scenes[stage].choices) {
     const choice = document.createElement("button");
@@ -77,7 +78,7 @@ function requestPlay(token) {
   audio.play().catch(() => {
     if (token !== generation || state !== "playing") return;
     state = "error";
-    $("notice").textContent = "이 소리를 재생할 수 없어요. 다시 듣거나 글로 이어 가세요.";
+    $("notice").textContent = "이 소리를 재생할 수 없어요. 다시 재생하거나 이번 부분을 글로 볼 수 있어요.";
     drawPlayback();
   });
 }
@@ -96,7 +97,7 @@ function playClip() {
   audio.onerror = () => {
     if (token !== generation) return;
     state = "error";
-    $("notice").textContent = "소리를 불러오지 못했어요. 글로도 이어 갈 수 있어요.";
+    $("notice").textContent = "소리를 불러오지 못했어요. 이번 부분을 글로 볼 수 있어요.";
     drawPlayback();
   };
   audio.src = cue.file;
