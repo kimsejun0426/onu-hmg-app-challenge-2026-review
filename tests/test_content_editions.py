@@ -50,6 +50,8 @@ def test_all_editions_keep_their_intended_solo_voice_and_two_child_turn(entry):
     heard = present(single, pack)["prompt"]
     if entry["pack_id"] in PUBLISHED_IDS and entry["version"] == "0.1.0":
         assert heard.startswith(f"별 {single['players'][0]['role']} 차례야. ")
+    elif entry["pack_id"] == "dinosaur-lab-missing-egg" and entry["version"] == "0.12.0":
+        assert heard == pack["scenes"][single["scene_id"]]["prompt"]
     else:
         assert heard.startswith("별, ")
     paired = new_game(PLAYERS, pack)
@@ -60,7 +62,10 @@ def test_new_edition_voice_is_content_owned_instead_of_a_version_number_exceptio
     pack = copy.deepcopy(CATALOG.current())
     pack["version"] = "9.0.0"
     assert validate_pack(pack) == []
-    assert present(new_game(PLAYERS[:1], pack), pack)["prompt"].startswith("별, ")
+    single = new_game(PLAYERS[:1], pack)
+    assert present(single, pack)["prompt"] == pack["scenes"][single["scene_id"]]["prompt"]
+    pack["solo_prompt_style"] = "nickname"
+    assert present(single, pack)["prompt"].startswith("별, ")
     pack["solo_prompt_style"] = "role_and_turn"
     assert "차례야. " in present(new_game(PLAYERS[:1], pack), pack)["prompt"]
 
@@ -69,4 +74,4 @@ def test_new_edition_voice_is_content_owned_instead_of_a_version_number_exceptio
 def test_unrecognized_solo_narration_policy_is_rejected(invalid):
     pack = copy.deepcopy(CATALOG.current())
     pack["solo_prompt_style"] = invalid
-    assert "solo_prompt_style must be role_and_turn or nickname" in validate_pack(pack)
+    assert "solo_prompt_style must be role_and_turn, nickname or body_only" in validate_pack(pack)

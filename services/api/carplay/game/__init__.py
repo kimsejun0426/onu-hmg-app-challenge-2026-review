@@ -71,8 +71,8 @@ def validate_pack(pack: dict) -> list[str]:
         errors.append("roles must contain two nonempty strings")
     if not isinstance(pack.get("solo_role", "탐험가와 연구원"), str) or not pack.get("solo_role", "탐험가와 연구원").strip():
         errors.append("solo_role must be a nonempty string")
-    if pack.get("solo_prompt_style", "role_and_turn") not in ("role_and_turn", "nickname"):
-        errors.append("solo_prompt_style must be role_and_turn or nickname")
+    if pack.get("solo_prompt_style", "role_and_turn") not in ("role_and_turn", "nickname", "body_only"):
+        errors.append("solo_prompt_style must be role_and_turn, nickname or body_only")
     if "max_turns" in pack and (type(pack["max_turns"]) is not int or not 1 <= pack["max_turns"] <= 64):
         errors.append("max_turns must be an integer between 1 and 64")
     labels = pack.get("template_labels", {})
@@ -273,10 +273,10 @@ def present(state: dict, pack: dict) -> dict:
         player = next(p for p in state["players"] if p["player_id"] == state["expected_player_id"])
         # Preserve the shipped 0.2.0 voice, while new editions declare their style.
         solo_style = pack.get("solo_prompt_style", "nickname" if pack["version"] == "0.2.0" else "role_and_turn")
-        if solo_style == "nickname" and len(state["players"]) == 1:
-            prompt = f"{player['nickname']}, {prompt}"
-        else:
+        if len(state["players"]) > 1 or solo_style == "role_and_turn":
             prompt = f"{player['nickname']} {player['role']} 차례야. {prompt}"
+        elif solo_style == "nickname":
+            prompt = f"{player['nickname']}, {prompt}"
     return {
         "scene_id": state["scene_id"], "prompt": prompt,
         "actions": [{"id": a["id"], "label": a["label"], "aliases": list(a.get("aliases", []))} for a in scene.get("actions", [])],

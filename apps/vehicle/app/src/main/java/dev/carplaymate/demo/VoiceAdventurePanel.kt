@@ -42,10 +42,11 @@ internal fun VoiceAdventurePanel(
         .ifBlank { "오누와 함께하는 이야기" }
 
     BoxWithConstraints(modifier.testTag("family.voice.panel")) {
-        if (backdrop) OnuJourneyBackdrop(art, Modifier.fillMaxSize())
+        if (backdrop) OnuJourneyBackdrop(art, Modifier.fillMaxSize(), activeAdventure = !ui.quiet && snapshot.status == "ACTIVE")
         val landscape = maxWidth >= 640.dp && maxWidth > maxHeight
         if (landscape) {
             val compact = maxHeight < 420.dp
+            val statusBesideQuestion = maxHeight >= 475.dp && maxWidth / LocalDensity.current.fontScale >= 820.dp
             Row(Modifier.fillMaxSize(), verticalAlignment = Alignment.Bottom) {
                 Column(Modifier.weight(if (compact) .35f else .38f).fillMaxHeight()) {
                     BoxWithConstraints(
@@ -55,8 +56,8 @@ internal fun VoiceAdventurePanel(
                         val companionSize = minOf(maxHeight, maxWidth * 1.04f, 520.dp)
                         OnuJourneyCharacter(ui, Modifier.size(companionSize))
                     }
-                    // Reserving a calm baseline keeps the boy grounded across status changes.
-                    Box(Modifier.fillMaxWidth().heightIn(min = if (compact) 82.dp else 76.dp)
+                    // On short screens keep the status below the character to preserve question height.
+                    if (!statusBesideQuestion) Box(Modifier.fillMaxWidth().heightIn(min = if (compact) 82.dp else 76.dp)
                         .padding(horizontal = if (compact) 8.dp else 20.dp, vertical = 8.dp),
                         contentAlignment = Alignment.CenterStart) {
                         VoiceStatus(ui)
@@ -64,13 +65,14 @@ internal fun VoiceAdventurePanel(
                 }
                 VoiceDialogue(
                     ui, caption, spoken, choices, canChoose, transcript, manual,
-                    { transcript = !transcript }, { manual = !manual },
+                    { transcript = !transcript; if (transcript) manual = false },
+                    { manual = !manual; if (manual) transcript = false },
                     { manual = false; onChoose(it) },
                     Modifier.weight(if (compact) .65f else .62f).fillMaxHeight()
                         .padding(start = if (compact) 12.dp else 24.dp,
                             end = if (compact) 12.dp else 24.dp,
                             top = if (compact) 8.dp else 20.dp, bottom = 8.dp),
-                    showStatus = false,
+                    showStatus = statusBesideQuestion,
                     compact = compact,
                     centerDialogue = true,
                 )
@@ -90,7 +92,8 @@ internal fun VoiceAdventurePanel(
                 }
                 VoiceDialogue(
                     ui, caption, spoken, choices, canChoose, transcript, manual,
-                    { transcript = !transcript }, { manual = !manual },
+                    { transcript = !transcript; if (transcript) manual = false },
+                    { manual = !manual; if (manual) transcript = false },
                     { manual = false; onChoose(it) },
                     Modifier.fillMaxWidth().weight(1f - sceneShare)
                         .padding(horizontal = 20.dp, vertical = 8.dp),
@@ -138,12 +141,14 @@ private fun VoiceDialogue(
                     .familyScrollIndicator(scroll, trailingOffset = 8.dp).verticalScroll(scroll),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                Text(
-                    caption,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = PlaymateColors.Ink,
-                    modifier = Modifier.testTag("family.voice.question").semantics { heading() },
-                )
+                if (transcript) {
+                    Text(spoken, style = MaterialTheme.typography.bodyLarge, color = PlaymateColors.Ink,
+                        modifier = Modifier.testTag("family.voice.transcriptText"))
+                } else {
+                    Text(caption, style = MaterialTheme.typography.headlineSmall,
+                        color = PlaymateColors.DeepForest,
+                        modifier = Modifier.testTag("family.voice.question").semantics { heading() })
+                }
                 if (manual && canChoose) Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     Text(
                         if (ui.microphoneListening) "목소리 입력도 켜져 있어요. 쉬려면 ‘잠깐 쉬기’를 눌러 주세요."
@@ -167,12 +172,9 @@ private fun VoiceDialogue(
                         }
                     }
                 }
-                if (transcript) Text(spoken, style = MaterialTheme.typography.bodyLarge,
-                    color = PlaymateColors.Ink,
-                    modifier = Modifier.testTag("family.voice.transcriptText"))
             }
             // An unboxed spoken example is a suggestion to say, never an inactive button.
-            if (canChoose && choices.isNotEmpty()) {
+            if (canChoose && !manual && choices.isNotEmpty()) {
                 val snapshot = ui.snapshot
                 val name = snapshot?.takeIf {
                     (it.game.optJSONArray("players")?.length() ?: 0) > 1
@@ -207,7 +209,7 @@ private fun VoiceDialogue(
                     .testTag("family.voice.manual")
                     .semantics { stateDescription = if (manual) "펼쳐짐" else "접힘" },
             ) {
-                Text(if (manual) "선택 접기" else "선택 도와주기",
+                Text(if (manual) "선택 접기" else "화면으로 선택",
                     Modifier.weight(1f, fill = false), textAlign = TextAlign.Center)
                 Spacer(Modifier.width(6.dp))
                 FamilyIcon(FamilyIcon.NEXT, Modifier.size(18.dp).rotate(if (manual) -90f else 90f),
@@ -229,7 +231,13 @@ private fun VoiceStatus(ui: DeveloperUiState) {
     Row(Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-        FamilyIcon(icon, Modifier.size(24.dp), tint = PlaymateColors.Forest)
+        Surface(shape = RoundedCornerShape(12.dp),
+            color = if (ui.microphoneListening && !ui.quiet) PlaymateColors.Forest else PlaymateColors.Mist) {
+            Box(Modifier.size(36.dp), contentAlignment = Alignment.Center) {
+                FamilyIcon(icon, Modifier.size(24.dp),
+                    tint = if (ui.microphoneListening && !ui.quiet) PlaymateColors.Paper else PlaymateColors.Forest)
+            }
+        }
         Text(
             if (ui.snapshot?.phase == "LISTENING") ui.inputStatus
             else if (ui.busy) "다음 장면을 준비하고 있어요"

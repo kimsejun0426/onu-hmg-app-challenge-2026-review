@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import java.util.UUID
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -23,17 +24,22 @@ internal data class LetterPresentation<S>(
     val mixedPart: MixedAudioPart? = null,
 )
 
-/** The checkpoint contains only game enums and two flags. No transcript, capture or audio is saved. */
+/** Only authored game enums and flags are saved, never transcript, capture or audio. */
 internal fun JumpState.letterCheckpoint(): String =
     listOf(step.name, guess?.name.orEmpty(), ending?.name.orEmpty(), assisted.toString(), paused.toString())
-        .joinToString("|")
+        .joinToString("|") + if (revealedWithHelp) "|true" else ""
 
 internal fun restoreLetter(saved: String?): JumpState? = runCatching {
     val fields = saved?.split('|') ?: return null
-    require(fields.size == 5)
-    JumpState(JumpStep.valueOf(fields[0]), fields[1].takeIf(String::isNotEmpty)?.let(JumpGuess::valueOf),
+    require(fields.size in 5..6)
+    // Preserve every old five-field canonical token byte for byte. Only true needs the extension.
+    val revealedWithHelp = fields.size == 6
+    if (revealedWithHelp) require(fields[5] == "true")
+    val state = JumpState(JumpStep.valueOf(fields[0]), fields[1].takeIf(String::isNotEmpty)?.let(JumpGuess::valueOf),
         fields[2].takeIf(String::isNotEmpty)?.let(JumpEnding::valueOf),
-        fields[3].toBooleanStrict(), fields[4].toBooleanStrict())
+        fields[3].toBooleanStrict(), fields[4].toBooleanStrict(), revealedWithHelp)
+    require(!revealedWithHelp || state.step in setOf(JumpStep.DIRECT, JumpStep.END))
+    state
 }.getOrNull()
 
 /** Only a native completion callback finishes a letter. Progress may outlive its nominal duration. */
@@ -62,7 +68,7 @@ internal class LetterPlaybackProgress(private val durationMs: Long, private val 
     }
 }
 
-/** One foreground, parked letter. The serial invalidates callbacks before revoking either lease. */
+/** One explicitly owned letter. The serial invalidates callbacks before revoking either lease. */
 internal class LetterSession<S : Any>(
     private val episode: LetterEpisode<S>,
     private val player: StoryClipPlayer,
@@ -81,6 +87,10 @@ internal class LetterSession<S : Any>(
     private val inputFocus = captureFocusFactory { pause() }
     private var serial = 0L
     private var clipToken = 0L
+    private val transportSessionId = UUID.randomUUID().toString()
+    private var transportCue: String? = null
+    private var transportClip: BundledAudio? = null
+    private var nativeClipStarted = false
     // A broadcast earns its ending only after the final local clip actually completes.
     private var endingOrigin: S? = null
     private var timeout: Runnable? = null
@@ -92,6 +102,51 @@ internal class LetterSession<S : Any>(
     } ?: episode.initial()
     private val mutable = MutableStateFlow(LetterPresentation(restored, LetterPhase.READY))
     val state: StateFlow<LetterPresentation<S>> = mutable
+    private val mutableTransport = MutableStateFlow(
+        LetterTransportSnapshot(transportSessionId, serial, LetterTransportPhase.STOPPED))
+    val transport: StateFlow<LetterTransportSnapshot> = mutableTransport
+
+    /** Read the native position only while this session's current clip is actually running. */
+    fun transportPositionMillis(): Long? {
+        if (closed || !nativeClipStarted || transportClip == null ||
+            mutable.value.phase != LetterPhase.OUTPUT) return null
+        return runCatching { player.positionMillis()?.takeIf { it >= 0L } }.getOrNull()
+    }
+
+    private fun publish(presentation: LetterPresentation<S>) {
+        mutable.value = presentation
+        publishTransport()
+    }
+
+    /** Same main-thread transition as presentation; observation never acquires focus or starts I/O. */
+    private fun publishTransport(phaseOverride: LetterTransportPhase? = null) {
+        val presentation = mutable.value
+        val phase = phaseOverride ?: when {
+            closed || episode.paused(presentation.turn.state) -> LetterTransportPhase.STOPPED
+            presentation.phase == LetterPhase.OUTPUT ->
+                if (nativeClipStarted) LetterTransportPhase.PLAYING else LetterTransportPhase.PREPARING
+            presentation.phase in setOf(LetterPhase.INPUT_START, LetterPhase.LISTENING) -> LetterTransportPhase.INPUT
+            presentation.phase == LetterPhase.PROCESSING -> LetterTransportPhase.PROCESSING
+            presentation.phase in setOf(LetterPhase.INPUT_ERROR, LetterPhase.OUTPUT_ERROR) ||
+                presentation.issue != null -> LetterTransportPhase.ERROR
+            else -> LetterTransportPhase.STOPPED
+        }
+        val output = phase == LetterTransportPhase.PREPARING || phase == LetterTransportPhase.PLAYING
+        mutableTransport.value = LetterTransportSnapshot(
+            sessionId = transportSessionId,
+            revision = serial,
+            phase = phase,
+            cue = transportCue.takeIf { output },
+            durationMs = transportClip?.durationMillis?.takeIf { output },
+            positionMs = if (phase == LetterTransportPhase.PLAYING) transportPositionMillis() else null,
+        )
+    }
+
+    private fun clearTransportClip() {
+        nativeClipStarted = false
+        transportCue = null
+        transportClip = null
+    }
 
     fun choose(id: String) {
         if (!usable()) return
@@ -110,7 +165,7 @@ internal class LetterSession<S : Any>(
         // After the first question, replay the sound and question without the greeting.
         // A hint or a failed opening still needs its original sequence.
         val turn = if (now.phase != LetterPhase.OUTPUT_ERROR && now.turn.cues.firstOrNull() == "opening")
-            episode.resume(now.turn.state) else now.turn
+            episode.resume(now.turn.state) else now.turn.copy(answerLabel = null)
         present(turn, now.touch)
     }
 
@@ -119,13 +174,22 @@ internal class LetterSession<S : Any>(
         val now = mutable.value
         if (!now.turn.acceptsAnswer || now.phase in setOf(LetterPhase.OUTPUT, LetterPhase.OUTPUT_ERROR) || episode.paused(now.turn.state)) return
         revoke()
-        mutable.value = now.copy(phase = LetterPhase.WAIT, touch = true, issue = null)
+        publish(now.copy(phase = LetterPhase.WAIT, touch = true, issue = null))
     }
 
-    fun pauseOrResume() {
+    fun resume() {
         if (!usable()) return
         val now = mutable.value.turn
-        if (episode.paused(now.state)) present(episode.choose(now.state, "resume")) else pause()
+        if (episode.paused(now.state)) present(episode.choose(now.state, "resume"))
+    }
+
+    /** Failure before FGS promotion cannot claim that audio or capture began. */
+    fun activationFailed(message: String = "음성을 시작하지 못했어. 보호자와 앱의 음성 권한을 확인해 줘.") {
+        if (closed) return
+        revoke()
+        publish(mutable.value.copy(phase = LetterPhase.READY, speaking = false,
+            soundOnly = false,
+            issue = message))
     }
 
     fun pause() {
@@ -134,12 +198,12 @@ internal class LetterSession<S : Any>(
         val now = endingOrigin?.let(episode::resume) ?: mutable.value.turn
         endingOrigin = null
         if (episode.paused(now.state) || episode.stage(now.state) in setOf(0, 4)) {
-            mutable.value = LetterPresentation(now, LetterPhase.READY)
+            publish(LetterPresentation(now, LetterPhase.READY))
             return
         }
         val resting = episode.choose(now.state, "rest")
         checkpoint(episode.encode(resting.state))
-        mutable.value = LetterPresentation(resting, LetterPhase.READY)
+        publish(LetterPresentation(resting, LetterPhase.READY))
     }
 
     fun close() {
@@ -165,10 +229,10 @@ internal class LetterSession<S : Any>(
         endingOrigin = if (mode != LetterMode.READ && episode.stage(turn.state) == 4 && turn.cues.isNotEmpty())
             endingOrigin ?: previous.takeIf { episode.stage(it) != 4 } else null
         checkpoint(episode.encode(endingOrigin ?: turn.state))
-        mutable.value = LetterPresentation(turn, LetterPhase.READY, touch, pendingEnding = endingOrigin != null)
+        publish(LetterPresentation(turn, LetterPhase.READY, touch, pendingEnding = endingOrigin != null))
         if (episode.paused(turn.state)) return
         if (mode == LetterMode.READ || turn.cues.isEmpty()) { awaitAnswer(key); return }
-        mutable.value = mutable.value.copy(phase = LetterPhase.OUTPUT)
+        publish(mutable.value.copy(phase = LetterPhase.OUTPUT))
         if (!runCatching { focus.acquire { if (key == serial) pause() } }.getOrDefault(false)) {
             if (accepts(key)) outputProblem()
             return
@@ -186,10 +250,14 @@ internal class LetterSession<S : Any>(
         }
         val soundOnly = episode.isEffect(cues[index])
         val finale = episode.id == "rain_music" && cues[index] in setOf("finale_drops", "finale_wiper")
-        mutable.value = mutable.value.copy(speaking = false, soundOnly = soundOnly, currentCue = cues[index],
-            mixedPart = if (finale) MixedAudioPart.MUSIC else null)
+        clearTransportClip()
+        transportCue = cues[index]
+        publish(mutable.value.copy(speaking = false, soundOnly = soundOnly, currentCue = cues[index],
+            mixedPart = if (finale) MixedAudioPart.MUSIC else null))
         val asset = runCatching { lookup(cues[index]) }.getOrNull()
         if (asset == null) { outputProblem(); return }
+        transportClip = asset
+        publishTransport()
         val token = ++clipToken
         fun current() = token == clipToken && accepts(key)
         val preparationTimeout = Runnable { if (current()) outputProblem() }
@@ -201,24 +269,32 @@ internal class LetterSession<S : Any>(
                     ++clipToken
                     stopWatchingPosition()
                     clearClipTimeout()
+                    // Completion closes the old timeline before the next clip can prepare.
+                    clearTransportClip()
+                    publishTransport(LetterTransportPhase.PREPARING)
                     playClip(key, index + 1)
                 }
             }, { if (current()) outputProblem() }, {
                 if (current() && timeout === preparationTimeout) {
+                    nativeClipStarted = true
+                    publishTransport()
                     clearClipTimeout()
                     val progress = LetterPlaybackProgress(asset.durationMillis, SystemClock.uptimeMillis())
                     val playbackWatch = object : Runnable {
                         override fun run() {
                             if (timeout !== this || !current()) return
                             if (progress.stalled(SystemClock.uptimeMillis(), player.positionMillis())) outputProblem()
-                            else timer.postDelayed(this, 1_000L)
+                            else {
+                                publishTransport() // Sample actual position; never advance it from elapsed time.
+                                timer.postDelayed(this, 1_000L)
+                            }
                         }
                     }
                     timeout = playbackWatch
                     timer.postDelayed(playbackWatch, 1_000L)
                     val window = asset.speechWindow
                     if (window != null) trackMixedVoice(window, ::current)
-                    else if (!soundOnly) mutable.value = mutable.value.copy(speaking = true)
+                    else if (!soundOnly) publish(mutable.value.copy(speaking = true))
                 }
             })
         } catch (_: Exception) { if (current()) outputProblem() }
@@ -237,8 +313,8 @@ internal class LetterSession<S : Any>(
                     position < window.endMillis -> MixedAudioPart.VOICE
                     else -> MixedAudioPart.TAIL
                 }
-                mutable.value = mutable.value.copy(mixedPart = part, speaking = part == MixedAudioPart.VOICE,
-                    soundOnly = part == MixedAudioPart.MUSIC)
+                publish(mutable.value.copy(mixedPart = part, speaking = part == MixedAudioPart.VOICE,
+                    soundOnly = part == MixedAudioPart.MUSIC))
                 val boundary = when (part) {
                     MixedAudioPart.MUSIC -> window.startMillis
                     MixedAudioPart.VOICE -> window.endMillis
@@ -263,8 +339,8 @@ internal class LetterSession<S : Any>(
 
     private fun outputProblem() {
         revoke()
-        mutable.value = mutable.value.copy(phase = LetterPhase.OUTPUT_ERROR, speaking = false, soundOnly = false,
-            issue = "소리를 재생하지 못했어. 다시 들어 볼까?")
+        publish(mutable.value.copy(phase = LetterPhase.OUTPUT_ERROR, speaking = false, soundOnly = false,
+            issue = "소리를 재생하지 못했어. 다시 들어 볼까?"))
     }
 
     private fun awaitAnswer(key: Long) {
@@ -274,8 +350,8 @@ internal class LetterSession<S : Any>(
             checkpoint(episode.encode(turn.state))
             endingOrigin = null
         }
-        mutable.value = mutable.value.copy(phase = LetterPhase.WAIT, speaking = false, soundOnly = false,
-            pendingEnding = false, mixedPart = mutable.value.mixedPart?.let { MixedAudioPart.TAIL })
+        publish(mutable.value.copy(phase = LetterPhase.WAIT, speaking = false, soundOnly = false,
+            pendingEnding = false, mixedPart = mutable.value.mixedPart?.let { MixedAudioPart.TAIL }))
         if (!turn.acceptsAnswer || mode != LetterMode.VOICE || mutable.value.touch) return
         val blocked = microphone.unavailableFailure()
         if (blocked != null) { inputProblem(); return }
@@ -287,15 +363,15 @@ internal class LetterSession<S : Any>(
         val context = CaptureContext(episode.id, key, episode.stepName(turn.state), key, "letter-$key", key)
         val ticket = gate.open(context)
         signals.open(ticket)
-        mutable.value = mutable.value.copy(phase = LetterPhase.INPUT_START)
+        publish(mutable.value.copy(phase = LetterPhase.INPUT_START))
         try {
             microphone.open(ticket, { received, stage ->
                 if (accepts(key) && gate.accepts(received, context)) {
                     signals.stage(received, stage)
                     // A late ready callback cannot invite a second answer once speech has ended.
                     if (stage == CaptureStage.PROCESSING || mutable.value.phase != LetterPhase.PROCESSING) {
-                        mutable.value = mutable.value.copy(phase = if (stage == CaptureStage.LISTENING)
-                            LetterPhase.LISTENING else LetterPhase.PROCESSING)
+                        publish(mutable.value.copy(phase = if (stage == CaptureStage.LISTENING)
+                            LetterPhase.LISTENING else LetterPhase.PROCESSING))
                     }
                 }
             }, { received, text ->
@@ -315,13 +391,14 @@ internal class LetterSession<S : Any>(
 
     private fun inputProblem() {
         revoke()
-        mutable.value = mutable.value.copy(phase = LetterPhase.INPUT_ERROR,
-            issue = "목소리가 잘 안 들렸어. 화면으로 골라도 돼.")
+        publish(mutable.value.copy(phase = LetterPhase.INPUT_ERROR,
+            issue = "목소리를 듣지 못해서 잠깐 쉬고 있어."))
     }
 
     private fun revoke() {
         ++serial
         ++clipToken
+        clearTransportClip()
         stopWatchingPosition()
         clearClipTimeout()
         gate.close()
@@ -330,6 +407,7 @@ internal class LetterSession<S : Any>(
         inputFocus.release()
         player.stop()
         focus.release()
+        publishTransport(LetterTransportPhase.STOPPED)
     }
 
     companion object {

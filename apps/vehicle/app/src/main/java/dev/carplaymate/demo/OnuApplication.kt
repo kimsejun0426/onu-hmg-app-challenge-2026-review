@@ -4,5 +4,6 @@ import android.app.Application
 
 /** The application, rather than a recreated screen, owns an explicitly started voice session. */
 open class OnuApplication : Application() {
+    internal open val letterSessionHost: LetterSessionHost by lazy { LetterSessionHost(this) }
     internal open val voiceSessionHost: VoiceSessionHost by lazy { VoiceSessionHost(this) }
 }

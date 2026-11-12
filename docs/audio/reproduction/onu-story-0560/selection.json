@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "selected_after_comparison",
+  "base_take": "take-2",
+  "retry_take": "take-3",
+  "selected_retry_ids": [
+    "dino_823088a509da2235",
+    "onu_a29b4330cfc58198"
+  ],
+  "rationale_by_id": {
+    "dino_823088a509da2235": "Retry3 restores normalized exact robot/egg text recognition while F0 remains close to the existing reference scenes (208.8 to216.1Hz); same authored text/cue and no pitch or timing processing.",
+    "onu_a29b4330cfc58198": "Retry3 retains normalized exact wording and reduces outlying median pitch278.7 to183.9Hz, near the existing letter question/rain voice range, with narrower pitch IQR. This is objective candidate selection, not a human naturalness pass."
+  },
+  "comparison_evidence": [
+    {
+      "path": ".local/onu-quality-0560/audio/screen-take-2-cuda-1/screening-result.json",
+      "sha256": "ebd3efd6ad554ae265ef023c7d4e82c9592358e61b4de71c030fbac4f7e1038e"
+    },
+    {
+      "path": ".local/onu-quality-0560/audio/screen-take-3-cuda-1/before-after.json",
+      "sha256": "d261ccd0c6ec8d000bd8d1cccdc4917ee0526f23ac174815889c109d1367e149"
+    },
+    {
+      "path": ".local/onu-quality-0560/audio/screen-take-3-cuda-1/screening-result.json",
+      "sha256": "bc7b3a9c0cdeba49e452548bc3ee4ff4812d39f5ca6bfb98b9fca579941e0a0b"
+    }
+  ],
+  "human_listening_verified": false,
+  "retained_candidates_notes": {
+    "dino_6d1af0571fbb38aa": "Retain take2: exact ASR; independently corroborated low F0 is a review limitation. Take3 and take4 both introduce the same ambiguous leaf-marker ASR wording; neither is claimed superior by listening.",
+    "onu_8a2aa0dc157d243e": "Retain take2: both normalized exact; retry reduces F0 only modestly but adds0.56s leading silence."
+  }
+}

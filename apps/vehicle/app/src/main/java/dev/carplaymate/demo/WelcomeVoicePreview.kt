@@ -93,7 +93,7 @@ internal class WelcomeVoicePreview(
     }
 
     companion object {
-        const val TEXT = "안녕, 나는 오누야. 우리 차에서 함께 모험하자. 네가 고른 길로 나도 같이 갈게."
+        const val TEXT = "안녕, 나는 오누야. 가는 길에 나랑 소리 퀴즈 풀어 볼래? 단서를 들려줄게."
         const val AUDIO_ID = "onu_welcome_b2"
         const val ASSET = "story_audio/onu_welcome_b2.wav"
 

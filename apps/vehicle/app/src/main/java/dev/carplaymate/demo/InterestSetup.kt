@@ -10,6 +10,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -100,7 +102,7 @@ internal fun InterestSetupScreen(
             PrimaryButton(
                 when {
                     offerSecond -> "다음 아이 관심사"
-                    commitChanges -> "다음"
+                    commitChanges -> if (initialSetup) "다음 · 놀이 방식" else "관심사 저장"
                     secondChild != null -> "둘 다 건너뛰기"
                     else -> "건너뛰기"
                 },
@@ -181,7 +183,7 @@ internal fun InterestSetupScreen(
                                     },
                                     color = PlaymateColors.DeepForest,
                                 )
-                                Text(if (selected.isEmpty()) "여러 개 골라도 돼." else "고른 관심사 ${selected.size}개 · 다시 누르면 뺄 수 있어.", style = if (panoramic) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodySmall,
+                                Text(if (selected.isEmpty()) "좋아하는 그림을 골라 줘. 여러 개도 좋아." else "\u2713 ${selected.size}개 골랐어. 다시 누르면 뺄 수 있어.", style = if (panoramic) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodySmall,
                                     color = PlaymateColors.Muted)
                             }
                             if (inlineAction) firstAction(Modifier.widthIn(max = if (panoramic) 260.dp else 230.dp))
@@ -279,7 +281,9 @@ private fun InterestChoice(
             else MaterialTheme.typography.titleMedium, color = PlaymateColors.DeepForest)
     }
     Box(
-        modifier.toggleable(value = selected, enabled = enabled, role = Role.Checkbox, onValueChange = onChange)
+        modifier.clip(RoundedCornerShape(18.dp))
+            .background(if (selected) Color.White.copy(alpha = .59f) else Color.Transparent)
+            .toggleable(value = selected, enabled = enabled, role = Role.Checkbox, onValueChange = onChange)
             .testTag("interest.${interest.id}").heightIn(min = if (labelBelow) 118.dp else 84.dp),
         contentAlignment = Alignment.Center,
     ) {

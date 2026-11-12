@@ -1,0 +1,185 @@
+{
+  "api": {
+    "attention": "sdpa",
+    "dtype": "bfloat16",
+    "language": "Korean",
+    "max_new_tokens": 420,
+    "non_streaming_mode": true,
+    "x_vector_only_mode": false
+  },
+  "clips": [
+    {
+      "asset": "story_audio/onu_8a2aa0dc157d243e.wav",
+      "expected_audio_sha256": "dd585f2528bab20b8823183c95f99768f634e3270784fd322c36d6246dec6d17",
+      "id": "onu_8a2aa0dc157d243e",
+      "seed": 688968376,
+      "text": "천천히 생각해도 괜찮아. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "8a2aa0dc157d243eaae42b1ef7bdda3480a4ff2017a8fce09637f8ef284949d1"
+    },
+    {
+      "asset": "story_audio/onu_a29b4330cfc58198.wav",
+      "expected_audio_sha256": "8a9711859f44d88996a53776bc2d6692d1b4380d2ca9bae8e3647e53746e458c",
+      "id": "onu_a29b4330cfc58198",
+      "seed": 1242659186,
+      "text": "그 말은 내가 잘 이해하지 못했어. 다시 물어볼게.",
+      "text_sha256": "a29b4330cfc58198e4dd0b7740cca06fc85e9ab0f7291ad43936c6b0677b4b8a"
+    },
+    {
+      "asset": "story_audio/dino_6d1af0571fbb38aa.wav",
+      "expected_audio_sha256": "3485272e337cb13084fa78b52b6c31a88eb15c018c429726d631237d2cd272a7",
+      "id": "dino_6d1af0571fbb38aa",
+      "seed": 2062760797,
+      "text": "노트를 펴 보니 트리케라톱스는 식물을 먹었어. 나뭇잎 표시의 로봇을 같이 살펴보자.",
+      "text_sha256": "6d1af0571fbb38aa85cf1b1c300ab98bd3496eb51dace69b2916a0f34ae9f75f"
+    },
+    {
+      "asset": "story_audio/dino_823088a509da2235.wav",
+      "expected_audio_sha256": "ea430d97afcf2999ca415067cecd3bc5a61fd17d4a0bb1e5a18dd5b8e373c477",
+      "id": "dino_823088a509da2235",
+      "seed": 1464748934,
+      "text": "공작실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "823088a509da223548c450ce6c56426a736bcb0a08c521e285ee9637c37989e1"
+    }
+  ],
+  "cues": [
+    {
+      "asset": "story_audio/cue_dino_arrival.wav",
+      "duration_ms": 2850,
+      "id": "cue_dino_arrival",
+      "sha256": "cd27ec4dd291413378fd6f779610f92d96fde87b405aa0d37636af9acafb4d78"
+    },
+    {
+      "asset": "story_audio/cue_forest.wav",
+      "duration_ms": 2400,
+      "id": "cue_forest",
+      "sha256": "babc1c4c94bdf0cc11531df43df95c7c0a0458b122d0718fb84a30912b4d3446"
+    },
+    {
+      "asset": "story_audio/cue_stream.wav",
+      "duration_ms": 2400,
+      "id": "cue_stream",
+      "sha256": "f1b165ea3f942b8c034baca535c15fd0e2ac872decd58aa2ceda2b964aa37032"
+    },
+    {
+      "asset": "story_audio/cue_discovery.wav",
+      "duration_ms": 800,
+      "id": "cue_discovery",
+      "sha256": "8f8d0dc57c76ad5f56a840bd35a731b885396d01889cde8d399d3bcc7f0dce51"
+    }
+  ],
+  "human_listening_verified": false,
+  "model": {
+    "code_license": "Apache-2.0",
+    "code_repository": "https://github.com/QwenLM/Qwen3-TTS",
+    "license": "Apache-2.0",
+    "package": "qwen-tts==0.1.1",
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "revision": "fd4b254389122332181a7c3db7f27e918eec64e3"
+  },
+  "parent": {
+    "manifest": {
+      "bytes": 23823,
+      "path": ".local/onu-quality-0560/audio/take-2/assets/manifest.json",
+      "sha256": "3ab5a290c6831c3824f3f6e2b770bc680e5933648274bf6816037ae81c1b06a3"
+    },
+    "pitch_result": {
+      "bytes": 37514,
+      "path": ".local/onu-quality-0560/audio/screen-take-2-cuda-1/pitch-result.json",
+      "sha256": "f3254838b3015adcbb240f8b162fe99778f4710c08a84a2c70b82cf97c8fd814"
+    },
+    "plan": {
+      "bytes": 26728,
+      "path": ".local/onu-quality-0560/audio/plan.json",
+      "sha256": "d23cf579944e0788dee5481467abf858219d0f1a4bf0a95eec83495e565265b5"
+    },
+    "provenance": {
+      "bytes": 47372,
+      "path": ".local/onu-quality-0560/audio/take-2/provenance.json",
+      "sha256": "a333333dbca815eba10db46e3c42a74a07b063f5c2fe722ee60ab40402eed863"
+    },
+    "screening_result": {
+      "bytes": 189564,
+      "path": ".local/onu-quality-0560/audio/screen-take-2-cuda-1/screening-result.json",
+      "sha256": "ebd3efd6ad554ae265ef023c7d4e82c9592358e61b4de71c030fbac4f7e1038e"
+    },
+    "selection_rows": [
+      {
+        "collision_salt": 0,
+        "id": "onu_8a2aa0dc157d243e",
+        "new_seed": 688968376,
+        "parent_audio_sha256": "dd585f2528bab20b8823183c95f99768f634e3270784fd322c36d6246dec6d17",
+        "previous_seed": 354651892,
+        "reason": "회복문 비교용: 동일 첫 문장을 포함한 02f 후보와 높이 분포 차이. 질문 억양 차이일 수 있으며 현재본 불합격 아님.",
+        "text_sha256": "8a2aa0dc157d243eaae42b1ef7bdda3480a4ff2017a8fce09637f8ef284949d1"
+      },
+      {
+        "collision_salt": 0,
+        "id": "onu_a29b4330cfc58198",
+        "new_seed": 1242659186,
+        "parent_audio_sha256": "8a9711859f44d88996a53776bc2d6692d1b4380d2ca9bae8e3647e53746e458c",
+        "previous_seed": 834057228,
+        "reason": "회복문 비교용: 같은 다시 물어볼게 끝말의 8688 후보와 사분위 분포 차이. 참조 범위와 겹쳐 자동 교체 근거 아님.",
+        "text_sha256": "a29b4330cfc58198e4dd0b7740cca06fc85e9ab0f7291ad43936c6b0677b4b8a"
+      },
+      {
+        "collision_salt": 0,
+        "id": "dino_6d1af0571fbb38aa",
+        "new_seed": 2062760797,
+        "parent_audio_sha256": "3485272e337cb13084fa78b52b6c31a88eb15c018c429726d631237d2cd272a7",
+        "previous_seed": 1961946532,
+        "reason": "pYIN Q1–Q3 127.4–158.2Hz가 고정 참조4개 모두의 Q1보다 낮음. 유성60.2%, ASR정확; 낮은 발성 또는 추적오류를 비교할 후보.",
+        "text_sha256": "6d1af0571fbb38aa85cf1b1c300ab98bd3496eb51dace69b2916a0f34ae9f75f"
+      },
+      {
+        "collision_salt": 0,
+        "id": "dino_823088a509da2235",
+        "new_seed": 1464748934,
+        "parent_audio_sha256": "ea430d97afcf2999ca415067cecd3bc5a61fd17d4a0bb1e5a18dd5b8e373c477",
+        "previous_seed": 1063983455,
+        "reason": "로봇 옆이 로보디업으로 전사됨. 알/R 표기와 구분한 명료도 비교 후보이며 ASR 오류 가능성 남음.",
+        "text_sha256": "823088a509da223548c450ce6c56426a736bcb0a08c521e285ee9637c37989e1"
+      }
+    ],
+    "take_path": ".local/onu-quality-0560/audio/take-2"
+  },
+  "preserve": {
+    "legacy_only_story_clips": 6,
+    "merge_policy": "Generated retry manifest contains only 4 speech candidates plus unchanged cues. Keep all parent take-2 candidates; no automatic selection or production merge.",
+    "unchanged_effects": 4,
+    "unchanged_first_jump_and_rain_clips": 50,
+    "welcome_reference6238": 1
+  },
+  "processing": {
+    "pitch_or_time_processing": false,
+    "static_gain_target_lufs": -23,
+    "true_peak_cap_dbtp": -3.25
+  },
+  "production_audio_generated": false,
+  "reference": {
+    "asset": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+    "origin": "Independent self-generated fictional Korean boy voice, VoiceDesign seed 86301.",
+    "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "text": "어, 나도 들었어. 작은 소리가 두 번 났지? 잠깐만. 우리 같이 한 번 더 들어 보자."
+  },
+  "remaining": {
+    "all_331_texts_converted": false,
+    "dynamic_nickname_role_turn_device_tts": true,
+    "guard_only_fixed_hint_fallbacks_device_tts": 2,
+    "other_six_adventure_body_texts_device_tts": 279,
+    "runtime_loader_limit_changed": false,
+    "wrong_player_name_device_tts": true
+  },
+  "schema_version": 1,
+  "scope": "Exactly 4 parent take-2 candidate IDs. Same model/reference/API/processing/text/IDs/assets/cues; new seeds only affect synthesis. Comparison candidates, not confirmed defects or mandatory replacements.",
+  "seed_policy": {
+    "algorithm": "uint31(first 8 hex digits of SHA256(UTF8(namespace + LF + id + LF + text_sha256 + LF + decimal_collision_salt))); process common IDs first then story IDs, each lexicographically; increment salt only on collision",
+    "avoids_all_parent_52_seeds": true,
+    "collision_count": 0,
+    "namespace": "onu-0.56.0/current-story52/reference6238/retry-four-comparison/v1",
+    "purpose": "Deterministic second candidates for side-by-side review, not empirical quality selection or listening approval.",
+    "unique_seed_count": 4
+  },
+  "status": "frozen_retry_comparison_plan_not_generated",
+  "version": "0.56.0-preparation",
+  "voice": "Onu, existing fictional Korean boy voice shared with the sound letters (reference6238)"
+}

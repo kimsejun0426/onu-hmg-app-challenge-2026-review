@@ -445,7 +445,7 @@ internal object ContentReleaseExpectations {
     private val publishedIds = listOf(DEFAULT_ADVENTURE_ID, "starlight-post-office", "undersea-lighthouse",
         "space-return-signal", "animal-footprint-garden", "little-car-workshop")
     val editedIds = publishedIds.filter { it != "little-car-workshop" }
-    val currentVersions = mapOf(DEFAULT_ADVENTURE_ID to "0.11.0", "starlight-post-office" to "0.9.0",
+    val currentVersions = mapOf(DEFAULT_ADVENTURE_ID to "0.12.0", "starlight-post-office" to "0.9.0",
         "undersea-lighthouse" to "0.9.0", "space-return-signal" to "0.11.0",
         "animal-footprint-garden" to "0.12.0", "little-car-workshop" to "0.11.0", newPackId to "0.6.0")
     val legacyIdentities = publishedIds.flatMap { id ->
@@ -465,8 +465,9 @@ internal object ContentReleaseExpectations {
         ("onu-little-picnic" to "0.4.0") +
         (DEFAULT_ADVENTURE_ID to "0.8.0") + ("space-return-signal" to "0.10.0") +
         ("animal-footprint-garden" to "0.11.0") + ("little-car-workshop" to "0.10.0") + (DEFAULT_ADVENTURE_ID to "0.9.0") +
-        ("starlight-post-office" to "0.8.0") + (newPackId to "0.5.0") + (DEFAULT_ADVENTURE_ID to "0.10.0")
+        ("starlight-post-office" to "0.8.0") + (newPackId to "0.5.0") + (DEFAULT_ADVENTURE_ID to "0.10.0") + (DEFAULT_ADVENTURE_ID to "0.11.0")
     val newlyArchivedHashes = mapOf(
+        (DEFAULT_ADVENTURE_ID to "0.11.0") to "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b",
         (DEFAULT_ADVENTURE_ID to "0.10.0") to "c00aa0e09caa0dcea9b3945ee4fffaeee2a8a791daaf7c801c75d34d8ff6c0e0",
         ("starlight-post-office" to "0.8.0") to "570ea85cc89c52c9b552e3d633c16c3fee532945a41e9b314882bc64829cd13a",
         ("onu-little-picnic" to "0.5.0") to "2d8ff28298be3b433589e96a8ecd1e93b8e5598d79639e2eccf3ed10d13c34cc",

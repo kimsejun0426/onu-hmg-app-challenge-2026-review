@@ -150,7 +150,7 @@ class StorySceneMixerTest {
         listOf("cue_dino_arrival" to 1000, "cue_discovery" to 400,
             "cue_forest" to 200, "cue_stream" to 200, "unknown_cue" to 200).forEach { (id, leadMillis) ->
             val result = mix(cue = encoded(id, ShortArray(96_000) { 6000 }), narration = narration)
-            val offset = leadMillis * 48
+            val offset = leadMillis * 48 - 1440 // Move 30 ms of the 150 ms quiet prefix under the cue.
             assertEquals(id, offset, result.narrationOffsetFrame)
             assertEquals(offset + 7200, result.speechStartFrame)
             assertEquals(offset + 136_800, result.speechEndFrame)
@@ -165,6 +165,69 @@ class StorySceneMixerTest {
                 assertEquals(voiceSamples[frame - offset], result.samples[frame])
             }
         }
+    }
+
+    @Test fun additionalQuietMovesTheWholeNarrationEarlierWithoutLosingPcmOrCueIdentity() {
+        // Different quiet prefixes must reach the same spoken onset after discovery's lead.
+        for (quietMillis in listOf(150, 420, 480)) {
+            val first = quietMillis * 48
+            val samples = ShortArray(144_000) { frame ->
+                when {
+                    frame < first -> if (frame % 2 == 0) 15 else -15
+                    frame < 139_200 -> 4000
+                    else -> -12 // A real quiet tail must also survive unchanged.
+                }
+            }
+            val source = encoded("voice", samples)
+            val silentCue = encoded("cue_discovery", ShortArray(38_400))
+            val isolated = mix(cue = silentCue, narration = source)
+            val offset = isolated.narrationOffsetFrame
+            assertEquals(24_960, isolated.speechStartFrame) // 400 ms lead + 120 ms quiet.
+            assertEquals(24_960 - first, offset)
+            assertEquals(offset + samples.size, isolated.samples.size)
+            assertTrue(isolated.samples.take(offset).all { it.toInt() == 0 })
+            assertArrayEquals(samples, isolated.samples.copyOfRange(offset, offset + samples.size))
+
+            val audible = mix(cue = encoded("cue_discovery", ShortArray(38_400) { 6000 }), narration = source)
+            assertEquals(isolated.speechStartFrame, audible.speechStartFrame)
+            assertEquals(1.0, audible.voiceGain, 0.0)
+            // Quiet narration can already be playing here. Remove its known contribution
+            // and verify that the cue's entire identifying window is still at original gain.
+            for (frame in 9600 until 14_400) {
+                val voiceFrame = frame - offset
+                val originalVoice = if (voiceFrame in samples.indices) samples[voiceFrame].toInt() else 0
+                assertEquals(6000, audible.samples[frame].toInt() - originalVoice)
+            }
+            val overlap = (24_960 until 38_400).map { audible.samples[it].toInt() - 4000 }
+            assertTrue(overlap.any { it != 0 })
+            val cueRms = sqrt(overlap.sumOf { it.toDouble() * it } / overlap.size)
+            assertTrue(cueRms <= 4000 * 0.12589254117941673 + 1.0)
+            for (frame in 38_400 until audible.samples.size) {
+                assertEquals(samples[frame - offset], audible.samples[frame])
+            }
+        }
+    }
+
+    @Test fun immediateAndVeryLateSpeechKeepIdentityAllPcmAndFiniteOutput() {
+        // End speech before the cue's final 350 ms fade: the cue is constant during
+        // this overlap, so its RMS limit also bounds the first-frame zero-ramp check.
+        val immediate = mix(cue = encoded("cue_dino_arrival", ShortArray(96_000) { 6000 }),
+            narration = encoded("voice", ShortArray(24_000) { 4000 }))
+        assertEquals(48_000, immediate.speechStartFrame)
+        assertEquals(72_000, immediate.speechEndFrame)
+        assertEquals(96_000, immediate.samples.size) // Preserve the complete cue tail.
+        assertTrue((43_200 until 48_000).all { immediate.samples[it].toInt() == 6000 })
+        assertTrue(immediate.samples[48_000].toInt() - 4000 in 1..505) // Zero-length duck ramp.
+
+        // The complete quiet prefix can exceed the desired onset: never use a negative
+        // offset or remove PCM just to force alignment with a short cue.
+        val samples = ShortArray(48_000) { if (it < 33_600) 15 else 4000 }
+        val late = mix(cue = encoded("cue_discovery", ShortArray(38_400)),
+            narration = encoded("voice", samples))
+        assertEquals(0, late.narrationOffsetFrame)
+        assertEquals(33_600, late.speechStartFrame)
+        assertEquals(samples.size, late.samples.size)
+        assertArrayEquals(samples, late.samples)
     }
 
     @Test fun longerProfileLeadsStillDuckBeforeImmediateSpeechAndKeepTheFullCueTail() {

@@ -22,11 +22,13 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         (application as? OnuApplication)?.voiceSessionHost?.activityResumed(this)
         model.foreground(this)
+        (application as? OnuApplication)?.letterSessionHost?.activityResumed(this)
     }
 
     // A parked-app restriction may pause the activity without stopping it.
     override fun onPause() {
         (application as? OnuApplication)?.voiceSessionHost?.activityPaused(this)
+        (application as? OnuApplication)?.letterSessionHost?.activityPaused(this)
         if (::model.isInitialized) model.background()
         super.onPause()
     }

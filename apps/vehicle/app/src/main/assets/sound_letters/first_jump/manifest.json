@@ -3,10 +3,10 @@
   "clips": [
     {
       "id": "opening",
-      "text": "어? 우리 차에 편지가 왔어. 누가 보냈지? 같이 들어 보자.",
+      "text": "어? 우리 차에 편지가 왔어. 어제는 무서워서 못 뛰었대. 오늘은 어땠을까? 그 친구의 첫 점프를 같이 중계해 주자.",
       "asset": "sound_letters/first_jump/audio/opening.mp3",
-      "sha256": "00b2912c84b9e2f33b9c3d9ee2546c30faef47924d3324f744db5713881a6199",
-      "duration_ms": 5641
+      "sha256": "5c4db1a6f96a89dc461b4fb1b33bacdbe4936e92b15c8ed0806072ffb01b1581",
+      "duration_ms": 10464
     },
     {
       "id": "splash",
@@ -73,10 +73,10 @@
     },
     {
       "id": "ask_question",
-      "text": "둘 다 헤엄을 잘 치는데, 뭘 더 물어볼까?",
+      "text": "해달도 펭귄도 헤엄을 잘 쳐. 깃털이 있는지 물어볼까? 날개로 헤엄치는지 물어볼까?",
       "asset": "sound_letters/first_jump/audio/ask_question.mp3",
-      "sha256": "44aa16fc93cb745f3daf18a2d33c35ab3d00fa63bad4772e4b01d14e37db2129",
-      "duration_ms": 3302
+      "sha256": "d2ddfb5e1c77883c606a6552693cd5a10d207f02c1b0cec5a8e7ec259e1725b6",
+      "duration_ms": 7008
     },
     {
       "id": "weak_shared",
@@ -154,6 +154,41 @@
       "asset": "sound_letters/first_jump/audio/unheard.mp3",
       "sha256": "27be4846c0e9565a2cc075e029a89cd8a51c877669be83a0b2d20150fe7e43e7",
       "duration_ms": 3478
+    },
+    {
+      "id": "reveal_penguin",
+      "text": "아까 펭귄이라고 했지? 정말 펭귄이네! 첫 점프를 같이 들려주자.",
+      "asset": "sound_letters/first_jump/audio/reveal_penguin.mp3",
+      "sha256": "e27365a14d290cc65d8a125e9341acf1dbcd45c72e3550cb93fd54e0560beefc",
+      "duration_ms": 5808
+    },
+    {
+      "id": "reveal_otter",
+      "text": "나도 해달인 줄 알았는데, 깃털이 있었네! 펭귄의 첫 점프를 같이 들려주자.",
+      "asset": "sound_letters/first_jump/audio/reveal_otter.mp3",
+      "sha256": "bb689c0f3c588e5edb2942271656a7bfc048d8b593209119b7350fc360f126a6",
+      "duration_ms": 6216
+    },
+    {
+      "id": "reveal_unsure",
+      "text": "이제 알겠다. 깃털이 있는 펭귄이네! 첫 점프를 같이 들려주자.",
+      "asset": "sound_letters/first_jump/audio/reveal_unsure.mp3",
+      "sha256": "4a234ecaa090990208b840c5852e3d2aeac9564606f68e77cc9967acff96ac6e",
+      "duration_ms": 6528
+    },
+    {
+      "id": "sounds_ack",
+      "text": "물소리도 발소리도 들었구나. 타닥타닥 걷다가 첨벙!",
+      "asset": "sound_letters/first_jump/audio/sounds_ack.mp3",
+      "sha256": "97d5d53ebd80c543b9c2447c8b0ace99a07ae3d0368a192f1aa4020925441208",
+      "duration_ms": 3816
+    },
+    {
+      "id": "reveal_help",
+      "text": "해달한테는 털이 있고, 펭귄한테는 깃털이 있어. 그러니까 이 친구는 펭귄이네!",
+      "asset": "sound_letters/first_jump/audio/reveal_help.mp3",
+      "sha256": "7f9415f9902db216482170242c2b80223b9c762753b9677a9f7c4c8c99343644",
+      "duration_ms": 5976
     }
   ],
   "credits": {

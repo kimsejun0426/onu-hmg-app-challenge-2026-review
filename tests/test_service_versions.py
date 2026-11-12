@@ -50,9 +50,17 @@ class ServiceVersionTests(unittest.IsolatedAsyncioTestCase):
         new = self.service.create("family", self.players)
         self.assertEqual(old["game"]["pack_version"], "0.1.0")
         self.assertEqual(new["game"]["pack_version"], self.current["version"])
-        self.assertTrue(old["presentation"]["prompt"].startswith("별 탐험가와 연구원 차례야. "))
-        self.assertTrue(new["presentation"]["prompt"].startswith("별, "))
-        for state, pack in [(old, self.legacy), (new, self.current), (old, self.legacy)]:
+        previous_pack = self.catalog.load(self.current["pack_id"], "0.11.0")
+        previous = SessionService(self.store, self.settings, previous_pack).create("family", self.players)
+        self.assertEqual(previous["game"]["pack_version"], "0.11.0")
+
+        old_body = self.legacy["scenes"][self.legacy["start_scene"]]["prompt"]
+        previous_body = previous_pack["scenes"][previous_pack["start_scene"]]["prompt"]
+        current_body = self.current["scenes"][self.current["start_scene"]]["prompt"]
+        self.assertEqual(old["presentation"]["prompt"], f"별 탐험가와 연구원 차례야. {old_body}")
+        self.assertEqual(previous["presentation"]["prompt"], f"별, {previous_body}")
+        self.assertEqual(new["presentation"]["prompt"], current_body)
+        for state, pack in [(old, self.legacy), (previous, previous_pack), (new, self.current), (old, self.legacy)]:
             snapshot = self.service.snapshot("family", state["session_id"])
             self.assertEqual(snapshot["presentation"], {**game.present(state["game"], pack), "input_kind": "choice"})
         self.assertIs(self.service.pack, self.current)

@@ -6,6 +6,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -72,6 +77,148 @@ class FirstJumpSessionTest {
         fun finishOpening() { repeat(3) { player.parts.last().finish() } }
     }
 
+    @Test fun transportUsesNativeStartAndClearsEachClipBeforePreparingTheNext() = main {
+        val h = Harness()
+        val seen = mutableListOf<LetterTransportSnapshot>()
+        val observation = CoroutineScope(Dispatchers.Unconfined).launch(start = CoroutineStart.UNDISPATCHED) {
+            h.session.transport.collect { seen += it }
+        }
+        try {
+            val initial = h.session.transport.value
+            assertEquals(LetterTransportPhase.STOPPED, initial.phase)
+            h.open()
+            val preparation = h.session.transport.value
+            assertEquals(initial.sessionId, preparation.sessionId)
+            assertEquals(initial.revision + 1L, preparation.revision)
+            assertEquals(LetterTransportPhase.PREPARING, preparation.phase)
+            assertEquals("opening", preparation.cue)
+            assertEquals(5000L, preparation.durationMs)
+            h.player.position = 111L
+            assertNull(preparation.positionMs)
+            assertNull(h.session.transportPositionMillis())
+
+            val opening = h.player.parts.last()
+            opening.start()
+            assertEquals(LetterTransportPhase.PLAYING, h.session.transport.value.phase)
+            assertEquals(111L, h.session.transport.value.positionMs)
+            h.player.position = 456L
+            assertEquals(456L, h.session.transportPositionMillis())
+            val beforeCompletion = seen.size
+            opening.finish()
+            val betweenClips = seen.drop(beforeCompletion).first()
+            assertEquals(LetterTransportPhase.PREPARING, betweenClips.phase)
+            assertNull(betweenClips.cue)
+            assertNull(betweenClips.durationMs)
+            assertNull(betweenClips.positionMs)
+            val splashPreparation = h.session.transport.value
+            assertEquals("splash", splashPreparation.cue)
+            assertEquals(LetterTransportPhase.PREPARING, splashPreparation.phase)
+            assertNull(h.session.transportPositionMillis())
+            opening.start(); opening.fail(); opening.finish()
+            assertEquals(splashPreparation, h.session.transport.value)
+
+            val splash = h.player.parts.last()
+            splash.start()
+            assertFalse(h.session.state.value.speaking)
+            assertEquals(LetterTransportPhase.PLAYING, h.session.transport.value.phase)
+            splash.finish()
+            val question = h.player.parts.last()
+            question.start(); question.finish()
+            assertEquals(LetterTransportPhase.INPUT, h.session.transport.value.phase)
+            assertNull(h.session.transport.value.cue)
+            assertNull(h.session.transport.value.durationMs)
+            assertNull(h.session.transport.value.positionMs)
+            assertNull(h.session.transportPositionMillis())
+            assertEquals(1, h.mic.asks.size)
+            val ask = h.mic.asks.single()
+            ask.stage(ask.ticket, CaptureStage.PROCESSING)
+            assertEquals(LetterTransportPhase.PROCESSING, h.session.transport.value.phase)
+            ask.stage(ask.ticket, CaptureStage.LISTENING)
+            assertEquals(LetterTransportPhase.PROCESSING, h.session.transport.value.phase)
+
+            val revision = h.session.transport.value.revision
+            h.session.pause()
+            val paused = h.session.transport.value
+            assertEquals(initial.sessionId, paused.sessionId)
+            assertEquals(revision + 1L, paused.revision)
+            assertEquals(LetterTransportPhase.STOPPED, paused.phase)
+            ask.final(ask.ticket, "물소리가 들렸어")
+            ask.stage(ask.ticket, CaptureStage.LISTENING)
+            question.start(); question.finish()
+            assertEquals(paused, h.session.transport.value)
+            h.session.close()
+            assertEquals(paused.revision + 1L, h.session.transport.value.revision)
+            assertEquals(LetterTransportPhase.STOPPED, h.session.transport.value.phase)
+            assertNull(h.session.transportPositionMillis())
+        } finally {
+            observation.cancel()
+            h.session.close()
+        }
+    }
+
+    @Test fun transportErrorsAndAssistedReplayNeverReuseAnOldClipTimeline() = main {
+        val h = Harness()
+        try {
+            h.open()
+            val first = h.player.parts.last()
+            val revision = h.session.transport.value.revision
+            first.fail()
+            val failed = h.session.transport.value
+            assertEquals(revision + 1L, failed.revision)
+            assertEquals(LetterTransportPhase.ERROR, failed.phase)
+            assertNull(failed.cue)
+            assertNull(failed.durationMs)
+            assertNull(failed.positionMs)
+            first.start(); first.finish()
+            assertEquals(failed, h.session.transport.value)
+
+            h.session.replay()
+            h.finishOpening()
+            val ask = h.mic.asks.last()
+            ask.fail(ask.ticket, SpeechInputFailure("controlled unavailable"))
+            assertEquals(LetterTransportPhase.ERROR, h.session.transport.value.phase)
+            h.session.touchAssistance()
+            assertTrue(h.session.state.value.touch)
+            assertEquals(LetterTransportPhase.STOPPED, h.session.transport.value.phase)
+            h.session.replay()
+            assertTrue(h.session.state.value.touch)
+            assertEquals(LetterTransportPhase.PREPARING, h.session.transport.value.phase)
+            h.player.position = 0L
+            h.player.parts.last().start()
+            assertEquals(LetterTransportPhase.PLAYING, h.session.transport.value.phase)
+            val beforeClose = h.session.transport.value.revision
+            h.session.close()
+            val closed = h.session.transport.value
+            assertEquals(beforeClose + 1L, closed.revision)
+            assertEquals(LetterTransportPhase.STOPPED, closed.phase)
+            assertNull(closed.cue)
+            assertNull(closed.durationMs)
+            assertNull(closed.positionMs)
+            h.player.parts.last().start(); h.player.parts.last().finish()
+            assertEquals(closed, h.session.transport.value)
+        } finally { h.session.close() }
+    }
+
+    @Test fun transportOfReadAndCompletedLettersStaysStoppedWithoutInventingPlayback() = main {
+        val reading = Harness(LetterMode.READ)
+        val completed = Harness(saved = JumpState(JumpStep.END, ending = JumpEnding.SOFT))
+        try {
+            assertNotEquals(reading.session.transport.value.sessionId, completed.session.transport.value.sessionId)
+            reading.open()
+            assertEquals(LetterTransportPhase.STOPPED, reading.session.transport.value.phase)
+            assertTrue(reading.player.parts.isEmpty())
+            assertTrue(reading.mic.asks.isEmpty())
+            assertEquals(LetterTransportPhase.STOPPED, completed.session.transport.value.phase)
+            assertNull(completed.session.transportPositionMillis())
+            completed.session.activationFailed("controlled activation failure")
+            assertEquals(LetterTransportPhase.ERROR, completed.session.transport.value.phase)
+            assertNull(completed.session.transport.value.cue)
+        } finally {
+            reading.session.close()
+            completed.session.close()
+        }
+    }
+
     @Test fun onlyTheLastCueOpensOneWindowAndAStaleCallbackCannotAnswerTheNextTurn() = main {
         val h = Harness()
         try {
@@ -103,6 +250,44 @@ class FirstJumpSessionTest {
             ask.final(ask.ticket,"펭귄")
             assertEquals(JumpStep.GUESS,h.session.state.value.turn.state.step)
             assertTrue(h.records.all { it.matches(Regex("[A-Z_|a-z]+")) })
+        } finally { h.session.close() }
+    }
+
+    @Test fun authoredAnswerEchoIsTransientAndReplayCannotRestoreItFromCheckpoint() = main {
+        val h = Harness()
+        try {
+            h.open(); h.finishOpening()
+            val ask = h.mic.asks.single()
+            ask.final(ask.ticket, "물소리가 들렸어")
+            assertEquals("물소리", h.session.state.value.turn.answerLabel)
+            assertTrue(h.records.all { !it.contains("물소리") && !it.contains("들렸어") })
+            h.session.state.value.turn.cues.forEach { _ -> h.player.parts.last().finish() }
+            h.session.replay()
+            assertNull(h.session.state.value.turn.answerLabel)
+            h.session.pause()
+            assertNull(h.session.state.value.turn.answerLabel)
+            val restored = Harness(saved = restoreLetter(h.records.last()))
+            try { assertNull(restored.session.state.value.turn.answerLabel) }
+            finally { restored.session.close() }
+        } finally { h.session.close() }
+    }
+
+    @Test fun repeatedSilencePausesBeforeAnyEndingOrReplyCanBeSaved() = main {
+        val h = Harness()
+        try {
+            h.open(); h.finishOpening()
+            repeat(2) {
+                val ask = h.mic.asks.last()
+                ask.fail(ask.ticket, SpeechInputFailure("No response in controlled input", "NO_RESPONSE"))
+                if (it == 0) h.session.state.value.turn.cues.forEach { _ -> h.player.parts.last().finish() }
+            }
+            val now = h.session.state.value
+            assertTrue(now.turn.state.paused)
+            assertEquals(JumpStep.WATER, now.turn.state.step)
+            assertNull(now.turn.state.ending)
+            assertNull(now.turn.answerLabel)
+            assertFalse(h.output); assertFalse(h.input)
+            assertTrue(h.records.none { restoreLetter(it)?.step == JumpStep.END })
         } finally { h.session.close() }
     }
 
@@ -168,7 +353,9 @@ class FirstJumpSessionTest {
             try {
                 assertTrue(restored.session.state.value.turn.state.paused)
                 assertTrue(restored.player.parts.isEmpty())
-                restored.session.pauseOrResume()
+                restored.session.resume()
+                restored.session.resume()
+                assertEquals(1, restored.player.parts.size)
                 assertEquals("splash", restored.player.parts.last().id)
                 assertFalse(restored.session.state.value.turn.state.paused)
             } finally { restored.session.close() }
@@ -205,7 +392,7 @@ class FirstJumpSessionTest {
         val start = JumpState(step = JumpStep.DIRECT, guess = JumpGuess.PENGUIN, paused = true)
         val h = Harness(LetterMode.LISTEN, start)
         try {
-            h.session.pauseOrResume()
+            h.session.resume()
             repeat(2) { h.player.parts.last().finish() }
             h.session.choose("soft")
             val firstFinale = h.player.parts.last()
@@ -222,20 +409,26 @@ class FirstJumpSessionTest {
             retried.finish()
             assertTrue(h.session.state.value.turn.state.paused)
             assertEquals(JumpStep.DIRECT,restoreLetter(h.records.last())!!.step)
-            h.session.pauseOrResume()
+            h.session.resume()
             repeat(2) { h.player.parts.last().finish() }
             h.session.choose("bold")
             val final = h.player.parts.last()
             assertEquals("finale_bold", final.id)
             assertTrue(h.session.state.value.pendingEnding)
+            assertEquals(LetterTransportPhase.PREPARING, h.session.transport.value.phase)
+            final.start()
+            assertEquals(LetterTransportPhase.PLAYING, h.session.transport.value.phase)
             final.finish()
+            assertEquals(LetterTransportPhase.STOPPED, h.session.transport.value.phase)
+            assertNull(h.session.transport.value.cue)
+            assertNull(h.session.transportPositionMillis())
             assertFalse(h.session.state.value.pendingEnding)
             assertEquals(JumpEnding.BOLD,restoreLetter(h.records.last())!!.ending)
             assertEquals(JumpStep.END,restoreLetter(h.records.last())!!.step)
         } finally { h.session.close() }
         val read = Harness(LetterMode.READ, start)
         try {
-            read.session.pauseOrResume()
+            read.session.resume()
             read.session.choose("soft")
             assertFalse(read.session.state.value.pendingEnding)
             assertEquals(JumpStep.END,restoreLetter(read.records.last())!!.step)
@@ -420,7 +613,7 @@ class FirstJumpSessionTest {
         }
         try {
             main {
-                h.session.pauseOrResume()
+                h.session.resume()
                 h.player.parts.last().finish()
                 h.session.choose("wiper")
                 finished = h.player.parts.last()

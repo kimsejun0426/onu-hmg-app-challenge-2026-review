@@ -205,7 +205,7 @@ class RecoveryGuidanceTest {
             }
             val stopped = h.paused()
             assertEquals(boundary, RecoveryCause.AUDIO_FOCUS, stopped.recoveryCause)
-            assertEquals("통화나 다른 소리가 끝나면 직접 이어가 주세요.", stopped.recoveryCause!!.notice().detail)
+            assertEquals("준비되면 이어하기를 눌러 주세요.", stopped.recoveryCause!!.notice().detail)
             assertTrue(stopped.failure)
             h.assertQuiet()
             if (boundary == "input-acquire") assertTrue(h.input.attempts.isEmpty())

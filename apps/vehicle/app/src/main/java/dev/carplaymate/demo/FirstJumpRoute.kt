@@ -9,6 +9,8 @@ import androidx.compose.ui.platform.LocalView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
 
 @Composable
 internal fun <S : Any> SoundLetterRoute(
@@ -16,13 +18,14 @@ internal fun <S : Any> SoundLetterRoute(
     model: DeveloperViewModel,
     ui: DeveloperUiState,
     saved: String?,
+    takeEntryResume: (() -> String?)?,
     onSave: (String) -> Unit,
     onHome: () -> Unit,
     onReply: (() -> Unit)? = null,
 ) {
     val family = ui.children.map { it.id }
     key(family, episode.id) {
-        LetterFamilyRoute(episode, model, ui, family, saved, onSave, onHome, onReply)
+        LetterFamilyRoute(episode, model, ui, family, saved, takeEntryResume, onSave, onHome, onReply)
     }
 }
 
@@ -45,7 +48,7 @@ internal fun observeFirstJumpWindow(view: View, onLost: () -> Unit): () -> Unit 
 
 @Composable
 private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: DeveloperViewModel, ui: DeveloperUiState,
-    family: List<String>, saved: String?, onSave: (String) -> Unit, onHome: () -> Unit, onReply: (() -> Unit)?) {
+    family: List<String>, saved: String?, takeEntryResume: (() -> String?)?, onSave: (String) -> Unit, onHome: () -> Unit, onReply: (() -> Unit)?) {
     val app = LocalContext.current.applicationContext
     val window = LocalView.current
     val lifecycle = LocalLifecycleOwner.current.lifecycle
@@ -54,30 +57,56 @@ private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: Develo
         ui.voiceInput -> LetterMode.VOICE
         else -> LetterMode.LISTEN
     }
-    val session = remember(model, lifecycle, mode, window, family) {
-        LetterSession.create(app, episode, mode, episode.decode(saved), allowed = {
-            val current = model.ui.value
-            window.hasWindowFocus() && lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) &&
-                current.children.map { it.id } == family && current.fullUiAllowed && current.onboarded &&
-                current.quiet && !current.familyDeletionPending && !current.localStorageProblem
-        }, checkpoint = onSave)
+    val host = if (mode == LetterMode.VOICE) (app as? OnuApplication)?.letterSessionHost else null
+    val session = remember(model, lifecycle, mode, window, family, episode.id) {
+        host?.bind(episode, family, episode.decode(saved)) ?: LetterSession.create(app, episode, mode,
+            episode.decode(saved), allowed = {
+                val current = model.ui.value
+                window.hasWindowFocus() && lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) &&
+                    current.children.map { it.id } == family && current.fullUiAllowed && current.onboarded &&
+                    current.quiet && !current.familyDeletionPending && !current.localStorageProblem
+            }, checkpoint = onSave)
     }
-    DisposableEffect(session, lifecycle, window) {
-        val stopObservingWindow = observeFirstJumpWindow(window, session::pause)
+    DisposableEffect(session, lifecycle, window, host) {
+        val stopObservingWindow = if (host == null) observeFirstJumpWindow(window, session::pause) else ({})
         val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_PAUSE || event == Lifecycle.Event.ON_STOP) session.pause()
+            if (host == null && (event == Lifecycle.Event.ON_PAUSE || event == Lifecycle.Event.ON_STOP)) session.pause()
         }
         lifecycle.addObserver(observer)
         onDispose {
             stopObservingWindow()
             lifecycle.removeObserver(observer)
-            session.pause()
-            session.close()
+            if (host == null) { session.pause(); session.close() } else host.detach(session)
         }
     }
-    fun home() { session.pause(); onHome() }
+    fun explicit(action: () -> Unit) { if (host != null) host.runExplicit(session, action) else action() }
+    LaunchedEffect(session) {
+        val takeRequest = takeEntryResume ?: return@LaunchedEffect
+        val revision = session.transport.value.revision
+        // Navigating away from a saved adventure can still be committing its quiet checkpoint.
+        val idle = withTimeoutOrNull(4_000L) { model.ui.first { !it.busy } } != null
+        val requested = episode.decode(takeRequest()) ?: return@LaunchedEffect
+        val current = model.ui.value
+        if (!idle || current.busy || current.failure || !current.quiet || !current.fullUiAllowed ||
+            !current.onboarded || !current.interactionConfigured || current.children.map { it.id } != family ||
+            current.simulation != ui.simulation || current.voiceInput != ui.voiceInput ||
+            current.familyDeletionPending || current.localStorageProblem || !window.hasWindowFocus() ||
+            !lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) return@LaunchedEffect
+        val expected = episode.choose(requested, "rest").state
+        if (episode.stage(requested) in 1..3 && episode.paused(expected) &&
+            session.state.value.turn.state == expected && session.transport.value.revision == revision) {
+            explicit { if (session.state.value.turn.state == expected) session.resume() }
+        }
+    }
+    fun stop() { if (host != null) host.stop(session) else session.pause() }
+    fun home() { stop(); onHome() }
     BackHandler { home() }
     val view by session.state.collectAsState()
+    // The host persists without UI. Reattachment also refreshes this screen's saved-state mirror.
+    val saveCurrent by rememberUpdatedState(onSave)
+    LaunchedEffect(host, session, view.turn.state, view.pendingEnding) {
+        if (host != null && !view.pendingEnding) saveCurrent(episode.encode(view.turn.state))
+    }
     val turn = view.turn
     val paused = episode.paused(turn.state)
     val complete = episode.stage(turn.state) == 4 && !view.pendingEnding
@@ -90,13 +119,14 @@ private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: Develo
     val status = view.issue ?: when {
         paused -> "잠깐 쉬는 중"
         playing && view.soundOnly -> episode.effectStatus
-        playing -> "오누가 들려주는 중"
+        playing -> "이야기하는 중"
         view.phase == LetterPhase.INPUT_START -> "마이크 준비 중"
-        view.phase == LetterPhase.LISTENING -> "네 차례야. 오누에게 말해 줘."
+        view.phase == LetterPhase.LISTENING -> "오누가 듣고 있어. 말해 줘."
         view.phase == LetterPhase.PROCESSING -> "잠깐만 기다려 줘"
         complete -> ""
-        stage == 0 -> episode.invitation
-        mode == LetterMode.READ -> "읽고 골라 줘"
+        stage == 0 -> ""
+        mode == LetterMode.READ -> "읽고 답을 골라 줘"
+        mode == LetterMode.LISTEN || view.touch -> "답을 눌러 골라 줘"
         else -> "네 차례야"
     }
     val caption = letterCaption(mode, episode, view)
@@ -127,21 +157,26 @@ private fun <S : Any> LetterFamilyRoute(episode: LetterEpisode<S>, model: Develo
         mode == LetterMode.READ && stage > 0 -> FamilyIcon.READ
         else -> null
     }
+    val showChoices = !paused && !playing && !view.pendingEnding &&
+        view.phase != LetterPhase.OUTPUT_ERROR && (!turn.acceptsAnswer || mode != LetterMode.VOICE || view.touch)
+    val canShowChoices = mode == LetterMode.VOICE && turn.acceptsAnswer && !view.touch && !playing && !paused &&
+        view.phase != LetterPhase.OUTPUT_ERROR
     LetterGameSurface(title = heading, line = body, precedingClues = precedingClues,
         status = status, statusIcon = statusIcon, stage = stage, scrollKey = turn.title,
         choices = choices,
         onChoice = { i -> choices.getOrNull(i)?.let { choice ->
-            if (choice.id == "open_reply" && complete) { session.pause(); onReply?.invoke() }
-            else session.choose(choice.id)
+            if (choice.id == "open_reply" && complete) { stop(); onReply?.invoke() }
+            else explicit { session.choose(choice.id) }
         } },
-        onBack = ::home, onPauseOrResume = session::pauseOrResume, paused = paused, complete = complete,
-        showChoices = !paused && !playing && !view.pendingEnding &&
-            view.phase != LetterPhase.OUTPUT_ERROR && (!turn.acceptsAnswer || mode != LetterMode.VOICE || view.touch),
-        onReplay = session::replay,
+        onBack = ::home, onPauseOrResume = { if (paused) explicit(session::resume) else stop() }, paused = paused, complete = complete,
+        showChoices = showChoices,
+        onReplay = { explicit(session::replay) },
         canReplay = mode != LetterMode.READ && !playing && !paused && turn.cues.isNotEmpty(),
-        onShowChoices = session::touchAssistance,
-        canShowChoices = mode == LetterMode.VOICE && turn.acceptsAnswer && !view.touch && !playing && !paused && view.phase != LetterPhase.OUTPUT_ERROR,
+        onShowChoices = { explicit(session::touchAssistance) },
+        canShowChoices = canShowChoices,
         listening = view.phase == LetterPhase.LISTENING, speaking = view.speaking,
         processing = view.phase == LetterPhase.PROCESSING, soundPlaying = playing && view.soundOnly,
-        rainLetter = episode.id == "rain_music")
+        groupVoiceHelp = mode == LetterMode.VOICE && canShowChoices && view.issue == null,
+        rainLetter = episode.id == "rain_music",
+        answerLabel = turn.answerLabel, awaitingAnswer = turn.acceptsAnswer && (showChoices || canShowChoices))
 }

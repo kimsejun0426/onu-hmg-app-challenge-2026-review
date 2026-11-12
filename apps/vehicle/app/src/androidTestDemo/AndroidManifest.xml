@@ -13,4 +13,5 @@
         android:targetPackage="dev.carplaymate.demo.demo"
         android:functionalTest="false"
         android:handleProfiling="false" />
+    <instrumentation android:name="dev.carplaymate.demo.LetterHostTestRunner" android:targetPackage="dev.carplaymate.demo.demo" android:functionalTest="false" android:handleProfiling="false" />
 </manifest>

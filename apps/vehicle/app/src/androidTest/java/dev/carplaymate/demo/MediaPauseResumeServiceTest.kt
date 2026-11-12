@@ -306,21 +306,35 @@ class MediaPauseResumeServiceTest {
             originalFailure = failure
             throw failure
         } finally {
-            try {
-                try {
-                    h.main { h.host.pause("USER") }
-                    h.awaitReleased("cleanup/service release")
-                    h.awaitUi("cleanup/persistence settled") { !it.busy }
-                    scenario?.close()
-                    h.main { h.host.close() }
-                } finally {
-                    h.main { application.fixture = null }
-                    h.clean()
+            val cleanupFailures = mutableListOf<Throwable>()
+            suspend fun cleanupStep(label: String, action: suspend () -> Unit): Boolean = try {
+                action()
+                true
+            } catch (failure: Throwable) {
+                cleanupFailures += AssertionError("Media fixture cleanup '$label' failed", failure)
+                false
+            }
+            cleanupStep("pause") { h.main { h.host.pause("USER") } }
+            cleanupStep("service release") { h.awaitReleased("cleanup/service release") }
+            cleanupStep("persistence settled") { h.awaitUi("cleanup/persistence settled") { !it.busy } }
+            // A failed wait must not leave an Activity alive after its required fixture is removed.
+            // Keep the fixture installed through both lifecycle closures, even when either fails.
+            val scenarioClosed = cleanupStep("ActivityScenario close") { scenario?.close() }
+            val hostClosed = cleanupStep("host close") { h.main { h.host.close() } }
+            if (scenarioClosed && hostClosed) {
+                val fixtureCleared = cleanupStep("fixture release") {
+                    h.main { check(application.fixture === h); application.fixture = null }
                 }
-            } catch (cleanupFailure: Throwable) {
-                val original = originalFailure
-                if (original != null) original.addSuppressed(cleanupFailure)
-                else throw cleanupFailure
+                if (fixtureCleared) cleanupStep("storage clean") { h.clean() }
+            }
+            // An incomplete close deliberately retains the fixture and its storage; a later test
+            // fails the fixture-install precondition instead of crashing in an orphaned onPause.
+            val original = originalFailure
+            if (original != null) cleanupFailures.forEach(original::addSuppressed)
+            else if (cleanupFailures.isNotEmpty()) {
+                val first = cleanupFailures.first()
+                cleanupFailures.drop(1).forEach(first::addSuppressed)
+                throw first
             }
         }
     }

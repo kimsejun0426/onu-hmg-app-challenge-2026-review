@@ -6,3 +6,6 @@
 
 앱 안에서 사용하는 기존 음원·라이브러리와 라이선스는 [앱 내 제3자 고지](apps/vehicle/app/src/main/assets/legal/THIRD_PARTY_NOTICES.txt)에서 볼 수 있습니다.
 
+## 0.58.0 제작 자료
+
+앱의 현행 제3자 고지는 [APK 내 고지 원문](apps/vehicle/app/src/main/assets/legal/THIRD_PARTY_NOTICES.txt)에 있습니다. 공룡과 공통 안내에 쓰인 소년 음원의 제작 기록은 [0.56.0 음원 출처](docs/audio/onu-0.56.0-voice-provenance.json)에 있습니다. 기록의 해시는 제작 당시 원본을 가리키며, 공개 사본의 제작 환경 경로는 프로젝트 기준으로 표기했습니다. 음성 생성 모델은 포함하지 않습니다.

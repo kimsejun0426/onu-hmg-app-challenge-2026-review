@@ -1,17 +1,42 @@
 {
-  "version_name": "0.51.0",
-  "version_code": 54,
-  "scope": "Android build and test sources in this release",
+  "version_name": "0.58.0",
+  "version_code": 63,
+  "scope": "Audited public source. Gradle inputs, Kotlin, compiled resources and application assets match the signed release inputs. CI is included as a review-only example. Historical production paths are relative in the public documentation.",
   "files": [
     {
+      "path": ".env.example",
+      "sha256": "cb90364c1811a1caf0f9a70e41babb1acdd8ca7b4c26d7ac87ee6db52d2f0682",
+      "bytes": 426
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "ca0f0df53f6673de37c088186549b4f7fc783ce250df7999cb95adf31e750f36",
+      "bytes": 1310
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "41b57f1e870439b19ee613cced3e06446191b005af5f19b1c874f03adacec59d",
+      "bytes": 213
+    },
+    {
+      "path": "apps/vehicle/.gitignore",
+      "sha256": "4cecc5d3d53caedb9387ec9533cb676b339c3753afaa225aaea0038f9866bc64",
+      "bytes": 58
+    },
+    {
+      "path": "apps/vehicle/README.md",
+      "sha256": "5f8bb510c3c54e11b400bb94d72a75ae58d3be0f6ddfed12a9fd8649044c7597",
+      "bytes": 370
+    },
+    {
       "path": "apps/vehicle/app/build.gradle.kts",
-      "sha256": "f19b397bf07320f33781b36f5cf3c3a7540487d5745726f2331116b7cbd918f4",
-      "bytes": 7147
+      "sha256": "eb105e3848bf02059f51a54e6735bd123fcd92c1f5ebc9418fd51a30e3ebd081",
+      "bytes": 7674
     },
     {
       "path": "apps/vehicle/app/proguard-demo-runtime.pro",
-      "sha256": "7fbcdf523642a30e441abb8a15d1639104163584c05ec79b7be2d849e7507318",
-      "bytes": 2405
+      "sha256": "23d56a876f77668ee57cbefadccdfccfacdb8e81d82d225bfca7464a128135d1",
+      "bytes": 2445
     },
     {
       "path": "apps/vehicle/app/proguard-pleos-release.pro",
@@ -35,8 +60,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/catalog-parity.json",
-      "sha256": "8ef05bb020f5488cb3384db5d75de3cb4b581b3af1171069f76fcc7ae52e79c8",
-      "bytes": 32682
+      "sha256": "7273beeff1755890448a0d140cb3e2995bbd443ee3164adc941d3a4ef94672ac",
+      "bytes": 33159
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/companion-greetings.json",
@@ -55,8 +80,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/game-parity.json",
-      "sha256": "661c7820ed647a5303968e2b2f5bc6b3fba6b3ef5a1da91575b2643ce20f01ee",
-      "bytes": 5853770
+      "sha256": "b37118fe683adc9e63b8641898e78b3f29b77cb5ca8faac342e3cd8c49c5b818",
+      "bytes": 5850538
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.1.0/animal-footprint-garden/game-parity.json",
@@ -117,6 +142,11 @@
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.11.0/animal-footprint-garden/game-parity.json",
       "sha256": "d54ea020588555b28669b2cb663fb8fd444e3d341df15f0fe7f3d57767469df4",
       "bytes": 2980412
+    },
+    {
+      "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.11.0/dinosaur-lab-missing-egg/game-parity.json",
+      "sha256": "c23cd8a6388031f8face0ac50beed62abace683a066b8f156ed4c279b583ff0e",
+      "bytes": 2152590
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/legacy/0.2.0/animal-footprint-garden/game-parity.json",
@@ -385,8 +415,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/service-parity.json",
-      "sha256": "c6bd70534d5f1d76bc2dc97f08adabf05afd66053663c52bb8670c0f404eefc7",
-      "bytes": 1875751
+      "sha256": "788ebe42cb18cad1f4502938b63bbc1c0f9282b6e2e01fa8ece528811f7d1344",
+      "bytes": 1875367
     },
     {
       "path": "apps/vehicle/app/src/androidTest/assets/fixtures/space-return-signal/game-parity.json",
@@ -470,8 +500,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AdventureLibraryTest.kt",
-      "sha256": "21d0aa2ab9316eec88ee69fb5d1679f70fc5091d29206a847b2b17605d9ca24c",
-      "bytes": 35617
+      "sha256": "304f886c53282e78c2560922dbc4651578da4db891731d06d26fe32123e4a6f1",
+      "bytes": 35769
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AdventureParityTest.kt",
@@ -480,8 +510,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AndroidScenePlayerTest.kt",
-      "sha256": "8e926711997fe1c8a40dc9cf56c8539dccca9006d952a7fbedaec6cc1f71faf2",
-      "bytes": 28872
+      "sha256": "22e2a9d9b22c07c6436e2421290cf0b6d0b5a7da7f3de067da3690b27c6adb35",
+      "bytes": 35947
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/AuthoredPcmFixtureTest.kt",
@@ -515,8 +545,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/DinosaurNarrationCoverageTest.kt",
-      "sha256": "891405383afda04404e7106485454eb40c9b34dc74bc803282018458bfad2566",
-      "bytes": 4939
+      "sha256": "d1e0735be11325a400988a3a83e38b654021672107094e3f5b65ea60fd419f7d",
+      "bytes": 5053
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FamilyInterestsTest.kt",
@@ -525,23 +555,28 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FamilyUiTest.kt",
-      "sha256": "4495756967a04873fe2e41bcb634538c9b5b0f0a54df6c3a4758ea6e0d456a93",
-      "bytes": 70787
+      "sha256": "c78f76e8c0dbcc8a092c5eece72c22905585ce80e97c76b35716a7843b57b9d2",
+      "bytes": 72744
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FirstJumpProgressTest.kt",
-      "sha256": "f8927624ab79f7aa125f0f9ef02a66adb4fbd4d70eacc8fc4a9feba491d1a35c",
-      "bytes": 2559
+      "sha256": "63ba2e5aee9ded0e2c3d7d90edafd9a79979869d23bd296ac7ec066aaec11e8f",
+      "bytes": 2639
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/FirstJumpSessionTest.kt",
-      "sha256": "55c9e9a82b4f29d739890c99c8c2c62ecc8c4a8c98f4534b1ab2ff58ba2baf44",
-      "bytes": 29235
+      "sha256": "1f32491bc632819a91914c742c4edec3cbdf3d52ba9c022da44c7feb64e7a2ab",
+      "bytes": 39185
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/InteractionModeTest.kt",
       "sha256": "5e69e016c76174732050d6cb5fcbf3d9c9db17b40c0b1879f975739afb5b2179",
       "bytes": 28932
+    },
+    {
+      "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LetterHostServiceTest.kt",
+      "sha256": "9dbd6029e2c860beea9d66ba2207f57c02fdbb131be9bdccfea151552bb6a89f",
+      "bytes": 46540
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/LocalGameClientTest.kt",
@@ -565,8 +600,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/MediaPauseResumeServiceTest.kt",
-      "sha256": "46bdd1a6c4e8e1ba955cc079ba61098137dedbba67fe0f44dca19d1203650609",
-      "bytes": 29530
+      "sha256": "d44769c33bf5441f5e0ca631fcc9c178bbcdc312bf87a6608da8b22622dc57bb",
+      "bytes": 30737
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/MediaPauseTestRunner.kt",
@@ -595,13 +630,13 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosPcmAdventureTest.kt",
-      "sha256": "e9554b564b1863e02e82e839fba43583b65c45883749ba6d1f9dfc206c3d4ec3",
-      "bytes": 47312
+      "sha256": "cbeb7ca6f0a77a13da1053d96c56473c2ed9d02bc3512423ee3975a532a3eae7",
+      "bytes": 47307
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosPcmJourneyTest.kt",
-      "sha256": "6132d341c2c73b1d623040409fe70129c03acc183a97226cd766ad722354a254",
-      "bytes": 58293
+      "sha256": "3cfb21dcd1be43fea23a2af9d627ff927d3b83f8aba3aafdc73316a9de59c698",
+      "bytes": 58263
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/PleosRuntimeTest.kt",
@@ -675,8 +710,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/RecoveryGuidanceTest.kt",
-      "sha256": "79794c61f8eef1db3eb2482b8fd06ce5227ea8ade7286872587f173c2ef4e2ec",
-      "bytes": 26957
+      "sha256": "b08855a5263a7283a5d3c9415dee2ce8ff5d2f7d50e8d409429c340f320fc99a",
+      "bytes": 26939
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/SetupDetailUiTest.kt",
@@ -755,8 +790,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VoiceAdventureUiTest.kt",
-      "sha256": "fa845ffee4865a4bf4b30da7b667d20513954f9a486d534da43010be12f5b34a",
-      "bytes": 43553
+      "sha256": "5f9e0b5cd6d61f8f9ecf2ae40f33e8697ecb833e368ae7779af7f27aedf66cf3",
+      "bytes": 42851
     },
     {
       "path": "apps/vehicle/app/src/androidTest/java/dev/carplaymate/demo/VoiceForegroundServiceTest.kt",
@@ -775,8 +810,8 @@
     },
     {
       "path": "apps/vehicle/app/src/androidTestDemo/AndroidManifest.xml",
-      "sha256": "e877246f9a8c7e7f0f4a429596613fadbf90693208df70edcd7ecf5ac507c00f",
-      "bytes": 860
+      "sha256": "3dcd2cf1b80663e59a6f36fa11dfc7d22f73c779598700785e440d5a3dfaa84c",
+      "bytes": 1054
     },
     {
       "path": "apps/vehicle/app/src/debug/AndroidManifest.xml",
@@ -800,13 +835,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/AndroidManifest.xml",
-      "sha256": "c1286e5ae42648a3b80ff436fcdad3b79d7e506f228a69b8e16a0fac319561a0",
-      "bytes": 2271
+      "sha256": "edf6034e725263e7c9e1285534dd3a3e02266677b46c1e1135ad49d2e6276fa9",
+      "bytes": 2919
     },
     {
       "path": "apps/vehicle/app/src/main/assets/content/catalog.json",
-      "sha256": "9edd52bef1ab5c37ef370fce1e32bbf8e908cad77e6c6e4a7da276a575723e1a",
-      "bytes": 71604
+      "sha256": "f627dfffae52fa6d215686c9c0cb0eb46b1556f15bd5ce6bce0c777999f25237",
+      "bytes": 72587
     },
     {
       "path": "apps/vehicle/app/src/main/assets/content/ko-KR/animal-footprint-garden/episode.json",
@@ -815,8 +850,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/content/ko-KR/dinosaurs/episode.json",
-      "sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b",
-      "bytes": 16797
+      "sha256": "1742febd77e810e50e852aa982bce8aeaaa592c99c819ff7ec43155905f29ddd",
+      "bytes": 16798
     },
     {
       "path": "apps/vehicle/app/src/main/assets/content/ko-KR/little-car-workshop/episode.json",
@@ -902,6 +937,11 @@
       "path": "apps/vehicle/app/src/main/assets/content/legacy/0.11.0/animal-footprint-garden/episode.json",
       "sha256": "5e3a173325c79539c1241fd0e3beefee1f03ce77c11636dd52aa85282d33ddb5",
       "bytes": 20889
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/content/legacy/0.11.0/dinosaurs/episode.json",
+      "sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b",
+      "bytes": 16797
     },
     {
       "path": "apps/vehicle/app/src/main/assets/content/legacy/0.2.0/animal-footprint-garden/episode.json",
@@ -1160,8 +1200,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/ask_question.mp3",
-      "sha256": "44aa16fc93cb745f3daf18a2d33c35ab3d00fa63bad4772e4b01d14e37db2129",
-      "bytes": 53804
+      "sha256": "d2ddfb5e1c77883c606a6552693cd5a10d207f02c1b0cec5a8e7ec259e1725b6",
+      "bytes": 112556
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/candidates.mp3",
@@ -1215,8 +1255,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/opening.mp3",
-      "sha256": "00b2912c84b9e2f33b9c3d9ee2546c30faef47924d3324f744db5713881a6199",
-      "bytes": 91436
+      "sha256": "5c4db1a6f96a89dc461b4fb1b33bacdbe4936e92b15c8ed0806072ffb01b1581",
+      "bytes": 167852
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/repeat_prompt.mp3",
@@ -1227,6 +1267,31 @@
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/reveal.mp3",
       "sha256": "903c8b64f9bcfeacd0ef70fd200cd7f31a1a08cc5629977b3074a1f45a81f63f",
       "bytes": 79916
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/reveal_help.mp3",
+      "sha256": "7f9415f9902db216482170242c2b80223b9c762753b9677a9f7c4c8c99343644",
+      "bytes": 96044
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/reveal_otter.mp3",
+      "sha256": "bb689c0f3c588e5edb2942271656a7bfc048d8b593209119b7350fc360f126a6",
+      "bytes": 99884
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/reveal_penguin.mp3",
+      "sha256": "e27365a14d290cc65d8a125e9341acf1dbcd45c72e3550cb93fd54e0560beefc",
+      "bytes": 93356
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/reveal_unsure.mp3",
+      "sha256": "4a234ecaa090990208b840c5852e3d2aeac9564606f68e77cc9967acff96ac6e",
+      "bytes": 104876
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/sounds_ack.mp3",
+      "sha256": "97d5d53ebd80c543b9c2447c8b0ace99a07ae3d0368a192f1aa4020925441208",
+      "bytes": 61484
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/audio/splash.mp3",
@@ -1270,8 +1335,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/first_jump/manifest.json",
-      "sha256": "54efbbba3f2e0ea7940172ded1f5b8ff8d8d092ea2745f714b392f0516e9acd5",
-      "bytes": 6910
+      "sha256": "4af42ebdc481323c57750fc195140fe96339985c94c11bdf1c391620b33a90ef",
+      "bytes": 8698
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/direct_q.mp3",
@@ -1310,8 +1375,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/rain_ack.mp3",
-      "sha256": "27a07ab5db50fda3d2e709a63032832f199db9084fddb5b0f95630e94f8059d4",
-      "bytes": 49196
+      "sha256": "15780cd64b4255880dac3261568e70015774d3283554429400feec5d1e838383",
+      "bytes": 51116
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/rain_beat.mp3",
@@ -1322,6 +1387,11 @@
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/rain_drops.mp3",
       "sha256": "cae7937264ee87770ac88213a1e1d9b8f80f8610db50ef08261ae59cea426243",
       "bytes": 53804
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/rain_explain.mp3",
+      "sha256": "d4259ffa55369392b316d43cf7d617d5d4ca4d950d655974d3640c559e2cd096",
+      "bytes": 81836
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/rain_hint.mp3",
@@ -1339,14 +1409,19 @@
       "bytes": 83756
     },
     {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/tempo_explain.mp3",
+      "sha256": "19488a4c98f986c731a59b0592b3571871837680320d4d13cb062a9fd4877a22",
+      "bytes": 138284
+    },
+    {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/tempo_hint.mp3",
       "sha256": "49075001c158746f212f84c316788a6d54bf8242bfbcc581da96b8f33a604268",
       "bytes": 96812
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/tempo_q.mp3",
-      "sha256": "ff534fd6541a53ac49c65e0c185d81746bff3fbf5499619c375332aa3f9170d4",
-      "bytes": 57644
+      "sha256": "44647241bb9f6b421d8693f910d24f5cea1db9320ad23350ef9c2781fdd75ffc",
+      "bytes": 69164
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/unheard.mp3",
@@ -1360,8 +1435,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/wiper_ack.mp3",
-      "sha256": "52d17db612ab4293ad6159bce7a54a163121856427d9a92a9a4150fbf0e2168c",
-      "bytes": 35372
+      "sha256": "6b638b83176f13b721e1150cf5cf0bcaed3011674103cd31a02dc041005cd193",
+      "bytes": 65324
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/wiper_explain.mp3",
+      "sha256": "7c0baf44e8404194d551904728ad8e6f6e286aa23f853da7629f067a8695e575",
+      "bytes": 110252
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/audio/wiper_hint.mp3",
@@ -1375,8 +1455,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/manifest.json",
-      "sha256": "71b84de6a77351629bb2f95d1a7e9b0a53d1209c0ee86be55256e3abad1c60ae",
-      "bytes": 6681
+      "sha256": "3d0fdb9df001acad6f807ec6863a4404485e9b9c904922b479373d2b816cd824",
+      "bytes": 7720
     },
     {
       "path": "apps/vehicle/app/src/main/assets/sound_letters/rain_music/narration_windows.json",
@@ -1405,28 +1485,28 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_00dbe4f2313f6ae8.wav",
-      "sha256": "7d55cf88ba275b7e4721cbfd9c261071c20801407c602ffce1e9f8695afeeebd",
-      "bytes": 541518
+      "sha256": "df1fe3a9a81dbdaf2df3e8bf6122d4c58be893b0f3ab87ae85b5946371b075e4",
+      "bytes": 453198
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_08a517ef648e0b9d.wav",
-      "sha256": "24d24c908cd4ba8464e307eff351953910d109204ad715a5cfd3c5202506df76",
-      "bytes": 376400
+      "sha256": "754b10e8650cadd0df8ca47341d8455d5a596be5a3cb77713632aeebd20adf51",
+      "bytes": 311118
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_09abbdcf15614e68.wav",
-      "sha256": "091c6ff7ee7e11cc0c0d7ebadcf79accf48a82e0ef434710eefb043cac7c10d2",
+      "sha256": "346e284157539b968e9d78c5f6409d211911ed8d44e314ccd39231fed368bc4f",
       "bytes": 307278
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_1bc65dc63e7a639e.wav",
-      "sha256": "0020e970facf1131fbb8790b6b8126e749082170506bd4bbb4c1a3060b64d5c1",
-      "bytes": 314958
+      "sha256": "f533dcec9bc6511e14ff1eaa7da9ea160ac3f9753084f27ae2aacc9b553b7dc4",
+      "bytes": 303438
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_21070815a2b7637f.wav",
-      "sha256": "3dd7d0805b5498a25d77f12f412d5433288509f67d8b0019b478a07342e4f437",
-      "bytes": 314958
+      "sha256": "3940718034081908e77136b47d52dd231c1fe0fc1aac549533984661e3af9133",
+      "bytes": 288078
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_2fe8f75b763cf176.wav",
@@ -1435,43 +1515,43 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3160815e826a2f33.wav",
-      "sha256": "9abce5970f39677bcc85fae5506c1164dd08ee2df0ce8958c1a8a851745186f5",
-      "bytes": 437838
+      "sha256": "bb973e5b54db8991d59c92b1bd018c9c6ef3c7dd10ffb490e5bb1c609e272aa4",
+      "bytes": 399438
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_32fcb4b6f679647b.wav",
-      "sha256": "13f08074a84fc56d2fa06379ae6272b7ba7182b309e553f52bf9c799f7e8d866",
-      "bytes": 119118
+      "sha256": "b642a1bef6627e3979d68a6400a95f019f1180827af38b6bcfc652787d1452f4",
+      "bytes": 103758
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_341904e9437afa5c.wav",
-      "sha256": "8ac33d6eaaa680ef4a9ffc6966adda0e0f4daeb07d56a523259b3cb893cf5c77",
-      "bytes": 314958
+      "sha256": "2de1bade4516923bd028a299ec6922cdf3e06208a2080a0c39a96f89a757aea3",
+      "bytes": 299598
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_350bcbfbd123f73b.wav",
-      "sha256": "bb401a5268f4af1e504f1618a607ed4455965d8a17b19374a39cc1a328d3e46e",
-      "bytes": 253520
+      "sha256": "e7bf4e750f15efc0bb4029ef5beb528dba162bccdbe5e14d9475c90951d55d10",
+      "bytes": 218958
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_382e0da11d641004.wav",
-      "sha256": "f12ca8eddb8170ccc8ba8976688fe41a2dbaf1ca06a4957513731a490ca9ff1a",
-      "bytes": 111438
+      "sha256": "b462d6638e909fabeafb662ede185e23494697760cffe95c069d03facb094477",
+      "bytes": 122958
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3c169544bd866d05.wav",
-      "sha256": "314afb1ce63ebabbdd3504222663d65c0e4158578478f736e79baf27d1c655a4",
-      "bytes": 480078
+      "sha256": "f477249763adbfcceaa55dd1c573d44f10262f299c411ace0eec1286bdecb423",
+      "bytes": 426318
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3c284e943b0ee75e.wav",
-      "sha256": "128b8456a158adda5221f50cf5de615baaa124a51c24f4f21f83a4087913afa8",
-      "bytes": 384078
+      "sha256": "3128e2e99ce545c9b3a21c843106881c468a0c803ab0f01a8b77493bb2f605bc",
+      "bytes": 334158
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3d4b5ea30d2dff85.wav",
-      "sha256": "5f1d56d12646ecb4acb218b18f2e5e7dc802db84543d9b588cc6f96b06671e1f",
-      "bytes": 295758
+      "sha256": "83783a61a5485479008ff028f0873fe6fe7e0c7128293c749828e3b0d0e0f5b8",
+      "bytes": 276558
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3d8ac55e5e46fafb.wav",
@@ -1480,18 +1560,18 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3dbb193344056c44.wav",
-      "sha256": "06e6fa711ba111c3f0e872a95e931884fdc71a9c4606503948e9826670edd1cb",
-      "bytes": 514638
+      "sha256": "89de1f7750080165c64b487b13815cfb5848ce8f491511f135db4da000a76f00",
+      "bytes": 430158
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_3f68c1762767a28a.wav",
-      "sha256": "5b5881ea6a75d5b294eca8c939e10577d2820686a24b330a00165e53a23054ab",
-      "bytes": 349518
+      "sha256": "411d09551a622383c4d0b284e64cfa191a00f2d2090047b018352ec3482535ca",
+      "bytes": 341838
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_42de5c0d7a8d6365.wav",
-      "sha256": "c014107a2102e490301f28aadbb008566bf9777372042e70557a8cee5ef6dc2f",
-      "bytes": 226640
+      "sha256": "918e9ab61abed0f7c9421ca186000830920ed2487078093b58d2bcaef12a4ae3",
+      "bytes": 180558
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_46c40d48180ed3c8.wav",
@@ -1500,38 +1580,38 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4a318149b75c90de.wav",
-      "sha256": "ea1c0d07ee06ae7df4f7ce8986d7d88e85c8c4256e6ab600af5916528dd7c5a7",
-      "bytes": 314958
+      "sha256": "2dbd998f2968ad80bf25f4dedc4902b9fc052d56d2119064bbc559509fc05379",
+      "bytes": 307278
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4f1c5768d15dd855.wav",
-      "sha256": "169e9cba71504d6e92f4345e01ceebb8974a66a19ce719a70806cd2dc182035b",
-      "bytes": 307278
+      "sha256": "80826527e40268b441c9afef4943c0136b905730fed58db076153f5ed4b30d37",
+      "bytes": 314958
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_4fdac28db0a99adb.wav",
-      "sha256": "b4fa7a3b7850ab6f756565bc8492c47c64f759c78da0611afe3ceaa70004f787",
-      "bytes": 291918
+      "sha256": "a7b5771d6809f6ff2ec28f31db83efb74208b61c870a3db497cd9487ce0a09ff",
+      "bytes": 249678
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_520207372643609d.wav",
-      "sha256": "783bf195030f378d474f17579a8a46ea50ce1f6bb5ff96462952e09355c77dee",
-      "bytes": 468558
+      "sha256": "6e530f7049a593ef8df132803b04c76b74f65e7c03aaac47cb4e216cc3493499",
+      "bytes": 422478
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_5eeb02a4b6b92c12.wav",
-      "sha256": "6007c802b3599edbbed857b06fe076698d13d759424dcff26e0a9d36dfa55299",
-      "bytes": 337998
+      "sha256": "77a0ff685612a9b36cd59ba571160eb9a7f92361e9d6bb068f2d29f86dc43b2b",
+      "bytes": 303438
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_63dfd30158419890.wav",
-      "sha256": "fa68356ed542a4ff35d3fed28972a170fd574ba7c68fb356a2841453f7144594",
-      "bytes": 307278
+      "sha256": "7b8b5b10340c26d7650f0a5aba7e62300adcbae8db881013eb05287c01827cd0",
+      "bytes": 322638
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_6d1af0571fbb38aa.wav",
-      "sha256": "1aa7890a4d3e70dee4beea6f71ab0a28debcd18a636b64bcf22e96758d9f9c7f",
-      "bytes": 337998
+      "sha256": "3485272e337cb13084fa78b52b6c31a88eb15c018c429726d631237d2cd272a7",
+      "bytes": 276558
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_741013816237ecb6.wav",
@@ -1540,18 +1620,18 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_7d91d8bc0a744ed7.wav",
-      "sha256": "a8f205c8e96475c1d50eecd78e802238797e4a68ba2b6cc5627080f87476493d",
-      "bytes": 334158
+      "sha256": "90d1686a1d743e3912aa8e9d0fd7a236047e8757d9c384645e9111a56080bd47",
+      "bytes": 357198
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_823088a509da2235.wav",
-      "sha256": "f474c9155d3f78f67291b7b256fbe2275b1a184caabf692884dc64f020a7a962",
-      "bytes": 265038
+      "sha256": "c6327f6a6239efbd06ded0ceee01fb9cbea12be3716551345030e7c9913819f4",
+      "bytes": 184398
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_838fe3e372b1270b.wav",
-      "sha256": "5c844b3ef3b8ae47db4368c5bb44ec2b0b84105219298605703554d141529ec1",
-      "bytes": 341840
+      "sha256": "07d3e60518df200c4b455940bbbd47551e0572e6c830bb2636308d4a07262d36",
+      "bytes": 288078
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_8ea2246b880d3f27.wav",
@@ -1560,13 +1640,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_98a5f9eff626721e.wav",
-      "sha256": "f19a94b34ed876e25d2438c426411c9184a4c3fca5d4f86d61725eadb75f1d1b",
-      "bytes": 314958
+      "sha256": "f3e3da8b555de70e0ef882db9304382da41294d77d4e92b948dba0276f8b4951",
+      "bytes": 311118
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_9d7c579e227e5115.wav",
-      "sha256": "ae7dd188f82596f4f392d73cb36c1ab4fd2040c30564a167aeb3c441822abf10",
-      "bytes": 372558
+      "sha256": "b532ad992b39931c7fbcb0eb14c9aea22d784c11b19dcebff1228c519b89a446",
+      "bytes": 391758
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a1329bedadd84032.wav",
@@ -1575,133 +1655,133 @@
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a2feba86cc363503.wav",
-      "sha256": "7d9df0abd8d0ec38bdcead2f5d10a390b18fff09f86d1bfc186c5468a710cd10",
-      "bytes": 510798
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a5dae647ab4a6993.wav",
-      "sha256": "1f26de10dc0ea84bba3a5bd82f59a2a74087ffa3cb7053131296ccccb91e143f",
-      "bytes": 495438
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a70d680c2a1c7ad0.wav",
-      "sha256": "cfecb6a99b1195cd6f5ca64135fbc985a00c925a6c21ad3ecf7aa4f7ecc2fb9d",
-      "bytes": 249678
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a9d70186c036fec7.wav",
-      "sha256": "2993e8a1224261e82b6e64159c21f626d6d8ca2ba4728c73ac1591f0c863ab53",
-      "bytes": 353358
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_b60583bb4ad0b558.wav",
-      "sha256": "01078be9ad1c7eefb55d580966de80bd6576177227ccaef69ee944962012a5d3",
-      "bytes": 192078
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_c0649c5b57a424c1.wav",
-      "sha256": "b9c540ec2931162d857638864994a1c6e1ade2db3c54afefe8262c123f381c4c",
-      "bytes": 510798
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d1f01756b2b39712.wav",
-      "sha256": "5c4e46c5e6fe552255fd6973a42ac159ecec7b1902023b250c1bfb676a51ed8a",
+      "sha256": "aca977e3079392f8372c57bce8161aabccae27cd665353959723248a19c90fad",
       "bytes": 487758
     },
     {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d50f7ee068802340.wav",
-      "sha256": "86454703590dbaaf174379dc336396fd9f8afa928a4013fb13f8b0a6d1efae27",
-      "bytes": 215118
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e566c68f0d20b5e0.wav",
-      "sha256": "3a822f1940838841568428610555ac9570cfbc2928e7e8e8dab6a3a356f676c9",
-      "bytes": 272718
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e7f22b727e22e3c6.wav",
-      "sha256": "4954c789de262b03ac3396d6a3631c5bab78dfc66787caba0e0f20192df5170d",
-      "bytes": 245838
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e92826c9a6ad84c9.wav",
-      "sha256": "605ee1eef41aebf5559126e6e59330c12d0a80c4f4aec8c592bd5cbea31a13f8",
-      "bytes": 341840
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_ea738eaf324cb2b1.wav",
-      "sha256": "01e6ef0a03a464bebae363f3609ea4b7565c9f255a76ac807575e89204035a15",
-      "bytes": 426318
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fac7a4fade3d402b.wav",
-      "sha256": "e446af738385b74ef64fa01f07fba23af1c5b84334e04b5223e96cf7338d5ec7",
-      "bytes": 483918
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcb1e1f2a1cd6567.wav",
-      "sha256": "53f5bc87d9091211550ae2ffd8050927e9e1fc8171a2504ca96d8ec3fd3aa22b",
-      "bytes": 268878
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcbf9927c305e23a.wav",
-      "sha256": "1e182212b947472291cf8e16a676a774ef8be82447eec5ea28576a68362155f8",
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a5dae647ab4a6993.wav",
+      "sha256": "d4ddc49f0dd156a0c146ff151c778a6b21515a32d73d596b7a5fc62baa296047",
       "bytes": 526158
     },
     {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcd97438d8bc56b2.wav",
-      "sha256": "e616155fa362c460bef8b7b836bcf106fa0a91d81d424a7f64658f8b696d094e",
-      "bytes": 245838
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/manifest.json",
-      "sha256": "d8c028c6d3cc515844631c388808f712081737f40b5c3383321ec8f9c49134ce",
-      "bytes": 26989
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_02f1703fbae8c937.wav",
-      "sha256": "afbc4269d5eb9804d4a6cd26aa54fefd18ca87a3337f0fb7ec5dbab73b8df7ae",
-      "bytes": 122958
-    },
-    {
-      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_2b7b75a34f51025e.wav",
-      "sha256": "626665282ef79de4c9c7582fb43a31fe664b080f14cfcf3401f37a5f4a9739d0",
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a70d680c2a1c7ad0.wav",
+      "sha256": "27fc39f42000458c37ccf699151cb468dc2027afff6eaee04ec840bfe501acda",
       "bytes": 241998
     },
     {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_a9d70186c036fec7.wav",
+      "sha256": "b067d3e7ee189d255673cd71e9a8b1555dcbce95946760accace9b4911b0ece3",
+      "bytes": 322638
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_b60583bb4ad0b558.wav",
+      "sha256": "41531827775813579a8be8a6da14a43adc49465d4142fc49e8a8daa88adb010d",
+      "bytes": 207438
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_c0649c5b57a424c1.wav",
+      "sha256": "524fd9446cbc2962198745f3dcd6e020a346589538cc420ad94a15724361f373",
+      "bytes": 472398
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d1f01756b2b39712.wav",
+      "sha256": "380b653e359f946d7befa5556c275a401301d886431977a8c7b48ebae327eea7",
+      "bytes": 426318
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_d50f7ee068802340.wav",
+      "sha256": "dac564cfd3a967da8a00ac3c87189f042e5d81fa0609246e5f1ac44381ed7e34",
+      "bytes": 218958
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e566c68f0d20b5e0.wav",
+      "sha256": "80e1b37d37292b7c3334dc2f19691779249d9efa1f622ce0aa6bf25b673231f7",
+      "bytes": 230478
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e7f22b727e22e3c6.wav",
+      "sha256": "feee832ecf69ce9ce46260b8c40c6a37b98fc71c9057943010c10014b566996a",
+      "bytes": 265038
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_e92826c9a6ad84c9.wav",
+      "sha256": "aa3d0de9a222ab3efd3920f272661a71bc9ad08bbd0eb42be941e4c0e8241b4d",
+      "bytes": 295758
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_ea738eaf324cb2b1.wav",
+      "sha256": "7ef7d70622c2d069b45592b39b48c66b8037b01fcbe9aa7c34b1aa0f23baedae",
+      "bytes": 380238
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fac7a4fade3d402b.wav",
+      "sha256": "6a9a048a03d28467eedd06abb0b9dced7d04715c7e5602142b6bfe986b47b485",
+      "bytes": 437838
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcb1e1f2a1cd6567.wav",
+      "sha256": "2954ac560c3cf91ae38990beb8421d8d8271beea5eff7e2847a59b8de37f0d47",
+      "bytes": 280398
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcbf9927c305e23a.wav",
+      "sha256": "bfacd9c933d3b1eb1adcc39b77bf9b8e79ca435104dc78e2f9d3033e291813f7",
+      "bytes": 480078
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/dino_fcd97438d8bc56b2.wav",
+      "sha256": "fb3c44b8e7b2504438d51a34d02e88ee4f7099782122ef01e4fe64d1b2b43458",
+      "bytes": 215118
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/manifest.json",
+      "sha256": "c8bba82c5a7ab5aa7db1ad76e5d6e70f9cefff89d392d2f82892e8bb3f736e14",
+      "bytes": 26465
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_02f1703fbae8c937.wav",
+      "sha256": "40d82941c388c3338a1dcf3e7bb4acf70064ed106a4ec8346e18f1f3001efb7e",
+      "bytes": 130638
+    },
+    {
+      "path": "apps/vehicle/app/src/main/assets/story_audio/onu_2b7b75a34f51025e.wav",
+      "sha256": "e7e5e44bc881c72c8d398886c8111da15170112bb856c88b9d33a8f503876575",
+      "bytes": 222798
+    },
+    {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_592e066f5753dfcf.wav",
-      "sha256": "82dd89b95b77f6e068e9588550ae6714cf3c9b8524957f78655e3d5a58b01959",
-      "bytes": 103758
+      "sha256": "ce079151f771e6a1cd8ccc32d64e9bb8b7c0a9bf90c30626a80a2124d0a228c2",
+      "bytes": 88398
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8688d8bb463f9b8e.wav",
-      "sha256": "a81cf3bb7b993799b6dac48aedc74e5d91725dce55bc7660d9b0be9a0d4515ad",
-      "bytes": 195918
+      "sha256": "dafa3a120b2326ea22e53824e7d2097b3c5a6a2246cf62ca6a1fa65ad188d6f0",
+      "bytes": 207438
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8a2aa0dc157d243e.wav",
-      "sha256": "31549a39df8e6e670b510b1d23fce2279a782163242014c74ac1ec420c32e33b",
+      "sha256": "dd585f2528bab20b8823183c95f99768f634e3270784fd322c36d6246dec6d17",
       "bytes": 215118
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_8f8aac8ebce45da4.wav",
-      "sha256": "b3a7991caa46a40c4a285cae61dbf20365643d14cb04829e18a4427be745279e",
-      "bytes": 249678
+      "sha256": "08c16b4bce8b570f436cc20094beff7913f977276a9822ec53916b7d30852217",
+      "bytes": 180558
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_a29b4330cfc58198.wav",
-      "sha256": "e2d8597d538baf725271ac7fbde949cb8f457ef4174dd0595ac3be9090f12492",
+      "sha256": "b6af259a7a5393a4ceda6a5f3f6628b906fafef790262bd374ddceebc8ea6292",
       "bytes": 195918
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_c89f2f9319ad37d2.wav",
-      "sha256": "4de7d9590631650074c64e8f9331e162b982c8060114faca786dce2b55c19fa1",
-      "bytes": 261198
+      "sha256": "3db4f5ea621e0440a435ec81d97471e88ad86bdfd53380aee009953f1c4c1ae1",
+      "bytes": 241998
     },
     {
       "path": "apps/vehicle/app/src/main/assets/story_audio/onu_welcome_b2.wav",
-      "sha256": "272a338d70966d15f0c33f1724713c2f7aa6b139b53584d10432b2b5a8537592",
-      "bytes": 407118
+      "sha256": "5f928152bac5cb1bfedabe682ac2a98929754dc3e33aae91ef133407638d0834",
+      "bytes": 326478
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AdventureCatalog.kt",
@@ -1730,8 +1810,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidScenePlayer.kt",
-      "sha256": "e4942d81b2ef8dee36545a0f6a18e8399dc680262d7315bc18b2cd584bf73a91",
-      "bytes": 10748
+      "sha256": "998156f2de64ca01a0c3f8e9d48554137b263bbf74ee6b3af46524db1e40fb2d",
+      "bytes": 10878
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/AndroidTtsOutput.kt",
@@ -1770,8 +1850,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/ComposedSpeechOutput.kt",
-      "sha256": "40f3d79a6fd8699c0349b15cc2ffec9f775032c5a43c713d01219d3008d44a23",
-      "bytes": 11794
+      "sha256": "e65bd45930e29d0fd9eea94f7a072107396c2fd8a625d9df29314fb72f9b4185",
+      "bytes": 11757
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/DeveloperScreen.kt",
@@ -1780,8 +1860,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/DeveloperViewModel.kt",
-      "sha256": "d5b16a5926819f9c9943e8e855ac9741533a21f8a5b17512603af26b8f7b6f29",
-      "bytes": 8854
+      "sha256": "4178dc085c05ce0b5b496ade0c5c6194ed417791f24b1f1440c70f5327048617",
+      "bytes": 9034
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyDeletionJournal.kt",
@@ -1790,8 +1870,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyLibrary.kt",
-      "sha256": "ea852909864cb7be532aa7f4be950a8caa8894d66ad1bdbc88012869bcc3c989",
-      "bytes": 32520
+      "sha256": "7d9e91cfee43dd6d0e21833f62409e2e2b7bcf4f1b3245b074807024e67902bb",
+      "bytes": 35119
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyPermissionReturns.kt",
@@ -1800,8 +1880,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyPlay.kt",
-      "sha256": "bb36bbe0ea98b746cc7346a30d56a32b4f7b94018e609ae9f8be9474327b3187",
-      "bytes": 36800
+      "sha256": "bf0bb26b499a8c14678a30b5723bb98f35c552406f5406d102622719cb01708f",
+      "bytes": 34592
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyProfile.kt",
@@ -1810,13 +1890,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyScreen.kt",
-      "sha256": "6fe68d5dfed6a69d1354e6d67550ec9cea6417bd0bb70c1f5f1da942dcf0a64c",
-      "bytes": 29816
+      "sha256": "7ec33f202def6d984b46d1e77907bb5f0c755b7264d38ff165f1662441ef7a6c",
+      "bytes": 31166
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilySetup.kt",
-      "sha256": "46e444148ddc7f4bffa15eeeb5c76a73a803fdcdf023d4164f9b9bce71378ae3",
-      "bytes": 37912
+      "sha256": "e44901c8a1c2cb920541b24b8c4cd7450ad7759a26c16f13f174265820bc2787",
+      "bytes": 38201
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FamilyWidgets.kt",
@@ -1830,8 +1910,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FirstJumpGame.kt",
-      "sha256": "6bb6c16ac5a9d8a8695e6a8eebd7b0fe31dc309901ab327a468d94e2144626a4",
-      "bytes": 18681
+      "sha256": "0d84dcf867eff574c591d3e9ee11866024f976716b91a5b6847e91a5842b939b",
+      "bytes": 21853
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FirstJumpProgress.kt",
@@ -1840,13 +1920,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FirstJumpRoute.kt",
-      "sha256": "778b74e5c0cafd344dab8d775e7cd254777fec6377c5eb81c886f9f02af99f1c",
-      "bytes": 7139
+      "sha256": "952cce31956c5b1b0fbb82c0efa8402477a37ba7891798ea40976fd1be62ef1e",
+      "bytes": 9982
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/FirstJumpSession.kt",
-      "sha256": "07c3bb522eb9eabdc084f39f75ccc2326d7697fa9d6b1f0ab0b494abb47df46b",
-      "bytes": 15132
+      "sha256": "b83bdb3af77ca4293a9e3de41b376b0c84ef71ae1611f9486bb4ec260f3af9be",
+      "bytes": 19440
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/GameClient.kt",
@@ -1875,18 +1955,43 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/InterestSetup.kt",
-      "sha256": "e367e0f103d0fdd7faf3ab61a66c9c7605e8f379c779b1cfdc1db280e8e4705e",
-      "bytes": 16746
+      "sha256": "3c82b66e4902048601cc3144543da8fc0672dcf90fca5606d59e06aac68768da",
+      "bytes": 16771
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterEpisode.kt",
-      "sha256": "5ec6889822336cf3793674826bc9565d08413ea6c8a8a881cb27d17d23401c26",
-      "bytes": 3647
+      "sha256": "d725f5fd7d8c5f9edb9c3758142cf682ba608e892130246ff59a6e3bec8fd185",
+      "bytes": 3709
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterGameSurface.kt",
-      "sha256": "02f1737a8e366314b83db10a91542960a86e2632c0a0f8a6f6ab306e20c0d928",
-      "bytes": 13489
+      "sha256": "15b7c3ad278e8df1ddcf2e367c26fcc135857150b5f67f295c8698561a003859",
+      "bytes": 19073
+    },
+    {
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterMediaBrowserService.kt",
+      "sha256": "31cfb330da5ddeb314dd521f6f42edd67c0c46b4327ee270fd63f3e625b302d7",
+      "bytes": 11314
+    },
+    {
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterMediaState.kt",
+      "sha256": "dc533316ae00b1853564352f46734f3f92723af65e504f83d8c9f32169f0909e",
+      "bytes": 806
+    },
+    {
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterMediaTransport.kt",
+      "sha256": "263e527edf844aecf33d10c5768ebc470132b686cb1fcbf31c5bd7bf37c86daf",
+      "bytes": 845
+    },
+    {
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterSessionHost.kt",
+      "sha256": "e2e8b49f0113b516659929ec5d44c9683049a22cff3c2a70c6b1ec72c9a66d3d",
+      "bytes": 17066
+    },
+    {
+      "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LetterSessionService.kt",
+      "sha256": "35649cfb229002f30d0ff0049c74dc542511f07b5964a1516761477f00ebe6da",
+      "bytes": 10637
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LocalCheckpoint.kt",
@@ -1900,13 +2005,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/LocalGameEngine.kt",
-      "sha256": "156dbf800efbd12e70c80be4bf05b2f524b01652415dd23acc573c514519d4b7",
-      "bytes": 23929
+      "sha256": "1cefefa460d85b8912b2613c4d24ec7def8ef357a01aec559712af6d3d9c5b41",
+      "bytes": 24062
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/MainActivity.kt",
-      "sha256": "19268325bd5ed24240fc2d7a6e79d42a4648a6b887108bd44984c4c2b2887275",
-      "bytes": 1103
+      "sha256": "4904221e8a5ea01b08507bef99ff0e2ef2f3adfc387e56d7dbdde200d74bcbbc",
+      "bytes": 1268
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/MediaPauseLease.kt",
@@ -1915,8 +2020,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuApplication.kt",
-      "sha256": "a9f5a85788329ba6609f02494e068fe855ca1f8eb92943776f22e15dce8f5bff",
-      "bytes": 298
+      "sha256": "17276f78b40ce33e4e5ca8ddba3ae623c7dae6dafeedb94b045a4f2fffc845a4",
+      "bytes": 393
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuArrivalScene.kt",
@@ -1930,13 +2035,13 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuJourneyStage.kt",
-      "sha256": "d5d6423493467aa8d7fe3dac41d16c1ebdeb18f94a6431affdec1ba21fae535f",
-      "bytes": 4707
+      "sha256": "1b24f93732aee2f8ac4a1c0c653afa6d262e57dcab3715a8c2a1662e85ddc6b6",
+      "bytes": 5220
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OnuSetupScene.kt",
-      "sha256": "eef525f8f4a512ed48d89db5b724163c279657c2a2b8c376c348bd79d815fedc",
-      "bytes": 10674
+      "sha256": "aa9c24f20403f2622b0cbe31f71385f6c9c9e8cff43a7f3286597f0f0b95c7b2",
+      "bytes": 9261
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/OpenSourceNotices.kt",
@@ -1985,8 +2090,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RainGame.kt",
-      "sha256": "9ac192a84d3297903166aa41fa2eea981c955c6b5c8a1da457060f03915c6475",
-      "bytes": 16103
+      "sha256": "809cf339a3713a20fda23b0fe0fe038df0a9b32f42e12ce2bf4cf59a9488f645",
+      "bytes": 17789
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecognitionProgress.kt",
@@ -2005,8 +2110,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/RecoveryNotice.kt",
-      "sha256": "7c89aa7795c5bdfb9c4b055b8291aa7d93519e95a0b91fb88b9b3095cb93277b",
-      "bytes": 5163
+      "sha256": "7a73f38a1cb2d86f4091ddf53451c80a760333d291501f86731b1c460620b3a0",
+      "bytes": 5138
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SpeechInput.kt",
@@ -2030,8 +2135,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/StorySceneMixer.kt",
-      "sha256": "3527d8703169dbf1de495fc624d3f3d9fac46671d60943add84ff6d35f12cbc6",
-      "bytes": 12625
+      "sha256": "4738061d3b815324f99586310287dedc75bd4bc89496e87dc06453fa72c5423c",
+      "bytes": 13242
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/SystemRecoveryScreen.kt",
@@ -2065,8 +2170,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceAdventurePanel.kt",
-      "sha256": "13adc30e332411ecc3e6d519eb88cfcdc3f7364b9f81593aae824ccc21069894",
-      "bytes": 13073
+      "sha256": "b751e4a44709c870a2ca366186ff71c9172276b2e8b31398a285deb8ffcaf252",
+      "bytes": 13853
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/VoiceSessionController.kt",
@@ -2085,8 +2190,8 @@
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/WelcomeVoicePreview.kt",
-      "sha256": "97f786531b670ab48d505894048a9bee38b7e99800b58ad9afd55a148e6db2f9",
-      "bytes": 4592
+      "sha256": "36ab97ba8e94cbae9e43fb3f3d55a6feefe1da3fc7b57d51f6137baec9d51bb1",
+      "bytes": 4585
     },
     {
       "path": "apps/vehicle/app/src/main/java/dev/carplaymate/demo/WorldArtwork.kt",
@@ -2365,8 +2470,8 @@
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/FirstJumpGameTest.kt",
-      "sha256": "65af7f9e60dfa79335e102614d3b28623b60ccc4dbf2e0da959761ef1c6a6428",
-      "bytes": 10930
+      "sha256": "921c4e058f018a86626bb636af93f32c6678448336472f89e4f6e655c9441fc9",
+      "bytes": 28393
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/FirstJumpHomeTest.kt",
@@ -2382,6 +2487,11 @@
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/InterestMatchingTest.kt",
       "sha256": "b04af80ea095ed3b6f855f8b04af4843c2803e3231bdfd552abc2d198c6ca152",
       "bytes": 7213
+    },
+    {
+      "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/LetterMediaLeaseTest.kt",
+      "sha256": "4cc47aef8b4bcb37104b7e1ddd455ffe037af2bd29daadf879a31c2936ed90c0",
+      "bytes": 1958
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/MediaPauseLeaseTest.kt",
@@ -2400,8 +2510,8 @@
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/RainGameTest.kt",
-      "sha256": "cf7ecc4b46ee8cddd560a67b116c8dafae3c2182f9b802102acb5aaae9519de3",
-      "bytes": 8284
+      "sha256": "6f2adc2c56c9cda9e702f27133ba1c0f2e5a264f2375d3270f99343836c280a8",
+      "bytes": 12260
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/RecognitionProgressTest.kt",
@@ -2410,8 +2520,8 @@
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/StorySceneMixerTest.kt",
-      "sha256": "bea373317eb742b410533bff65560dcf0f18d6d241bd7574054d850119c4ad53",
-      "bytes": 17816
+      "sha256": "31eb7dacc0533b06cdbddb64c4132d341a1946e6507aa05724be956c95ded024",
+      "bytes": 21726
     },
     {
       "path": "apps/vehicle/app/src/test/java/dev/carplaymate/demo/VehicleInteractionPolicyTest.kt",
@@ -2464,9 +2574,1294 @@
       "bytes": 2966
     },
     {
+      "path": "apps/vehicle/integration-fixtures/gleo-app-schema.example.json",
+      "sha256": "0bb81a9246ea615ac84157e2e9d3ec2718309c1651d229e0bb8be7440a151ceb",
+      "bytes": 1290
+    },
+    {
+      "path": "apps/vehicle/integration-fixtures/gleo-pause-callback.example.json",
+      "sha256": "16005b2e8c333ac4a1f0fb1896cf83a0b0ce63b57fd440ef049cd218382cc297",
+      "bytes": 165
+    },
+    {
       "path": "apps/vehicle/settings.gradle.kts",
       "sha256": "28cb2e41e1b2183bbd6c6bb6acf9bfe80d0fd161c97b2cdbdb4bc4445600bf97",
       "bytes": 529
+    },
+    {
+      "path": "ci/verify-workflow.yml.example",
+      "sha256": "c6213fac27cbcf82ed2f40eb0837eecc0e6c84d5324d58afa083b68e16fcb39c",
+      "bytes": 3508
+    },
+    {
+      "path": "content/catalog.json",
+      "sha256": "f627dfffae52fa6d215686c9c0cb0eb46b1556f15bd5ce6bce0c777999f25237",
+      "bytes": 72587
+    },
+    {
+      "path": "content/ko-KR/animal-footprint-garden/REVIEW.md",
+      "sha256": "e206ec93ba531a67076f016cd2691581204952268108e5c91b770d49f2ba0144",
+      "bytes": 8600
+    },
+    {
+      "path": "content/ko-KR/animal-footprint-garden/episode.json",
+      "sha256": "d8305f163b0ff5e5b0a5ca4c36df3e1a95559e8637602d914d69a047d3e969ba",
+      "bytes": 20997
+    },
+    {
+      "path": "content/ko-KR/dinosaurs/REVIEW.md",
+      "sha256": "4ec7c9c55d0b9acdc5e6a9c0469d70221a037aa056ea1c458cda228da32d2ba7",
+      "bytes": 4710
+    },
+    {
+      "path": "content/ko-KR/dinosaurs/episode.json",
+      "sha256": "1742febd77e810e50e852aa982bce8aeaaa592c99c819ff7ec43155905f29ddd",
+      "bytes": 16798
+    },
+    {
+      "path": "content/ko-KR/little-car-workshop/REVIEW.md",
+      "sha256": "8aaf769db682ac211cee051bbc96a6766240b8f14bf459fa797898702009cf03",
+      "bytes": 8719
+    },
+    {
+      "path": "content/ko-KR/little-car-workshop/episode.json",
+      "sha256": "f034dc55f18f0b47cc6899d1ce57d10b1b06bc9e1874fa272b30e3923953ae56",
+      "bytes": 19718
+    },
+    {
+      "path": "content/ko-KR/onu-little-picnic/REVIEW.md",
+      "sha256": "bccdd9d6d8528e2b26716abe9edbb7d7585b23e5550572796f2ea22306e271bc",
+      "bytes": 4690
+    },
+    {
+      "path": "content/ko-KR/onu-little-picnic/episode.json",
+      "sha256": "4a0599148ab1c63f9df9019c9e9381b8af2eba773fed9c7c7fec69a7e3820c92",
+      "bytes": 15081
+    },
+    {
+      "path": "content/ko-KR/space-return-signal/REVIEW.md",
+      "sha256": "e8b1d8bfb7939304c0237ea3bc5f1623335fbd4a4915cd3430cc0f61f33e2f60",
+      "bytes": 8629
+    },
+    {
+      "path": "content/ko-KR/space-return-signal/episode.json",
+      "sha256": "635abc4f3e83e35e67bc781cc70fade913d97768f78fd7bbcf3c4b0bed522d69",
+      "bytes": 18714
+    },
+    {
+      "path": "content/ko-KR/starlight-post-office/REVIEW.md",
+      "sha256": "842bf37a360a0e2e447cd5a80066e0d0ffb56bd65da18026b3f0c368c2ee958f",
+      "bytes": 4125
+    },
+    {
+      "path": "content/ko-KR/starlight-post-office/episode.json",
+      "sha256": "2defb822ace14d0a4522fabb10d792a610ec3b3e3cd7199d6b88d7143c788977",
+      "bytes": 18128
+    },
+    {
+      "path": "content/ko-KR/undersea-lighthouse/REVIEW.md",
+      "sha256": "2f0c7b627c7fe41aea4f1394806bd68de37ae2fe0a7f69b9c403f119c394dd1e",
+      "bytes": 4990
+    },
+    {
+      "path": "content/ko-KR/undersea-lighthouse/episode.json",
+      "sha256": "0c0c436fdbeb6b54650a421ce6c210d9a8a4d15ebb62d3b35d8a4725a78254e2",
+      "bytes": 19189
+    },
+    {
+      "path": "content/legacy/0.1.0/animal-footprint-garden/episode.json",
+      "sha256": "fdda36508c927aad418a4f88975645be6b2e14d96a5c90bb150cd43b9e33ac57",
+      "bytes": 17850
+    },
+    {
+      "path": "content/legacy/0.1.0/dinosaurs/episode.json",
+      "sha256": "ab9c8330c08dbbfbb849aad1d4542a29bd2cf3bfdfe4cb0a1dfd3acdbcacd977",
+      "bytes": 10169
+    },
+    {
+      "path": "content/legacy/0.1.0/little-car-workshop/episode.json",
+      "sha256": "969123ce420c7175c91e233dd4e53ee55bd1de7b5afec943b5601e0ce7dc238c",
+      "bytes": 17108
+    },
+    {
+      "path": "content/legacy/0.1.0/onu-little-picnic/episode.json",
+      "sha256": "9d8a73898d165696f9e474119da35a59d306f2cad1f9e2cfe694a5b8e92ccd23",
+      "bytes": 12431
+    },
+    {
+      "path": "content/legacy/0.1.0/space-return-signal/episode.json",
+      "sha256": "7285597b58b530f5d07ddbbbc3e77374b481133c05fe2434ac088cfa17890dd0",
+      "bytes": 15154
+    },
+    {
+      "path": "content/legacy/0.1.0/starlight-post-office/episode.json",
+      "sha256": "26b26c625e5bc8a38020272906f048b21ed0832a04614165d99869248b4ecbea",
+      "bytes": 11203
+    },
+    {
+      "path": "content/legacy/0.1.0/undersea-lighthouse/episode.json",
+      "sha256": "98f3d8412beb4521164e1b7ec06896434ebb73fcc935babbf9bd0226bb8337d2",
+      "bytes": 12568
+    },
+    {
+      "path": "content/legacy/0.10.0/animal-footprint-garden/episode.json",
+      "sha256": "902b4b937f3df023f0be9d5f53bcac622219cbc49bac6be2276a32b037b05146",
+      "bytes": 20527
+    },
+    {
+      "path": "content/legacy/0.10.0/dinosaurs/episode.json",
+      "sha256": "c00aa0e09caa0dcea9b3945ee4fffaeee2a8a791daaf7c801c75d34d8ff6c0e0",
+      "bytes": 16792
+    },
+    {
+      "path": "content/legacy/0.10.0/little-car-workshop/episode.json",
+      "sha256": "ac9d86ebe0dc6774629926e7c7c1db956b742400ef8d53de74bb662fc97c9eef",
+      "bytes": 19671
+    },
+    {
+      "path": "content/legacy/0.10.0/space-return-signal/episode.json",
+      "sha256": "d6cd68056aa1ee661c0681bc8d67e5d7c5d735dd40a768fe7db05352694e7e09",
+      "bytes": 18720
+    },
+    {
+      "path": "content/legacy/0.11.0/animal-footprint-garden/episode.json",
+      "sha256": "5e3a173325c79539c1241fd0e3beefee1f03ce77c11636dd52aa85282d33ddb5",
+      "bytes": 20889
+    },
+    {
+      "path": "content/legacy/0.11.0/dinosaurs/episode.json",
+      "sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b",
+      "bytes": 16797
+    },
+    {
+      "path": "content/legacy/0.2.0/animal-footprint-garden/episode.json",
+      "sha256": "ae564240af3b36466ca921df0c2d7a330f4731a5f35b6843d66cbca2968c7b32",
+      "bytes": 16969
+    },
+    {
+      "path": "content/legacy/0.2.0/dinosaurs/episode.json",
+      "sha256": "d7132a107302d8b97d7f9a84696de8ff828b74cf17a6c82d59a07395e45d45d1",
+      "bytes": 12551
+    },
+    {
+      "path": "content/legacy/0.2.0/little-car-workshop/episode.json",
+      "sha256": "51f046cd8d751b8638c6e54fcfc03c2da0a3605562547edf29275c99f174eb2a",
+      "bytes": 15934
+    },
+    {
+      "path": "content/legacy/0.2.0/onu-little-picnic/episode.json",
+      "sha256": "e2e27ec4787a7cf4beafca9bc2a1d2ef54317534a822fc83b207c9a205372a18",
+      "bytes": 14084
+    },
+    {
+      "path": "content/legacy/0.2.0/space-return-signal/episode.json",
+      "sha256": "74940525c9c6b0ff3fa1ec8dbbde3250b20d145235747fd057ef69da9234be74",
+      "bytes": 14418
+    },
+    {
+      "path": "content/legacy/0.2.0/starlight-post-office/episode.json",
+      "sha256": "274430e9c97f76301209031cc7caca62399393627da476544427faeeea998ac6",
+      "bytes": 14441
+    },
+    {
+      "path": "content/legacy/0.2.0/undersea-lighthouse/episode.json",
+      "sha256": "ebe2f6a4ee8c6c75c4714f4a2c8997c890e27bd84da0068e3bbcc2000bd9729a",
+      "bytes": 16181
+    },
+    {
+      "path": "content/legacy/0.3.0/animal-footprint-garden/episode.json",
+      "sha256": "663cb51957a63337257fecc9ae8ea5085e07893bb98efe205c84de7b2a8b45e0",
+      "bytes": 17884
+    },
+    {
+      "path": "content/legacy/0.3.0/dinosaurs/episode.json",
+      "sha256": "fe008f7e7574ec9708b3bf17f99d6b2d41f2cf7ab86d18f03f9f99ba0f7eeedc",
+      "bytes": 14397
+    },
+    {
+      "path": "content/legacy/0.3.0/little-car-workshop/episode.json",
+      "sha256": "e560a0ce0571e84f880d44675322dcb9001eee1b281a5f706aa823d6a542178c",
+      "bytes": 16953
+    },
+    {
+      "path": "content/legacy/0.3.0/onu-little-picnic/episode.json",
+      "sha256": "ac19c817166e409aea23a89f40cec6cd34e6bb1577492c673037534785433fe3",
+      "bytes": 14349
+    },
+    {
+      "path": "content/legacy/0.3.0/space-return-signal/episode.json",
+      "sha256": "e5b6594ea0983149632349ad67149f66b371f402346d193e6d4c8e6569f9d37b",
+      "bytes": 15265
+    },
+    {
+      "path": "content/legacy/0.3.0/starlight-post-office/episode.json",
+      "sha256": "4395180acf8b51866271ddb5fcb50d75c491120957eb02f14fd01acb491a0dea",
+      "bytes": 15893
+    },
+    {
+      "path": "content/legacy/0.3.0/undersea-lighthouse/episode.json",
+      "sha256": "11026dcf5de957bf846d2f5305f71ebedaa18602fd0d551af2720ce42369c2cd",
+      "bytes": 17376
+    },
+    {
+      "path": "content/legacy/0.4.0/animal-footprint-garden/episode.json",
+      "sha256": "e01cae1687ea634dd1922f693721b76bde18f2b9705a2d4c8e3937b44323a818",
+      "bytes": 17662
+    },
+    {
+      "path": "content/legacy/0.4.0/dinosaurs/episode.json",
+      "sha256": "eded344d066055d8a1e974eb51941c5034338607b148eb9a29b01181bfe19176",
+      "bytes": 14011
+    },
+    {
+      "path": "content/legacy/0.4.0/little-car-workshop/episode.json",
+      "sha256": "7260440baf4d32a1e1f91b633eebcf8719476bb09a0dca71cadba70f5c76217c",
+      "bytes": 16753
+    },
+    {
+      "path": "content/legacy/0.4.0/onu-little-picnic/episode.json",
+      "sha256": "479eb4ce3aa109fc6d66209226151cd1d3f6fe03ea6e802fb34513cbdd63c116",
+      "bytes": 14417
+    },
+    {
+      "path": "content/legacy/0.4.0/space-return-signal/episode.json",
+      "sha256": "59f2f84c947526def3a9f1ca488ef36f4f072b7fcf7b993de1bfba7be7617e4f",
+      "bytes": 15126
+    },
+    {
+      "path": "content/legacy/0.4.0/starlight-post-office/episode.json",
+      "sha256": "49f5c34319cca0591463ef88913aff4138939fb9f82ca987604f105bd7ff98fb",
+      "bytes": 15644
+    },
+    {
+      "path": "content/legacy/0.4.0/undersea-lighthouse/episode.json",
+      "sha256": "e7b372fbd79e3b8cd43142183539b294966d9e67ebc8a44ddaf3c5e72ddf4673",
+      "bytes": 17082
+    },
+    {
+      "path": "content/legacy/0.5.0/animal-footprint-garden/episode.json",
+      "sha256": "2acc7ce878c6e134c88595d1bc34434c8cd307ee4d772090788107602a696935",
+      "bytes": 18130
+    },
+    {
+      "path": "content/legacy/0.5.0/dinosaurs/episode.json",
+      "sha256": "ecb10c249516a170be805b79e9ca1e42d8be7f515775ae1d3d3d8a9579c048e0",
+      "bytes": 14467
+    },
+    {
+      "path": "content/legacy/0.5.0/little-car-workshop/episode.json",
+      "sha256": "6816ad401be1be45f57dc7ea263983503ac2b4c3dc07b02e0e509840f400f755",
+      "bytes": 17312
+    },
+    {
+      "path": "content/legacy/0.5.0/onu-little-picnic/episode.json",
+      "sha256": "2d8ff28298be3b433589e96a8ecd1e93b8e5598d79639e2eccf3ed10d13c34cc",
+      "bytes": 14669
+    },
+    {
+      "path": "content/legacy/0.5.0/space-return-signal/episode.json",
+      "sha256": "1c83b29d07e5381b9e12abc74e34044274613f48f2b0e3cce57c5d9303b0c6fb",
+      "bytes": 15567
+    },
+    {
+      "path": "content/legacy/0.5.0/starlight-post-office/episode.json",
+      "sha256": "4aac63b206ccd59ba0420b9b9244a359fd1dad5671b24e1b1ca2713d8df87155",
+      "bytes": 16103
+    },
+    {
+      "path": "content/legacy/0.5.0/undersea-lighthouse/episode.json",
+      "sha256": "f19ff3a15aae230908da3a5eac954608bdd0d95b46be7dfc5dbbeae8adf0816a",
+      "bytes": 17670
+    },
+    {
+      "path": "content/legacy/0.6.0/animal-footprint-garden/episode.json",
+      "sha256": "332694325b271cc13bdceaad207c6f734fcd93ed568f912a4f43d4c7fb93d463",
+      "bytes": 20046
+    },
+    {
+      "path": "content/legacy/0.6.0/dinosaurs/episode.json",
+      "sha256": "849b2c5ae52c5ad11d6687362512646981769f582e07db441685361d9c87ee52",
+      "bytes": 16211
+    },
+    {
+      "path": "content/legacy/0.6.0/little-car-workshop/episode.json",
+      "sha256": "1f8edee60150e7df59cff77cd2af29e5c9cb5539122f30b48f562d337e1e2f4e",
+      "bytes": 19521
+    },
+    {
+      "path": "content/legacy/0.6.0/space-return-signal/episode.json",
+      "sha256": "59135de21436614c9d512f5cee406cf6c49e9910b030d9753a3fe0194bbbcaf1",
+      "bytes": 17414
+    },
+    {
+      "path": "content/legacy/0.6.0/starlight-post-office/episode.json",
+      "sha256": "4106191e1284224e0d699c13fa9278fcbb4ccbbb6e0991e0c100b3ba8ac47c28",
+      "bytes": 18125
+    },
+    {
+      "path": "content/legacy/0.6.0/undersea-lighthouse/episode.json",
+      "sha256": "5422ec0dd01c5d550fa727e5143b6a6683fa40746af2a2c65cff921afd35bdd6",
+      "bytes": 19834
+    },
+    {
+      "path": "content/legacy/0.7.0/animal-footprint-garden/episode.json",
+      "sha256": "aa2c481fab05ef14b8eea79da071b036a83a508c341213689ece33c6ed9827fa",
+      "bytes": 19493
+    },
+    {
+      "path": "content/legacy/0.7.0/dinosaurs/episode.json",
+      "sha256": "2b482c1854918fe2d11f934ae106356ccd0e6a6baef78400a5b4b6285f41cc0c",
+      "bytes": 15635
+    },
+    {
+      "path": "content/legacy/0.7.0/little-car-workshop/episode.json",
+      "sha256": "a4338e44267118017a7ac0154c3b42ed9a9dd1ded1b0b40fc1d3f9f77332da94",
+      "bytes": 19921
+    },
+    {
+      "path": "content/legacy/0.7.0/space-return-signal/episode.json",
+      "sha256": "3b9aed0562e7b2660cef06cc224c9007cdeabe61dc7ff786ffd43b1e95cc7e50",
+      "bytes": 16784
+    },
+    {
+      "path": "content/legacy/0.7.0/starlight-post-office/episode.json",
+      "sha256": "25ce6be112f7722daabf510faa3d1e327574e7a2840a8925d0ee4f2e413a5885",
+      "bytes": 17528
+    },
+    {
+      "path": "content/legacy/0.7.0/undersea-lighthouse/episode.json",
+      "sha256": "e2bb8a5e545290c61ddbc90a34220a5e4e67b8f1e9c9507533427c09e0ed4ac2",
+      "bytes": 19011
+    },
+    {
+      "path": "content/legacy/0.8.0/animal-footprint-garden/episode.json",
+      "sha256": "c1c09e0ed505ee3135e7555271548c3b7ac4235bec7b01cfefc5b5605e890705",
+      "bytes": 20105
+    },
+    {
+      "path": "content/legacy/0.8.0/dinosaurs/episode.json",
+      "sha256": "b72c84b453a71733251233a879a453b2cae8ba9a20e5f06c0e3fe320b598699d",
+      "bytes": 15936
+    },
+    {
+      "path": "content/legacy/0.8.0/little-car-workshop/episode.json",
+      "sha256": "f14aa5ba5910a4e943d7e58526a0a4ce8407bde4f10c2aa0b12e0dc7eb5d2f2b",
+      "bytes": 19323
+    },
+    {
+      "path": "content/legacy/0.8.0/space-return-signal/episode.json",
+      "sha256": "a463aa211b5a7225788de6ce9a164608a057be01a674b8a64de73ffc556ad1fc",
+      "bytes": 18237
+    },
+    {
+      "path": "content/legacy/0.8.0/starlight-post-office/episode.json",
+      "sha256": "570ea85cc89c52c9b552e3d633c16c3fee532945a41e9b314882bc64829cd13a",
+      "bytes": 17599
+    },
+    {
+      "path": "content/legacy/0.8.0/undersea-lighthouse/episode.json",
+      "sha256": "9c796a798f466c89da6469345d9a7337c76c729389d77f9f7e8b9638f7a566e5",
+      "bytes": 19008
+    },
+    {
+      "path": "content/legacy/0.9.0/animal-footprint-garden/episode.json",
+      "sha256": "f0df4e5675c00d6fc16e3e7862c4fe405e5089a0c73b1f72d9b1048db564a032",
+      "bytes": 20329
+    },
+    {
+      "path": "content/legacy/0.9.0/dinosaurs/episode.json",
+      "sha256": "fee86690b26f46da2d3619c5c43314d6dad369299b47be0020c03002a2c7ca97",
+      "bytes": 16237
+    },
+    {
+      "path": "content/legacy/0.9.0/little-car-workshop/episode.json",
+      "sha256": "41e9d500c84f71317140109eda5a6e4ef38b920071021e8992b6cfdd2c8f4dae",
+      "bytes": 19340
+    },
+    {
+      "path": "content/legacy/0.9.0/space-return-signal/episode.json",
+      "sha256": "280ae677236a659493250ec3558603ba099f00d1675039d2322078a7d924be1f",
+      "bytes": 18176
+    },
+    {
+      "path": "docs/audio/onu-0.35.0-sfx-provenance.json",
+      "sha256": "154502c9b9339ebc7fb3de2054fbc1970017e5f941dea038d1c57a0023e02bfd",
+      "bytes": 7619
+    },
+    {
+      "path": "docs/audio/onu-0.35.0-sources.json",
+      "sha256": "4e80c847f4eb137e91e11196e5987c59eadc91464cd9dafc1dbcaba19ada9440",
+      "bytes": 3282
+    },
+    {
+      "path": "docs/audio/onu-0.47.0-voice-plan.json",
+      "sha256": "8a4d90ff36cb70020b0219d8973c4083478d5b0abce023dd8a8fe5d82ed76b22",
+      "bytes": 41285
+    },
+    {
+      "path": "docs/audio/onu-0.47.0-voice-provenance.json",
+      "sha256": "95247778893d8786f8473872eaa8739cf939559e28532a1539b90bcfa88b2cb6",
+      "bytes": 131011
+    },
+    {
+      "path": "docs/audio/onu-0.53.0-voice-plan.json",
+      "sha256": "9334f1ee5d87b970b7753d77ce54a96c47ebd9f7d270c000de38cda763140659",
+      "bytes": 3746
+    },
+    {
+      "path": "docs/audio/onu-0.53.0-voice-provenance.json",
+      "sha256": "7a4da33ca4f16067b12fdc1561905d053477122ab0946349a8e582c957800177",
+      "bytes": 6180
+    },
+    {
+      "path": "docs/audio/onu-0.55.0-voice-plan.json",
+      "sha256": "bd83baa73559a6268fd7c3d3fa994cf6c36ad979965406b41cd2d9175e3df5ab",
+      "bytes": 4248
+    },
+    {
+      "path": "docs/audio/onu-0.55.0-voice-provenance.json",
+      "sha256": "b970c22c5e3b31b25194b2911fa3fdb05831dfc3eeabe0a0f7bd594ff3006eac",
+      "bytes": 7699
+    },
+    {
+      "path": "docs/audio/onu-0.56.0-voice-plan.json",
+      "sha256": "337b3e3df2cd114393e4c889aa22166ac2e19b3b49450db4c2f016572a532cd6",
+      "bytes": 60367
+    },
+    {
+      "path": "docs/audio/onu-0.56.0-voice-provenance.json",
+      "sha256": "15ec27fd610b98b381e7c46b0d33ad1936d18126ce6218bf3a6452094bb714e6",
+      "bytes": 112418
+    },
+    {
+      "path": "docs/audio/reproduction/onu-b2/README.txt",
+      "sha256": "86393c08170211f609975a7657612cf64cdc41727b3d1415859478b8b8a5a51a",
+      "bytes": 1842
+    },
+    {
+      "path": "docs/audio/reproduction/onu-b2/REFERENCE.json",
+      "sha256": "288221f6d0f7b50156e0d8c633f3593e4d12b7c6e4c28c1f4640d8d0b391a962",
+      "bytes": 792
+    },
+    {
+      "path": "docs/audio/reproduction/onu-b2/reference.wav",
+      "sha256": "0f82fd62111f95092aeef39f733da5458bf79be829f678147f1d8ebc919b5d1c",
+      "bytes": 890960
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/README.txt",
+      "sha256": "3ab83748e9df97e3575d14878fb9ccece2a34c0b1c87e6c9017fd5612bfb847e",
+      "bytes": 635
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/ask_question.wav",
+      "sha256": "20213d2445522e0f200840f41a8e2a512e0bc9685ae656cea498468774440e61",
+      "bytes": 668240
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/onu_welcome_b2.wav",
+      "sha256": "8a7f451e6a914ec032aac18c5d8b93dec0fccc08ab01fcbe6de49aef1445237e",
+      "bytes": 652880
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/rain_explain.wav",
+      "sha256": "b721ad9dd8e2e3de1f96f6213323d256761dba970beb13498cb3bc7f05fdaf4e",
+      "bytes": 483920
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/reveal_help.wav",
+      "sha256": "96e01cf2d1da137a7edaec936912ad4bc5c2e3ce85fc29036cc90ba491b72355",
+      "bytes": 568400
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/sounds_ack.wav",
+      "sha256": "5599966ebd30f8dfcae74506939f5d640d7064cab50a6c79db29ba30ab6d8fd5",
+      "bytes": 361040
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/tempo_explain.wav",
+      "sha256": "220feb4b71329f49fa8d48fba2ad033b0af647eb5160fb343e1198eebae72312",
+      "bytes": 821840
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-0550/raw/wiper_explain.wav",
+      "sha256": "205f09550ed881e0827d9d6f12f05eba32429abd8de94a2c65438b308821b129",
+      "bytes": 652880
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-boy/README.txt",
+      "sha256": "14af2f8f8c2ac5cb9c2e3ccdf1e10766a00cd5afd72a698653da0a3e8b3695af",
+      "bytes": 343
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-boy/REFERENCE.json",
+      "sha256": "efc5429c29493e35ae057ac39385b57034997eb94be5fc41348708f847434a9d",
+      "bytes": 490
+    },
+    {
+      "path": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+      "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+      "bytes": 683600
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/baseline-inventory.json",
+      "sha256": "45ace26a67c67c7c805810658204d448e31a922b7f6c207ad1175ce5e615bb0c",
+      "bytes": 145563
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/model-download-manifest.json",
+      "sha256": "9fb3f88df26e3df955bc7d3aa1b85780ae8a2f8c2007da4660350a99f4362a90",
+      "bytes": 2612
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_00dbe4f2313f6ae8.wav",
+      "sha256": "dbc404a69f1fcaa5b5d4996ba9c5f1834c69ba850929f6065d0b019f82fbe0ba",
+      "bytes": 906320
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_08a517ef648e0b9d.wav",
+      "sha256": "2b3825812f09fee506b6c3b1ba3df2e125f4cc6e684411adec3e606e3a665c6f",
+      "bytes": 622160
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_09abbdcf15614e68.wav",
+      "sha256": "ccadcc50b5afc3a2c898d1f3b9d802b2c3786bb560cf256428a71b1bb60e2736",
+      "bytes": 614480
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_1bc65dc63e7a639e.wav",
+      "sha256": "ee13e32fdbab5e3c271ee89869b3459169b0a23111bf0fda2f9842db15e9e1b9",
+      "bytes": 606800
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_21070815a2b7637f.wav",
+      "sha256": "6c7360eff1bcc589452aeb4f72c9116c7775bbf97107395703e06d3ad2adbe85",
+      "bytes": 576080
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3160815e826a2f33.wav",
+      "sha256": "ffd0def9fa3c54244ea64276ec7aa05b5b85ef31fe0600aaf6cf1b6369719b14",
+      "bytes": 798800
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_32fcb4b6f679647b.wav",
+      "sha256": "7bf25f7a68186dd4286b183224655531e3b1a51365fc0a2aed81d8ba21c30c8b",
+      "bytes": 207440
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_341904e9437afa5c.wav",
+      "sha256": "038ef3626a2bc431de2a7c8260da328ec2a5a28ad2b2b54b63bbc97d504fbc29",
+      "bytes": 599120
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_350bcbfbd123f73b.wav",
+      "sha256": "cab21d56b2f3b8b305137225d4a485e615e917ed83f024484fcd7dc749fe4d8a",
+      "bytes": 437840
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_382e0da11d641004.wav",
+      "sha256": "e00c51b2d01dbdffbd286ffe1ae61f98e384e83d53e21289c3cfc3cc1b55ec4e",
+      "bytes": 245840
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3c169544bd866d05.wav",
+      "sha256": "99298ddd33d1836b12a2b29a99e6a585aa85927af2f74cefe4d740a54b857465",
+      "bytes": 852560
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3c284e943b0ee75e.wav",
+      "sha256": "1be32ee88da41acd1e5a929252c347c1ebc2b333b4397b1252badaccca1a5463",
+      "bytes": 668240
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3d4b5ea30d2dff85.wav",
+      "sha256": "74fc142ec6dc79a25d0958701f2afc00276e6fe95bebb5bfd8fd7b8e97e2f19b",
+      "bytes": 553040
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3dbb193344056c44.wav",
+      "sha256": "2261ad8eab5e90916880d4a8a13d4f92593e2b0217c55583cab087759ac9227b",
+      "bytes": 860240
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_3f68c1762767a28a.wav",
+      "sha256": "3651138520f8bc67d4aade90f59071c589a35f95501ee244e7098f5e532f3e6c",
+      "bytes": 683600
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_42de5c0d7a8d6365.wav",
+      "sha256": "fb37de259ac264652682ce26ae79f39ac476a7c7300c74b9545d407706e065a2",
+      "bytes": 361040
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_4a318149b75c90de.wav",
+      "sha256": "1ecc31376b312ef062c5c761a254748ca10c0834899971c21e458554e96998e8",
+      "bytes": 614480
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_4f1c5768d15dd855.wav",
+      "sha256": "3746784ec3b380b7c433ff70a966a56475be935dd9c5f3bf7a0e737ac081e81f",
+      "bytes": 629840
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_4fdac28db0a99adb.wav",
+      "sha256": "905e3f78a8ad629a5b0c5a8b38fe2379306958478bb7d797f0d73f0c05fad153",
+      "bytes": 499280
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_520207372643609d.wav",
+      "sha256": "af54d185d3d43135971ff93492d71bf6c6069c413cb5a39f6d0d3e18d65365f2",
+      "bytes": 844880
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_5eeb02a4b6b92c12.wav",
+      "sha256": "8fc8cf7ec076d14388a66cf585f865321dddd3b3f369fcc06262c2f794cc5c06",
+      "bytes": 606800
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_63dfd30158419890.wav",
+      "sha256": "14524ae791e483c0b70ab538fd97b4b6a35d3e069f2f9c3804a131369e7b2b45",
+      "bytes": 645200
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_6d1af0571fbb38aa.wav",
+      "sha256": "1845135f7664f6f7b858f3a77bf2bd68527891cce0830e98872ae1b0b42cb087",
+      "bytes": 553040
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_7d91d8bc0a744ed7.wav",
+      "sha256": "fa1e476791ddb9d402905d8596a65bb7379d5d84347056118f84361b50b47b50",
+      "bytes": 714320
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_823088a509da2235.wav",
+      "sha256": "f7e2b7d0d7f07ec9832113b8e0c19a8a431c725cbfa5aac84cb66ac5e7a37fea",
+      "bytes": 368720
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_838fe3e372b1270b.wav",
+      "sha256": "5af4c33540cf5276c552df594be9689a135773820edd7c13ab4e693fb76a2187",
+      "bytes": 576080
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_98a5f9eff626721e.wav",
+      "sha256": "96d19ca58c82755a42f35b5b3053e72df495c38e524fa0876cb8c5d41ca5dba0",
+      "bytes": 622160
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_9d7c579e227e5115.wav",
+      "sha256": "b6e04554d65b55666c09f20efeef6ad315281bdfb4f1e38cbbd4d8bf0f40997e",
+      "bytes": 783440
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_a2feba86cc363503.wav",
+      "sha256": "22b6421d1ab46d9e582b2841f376345620d932eb1df5ecbad02f36b7b9821662",
+      "bytes": 975440
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_a5dae647ab4a6993.wav",
+      "sha256": "96b35927accfeaf35ca851a873ad3f0a4ebb81849c28a1f08ee15409eaf9a37f",
+      "bytes": 1052240
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_a70d680c2a1c7ad0.wav",
+      "sha256": "044653eabd6cd3646c11e2defd1b521c1a0ae67903652ebceb1089ca8ed3ba4b",
+      "bytes": 483920
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_a9d70186c036fec7.wav",
+      "sha256": "93deb9504f5a063ac6fa89c40ad08787c6e7dc042419f2dcb900347099b23fb2",
+      "bytes": 645200
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_b60583bb4ad0b558.wav",
+      "sha256": "3b892eb2161dc7895e805b43673af3272eff052e3ce38866b2a0533308eaaf88",
+      "bytes": 414800
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_c0649c5b57a424c1.wav",
+      "sha256": "6d360266d36cd868c520808e2d826dd4a754aa9d41ddb41f29b0c511d828734f",
+      "bytes": 944720
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_d1f01756b2b39712.wav",
+      "sha256": "35f434a156ec338f97f9ad5952cf0db95729d59b188762b1fe734b536f711af8",
+      "bytes": 852560
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_d50f7ee068802340.wav",
+      "sha256": "e9be69de0ce0e1ea82dab10de6109a6916997a6e3f6015ceb29776ed1bb28415",
+      "bytes": 437840
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_e566c68f0d20b5e0.wav",
+      "sha256": "611e326ba09311a4a93f82b50f3c560690921427c669123beba660649fed915c",
+      "bytes": 460880
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_e7f22b727e22e3c6.wav",
+      "sha256": "901499f5826f8321f801b02a0500ac97eec2dae5dfd9798dcd6c1bc295b19216",
+      "bytes": 530000
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_e92826c9a6ad84c9.wav",
+      "sha256": "15c996ac6213acb6233677cf284f7d362cb3d8d370bd7efa6630aba5d9e23ef6",
+      "bytes": 591440
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_ea738eaf324cb2b1.wav",
+      "sha256": "0e2585a3c1acdf1c3f1422c7032a688d10695ec52a24222dc89828cc3f00289f",
+      "bytes": 760400
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_fac7a4fade3d402b.wav",
+      "sha256": "a7b9d83bca85e5f545eec03bb91fb8aefa6f2e89f23b6f913de1118408bf92c5",
+      "bytes": 875600
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_fcb1e1f2a1cd6567.wav",
+      "sha256": "097fc59164365aee0e8305774277fcd7f0548d46cf8407a3e2b3a7444a012bfa",
+      "bytes": 560720
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_fcbf9927c305e23a.wav",
+      "sha256": "d44cf349aaebb002f0b967097198446ab7ab1c50700628549f9245d732e18dd3",
+      "bytes": 960080
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/dino_fcd97438d8bc56b2.wav",
+      "sha256": "6d1d23730a7417e6bc4e04dadf8fe57bbb68c7e901dd394362f36258ecd31686",
+      "bytes": 430160
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_02f1703fbae8c937.wav",
+      "sha256": "4bd101951295c1df4a861c751c2b860d79cd539d7e903a16b8cdb4c2eee317da",
+      "bytes": 261200
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_2b7b75a34f51025e.wav",
+      "sha256": "54bc798e6927d2e4331dc11a1795c7ff063395b8561216ef766606ee3c1e9adc",
+      "bytes": 445520
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_592e066f5753dfcf.wav",
+      "sha256": "5d34ae6c33f71d49a022520b3c4c4006ec62a00937026bdce0cbef9b2b1127df",
+      "bytes": 176720
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_8688d8bb463f9b8e.wav",
+      "sha256": "5dad5779e618194ad382b1b5468052dee6cf53a62d520c2a8dc12729438baf19",
+      "bytes": 414800
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_8a2aa0dc157d243e.wav",
+      "sha256": "2eb33c3524cb549c36e9390e7f561c5990f0426c3acf1625e6362642773390c6",
+      "bytes": 430160
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_8f8aac8ebce45da4.wav",
+      "sha256": "ea0e4a2f44170117b1991b98c7b7426870f9a12601b9e8f0975abb758d2d73ba",
+      "bytes": 361040
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_a29b4330cfc58198.wav",
+      "sha256": "12f13ec6afceb6fd65065e3be51e617b9b75cac4a1588c38eea191e7fd213ca6",
+      "bytes": 391760
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/raw/onu_c89f2f9319ad37d2.wav",
+      "sha256": "f1912a954f7850eb1710c656bec06bd0f583fc9bb9dc5418ffc778ac63a895bf",
+      "bytes": 483920
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/recipe/build_qwen_voice.py",
+      "sha256": "16d9219d461f0c1c517a893bc004147f5139f967cd1fed63169515c7439123fa",
+      "bytes": 10109
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/recipe/prepare_selection.py",
+      "sha256": "019e2278408b7793a3bad02dac1f7580d8c155ea516a27cad0bdcd66d3378864",
+      "bytes": 12877
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/reference.wav",
+      "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+      "bytes": 683600
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/selected-manifest-52.json",
+      "sha256": "ca2d3d9aa01d179ecb99b84d6a6727d434814a73f418367ea57a4683761245f3",
+      "bytes": 23369
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/selection.json",
+      "sha256": "62440cd6b351924f2be7afd02d8f92d3f5eee3c3a07a84d1609d1040cc11b8f7",
+      "bytes": 1778
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-2/manifest.json",
+      "sha256": "3ab5a290c6831c3824f3f6e2b770bc680e5933648274bf6816037ae81c1b06a3",
+      "bytes": 23823
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-2/plan.json",
+      "sha256": "d23cf579944e0788dee5481467abf858219d0f1a4bf0a95eec83495e565265b5",
+      "bytes": 26728
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-2/provenance.json",
+      "sha256": "a333333dbca815eba10db46e3c42a74a07b063f5c2fe722ee60ab40402eed863",
+      "bytes": 47372
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-3/manifest.json",
+      "sha256": "d60172adaf109c7eac46ffbb8ead0af502c8263136c2fa3888391882e4a97e2c",
+      "bytes": 2534
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-3/plan.json",
+      "sha256": "d66e4bef6daae7710fd0bfcd4fd74375ea89a960f97c12b0d51541b9b38ae805",
+      "bytes": 8398
+    },
+    {
+      "path": "docs/audio/reproduction/onu-story-0560/sources/take-3/provenance.json",
+      "sha256": "7ddeb309e9110643469de45fb048078d71ade165185fabe262f85edbbffe361a",
+      "bytes": 4656
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/dino_350bcbfbd123f73b.wav",
+      "sha256": "14454a62dc8faf42d22545fcbd402e183fa044fd150dd781e84e7bc076dbef10",
+      "bytes": 191542
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/dino_e92826c9a6ad84c9.wav",
+      "sha256": "3c124adf543af029714dd7b7e143799a043fa4968cd0a510e2d60c28f13b54da",
+      "bytes": 242070
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/forest.ogg",
+      "sha256": "1e7c54ea1f754676ed794079cd7942cb7b0dc4b928e1e6e9925ddf4a9497134e",
+      "bytes": 652228
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/pig.mp3",
+      "sha256": "2f8184ca64b7fea4f5e6d71fa40259c21f97b4f4feeebb1d213c237d8a3c7935",
+      "bytes": 422974
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/pigeon.mp3",
+      "sha256": "dd85e4442c97d4751a8d1e09fb4326b4e5985b4ae088ef72852dc4e0fe0e45fa",
+      "bytes": 140016
+    },
+    {
+      "path": "docs/audio/sources/onu-0.35.0/stream.ogg",
+      "sha256": "b71def4798508e588229a5f801fefaed9ac51c5dbad224274123c92e6d183fff",
+      "bytes": 1092440
+    },
+    {
+      "path": "docs/release-preparation/THIRD_PARTY_NOTICES.txt",
+      "sha256": "4e6f7755448fca43ef5fd19abb8ba0fceb4da22b558d76b2b33ed65de760ebb9",
+      "bytes": 23415
+    },
+    {
+      "path": "packages/contracts/action.submit.schema.json",
+      "sha256": "e2b3fce4306323372b1bc93aa558ea72bbfdf91e61a0d11c39ca4529f801023f",
+      "bytes": 1131
+    },
+    {
+      "path": "packages/contracts/openapi.json",
+      "sha256": "9231dfa75d9155c9e9050f912eabc7f4c010b377d7ca0dd8d618c971acdf28e0",
+      "bytes": 12621
+    },
+    {
+      "path": "packages/contracts/playback.completed.schema.json",
+      "sha256": "f222cebd6743c46fbcfb12e0dd34ed966d536113d711c99e95fef0d2aa7f1a53",
+      "bytes": 327
+    },
+    {
+      "path": "packages/contracts/semantic-candidate.schema.json",
+      "sha256": "2295c8c3d9fcabfbe182e1b3133cac6510b7951fa93df0906c2e1ec36a123d5a",
+      "bytes": 1142
+    },
+    {
+      "path": "packages/contracts/session.end.schema.json",
+      "sha256": "6f0feb8ee46a910474ada85084d0cd4fbd49e673487d25efb42dfd6d0776c2bb",
+      "bytes": 109
+    },
+    {
+      "path": "packages/contracts/session.pause.schema.json",
+      "sha256": "945c484cef2c10c8cd5e49d0e1cfbe17a23c3168304d9f89adebbb8e63b27a0a",
+      "bytes": 433
+    },
+    {
+      "path": "packages/contracts/session.resume.schema.json",
+      "sha256": "6f0feb8ee46a910474ada85084d0cd4fbd49e673487d25efb42dfd6d0776c2bb",
+      "bytes": 109
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "b6672bcbeabaf6ff080923bb4317cf7ee3caa536554c08717207f589f14ee35b",
+      "bytes": 791
+    },
+    {
+      "path": "requirements.lock",
+      "sha256": "411d4fbf87c2f896dca612125b4d478ee85dda315226d5a60cc57fd45312013a",
+      "bytes": 493
+    },
+    {
+      "path": "services/api/carplay/__init__.py",
+      "sha256": "2b1b51bd0c5d5fab148d4c6a80aa183b9a863f18027bc269085022158b9382eb",
+      "bytes": 67
+    },
+    {
+      "path": "services/api/carplay/catalog.py",
+      "sha256": "706716a7eb618815a2e3f26c96615de6f87a198b469d7c7758ea25cf67e9c22e",
+      "bytes": 3963
+    },
+    {
+      "path": "services/api/carplay/contracts.py",
+      "sha256": "da7d7a3f589ff6b71b6c91b00738b79be75859967edcf8adb2e1ff95327be915",
+      "bytes": 3132
+    },
+    {
+      "path": "services/api/carplay/game/__init__.py",
+      "sha256": "f209ac43158b8cf0227a8171c7be9b5cccb4d3b9cbfc20fb440bdace1f52fd02",
+      "bytes": 28692
+    },
+    {
+      "path": "services/api/carplay/main.py",
+      "sha256": "4b51ee2f4569f9dcb4f1bd0be75dd071fb697c7c9677001c71fc196256e5d08c",
+      "bytes": 6127
+    },
+    {
+      "path": "services/api/carplay/semantic.py",
+      "sha256": "2038f7d7d192b8f9f90bdb43212570e4983da7c2cf6603d923e8f0cbaf1d9ba1",
+      "bytes": 2385
+    },
+    {
+      "path": "services/api/carplay/service.py",
+      "sha256": "593fa633cee5dcb4022ef7f247955cb0d8106435bd52f2a4934f09192be591a9",
+      "bytes": 25854
+    },
+    {
+      "path": "services/api/carplay/settings.py",
+      "sha256": "de13b6f00d0d32702d593b084c2d4ac898f20c888496c29c6d6145dc0adbec5b",
+      "bytes": 2429
+    },
+    {
+      "path": "services/api/carplay/storage.py",
+      "sha256": "e62b879a8b64f1bda080c228636a71fae5ec99fd69072f9c58365196a44aee1b",
+      "bytes": 2599
+    },
+    {
+      "path": "tests/content_release_expectations.py",
+      "sha256": "c387ebb7e0990e3a41ef731a01f59e6bd156b2b726f90b812dae211905df7b89",
+      "bytes": 4361
+    },
+    {
+      "path": "tests/fixtures/authored_request_cases.json",
+      "sha256": "4afb7629ed7a4e681ce12f8da818983bd4504ee29ee012a69a358319d3d5bbaa",
+      "bytes": 2978
+    },
+    {
+      "path": "tests/fixtures/companion-greetings.json",
+      "sha256": "debfe08d452dabe8798f37cc73045f6555fa726f6ae84dc576eb19b0ec856dc0",
+      "bytes": 16125
+    },
+    {
+      "path": "tests/fixtures/dinosaur_child_script_revision.json",
+      "sha256": "3dbf25a7b08b131b16bdf3064d227adf330cfc237f74820e5be4f39e001938ef",
+      "bytes": 10195
+    },
+    {
+      "path": "tests/fixtures/dinosaur_question_answers.json",
+      "sha256": "a8c4022dc88006bf235094ff080e2234331b34be6c779bfc89add45a8386d769",
+      "bytes": 3936
+    },
+    {
+      "path": "tests/fixtures/published_onu_010_content.json",
+      "sha256": "5ed48626209062a74f20f1a012d5e35cc21acf01d3e804b77f0d982380f483a9",
+      "bytes": 8467
+    },
+    {
+      "path": "tests/fixtures/published_onu_011_content.json",
+      "sha256": "9b68998710340f8e01b34786a6668e15dfde189ef37987635dc23ff19dbc4986",
+      "bytes": 5844
+    },
+    {
+      "path": "tests/fixtures/published_onu_014_space.json",
+      "sha256": "5f37160b13a802cf1f702091a992f6e3986399983e8fa5990924a7be208ca5df",
+      "bytes": 1252
+    },
+    {
+      "path": "tests/fixtures/published_onu_015_content.json",
+      "sha256": "436c11c904052763fcc49fdde1b04fbe3b676065e6724edcdb284156e0a83b4f",
+      "bytes": 2948
+    },
+    {
+      "path": "tests/fixtures/published_onu_017_content.json",
+      "sha256": "376b2cdcf6329ec6e99043a435b83226cd4bd1129bb0ec8b47d79c7eb87456de",
+      "bytes": 4151
+    },
+    {
+      "path": "tests/fixtures/published_onu_030_content.json",
+      "sha256": "a59ea8c4df7a83e9876ad51affd1fe0aa68189791e7d081172750e969003e77b",
+      "bytes": 5510
+    },
+    {
+      "path": "tests/fixtures/question_hint_answers.json",
+      "sha256": "c07b768e8224a0060db503f50fd8b1aa5fbd0b043099d3ae86f9e96adad5e321",
+      "bytes": 44755
+    },
+    {
+      "path": "tests/fixtures/short_preference_answers.json",
+      "sha256": "644c4608341ce6bf8ab63c1094c63eb665de1df8a7a626ff8f592dbe66ee72e9",
+      "bytes": 4247
+    },
+    {
+      "path": "tests/test_android_backup_policy.py",
+      "sha256": "2e0c3d8f1cd76dfd7aca5fd5c75611cca0198a8d190ccd8073ffbda3472a4844",
+      "bytes": 6048
+    },
+    {
+      "path": "tests/test_api.py",
+      "sha256": "ca8dea0d92cf220019fb29d537a27af9ee4bde5ac613a2cdf5f570142ddcdcda",
+      "bytes": 55864
+    },
+    {
+      "path": "tests/test_authored_voice_requests.py",
+      "sha256": "dff83dd1400e2d8ec5716889a7e6275e7c87bf1fbab8083ad611ef26249243bf",
+      "bytes": 5673
+    },
+    {
+      "path": "tests/test_catalog_versions.py",
+      "sha256": "d8b1a362162c1353f30802b92683b9d40234f83d8d472c5816f8ef3cf981c266",
+      "bytes": 9454
+    },
+    {
+      "path": "tests/test_companion_greetings.py",
+      "sha256": "cd69adec30b3a3052cafd7fc480de89507653f4dd6110f8ce3e55734ce133c76",
+      "bytes": 7117
+    },
+    {
+      "path": "tests/test_content_agency.py",
+      "sha256": "1aa4f71659e8627a33add45cd5fe3c1192d32bae220d87e432fc8c7f3f0a5d21",
+      "bytes": 10869
+    },
+    {
+      "path": "tests/test_content_catalog.py",
+      "sha256": "d6d22c5a7bf985214aefc334ada9c75452a5eb790c00fee3881995bb8c9e2209",
+      "bytes": 18171
+    },
+    {
+      "path": "tests/test_content_dinosaurs_ocean.py",
+      "sha256": "e88c851489fc352275a31c5411983df766ed5993f9ac8658dc24a3332b4a14a8",
+      "bytes": 8807
+    },
+    {
+      "path": "tests/test_content_editions.py",
+      "sha256": "299c616175607e908aff5fa7d632c5f7533aa59a79dd1743ec1389f5407b64ba",
+      "bytes": 3893
+    },
+    {
+      "path": "tests/test_content_narrative_connections.py",
+      "sha256": "0a097582679ff5567113768eb633b8e27080775b9e22e98aabee3b7c2dfd03fd",
+      "bytes": 14350
+    },
+    {
+      "path": "tests/test_content_particles.py",
+      "sha256": "dec37d8ab5aec754d884faed2147a17e856f37952985521df60169a85001c153",
+      "bytes": 8054
+    },
+    {
+      "path": "tests/test_content_picnic.py",
+      "sha256": "07bfd9a32a4357a794a474ffa9e3ebdb0ccb469f779fb91d9f973225b4ba62c4",
+      "bytes": 2933
+    },
+    {
+      "path": "tests/test_content_polish_preservation.py",
+      "sha256": "02e1319cafd1aa228e1e498c7bff3ce2a0b2fc9ebab1b74a757f0b11c15394a5",
+      "bytes": 4396
+    },
+    {
+      "path": "tests/test_content_release_compatibility.py",
+      "sha256": "0c14baec60a43c81b0764aeca6e97b24e5c92f64a3a772f13be487160029f44c",
+      "bytes": 4375
+    },
+    {
+      "path": "tests/test_content_request_contract.py",
+      "sha256": "916afbd3932a2b07e36736a106c2de18107f87e46a021cc1058f35b22119b786",
+      "bytes": 12313
+    },
+    {
+      "path": "tests/test_content_space_recall.py",
+      "sha256": "a3a9f9d0ccac3258568f65061c729893d8e9579871294a452eb183a6571ddfb1",
+      "bytes": 11439
+    },
+    {
+      "path": "tests/test_content_space_vehicles.py",
+      "sha256": "42e1d9b3fbda2136097b435d3d816f9d787bc1a8f01d295aba179ffb2dcd1e4b",
+      "bytes": 13040
+    },
+    {
+      "path": "tests/test_content_stories_animals.py",
+      "sha256": "a769cc046d1db97a013d8abcb65afb6efc8c6c29d022e8c8fd2148475e04f3b3",
+      "bytes": 14688
+    },
+    {
+      "path": "tests/test_content_voice_editing.py",
+      "sha256": "9bf27082e832d8eaccde552c7cedf4549bc63550858206c3c06a3c2dc1b24bc9",
+      "bytes": 9067
+    },
+    {
+      "path": "tests/test_dinosaur_child_script_revision.py",
+      "sha256": "8bdbb78809a0556a78ee8e496f5775d41d4739031c3f1ddfffe1d22e171d0166",
+      "bytes": 11541
+    },
+    {
+      "path": "tests/test_dinosaur_question_answers.py",
+      "sha256": "9fcc6fc4ee0972e3d8ab2e90457baf6b2f9416d1921cdef125906943d0ac0068",
+      "bytes": 10693
+    },
+    {
+      "path": "tests/test_fixture_export.py",
+      "sha256": "d1b808d2f2ba169667061aecfffb7ecaa65ced20c209c9f13c80881eed6f5ee5",
+      "bytes": 21514
+    },
+    {
+      "path": "tests/test_game.py",
+      "sha256": "39765d27f2ee40defd33c497fe802f30a416ff6d2cff4aa280645ef449da02ce",
+      "bytes": 13175
+    },
+    {
+      "path": "tests/test_onu_address.py",
+      "sha256": "5995ba47e61987cb43f7ca141a6b0fd52f4c9e31eac2dec5d9f610fbb426052a",
+      "bytes": 11900
+    },
+    {
+      "path": "tests/test_question_hint_answers.py",
+      "sha256": "126ded6d1281da3fba13ca6cc78fb1c8e224a8dce4f2e43807f44266e5e704d9",
+      "bytes": 12115
+    },
+    {
+      "path": "tests/test_release_apk.py",
+      "sha256": "a89d6357215f503a8b9c8e696dad5c526329dc195e5c0e347230569f4fad29b1",
+      "bytes": 32878
+    },
+    {
+      "path": "tests/test_service_versions.py",
+      "sha256": "c82e13eedaac699e3e5425a03001a6bef316778297423e883c730071c4cf2535",
+      "bytes": 8972
+    },
+    {
+      "path": "tests/test_short_preference_answers.py",
+      "sha256": "503486b476d1134465f050530c649dbf5d42f5f296b39109045f49df8b179c4b",
+      "bytes": 8682
+    },
+    {
+      "path": "tests/test_storage.py",
+      "sha256": "c44aac9727f21dbc243094f51eba8f14d185291e79e497978e1146db72e39f8d",
+      "bytes": 2520
+    },
+    {
+      "path": "tests/test_voice_choice_reason.py",
+      "sha256": "5544e1c31dcfe47efd680d9885e1d22b55a9e7bae56744e5031c71dc91174154",
+      "bytes": 3329
+    },
+    {
+      "path": "tools/android_aaos_smoke.py",
+      "sha256": "21b61534e7fc281fc16dbecc027447ae722471c1547f207d30b85a297c2ffea5",
+      "bytes": 16690
+    },
+    {
+      "path": "tools/android_layout_smoke.py",
+      "sha256": "46bb063a56c4a0cd4de829d41c7c72fd5033e0e24088ba2c4778f7de99113394",
+      "bytes": 14411
+    },
+    {
+      "path": "tools/android_process_restore.py",
+      "sha256": "dbf29af38a9e2bfade361771474f646ef0910201b9b8bd545592cad65c94e270",
+      "bytes": 13064
+    },
+    {
+      "path": "tools/android_smoke.py",
+      "sha256": "05b7f9fcfcb8d7307aaed5a0015b95af0d6963b7aecd0ca86c166bf580f4b05d",
+      "bytes": 11170
+    },
+    {
+      "path": "tools/build_natural_story_audio.py",
+      "sha256": "9caf0b03fc43722b3c55b9ee2a650e0142f330faa4275a82b87dc809983fa133",
+      "bytes": 13137
+    },
+    {
+      "path": "tools/build_qwen_voice.py",
+      "sha256": "16d9219d461f0c1c517a893bc004147f5139f967cd1fed63169515c7439123fa",
+      "bytes": 10109
+    },
+    {
+      "path": "tools/build_story_audio.py",
+      "sha256": "31b4418caca5d9f0375eb6bc4e9ed451831d4debe67a4ee2d8ab4342d8747983",
+      "bytes": 32024
+    },
+    {
+      "path": "tools/check_android_backup.py",
+      "sha256": "0b0dc97ec3288192def5798b5b96d50efeb095011461188aa756742f75d2e8aa",
+      "bytes": 8228
+    },
+    {
+      "path": "tools/check_content.py",
+      "sha256": "f747cce7dc56e375a965abff20d58db7f46afb48878f2acca517112e1139eb9a",
+      "bytes": 6764
+    },
+    {
+      "path": "tools/check_pleos_sdk_logs.py",
+      "sha256": "7c33a73d17447b7da0826ea74e69663bd69ca09a1bdf3a4f263b2b671fa46454",
+      "bytes": 3816
+    },
+    {
+      "path": "tools/check_release_apk.py",
+      "sha256": "5d8884977a53227c44b774c39339e83dd2365080aa2848b5f000c912405d48d8",
+      "bytes": 23657
+    },
+    {
+      "path": "tools/demo_config.py",
+      "sha256": "b6735c50665ec24e7f0d8448f25843f29f74ed1bb9262666084adff618131bea",
+      "bytes": 870
+    },
+    {
+      "path": "tools/export_android_fixtures.py",
+      "sha256": "b1c0aa3df861395cf36b2f2ca2d9500c345cf0cf845dd8cb6f7b1024cff837b4",
+      "bytes": 50274
+    },
+    {
+      "path": "tools/export_contracts.py",
+      "sha256": "02bb053b3bc1750c1ebb9bb09492cbbd063ae06d343c213b082535aec9f93032",
+      "bytes": 1533
+    },
+    {
+      "path": "tools/http_smoke.py",
+      "sha256": "77fec386cdd22c6f384c173481307af21b6a4b494d73b0d601a0da73fcc4eb10",
+      "bytes": 3177
+    },
+    {
+      "path": "tools/make_story_cues.py",
+      "sha256": "a5d132ec6e1c10648afedc3ca741c44218ee327e9765bcf4bd5cc91932cee719",
+      "bytes": 6363
+    },
+    {
+      "path": "tools/play_cli.py",
+      "sha256": "9ba111631d12e71f471e50b147c735d9a59f7220d39e404c547bce526a7c7d13",
+      "bytes": 8107
+    },
+    {
+      "path": "tools/retime_story_audio.py",
+      "sha256": "38eedf452e2109b97abbff9f45f5412eb4d6bdf96572b373dfe156058844c1f7",
+      "bytes": 10772
+    },
+    {
+      "path": "tools/run_server.py",
+      "sha256": "22777f2ae33de6dda1a17f554205686753d68179f642dc917bf2897c93650cd5",
+      "bytes": 1178
     }
   ]
 }

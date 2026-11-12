@@ -1,5 +1,6 @@
 package dev.carplaymate.demo
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
@@ -15,7 +16,11 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalDensity
@@ -52,9 +57,10 @@ internal fun WelcomeScreen(
         contentAlignment = Alignment.Center,
     ) {
         val spacious = wide && spaciousSetup(maxWidth, maxHeight, LocalDensity.current.fontScale)
+        val split = wide && maxWidth / LocalDensity.current.fontScale.coerceAtLeast(1f) >= 800.dp
         val shortViewport = maxHeight < 500.dp
         val sceneHeight = when {
-            spacious -> (maxHeight * .39f).coerceIn(310.dp, 420.dp)
+            spacious -> (maxHeight * .42f).coerceIn(300.dp, 430.dp)
             wide && !shortViewport -> 330.dp
             wide -> 210.dp
             shortViewport -> 128.dp
@@ -69,60 +75,67 @@ internal fun WelcomeScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             AdaptiveColumns(
-                wide,
+                split,
                 first = {
-                    Surface(
-                        modifier = Modifier.onuWelcomeIntroScrim(sceneHeight),
-                        color = Color.Transparent,
-                    ) {
-                        Column(Modifier.fillMaxWidth()) {
-                            OnuCompanion(Modifier.fillMaxWidth().height(sceneHeight).testTag("welcome.world"),
-                                if (previewState.phase == WelcomePreviewPhase.PLAYING) OnuMood.STORYTELLING else OnuMood.READY,
-                                decorative = true, motion = true, narrationActive = previewState.speaking)
-                            Column(
-                                Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 16.dp),
-                                verticalArrangement = Arrangement.spacedBy(6.dp),
-                            ) {
-                                Text(
-                                    "안녕, 나는 오누야.",
-                                    style = (if (spacious) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.headlineMedium).copy(
-                                        lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase),
-                                    ),
-                                    color = PlaymateColors.Ink,
-                                    modifier = Modifier.semantics { heading() },
+                    Surface(shape = RoundedCornerShape(28.dp), color = PlaymateColors.OnuCream) {
+                        Column {
+                            Box(Modifier.fillMaxWidth().height(sceneHeight).testTag("welcome.world")) {
+                                Image(painterResource(R.drawable.onu_arrival_world), null, Modifier.matchParentSize(),
+                                    contentScale = ContentScale.Crop)
+                                Spacer(Modifier.matchParentSize().background(Brush.verticalGradient(
+                                    .67f to Color.Transparent, 1f to PlaymateColors.OnuCream,
+                                )))
+                                OnuCompanion(
+                                    Modifier.align(Alignment.BottomCenter).fillMaxHeight(.90f).fillMaxWidth(.58f),
+                                    if (previewState.phase == WelcomePreviewPhase.PLAYING) OnuMood.STORYTELLING else OnuMood.READY,
+                                    decorative = true, motion = true, narrationActive = previewState.speaking,
                                 )
-                                Text(
-                                    "가는 길에 나랑 소리 퀴즈 풀어 볼래? 단서를 들려줄게.",
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = PlaymateColors.Ink,
-                                )
+                            }
+                            Column(Modifier.padding(start = 24.dp, end = 24.dp, top = 4.dp, bottom = 12.dp),
+                                verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                                Text("안녕, 나는 오누야.", style = MaterialTheme.typography.headlineLarge,
+                                    color = PlaymateColors.DeepForest, modifier = Modifier.semantics { heading() })
+                                Text("가는 길에 나랑 소리 퀴즈 풀어 볼래? 단서를 들려줄게.",
+                                    style = MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink)
                                 OnuWelcomeVoiceControl(previewState, preview::toggle)
                             }
                         }
                     }
                 },
                 second = {
-                    Surface(
-                        color = Color.Transparent,
-                    ) {
+                    Surface(shape = RoundedCornerShape(24.dp), color = PlaymateColors.Paper) {
                         Column(
-                            Modifier.fillMaxWidth().padding(if (wide) 24.dp else 20.dp),
+                            Modifier.fillMaxWidth().padding(if (split) 24.dp else 18.dp),
                             verticalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
-                            // One compact heading keeps the first action visible on short dashboards.
-                            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                                OnuSetupProgress(1)
-                                Text(
-                                    "어떻게 불러 줄까요?",
-                                    style = (if (spacious) MaterialTheme.typography.headlineLarge else MaterialTheme.typography.headlineMedium).copy(
-                                        lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase),
-                                    ),
-                                    modifier = Modifier.semantics { heading() },
-                                )
-                            }
-                            Row(Modifier.selectableGroup(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                                SelectButton("한 명", !two, { two = false; error = null }, Modifier.weight(1f))
-                                SelectButton("두 명", two, { two = true; error = null }, Modifier.weight(1f))
+                            OnuSetupProgress(1)
+                            Text("아이의 별명을 알려 주세요", style = MaterialTheme.typography.headlineMedium,
+                                color = PlaymateColors.DeepForest, modifier = Modifier.semantics { heading() })
+                            Row(
+                                Modifier.fillMaxWidth().background(PlaymateColors.Mist, RoundedCornerShape(18.dp))
+                                    .padding(4.dp).selectableGroup(),
+                                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                            ) {
+                                listOf(false, true).forEach { pair ->
+                                    val selected = two == pair
+                                    val shape = RoundedCornerShape(14.dp)
+                                    Row(
+                                        Modifier.weight(1f).clip(shape)
+                                            .background(if (selected) PlaymateColors.Forest else Color.Transparent)
+                                            .selectable(selected = selected, enabled = !ui.busy, role = Role.RadioButton,
+                                                onClick = { two = pair; error = null })
+                                            .heightIn(min = 60.dp).padding(horizontal = 8.dp, vertical = 8.dp),
+                                        horizontalArrangement = Arrangement.Center,
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        if (selected) {
+                                            FamilyIcon(FamilyIcon.CHECK, Modifier.size(22.dp), tint = PlaymateColors.Paper)
+                                            Spacer(Modifier.width(6.dp))
+                                        }
+                                        Text(if (pair) "두 명" else "한 명", style = MaterialTheme.typography.labelLarge,
+                                            color = if (selected) PlaymateColors.Paper else PlaymateColors.DeepForest)
+                                    }
+                                }
                             }
                             OutlinedTextField(
                                 first,
@@ -191,17 +204,13 @@ internal fun WelcomeScreen(
                                 modifier = Modifier.testTag("welcome.save"),
                             )
                             Text(
-                                "별명과 관심사는 이 기기에 암호화해 저장해요.\n보호자 설정에서 수정·삭제할 수 있어요.",
+                                "별명과 관심사는 이 기기에 암호화해 저장해요. 보호자 설정에서 바꾸거나 지울 수 있어요.",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = PlaymateColors.Muted,
                             )
                             Text(
-                                "처음 설정은 차가 멈춰 있을 때 보호자와 함께해요.",
-                                modifier = Modifier.background(
-                                    PlaymateColors.Ivory.copy(alpha = .97f), RoundedCornerShape(8.dp),
-                                ).padding(horizontal = 10.dp, vertical = 6.dp),
-                                style = if (spacious) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodySmall,
-                                color = PlaymateColors.Ink,
+                                "차가 멈췄을 때 보호자와 함께 설정해 주세요.",
+                                style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted,
                             )
                         }
                     }

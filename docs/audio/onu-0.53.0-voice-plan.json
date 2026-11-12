@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "voice": "Onu, new fictional Korean boy",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "revision": "fd4b254389122332181a7c3db7f27e918eec64e3",
+    "license": "Apache-2.0",
+    "code_repository": "https://github.com/QwenLM/Qwen3-TTS",
+    "code_license": "Apache-2.0",
+    "package": "qwen-tts==0.1.1"
+  },
+  "reference": {
+    "asset": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+    "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "text": "어, 나도 들었어. 작은 소리가 두 번 났지? 잠깐만. 우리 같이 한 번 더 들어 보자.",
+    "origin": "Independent self-generated fictional Korean boy voice, VoiceDesign seed 86301."
+  },
+  "api": {
+    "language": "Korean",
+    "x_vector_only_mode": false,
+    "non_streaming_mode": true,
+    "max_new_tokens": 420,
+    "dtype": "bfloat16",
+    "attention": "sdpa"
+  },
+  "processing": {
+    "static_gain_target_lufs": -23,
+    "true_peak_cap_dbtp": -3.25,
+    "pitch_or_time_processing": false
+  },
+  "clips": [
+    {
+      "id": "opening",
+      "text": "어? 우리 차에 편지가 왔어. 어제는 무서워서 못 뛰었대. 오늘은 어땠을까? 그 친구의 첫 점프를 같이 중계해 주자.",
+      "text_sha256": "cec3cd6e730bc96b0df022025c7da8ed406b7b8dd8a9d2385cd6347c6bd3ce42",
+      "asset": "story_audio/opening.wav",
+      "seed": 64120
+    },
+    {
+      "id": "reveal_penguin",
+      "text": "아까 펭귄이라고 했지? 정말 펭귄이네! 첫 점프를 같이 들려주자.",
+      "text_sha256": "3ce457aff953509f4aaadbc3677fc2bb4d94b13ce914821bdf8c1fb68457f08b",
+      "asset": "story_audio/reveal_penguin.wav",
+      "seed": 64121
+    },
+    {
+      "id": "reveal_otter",
+      "text": "나도 해달인 줄 알았는데, 깃털이 있었네! 펭귄의 첫 점프를 같이 들려주자.",
+      "text_sha256": "7d8cc1059cb8bda587868955ea25128cffa1094a4e213390e0d5e4574bd02d38",
+      "asset": "story_audio/reveal_otter.wav",
+      "seed": 64122
+    },
+    {
+      "id": "reveal_unsure",
+      "text": "이제 알겠다. 깃털이 있는 펭귄이네! 첫 점프를 같이 들려주자.",
+      "text_sha256": "b825af21aca46a4fdaca337f676311f3fa87bde39b6c62dbc17732ae06cbe07a",
+      "asset": "story_audio/reveal_unsure.wav",
+      "seed": 64233
+    },
+    {
+      "id": "rain_ack",
+      "text": "빗방울 톡톡! 우리 차창이 악기 같아.",
+      "text_sha256": "d1dc32d3d4db2bcc7282a328537b8b24ff5a2dfe33b9b98b1262f2c0b5fdcdee",
+      "asset": "story_audio/rain_ack.wav",
+      "seed": 64124
+    },
+    {
+      "id": "wiper_ack",
+      "text": "와이퍼 슥삭! 톡톡이랑 같이 들어 보자.",
+      "text_sha256": "6f645716a3bb931e85f8ef6ecfa441e6e7be76159cc8b824a3b3a2a92935ac9b",
+      "asset": "story_audio/wiper_ack.wav",
+      "seed": 64125
+    },
+    {
+      "id": "tempo_q",
+      "text": "빗소리가 달라졌네. 아까보다 빨라졌을까, 느려졌을까?",
+      "text_sha256": "febfb25bec353bfa385b14e886955e234d003d1ae3802209d963528c64a022ed",
+      "asset": "story_audio/tempo_q.wav",
+      "seed": 64126
+    }
+  ],
+  "cues": [],
+  "purpose": "Onu 0.53 story motivation and response to the child-selected canonical guess",
+  "scope": "Offline self-generated fictional Korean boy voice, matching existing letter episodes; no human recordings or child data. Automatic screening is not human listening approval.",
+  "compatibility": {
+    "matches_existing_first_jump_and_rain": true,
+    "reference_sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "replaces_incorrect_b2_candidate": true
+  }
+}

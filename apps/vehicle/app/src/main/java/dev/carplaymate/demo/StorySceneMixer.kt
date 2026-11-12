@@ -55,17 +55,23 @@ internal object StorySceneMixer {
             else -> CUE_LEAD_MILLIS
         }
         val leadFrames = SAMPLE_RATE * leadMillis / 1000
-        val voiceEnd = leadFrames + voicePcm.outputFrames
+        val bounds = speechBounds(voicePcm.outputFrames, voicePcm::at)
+        // Anchor the spoken onset, not the file's quiet prefix, to the authored cue lead.
+        // Keep up to 120 ms of quiet after that lead. Earlier quiet PCM is still played in
+        // full underneath the cue; neither source is trimmed, stretched, or repeated.
+        val desiredSpeechStart = leadFrames + min(bounds.first, DUCK_RAMP_FRAMES)
+        val narrationOffset = max(0, desiredSpeechStart - bounds.first)
+        val voiceEnd = narrationOffset + voicePcm.outputFrames
         val outputFrames = max(cuePcm.outputFrames, voiceEnd)
         require(outputFrames in 1..MAX_OUTPUT_FRAMES) { "Scene exceeds its finite output limit" }
 
-        val bounds = speechBounds(voicePcm.outputFrames, voicePcm::at)
         val voiceRms = bounds.rms
-        val speechStart = leadFrames + bounds.first
-        val speechEnd = leadFrames + bounds.end
-        // Use at most 120 ms of verified leading quiet. Immediate speech is ducked before it starts.
-        val duckEnd = min(leadFrames + DUCK_RAMP_FRAMES, speechStart)
-        val duckStart = max(0, duckEnd - DUCK_RAMP_FRAMES)
+        val speechStart = narrationOffset + bounds.first
+        val speechEnd = narrationOffset + bounds.end
+        // Duck immediately before actual speech, while preserving the identifying cue lead.
+        // Immediate speech has a zero-length ramp and receives full ducking at its first frame.
+        val duckEnd = speechStart
+        val duckStart = max(leadFrames, duckEnd - DUCK_RAMP_FRAMES)
         val fadeIn = min(FADE_IN_FRAMES, max(1, cuePcm.outputFrames / 2))
         val fadeOut = min(FADE_OUT_FRAMES, max(1, cuePcm.outputFrames / 2))
         fun cueEnvelope(frame: Int): Double {
@@ -89,10 +95,12 @@ internal object StorySceneMixer {
             else -> min(MAX_DUCK_GAIN, voiceRms * CUE_RMS_RATIO / cueRms)
         }
         fun mixedAt(frame: Int): Double {
-            val voiceFrame = frame - leadFrames
+            val voiceFrame = frame - narrationOffset
             val voice = if (voiceFrame in 0 until voicePcm.outputFrames) voicePcm.at(voiceFrame) else 0.0
             val effect = if (frame < cuePcm.outputFrames) {
-                val progress = smooth((frame - duckStart).toDouble() / max(1, duckEnd - duckStart))
+                val progress = if (duckEnd == duckStart) {
+                    if (frame < duckEnd) 0.0 else 1.0
+                } else smooth((frame - duckStart).toDouble() / (duckEnd - duckStart))
                 val gain = 1.0 + (duckGain - 1.0) * progress
                 cuePcm.at(frame) * cueEnvelope(frame) * gain
             } else 0.0
@@ -122,7 +130,7 @@ internal object StorySceneMixer {
             speechEndFrame = speechEnd,
             voiceGain = overallGain,
             cueGainDuringSpeech = duckGain * overallGain,
-            narrationOffsetFrame = leadFrames,
+            narrationOffsetFrame = narrationOffset,
         )
     }
 

@@ -63,7 +63,7 @@ class RainGameTest {
         assertTrue("rain_hint" in mistake.cues)
         val assistedRain = hear(mistake, "잘 모르겠어")
         assertEquals(RainStep.WIPER, assistedRain.state.step)
-        assertTrue("rain_ack" in assistedRain.cues)
+        assertTrue("rain_explain" in assistedRain.cues)
         val helpedWiper = hear(hear(assistedRain, "힌트"), "힌트 줘")
         assertEquals(RainStep.TEMPO, helpedWiper.state.step)
         val mistakeTempo = hear(helpedWiper, "소리가 더 커졌어")
@@ -71,8 +71,12 @@ class RainGameTest {
         assertTrue("tempo_hint" in mistakeTempo.cues && "rain_beat" in mistakeTempo.cues)
         val moved = hear(mistakeTempo, "더 느려졌어")
         assertEquals(RainStep.DIRECT, moved.state.step)
-        assertTrue("tempo_ack" in moved.cues)
-        assertEquals(RainEnding.DROPS, hear(hear(moved,"몰라"),"오누가 해 줘").state.ending)
+        assertTrue("tempo_explain" in moved.cues)
+        val quiet = hear(hear(moved, "몰라"), "오누가 해 줘")
+        assertTrue(quiet.state.paused)
+        assertEquals(RainStep.DIRECT, quiet.state.step)
+        assertNull(quiet.state.ending)
+        assertEquals(RainEnding.WIPER, hear(choose(quiet, "resume"), "와이퍼 먼저").state.ending)
     }
 
     @Test fun spokenAliasesAndButtonsAgreeWhileNegationIsNeverCredited() {
@@ -101,9 +105,12 @@ class RainGameTest {
         val replay = hear(firstSilence,"다시 들려 줘")
         assertEquals(firstSilence.state,replay.state)
         assertEquals(listOf("repeat_prompt","rain_beat","tempo_q"),replay.cues)
-        val ending = hear(replay," ")
-        assertFalse(ending.acceptsAnswer)
-        assertEquals(listOf("tempo_ack","finale_drops"),ending.cues)
+        val quiet = hear(replay," ")
+        assertFalse(quiet.acceptsAnswer)
+        assertEquals(RainStep.TEMPO, quiet.state.step)
+        assertTrue(quiet.state.paused)
+        assertNull(quiet.state.ending)
+        assertTrue(quiet.cues.isEmpty())
         val unheard = hear(wiper(),"그건 내가 모르던 물건이야")
         assertTrue("unheard" in unheard.cues)
         assertEquals(RainStep.TEMPO, hear(unheard,"다른 표현").state.step)
@@ -127,6 +134,85 @@ class RainGameTest {
         }
         assertFalse(RainGame.initial().acceptsAnswer)
         assertEquals(RainGame.initial(),hear(RainGame.initial(),"톡톡"))
+    }
+
+    @Test fun silenceAtEveryQuestionKeepsThePriorJumpButNeverSendsUnchosenMusic() {
+        for (step in listOf(RainStep.DROPS, RainStep.WIPER, RainStep.TEMPO, RainStep.DIRECT)) {
+            val original = RainState(step = step, previousJump = JumpEnding.BOLD)
+            val quiet = hear(RainGame.hear(original, null), null)
+            assertEquals(step, quiet.state.step)
+            assertEquals(JumpEnding.BOLD, quiet.state.previousJump)
+            assertNull(quiet.state.ending)
+            assertNull(quiet.answerLabel)
+            assertTrue(quiet.state.paused)
+            assertTrue(quiet.cues.isEmpty())
+            assertFalse(quiet.acceptsAnswer)
+            val restored = restoreRain(quiet.state.rainCheckpoint())!!
+            assertEquals(quiet.state, restored)
+            val resumed = RainGame.choose(restored, "resume")
+            assertEquals(step, resumed.state.step)
+            assertNull(resumed.answerLabel)
+            assertTrue(resumed.acceptsAnswer)
+        }
+    }
+
+    @Test fun canonicalFeedbackFollowsTheAnswerWithoutRetainingTheChildsWords() {
+        val raw = "오누야, 물방울!"
+        val answer = hear(open(), raw)
+        assertEquals(choose(open(), "drops"), answer)
+        assertEquals("빗방울", answer.answerLabel)
+        assertNull(hear(open(), "빗방울은 아니야").answerLabel)
+        assertNull(choose(open(), "invalid").answerLabel)
+        assertNull(choose(answer, "again").answerLabel)
+        assertNull(choose(answer, "rest").answerLabel)
+        assertNull(RainGame.resume(answer.state).answerLabel)
+        val token = answer.state.rainCheckpoint()
+        assertFalse(token.contains(raw))
+        assertFalse(token.contains(answer.answerLabel!!))
+        assertEquals(answer.state, restoreRain(token))
+        val ended = hear(direct(), "와이퍼 소리부터")
+        assertEquals("슥삭 먼저", ended.answerLabel)
+        assertEquals(RainEnding.WIPER, ended.state.ending)
+        val unheard = hear(hear(direct(), "둘 중 아무것도 아니야"), "둘 중 아무것도 아니야")
+        assertTrue(unheard.state.paused)
+        assertNull(unheard.state.ending)
+        assertNull(unheard.answerLabel)
+    }
+
+    @Test fun repeatedMistakesHelpAndUnrecognizedSpeechUseExplanationInsteadOfAgreement() {
+        val stages = listOf(
+            Triple(open(), "와이퍼", "rain"),
+            Triple(wiper(), "빗방울", "wiper"),
+            Triple(tempo(), "느려졌어", "tempo"),
+        )
+        for ((turn, wrong, cue) in stages) {
+            for (words in listOf(wrong, "힌트", "부릉부릉")) {
+                val assisted = hear(hear(turn, words), words)
+                assertEquals("${cue}_explain", assisted.cues.first())
+                assertFalse("${cue}_ack" in assisted.cues)
+                assertFalse(assisted.state.paused)
+                assertEquals(null, assisted.state.ending)
+                assertEquals(assisted.state, restoreRain(assisted.state.rainCheckpoint()))
+            }
+            val silent = hear(hear(turn, null), null)
+            assertEquals(turn.state.step, silent.state.step)
+            assertTrue(silent.state.paused)
+            assertTrue(silent.cues.isEmpty())
+        }
+    }
+
+    @Test fun aCorrectAnswerAfterAssistanceStillGetsItsNormalAcknowledgement() {
+        for ((turn, correct, cue) in listOf(
+            Triple(open(), "빗방울", "rain"),
+            Triple(wiper(), "와이퍼", "wiper"),
+            Triple(tempo(), "빨라졌어", "tempo"),
+        )) {
+            for (help in listOf("힌트", "부릉부릉")) {
+                val answered = hear(hear(turn, help), correct)
+                assertEquals("${cue}_ack", answered.cues.first())
+                assertFalse("${cue}_explain" in answered.cues)
+            }
+        }
     }
 
     @Test fun readingCluesShowSoundAndTimingWithoutGivingAwayTheAnswer() {

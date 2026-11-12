@@ -1,0 +1,8 @@
+{
+  "asset": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+  "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+  "text": "어, 나도 들었어. 작은 소리가 두 번 났지? 잠깐만. 우리 같이 한 번 더 들어 보자.",
+  "origin": "Independent self-generated fictional Korean boy voice, VoiceDesign seed 86301.",
+  "human_recording": false,
+  "use": "Same self-generated reference as existing first_jump and rain_music episodes"
+}

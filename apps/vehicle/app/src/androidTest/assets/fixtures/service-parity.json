@@ -15,7 +15,7 @@
     "traversal": "object keys sorted ascending; depth first; list order preserved"
   },
   "pack_id": "dinosaur-lab-missing-egg",
-  "pack_version": "0.11.0",
+  "pack_version": "0.12.0",
   "scenarios": [
     {
       "id": "ending-1",
@@ -30,7 +30,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -99,7 +99,7 @@
           "finished": false,
           "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
           "input_kind": "choice",
-          "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+          "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
           "roles": {
             "p1": "탐험가와 연구원"
           },
@@ -113,7 +113,7 @@
             {
               "required": true,
               "segment_id": "segment_1",
-              "text": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
+              "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
             }
           ],
           "turn_epoch": 1,
@@ -143,7 +143,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -212,7 +212,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -240,7 +240,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -309,7 +309,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -347,7 +347,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -416,7 +416,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -430,7 +430,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_2",
-                  "text": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
+                  "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
                 }
               ],
               "turn_epoch": 3,
@@ -455,7 +455,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -524,7 +524,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -538,7 +538,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_2",
-                    "text": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
+                    "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
                   }
                 ],
                 "turn_epoch": 3,
@@ -571,7 +571,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -645,7 +645,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -673,7 +673,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -747,7 +747,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -785,7 +785,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -859,7 +859,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -887,7 +887,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -961,7 +961,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -999,7 +999,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -1073,7 +1073,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -1087,7 +1087,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_3",
-                  "text": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
+                  "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
                 }
               ],
               "turn_epoch": 5,
@@ -1112,7 +1112,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -1186,7 +1186,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -1200,7 +1200,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_3",
-                    "text": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
+                    "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -1233,7 +1233,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -1307,7 +1307,7 @@
               "finished": false,
               "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
               "input_kind": "choice",
-              "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+              "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -1335,7 +1335,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -1409,7 +1409,7 @@
                 "finished": false,
                 "hint": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
                 "input_kind": "choice",
-                "prompt": "민준, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+                "prompt": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -1460,7 +1460,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -1528,7 +1528,7 @@
               "finished": false,
               "hint": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
               "input_kind": "choice",
-              "prompt": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+              "prompt": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -1547,7 +1547,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_5",
-                  "text": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"
+                  "text": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"
                 }
               ],
               "turn_epoch": 5,
@@ -1585,7 +1585,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -1653,7 +1653,7 @@
                 "finished": false,
                 "hint": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
                 "input_kind": "choice",
-                "prompt": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+                "prompt": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -1672,7 +1672,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_5",
-                    "text": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"
+                    "text": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -1725,7 +1725,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -1794,7 +1794,7 @@
               "finished": false,
               "hint": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
               "input_kind": "choice",
-              "prompt": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+              "prompt": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -1835,7 +1835,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -1904,7 +1904,7 @@
                 "finished": false,
                 "hint": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
                 "input_kind": "choice",
-                "prompt": "민준, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+                "prompt": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -1964,7 +1964,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -2027,7 +2027,7 @@
               "finished": false,
               "hint": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
               "input_kind": "choice",
-              "prompt": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+              "prompt": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -2046,7 +2046,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_7",
-                  "text": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"
+                  "text": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"
                 }
               ],
               "turn_epoch": 5,
@@ -2093,7 +2093,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -2156,7 +2156,7 @@
                 "finished": false,
                 "hint": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
                 "input_kind": "choice",
-                "prompt": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+                "prompt": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -2175,7 +2175,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_7",
-                    "text": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"
+                    "text": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -2237,7 +2237,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -2300,7 +2300,7 @@
               "finished": false,
               "hint": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
               "input_kind": "choice",
-              "prompt": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+              "prompt": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -2350,7 +2350,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -2413,7 +2413,7 @@
                 "finished": false,
                 "hint": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
                 "input_kind": "choice",
-                "prompt": "민준, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+                "prompt": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -2481,7 +2481,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -2561,7 +2561,7 @@
               "finished": false,
               "hint": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
               "input_kind": "choice",
-              "prompt": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+              "prompt": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -2580,7 +2580,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_9",
-                  "text": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"
+                  "text": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"
                 }
               ],
               "turn_epoch": 5,
@@ -2635,7 +2635,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -2715,7 +2715,7 @@
                 "finished": false,
                 "hint": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
                 "input_kind": "choice",
-                "prompt": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+                "prompt": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -2734,7 +2734,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_9",
-                    "text": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"
+                    "text": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -2804,7 +2804,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -2884,7 +2884,7 @@
               "finished": false,
               "hint": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
               "input_kind": "choice",
-              "prompt": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+              "prompt": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -2942,7 +2942,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -3022,7 +3022,7 @@
                 "finished": false,
                 "hint": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
                 "input_kind": "choice",
-                "prompt": "민준, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+                "prompt": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -3101,7 +3101,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -3169,7 +3169,7 @@
               "finished": false,
               "hint": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
               "input_kind": "choice",
-              "prompt": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+              "prompt": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -3188,7 +3188,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_11",
-                  "text": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"
+                  "text": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"
                 }
               ],
               "turn_epoch": 5,
@@ -3254,7 +3254,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -3322,7 +3322,7 @@
                 "finished": false,
                 "hint": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
                 "input_kind": "choice",
-                "prompt": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+                "prompt": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -3341,7 +3341,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_11",
-                    "text": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"
+                    "text": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -3422,7 +3422,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -3490,7 +3490,7 @@
               "finished": false,
               "hint": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
               "input_kind": "choice",
-              "prompt": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+              "prompt": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -3559,7 +3559,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -3627,7 +3627,7 @@
                 "finished": false,
                 "hint": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
                 "input_kind": "choice",
-                "prompt": "민준, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+                "prompt": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -3714,7 +3714,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -3780,7 +3780,7 @@
               "finished": false,
               "hint": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
               "input_kind": "choice",
-              "prompt": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+              "prompt": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -3799,7 +3799,7 @@
                 {
                   "required": true,
                   "segment_id": "segment_13",
-                  "text": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"
+                  "text": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"
                 }
               ],
               "turn_epoch": 5,
@@ -3873,7 +3873,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -3939,7 +3939,7 @@
                 "finished": false,
                 "hint": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
                 "input_kind": "choice",
-                "prompt": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+                "prompt": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -3958,7 +3958,7 @@
                   {
                     "required": true,
                     "segment_id": "segment_13",
-                    "text": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"
+                    "text": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"
                   }
                 ],
                 "turn_epoch": 5,
@@ -4047,7 +4047,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -4113,7 +4113,7 @@
               "finished": false,
               "hint": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
               "input_kind": "choice",
-              "prompt": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+              "prompt": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
               "roles": {
                 "p1": "탐험가와 연구원"
               },
@@ -4190,7 +4190,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -4256,7 +4256,7 @@
                 "finished": false,
                 "hint": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
                 "input_kind": "choice",
-                "prompt": "민준, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+                "prompt": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
                 "roles": {
                   "p1": "탐험가와 연구원"
                 },
@@ -4350,7 +4350,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -4487,7 +4487,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -4639,7 +4639,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -4760,7 +4760,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -4838,7 +4838,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -4967,7 +4967,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -5071,7 +5071,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -5185,7 +5185,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -5305,7 +5305,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -5433,7 +5433,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -5543,7 +5543,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -5663,7 +5663,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -5773,7 +5773,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -5893,7 +5893,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -6014,7 +6014,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -6143,7 +6143,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -6252,7 +6252,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -6384,7 +6384,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -6516,7 +6516,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -6663,7 +6663,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -6780,7 +6780,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -6916,7 +6916,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -7052,7 +7052,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -7203,7 +7203,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -7323,7 +7323,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -7461,7 +7461,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -7622,7 +7622,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -7798,7 +7798,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -7943,7 +7943,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -8109,7 +8109,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -8269,7 +8269,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -8444,7 +8444,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -8588,7 +8588,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -8750,7 +8750,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -8916,7 +8916,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -9097,7 +9097,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -9247,7 +9247,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -9414,7 +9414,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -9558,7 +9558,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -9717,7 +9717,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -9845,7 +9845,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -9930,7 +9930,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -10059,7 +10059,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -10169,7 +10169,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -10289,7 +10289,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -10410,7 +10410,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -10546,7 +10546,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -10655,7 +10655,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -10787,7 +10787,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -10919,7 +10919,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -11066,7 +11066,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -11183,7 +11183,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -11310,7 +11310,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -11443,7 +11443,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -11591,7 +11591,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -11708,7 +11708,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -11844,7 +11844,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -11980,7 +11980,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -12112,7 +12112,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -12241,7 +12241,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -12351,7 +12351,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -12484,7 +12484,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -12617,7 +12617,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -12765,7 +12765,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -12898,7 +12898,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -13046,7 +13046,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -13198,7 +13198,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -13315,7 +13315,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -13442,7 +13442,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -13559,7 +13559,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -13686,7 +13686,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -13819,7 +13819,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -13960,7 +13960,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -14107,7 +14107,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -14224,7 +14224,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -14351,7 +14351,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -14468,7 +14468,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -14590,7 +14590,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -14719,7 +14719,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -14829,7 +14829,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -14949,7 +14949,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -15070,7 +15070,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -15206,7 +15206,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -15315,7 +15315,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -15434,7 +15434,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -15543,7 +15543,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -15667,7 +15667,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -15787,7 +15787,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -15915,7 +15915,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -16024,7 +16024,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -16143,7 +16143,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -16268,7 +16268,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -16408,7 +16408,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -16518,7 +16518,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -16638,7 +16638,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -16748,7 +16748,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -16873,7 +16873,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -16994,7 +16994,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -17123,7 +17123,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -17232,7 +17232,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -17364,7 +17364,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -17496,7 +17496,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -17643,7 +17643,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -17760,7 +17760,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -17889,7 +17889,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -18024,7 +18024,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -18174,7 +18174,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -18293,7 +18293,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -18422,7 +18422,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -18557,7 +18557,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -18707,7 +18707,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -18826,7 +18826,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -18955,7 +18955,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -19074,7 +19074,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -19208,7 +19208,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -19338,7 +19338,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -19476,7 +19476,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -19594,7 +19594,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -19722,7 +19722,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -19851,7 +19851,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -19995,7 +19995,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -20113,7 +20113,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -20241,7 +20241,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -20359,7 +20359,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -20480,7 +20480,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -20609,7 +20609,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -20719,7 +20719,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -20839,7 +20839,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -20960,7 +20960,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -21096,7 +21096,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -21205,7 +21205,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -21324,7 +21324,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -21433,7 +21433,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -21557,7 +21557,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -21677,7 +21677,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -21805,7 +21805,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -21914,7 +21914,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -22033,7 +22033,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -22158,7 +22158,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -22298,7 +22298,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -22408,7 +22408,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -22541,7 +22541,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -22674,7 +22674,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -22812,7 +22812,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -22941,7 +22941,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -23051,7 +23051,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -23171,7 +23171,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -23292,7 +23292,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -23428,7 +23428,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -23537,7 +23537,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -23658,7 +23658,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -23785,7 +23785,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -23927,7 +23927,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -24039,7 +24039,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -24161,7 +24161,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -24273,7 +24273,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -24400,7 +24400,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -24523,7 +24523,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -24654,7 +24654,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -24765,7 +24765,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -24899,7 +24899,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -25033,7 +25033,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -25170,7 +25170,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -25299,7 +25299,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -25409,7 +25409,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -25529,7 +25529,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -25650,7 +25650,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -25786,7 +25786,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -25895,7 +25895,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -26014,7 +26014,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -26134,7 +26134,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -26269,7 +26269,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -26389,7 +26389,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -26524,7 +26524,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -26633,7 +26633,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -26752,7 +26752,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -26872,7 +26872,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -27007,7 +27007,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -27127,7 +27127,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -27262,7 +27262,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -27371,7 +27371,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -27503,7 +27503,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -27635,7 +27635,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -27772,7 +27772,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -27901,7 +27901,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -28011,7 +28011,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -28131,7 +28131,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -28252,7 +28252,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -28388,7 +28388,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -28497,7 +28497,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -28616,7 +28616,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -28725,7 +28725,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -28849,7 +28849,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -28969,7 +28969,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -29097,7 +29097,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -29206,7 +29206,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -29325,7 +29325,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -29450,7 +29450,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -29590,7 +29590,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -29700,7 +29700,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -29833,7 +29833,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -29966,7 +29966,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -30104,7 +30104,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -30233,7 +30233,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -30343,7 +30343,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -30463,7 +30463,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -30589,7 +30589,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -30730,7 +30730,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -30840,7 +30840,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -30962,7 +30962,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -31090,7 +31090,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -31233,7 +31233,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -31345,7 +31345,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -31467,7 +31467,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -31590,7 +31590,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -31728,7 +31728,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -31839,7 +31839,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -31960,7 +31960,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -32071,7 +32071,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -32197,7 +32197,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -32308,7 +32308,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -32434,7 +32434,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -32556,7 +32556,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -32686,7 +32686,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -32797,7 +32797,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -32931,7 +32931,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -33065,7 +33065,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -33214,7 +33214,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -33333,7 +33333,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -33462,7 +33462,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -33597,7 +33597,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -33747,7 +33747,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -33866,7 +33866,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -33996,7 +33996,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -34132,7 +34132,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -34270,7 +34270,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -34399,7 +34399,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -34509,7 +34509,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -34631,7 +34631,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -34759,7 +34759,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -34902,7 +34902,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -35014,7 +35014,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -35136,7 +35136,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -35259,7 +35259,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -35397,7 +35397,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -35508,7 +35508,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -35629,7 +35629,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -35740,7 +35740,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -35866,7 +35866,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -35977,7 +35977,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -36103,7 +36103,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -36225,7 +36225,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -36355,7 +36355,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -36466,7 +36466,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -36600,7 +36600,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -36734,7 +36734,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -36883,7 +36883,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -37002,7 +37002,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -37131,7 +37131,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -37266,7 +37266,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -37416,7 +37416,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -37535,7 +37535,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -37665,7 +37665,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -37801,7 +37801,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -37939,7 +37939,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -38068,7 +38068,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -38178,7 +38178,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -38298,7 +38298,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -38419,7 +38419,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -38555,7 +38555,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -38664,7 +38664,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -38796,7 +38796,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -38928,7 +38928,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -39075,7 +39075,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -39192,7 +39192,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -39328,7 +39328,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -39464,7 +39464,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -39596,7 +39596,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -39725,7 +39725,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -39835,7 +39835,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -39968,7 +39968,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -40101,7 +40101,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -40249,7 +40249,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -40366,7 +40366,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -40493,7 +40493,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -40610,7 +40610,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -40737,7 +40737,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -40865,7 +40865,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -41001,7 +41001,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -41129,7 +41129,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -41265,7 +41265,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -41407,7 +41407,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -41523,7 +41523,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -41658,7 +41658,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -41793,7 +41793,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -41924,7 +41924,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -42053,7 +42053,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -42163,7 +42163,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -42296,7 +42296,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -42429,7 +42429,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -42577,7 +42577,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -42694,7 +42694,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -42830,7 +42830,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -42966,7 +42966,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -43117,7 +43117,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -43237,7 +43237,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -43375,7 +43375,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -43536,7 +43536,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -43712,7 +43712,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -43857,7 +43857,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -44023,7 +44023,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -44183,7 +44183,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -44358,7 +44358,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -44502,7 +44502,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -44664,7 +44664,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -44830,7 +44830,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -45011,7 +45011,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -45161,7 +45161,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -45328,7 +45328,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -45472,7 +45472,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -45631,7 +45631,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -45759,7 +45759,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -45897,7 +45897,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -46041,7 +46041,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -46193,7 +46193,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -46351,7 +46351,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -46479,7 +46479,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -46564,7 +46564,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -46693,7 +46693,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -46803,7 +46803,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -46923,7 +46923,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -47044,7 +47044,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -47180,7 +47180,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -47289,7 +47289,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -47408,7 +47408,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -47517,7 +47517,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -47641,7 +47641,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -47761,7 +47761,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -47889,7 +47889,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -47998,7 +47998,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -48130,7 +48130,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -48262,7 +48262,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -48399,7 +48399,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -48528,7 +48528,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -48638,7 +48638,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -48758,7 +48758,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -48868,7 +48868,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -48993,7 +48993,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -49114,7 +49114,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -49243,7 +49243,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -49352,7 +49352,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -49484,7 +49484,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -49616,7 +49616,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -49763,7 +49763,7 @@
                 }
               ],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -49895,7 +49895,7 @@
                   }
                 ],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -50032,7 +50032,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -50161,7 +50161,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -50271,7 +50271,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -50393,7 +50393,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -50521,7 +50521,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -50664,7 +50664,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -50776,7 +50776,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -50898,7 +50898,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -51021,7 +51021,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -51159,7 +51159,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -51270,7 +51270,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -51391,7 +51391,7 @@
               ],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -51502,7 +51502,7 @@
                 ],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -51629,7 +51629,7 @@
           "hinted_scene_ids": [],
           "history": [],
           "pack_id": "dinosaur-lab-missing-egg",
-          "pack_version": "0.11.0",
+          "pack_version": "0.12.0",
           "players": [
             {
               "nickname": "민준",
@@ -51758,7 +51758,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -51868,7 +51868,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -51988,7 +51988,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -52114,7 +52114,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -52255,7 +52255,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -52365,7 +52365,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",
@@ -52485,7 +52485,7 @@
               "hinted_scene_ids": [],
               "history": [],
               "pack_id": "dinosaur-lab-missing-egg",
-              "pack_version": "0.11.0",
+              "pack_version": "0.12.0",
               "players": [
                 {
                   "nickname": "민준",
@@ -52595,7 +52595,7 @@
                 "hinted_scene_ids": [],
                 "history": [],
                 "pack_id": "dinosaur-lab-missing-egg",
-                "pack_version": "0.11.0",
+                "pack_version": "0.12.0",
                 "players": [
                   {
                     "nickname": "민준",

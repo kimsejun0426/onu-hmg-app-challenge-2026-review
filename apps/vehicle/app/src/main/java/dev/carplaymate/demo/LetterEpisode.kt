@@ -4,6 +4,7 @@ package dev.carplaymate.demo
 internal data class LetterTurn<S>(
     val state: S, val title: String, val text: String, val cues: List<String>,
     val choices: List<JumpChoice>, val acceptsAnswer: Boolean,
+    val answerLabel: String? = null,
 )
 
 internal interface LetterEpisode<S> {
@@ -29,7 +30,7 @@ internal object JumpEpisode : LetterEpisode<JumpState> {
     override val invitation = "바다에서 온 소리 편지"
     override val finale = "펭귄의 첫 점프!"
     override val effectStatus = "점프 소리를 듣는 중"
-    private fun JumpTurn.turn() = LetterTurn(state, title, text, cues, choices, acceptsAnswer)
+    private fun JumpTurn.turn() = LetterTurn(state, title, text, cues, choices, acceptsAnswer, answerLabel)
     override fun initial() = FirstJumpGame.initial().turn()
     override fun resume(state: JumpState) = FirstJumpGame.resume(state).turn()
     override fun choose(state: JumpState, id: String) = FirstJumpGame.choose(state, id).turn()
@@ -54,7 +55,7 @@ internal class RainEpisode(private val previous: JumpEnding?) : LetterEpisode<Ra
     override val invitation = "펭귄에게서 온 답장"
     override val finale = "펭귄의 빗소리 방송"
     override val effectStatus = "소리를 듣는 중"
-    private fun RainTurn.turn() = LetterTurn(state, title, text, cues, choices, acceptsAnswer)
+    private fun RainTurn.turn() = LetterTurn(state, title, text, cues, choices, acceptsAnswer, answerLabel)
     override fun initial() = RainGame.initial(previous).turn()
     override fun resume(state: RainState) = RainGame.resume(state).turn()
     override fun choose(state: RainState, id: String) = RainGame.choose(state, id).turn()

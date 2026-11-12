@@ -1,13 +1,5 @@
-# 빌드와 실행
+# Android 빌드
 
-JDK 17과 Android SDK Platform 35를 준비한 뒤 apps/vehicle에서 실행합니다.
+JDK 17과 Android SDK Platform 35를 준비합니다. 프로젝트의 `apps/vehicle` 디렉터리에서 Windows는 `.\gradlew.bat :app:assembleDemo`, macOS와 Linux는 `bash gradlew :app:assembleDemo`를 실행합니다. 첫 빌드에는 Maven 의존성 다운로드가 필요합니다. 생성한 개발 APK는 `app/build/outputs/apk/demo/app-demo.apk`에 있습니다.
 
-~~~powershell
-.\gradlew.bat --no-daemon :app:assembleDemo :app:lintDemo :app:testDemoUnitTest
-~~~
-
-macOS·Linux에서는 bash gradlew로 실행합니다. 첫 빌드에는 Maven 의존성을 내려받을 인터넷 연결이 필요합니다. 생성 위치는 app/build/outputs/apk/demo/app-demo.apk입니다.
-
-검증한 서명 APK는 [설치 파일](apk/오누_오누_release.apk)에서 받을 수 있습니다. 출시 빌드에는 별도로 관리하는 서명 키가 필요합니다. 소스 ZIP에는 앱 재현에 필요한 Android 소스·소리·그림이 들어 있습니다. 음성 합성 모델을 실행하지 않고 빌드할 수 있습니다.
-
-기존 모험과 두 소리 편지의 제작 범위 및 출처는 [구성요소 출처](SOURCES.md)에 설명했습니다. 공개 문서에 보존한 0.47 음성 제작 자료는 그 당시 모험의 제작 기록입니다.
+공개 [서명 APK](https://github.com/kimsejun0426/onu-hmg-app-challenge-2026-review/releases/download/v0.58.0-contest/onu-0.58.0-release.apk)의 패키지는 `dev.carplaymate.demo`, 버전은 0.58.0, versionCode는 63입니다. 정식 서명 키는 팀에서 별도로 관리합니다. 앱의 한국어 음원과 그림은 소스에 포함돼 있으며, 앱을 빌드하거나 실행할 때 음성 생성 모델을 다운로드할 필요가 없습니다. 배포 해시는 [릴리스 해시 목록](https://github.com/kimsejun0426/onu-hmg-app-challenge-2026-review/releases/download/v0.58.0-contest/SHA256SUMS.txt)에 기록했습니다.

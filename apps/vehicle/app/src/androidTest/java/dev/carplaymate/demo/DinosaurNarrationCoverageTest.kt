@@ -65,7 +65,8 @@ class DinosaurNarrationCoverageTest {
                 val prompt = presentation.getString("prompt")
                 val resolved = library.narration.resolve(prompt)
                 val dynamicText = resolved.filterIsInstance<NarrationPart.Text>().joinToString("") { it.text }
-                // User-chosen nicknames/roles remain dynamic, never a recorded sample identity.
+                if (second == null || state.getBoolean("finished")) assertEquals("", dynamicText)
+                else assertTrue("Shared turns still announce their owner", dynamicText.endsWith("차례야. "))
                 assertEquals(prompt.removeSuffix(body), dynamicText)
                 assertEquals(listOf(body), resolved.filterIsInstance<NarrationPart.Audio>().mapNotNull { it.spokenText })
                 if (state.getBoolean("finished")) {

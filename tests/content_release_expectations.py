@@ -7,7 +7,7 @@ PUBLISHED_IDS = {
 NEW_PACK_ID = "onu-little-picnic"
 EDITED_012_IDS = PUBLISHED_IDS - {"little-car-workshop"}
 CURRENT_VERSIONS = {
-    "dinosaur-lab-missing-egg": "0.11.0", "starlight-post-office": "0.9.0",
+    "dinosaur-lab-missing-egg": "0.12.0", "starlight-post-office": "0.9.0",
     "undersea-lighthouse": "0.9.0", "space-return-signal": "0.11.0",
     "animal-footprint-garden": "0.12.0", "little-car-workshop": "0.11.0", NEW_PACK_ID: "0.6.0",
 }
@@ -33,7 +33,7 @@ LEGACY_IDENTITIES = {(pack_id, version) for pack_id in PUBLISHED_IDS
                           ("little-car-workshop", "0.10.0"),
                           ("dinosaur-lab-missing-egg", "0.9.0"),
                           ("starlight-post-office", "0.8.0"), (NEW_PACK_ID, "0.5.0"),
-                          ("dinosaur-lab-missing-egg", "0.10.0")}
+                          ("dinosaur-lab-missing-egg", "0.10.0"), ("dinosaur-lab-missing-egg", "0.11.0")}
 RETIRED_ANIMAL_WAIT_WORDS = {"잠깐 기다리기", "기다리기", "조금 더", "기다릴래"}
 # Exact source bytes and path-independent catalog metadata read before the 0.8
 # animal/car rewrite; never regenerate these from the new archived files.

@@ -40,4 +40,5 @@
 -keep class dev.carplaymate.demo.OnuApplication {
     public <init>();
     public dev.carplaymate.demo.VoiceSessionHost getVoiceSessionHost$app_demo();
+    public dev.carplaymate.demo.LetterSessionHost getLetterSessionHost$app_demo();
 }

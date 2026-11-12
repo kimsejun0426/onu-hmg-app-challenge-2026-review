@@ -22,7 +22,7 @@ class FirstJumpProgressTest {
         val progress = FirstJumpProgress(context)
         fun ids() = requireNotNull(family.profile).children.joinToString(",") { it.id }
         val oldTurn = JumpState(JumpStep.QUESTION, JumpGuess.PENGUIN, paused = true).letterCheckpoint()
-        val newTurn = JumpState(JumpStep.DIRECT, JumpGuess.BOTH).letterCheckpoint()
+        val newTurn = JumpState(JumpStep.DIRECT, JumpGuess.BOTH, revealedWithHelp = true).letterCheckpoint()
         try {
             assertTrue(family.save(FamilyProfile("바다")))
             val single = ids()

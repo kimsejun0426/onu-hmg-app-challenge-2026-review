@@ -194,6 +194,8 @@ class DeveloperViewModel : AndroidViewModel {
     fun background() = controller.background()
 
     private fun explicitAction(action: () -> Unit) {
+        // Revoke the other audio owner before an older adventure can begin any input/output.
+        (getApplication<Application>() as? OnuApplication)?.letterSessionHost?.stop()
         val current = controller.ui.value
         if (host != null && current.voiceInput && !current.simulation)
             host.runExplicitVoiceAction(action)

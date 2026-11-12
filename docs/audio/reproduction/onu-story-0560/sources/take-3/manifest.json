@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "clips": [
+    {
+      "id": "onu_8a2aa0dc157d243e",
+      "text": "천천히 생각해도 괜찮아. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "8a2aa0dc157d243eaae42b1ef7bdda3480a4ff2017a8fce09637f8ef284949d1",
+      "asset": "story_audio/onu_8a2aa0dc157d243e.wav",
+      "sha256": "0fc30fe9bdf5231fa515770d6984f72a535e90660bd220def5c666ec97f1b925",
+      "duration_ms": 5920
+    },
+    {
+      "id": "onu_a29b4330cfc58198",
+      "text": "그 말은 내가 잘 이해하지 못했어. 다시 물어볼게.",
+      "text_sha256": "a29b4330cfc58198e4dd0b7740cca06fc85e9ab0f7291ad43936c6b0677b4b8a",
+      "asset": "story_audio/onu_a29b4330cfc58198.wav",
+      "sha256": "b6af259a7a5393a4ceda6a5f3f6628b906fafef790262bd374ddceebc8ea6292",
+      "duration_ms": 4080
+    },
+    {
+      "id": "dino_6d1af0571fbb38aa",
+      "text": "노트를 펴 보니 트리케라톱스는 식물을 먹었어. 나뭇잎 표시의 로봇을 같이 살펴보자.",
+      "text_sha256": "6d1af0571fbb38aa85cf1b1c300ab98bd3496eb51dace69b2916a0f34ae9f75f",
+      "asset": "story_audio/dino_6d1af0571fbb38aa.wav",
+      "sha256": "cb5380584abe1735775de07dd248b167d305cefa984e00da0430aa209c3d673b",
+      "duration_ms": 6240
+    },
+    {
+      "id": "dino_823088a509da2235",
+      "text": "공작실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "823088a509da223548c450ce6c56426a736bcb0a08c521e285ee9637c37989e1",
+      "asset": "story_audio/dino_823088a509da2235.wav",
+      "sha256": "c6327f6a6239efbd06ded0ceee01fb9cbea12be3716551345030e7c9913819f4",
+      "duration_ms": 3840
+    }
+  ],
+  "cues": [
+    {
+      "asset": "story_audio/cue_dino_arrival.wav",
+      "duration_ms": 2850,
+      "id": "cue_dino_arrival",
+      "sha256": "cd27ec4dd291413378fd6f779610f92d96fde87b405aa0d37636af9acafb4d78"
+    },
+    {
+      "asset": "story_audio/cue_forest.wav",
+      "duration_ms": 2400,
+      "id": "cue_forest",
+      "sha256": "babc1c4c94bdf0cc11531df43df95c7c0a0458b122d0718fb84a30912b4d3446"
+    },
+    {
+      "asset": "story_audio/cue_stream.wav",
+      "duration_ms": 2400,
+      "id": "cue_stream",
+      "sha256": "f1b165ea3f942b8c034baca535c15fd0e2ac872decd58aa2ceda2b964aa37032"
+    },
+    {
+      "asset": "story_audio/cue_discovery.wav",
+      "duration_ms": 800,
+      "id": "cue_discovery",
+      "sha256": "8f8d0dc57c76ad5f56a840bd35a731b885396d01889cde8d399d3bcc7f0dce51"
+    }
+  ]
+}

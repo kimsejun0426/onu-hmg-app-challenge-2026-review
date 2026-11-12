@@ -1,6 +1,9 @@
 package dev.carplaymate.demo
 
+import android.os.Bundle
 import android.os.SystemClock
+import android.util.Base64
+import android.util.Log
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -14,6 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.abs
 import kotlin.math.log10
+import kotlin.math.roundToInt
 import kotlin.math.sqrt
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.json.JSONArray
@@ -44,8 +48,23 @@ class AndroidScenePlayerTest {
             .map { checkNotNull(cues[it.getString("cue_before")]) to (audio(it) to it.getString("text")) }
     }
 
+    private fun sendOpeningPreview(name: String, bytes: ByteArray) {
+        val rawChunkSize = 9 * 1024 // Each encoded payload is at most 12 KiB.
+        val count = (bytes.size + rawChunkSize - 1) / rawChunkSize
+        val sha = BundledNarration.sha256(bytes)
+        repeat(count) { index ->
+            val offset = index * rawChunkSize
+            val length = minOf(rawChunkSize, bytes.size - offset)
+            val part = JSONObject().put("file", name).put("index", index).put("count", count)
+                .put("bytes", bytes.size).put("sha256", sha)
+                .put("data", Base64.encodeToString(bytes, offset, length, Base64.NO_WRAP))
+            instrumentation.sendStatus(2, Bundle().apply { putString("onuOpeningPreview", part.toString()) })
+        }
+    }
+
     @Test fun everyAuthoredCuePairMixesWithHeadroomAndExportsTheActualPcm() {
         requireExplicitRun()
+        val exportOpening = InstrumentationRegistry.getArguments().getString("previewOpening") == "true"
         val pairs = pairs()
         assertEquals("Preserved authored cue links", 8, pairs.size)
         assertEquals(setOf("cue_dino_arrival", "cue_forest", "cue_stream", "cue_discovery"), pairs.map { it.first.id }.toSet())
@@ -62,7 +81,6 @@ class AndroidScenePlayerTest {
                 "cue_forest", "cue_stream" -> 200
                 else -> error("Unexpected authored cue: ${cue.id}")
             }
-            assertEquals(expectedLeadMillis * 48, scene.narrationOffsetFrame)
             val sourceCue = reviewPcm(cueBytes)
             val sourceVoice = reviewPcm(voiceBytes)
             assertEquals(maxOf(sourceCue.frames48, scene.narrationOffsetFrame + sourceVoice.frames48),
@@ -82,7 +100,10 @@ class AndroidScenePlayerTest {
             var outputIdentityEnergy = 0.0
             for (frame in identityStart until identityEnd) {
                 val original = sourceCue.at48(frame)
-                val actual = scene.samples[frame].toDouble()
+                val voiceFrame = frame - scene.narrationOffsetFrame
+                val originalVoice = if (voiceFrame in 0 until sourceVoice.frames48) sourceVoice.at48(voiceFrame) else 0.0
+                // Quiet narration may now precede its spoken onset underneath this cue.
+                val actual = scene.samples[frame].toDouble() - originalVoice * scene.voiceGain
                 assertEquals("${cue.id} identifying sound must be preserved before voice/ducking",
                     original * scene.voiceGain, actual, .50001)
                 sourceIdentityEnergy += original * original
@@ -105,21 +126,38 @@ class AndroidScenePlayerTest {
                 }
             }
             assertTrue(activeVoiceFrames > 0)
+            val desiredSpeechStart = expectedLeadMillis * 48 + minOf(firstVoiceFrame, 120 * 48)
+            assertEquals(maxOf(0, desiredSpeechStart - firstVoiceFrame), scene.narrationOffsetFrame)
             assertEquals(scene.narrationOffsetFrame + firstVoiceFrame, scene.speechStartFrame)
             assertEquals(scene.narrationOffsetFrame + lastVoiceFrame + 1, scene.speechEndFrame)
             val voiceActiveRms = sqrt(voiceEnergy / activeVoiceFrames)
             val overlapEnd = minOf(sourceCue.frames48, scene.speechEndFrame)
             assertTrue("Authored sound must really overlap speech", overlapEnd > scene.speechStartFrame)
             var residualEnergy = 0.0
+            var sourceCueEnergyDuringActiveVoice = 0.0
+            var renderedCueEnergyDuringActiveVoice = 0.0
+            var activeOverlapFrames = 0
+            var contributingCueOverlapFrames = 0
             for (frame in scene.speechStartFrame until overlapEnd) {
-                val originalVoice = sourceVoice.at48(frame - scene.narrationOffsetFrame) * scene.voiceGain
-                val residual = scene.samples[frame] - originalVoice
+                val originalVoice = sourceVoice.at48(frame - scene.narrationOffsetFrame)
+                // Compare against the quantized voice-only counterfactual. Interpolation
+                // rounding alone must never masquerade as a non-muted cue contribution.
+                val residual = scene.samples[frame].toDouble() - (originalVoice * scene.voiceGain).roundToInt()
                 residualEnergy += residual * residual
+                if (abs(originalVoice) / 32768.0 >= 0.005623413251903491) {
+                    val originalCue = sourceCue.at48(frame)
+                    sourceCueEnergyDuringActiveVoice += originalCue * originalCue
+                    renderedCueEnergyDuringActiveVoice += residual * residual
+                    activeOverlapFrames++
+                    if (originalCue != 0.0 && residual != 0.0) contributingCueOverlapFrames++
+                }
             }
             val cueOverlapRms = sqrt(residualEnergy / (overlapEnd - scene.speechStartFrame))
             assertTrue("Actual cue overlap must stay at least 18 dB below active voice RMS",
                 cueOverlapRms <= voiceActiveRms * .12589254117941673 * scene.voiceGain + 1.0)
-            assertTrue("Actual cue overlap must not be muted", cueOverlapRms > 0)
+            assertTrue("Source cue must have nonzero energy during active speech", sourceCueEnergyDuringActiveVoice > 0)
+            assertTrue("Rendered cue must contribute during active speech, beyond voice quantization",
+                activeOverlapFrames > 0 && contributingCueOverlapFrames > 0 && renderedCueEnergyDuringActiveVoice > 0)
             assertEquals(48000, scene.sampleRate)
             assertTrue(scene.speechStartFrame > 0 && scene.speechEndFrame > scene.speechStartFrame)
             assertTrue(scene.speechEndFrame <= scene.samples.size)
@@ -142,10 +180,18 @@ class AndroidScenePlayerTest {
                 .put("cue_identity_window_start_frame", identityStart).put("cue_identity_window_end_frame", identityEnd)
                 .put("cue_identity_energy_ratio", identityEnergyRatio)
                 .put("cue_overlap_rms", cueOverlapRms).put("voice_active_rms", voiceActiveRms)
+                .put("source_cue_energy_during_active_voice", sourceCueEnergyDuringActiveVoice)
+                .put("rendered_cue_energy_during_active_voice", renderedCueEnergyDuringActiveVoice)
+                .put("active_overlap_frames", activeOverlapFrames).put("contributing_cue_overlap_frames", contributingCueOverlapFrames)
                 .put("voice_gain", scene.voiceGain).put("cue_gain_during_speech", scene.cueGainDuringSpeech)
                 .put("sample_peak", peak).put("source_bytes_preserved", true))
             assertEquals(cue.sha256, BundledNarration.sha256(cueBytes))
             assertEquals(voice.sha256, BundledNarration.sha256(voiceBytes))
+            if (exportOpening && voice.id == "dino_3160815e826a2f33") {
+                sendOpeningPreview(file.name, rendered)
+                val row = evidence.getJSONObject(evidence.length() - 1)
+                sendOpeningPreview("opening-manifest-row.json", row.toString(2).toByteArray(Charsets.UTF_8))
+            }
         }
         File(directory, "manifest.json").writeText(JSONObject().put("schema_version", 1)
             .put("meaning", "PCM generated by production mixer from APK assets; not a microphone recording or human listening approval")
@@ -162,30 +208,92 @@ class AndroidScenePlayerTest {
         val completions = AtomicInteger()
         val failures = AtomicInteger()
         val starts = AtomicInteger()
+        val base = NoTtsExpected()
+        val interrupts = AtomicInteger()
+        val lastFailure = AtomicReference<String>("none")
+        val since = SystemClock.elapsedRealtime()
+        fun diagnostic() = "elapsedMs=${SystemClock.elapsedRealtime() - since} starts=${starts.get()} " +
+            "complete=${completions.get()} interrupted=${interrupts.get()} failure=${lastFailure.get()} ttsCalls=${base.calls.get()}"
         val plan = SpeechPlan("real-mixed", "turn", 1, listOf(SpeechSegment("story", selected.second.second, true)))
         try {
             main {
-                holder.set(ComposedSpeechOutput.create(context, { failures.incrementAndGet(); ended.countDown() }) { _, _ -> NoTtsExpected() })
+                holder.set(ComposedSpeechOutput.create(context, {
+                    interrupts.incrementAndGet()
+                    ended.countDown()
+                    nextStarted.countDown()
+                }) { _, _ -> base })
                 holder.get().speak(plan, 1, { completions.incrementAndGet(); ended.countDown() },
-                    { failures.incrementAndGet(); ended.countDown() }, { starts.incrementAndGet() })
+                    { lastFailure.set(it.cause.name); failures.incrementAndGet(); ended.countDown() },
+                    { starts.incrementAndGet() })
             }
-            assertTrue("Actual mixed AudioTrack must finish", ended.await(30, TimeUnit.SECONDS))
-            assertEquals(0, failures.get())
+            val firstEnded = ended.await(30, TimeUnit.SECONDS)
+            assertTrue("Actual mixed AudioTrack must finish. ${diagnostic()}", firstEnded)
+            assertEquals(diagnostic(), 0, failures.get() + interrupts.get() + base.calls.get())
             assertEquals(1, starts.get())
             assertEquals(1, completions.get())
             main {
                 assertNull(checkNotNull(holder.get().narrationState).value)
                 holder.get().speak(plan, 2, { completions.incrementAndGet() },
-                    { failures.incrementAndGet(); nextStarted.countDown() }, { nextStarted.countDown() })
+                    { lastFailure.set(it.cause.name); failures.incrementAndGet(); nextStarted.countDown() },
+                    { nextStarted.countDown() })
             }
             assertTrue("Second scene speech must start", nextStarted.await(20, TimeUnit.SECONDS))
             main { holder.get().stop(); assertNull(checkNotNull(holder.get().narrationState).value) }
             // Wait beyond this clip's remaining duration to catch a late real completion callback.
-            SystemClock.sleep(selected.second.first.durationMillis + 500L)
+            SystemClock.sleep(narratedSceneMillis(selected.second.first.durationMillis) + 500L)
             assertEquals(1, completions.get())
-            assertEquals(0, failures.get())
+            assertEquals(diagnostic(), 0, failures.get() + interrupts.get() + base.calls.get())
         } finally {
             main { holder.get()?.shutdown() }
+            activity.close()
+        }
+    }
+
+    @Test fun firstSceneAndRepeatRequestTheSamePitchPreservingPaceOnTheNativeTrack() {
+        requireExplicitRun()
+        val (cue, narrated) = pairs().first { it.first.id == "cue_stream" }
+        val voice = narrated.first
+        val activity = ActivityScenario.launch(MainActivity::class.java)
+        val focus = AndroidPlaybackAudioFocus(context)
+        val requests = mutableListOf<Pair<Float, Float>>() // One preparation worker.
+        val readbacks = mutableListOf<Triple<Boolean, Float, Float>>()
+        val failures = AtomicInteger()
+        val player = AndroidScenePlayer(context) { track, params ->
+            requests += params.speed to params.pitch
+            var accepted = false
+            try {
+                track.playbackParams = params
+                accepted = true
+            } finally {
+                val applied = track.playbackParams
+                readbacks += Triple(accepted, applied.speed, applied.pitch)
+                Log.i("OnuAudioTest", "narration sampleRate=${track.sampleRate} requested=${params.speed}/${params.pitch} " +
+                    "readback=${applied.speed}/${applied.pitch}")
+            }
+        }
+        try {
+            main { assertTrue("Audio focus denied", focus.acquire { failures.incrementAndGet() }) }
+            for (first in listOf(true, false)) {
+                val ended = CountDownLatch(1)
+                val edges = mutableListOf<Boolean>()
+                val done = { ended.countDown() }
+                val error = { failures.incrementAndGet(); ended.countDown() }
+                main {
+                    if (first) player.play(cue, voice, done, error) { edges.add(it) }
+                    else player.playNarration(voice, done, error) { edges.add(it) }
+                }
+                assertTrue("Native track must end", ended.await(25, TimeUnit.SECONDS))
+                assertEquals(0, failures.get())
+                assertEquals(listOf(true, false), edges)
+            }
+            assertEquals(listOf(.94f to 1f, .94f to 1f), requests)
+            assertEquals(2, readbacks.size)
+            for ((accepted, speed, pitch) in readbacks) {
+                assertEquals(if (accepted) .94f else 1f, speed, .001f)
+                assertEquals(1f, pitch, .001f)
+            }
+        } finally {
+            main { player.shutdown(); focus.release() }
             activity.close()
         }
     }
@@ -377,7 +485,7 @@ class AndroidScenePlayerTest {
             }
             assertTrue(nextStarted.await(20, TimeUnit.SECONDS))
             main { player.get().stop() }
-            SystemClock.sleep(selected.durationMillis + 300L)
+            SystemClock.sleep(narratedSceneMillis(selected.durationMillis) + 300L)
             assertEquals(1, completions.get())
             assertEquals(0, failures.get())
         } finally {
@@ -477,12 +585,15 @@ class AndroidScenePlayerTest {
     }
 
     private class NoTtsExpected : SpeechOutput {
+        val calls = AtomicInteger()
         override val status = MutableStateFlow("fixture")
         override val readyState = MutableStateFlow(true)
         override fun refresh() = Unit
         override fun speak(plan: SpeechPlan, generation: Long, complete: () -> Unit,
-                           failure: (SpeechOutputFailure) -> Unit, started: () -> Unit) =
+                           failure: (SpeechOutputFailure) -> Unit, started: () -> Unit) {
+            calls.incrementAndGet()
             failure(SpeechOutputFailure("Unexpected TTS in bundled scene"))
+        }
         override fun stop() = Unit
         override fun shutdown() = Unit
     }

@@ -38,10 +38,10 @@
     },
     {
       "id": "rain_ack",
-      "text": "차창에 떨어진 빗방울이야. 톡톡!",
+      "text": "빗방울 톡톡! 우리 차창이 악기 같아.",
       "asset": "sound_letters/rain_music/audio/rain_ack.mp3",
-      "sha256": "27a07ab5db50fda3d2e709a63032832f199db9084fddb5b0f95630e94f8059d4",
-      "duration_ms": 3001
+      "sha256": "15780cd64b4255880dac3261568e70015774d3283554429400feec5d1e838383",
+      "duration_ms": 3168
     },
     {
       "id": "wiper",
@@ -59,10 +59,10 @@
     },
     {
       "id": "wiper_ack",
-      "text": "앞유리를 슥삭 닦는 와이퍼야!",
+      "text": "와이퍼 슥삭! 톡톡이랑 같이 들어 보자.",
       "asset": "sound_letters/rain_music/audio/wiper_ack.mp3",
-      "sha256": "52d17db612ab4293ad6159bce7a54a163121856427d9a92a9a4150fbf0e2168c",
-      "duration_ms": 2142
+      "sha256": "6b638b83176f13b721e1150cf5cf0bcaed3011674103cd31a02dc041005cd193",
+      "duration_ms": 4056
     },
     {
       "id": "rain_beat",
@@ -73,10 +73,10 @@
     },
     {
       "id": "tempo_q",
-      "text": "앞뒤를 비교해 봐. 두 소리가 나중엔 어떻게 달라졌어?",
+      "text": "빗소리가 달라졌네. 아까보다 빨라졌을까, 느려졌을까?",
       "asset": "sound_letters/rain_music/audio/tempo_q.mp3",
-      "sha256": "ff534fd6541a53ac49c65e0c185d81746bff3fbf5499619c375332aa3f9170d4",
-      "duration_ms": 3548
+      "sha256": "44647241bb9f6b421d8693f910d24f5cea1db9320ad23350ef9c2781fdd75ffc",
+      "duration_ms": 4296
     },
     {
       "id": "tempo_hint",
@@ -140,6 +140,27 @@
       "asset": "sound_letters/rain_music/audio/repeat_prompt.mp3",
       "sha256": "004fe60d7556cd27899198f01eda71640e48062e5cc52e0c15e3c787de2186db",
       "duration_ms": 3115
+    },
+    {
+      "id": "rain_explain",
+      "text": "이번 소리는 빗방울이야. 차창을 톡톡 두드리지? 다른 소리도 들어 보자.",
+      "asset": "sound_letters/rain_music/audio/rain_explain.mp3",
+      "sha256": "d4259ffa55369392b316d43cf7d617d5d4ca4d950d655974d3640c559e2cd096",
+      "duration_ms": 5088
+    },
+    {
+      "id": "wiper_explain",
+      "text": "차 유리를 닦는 와이퍼 소리야. 슥삭, 슥삭! 빗방울이랑 같이 들어 보자.",
+      "asset": "sound_letters/rain_music/audio/wiper_explain.mp3",
+      "sha256": "7c0baf44e8404194d551904728ad8e6f6e286aa23f853da7629f067a8695e575",
+      "duration_ms": 6864
+    },
+    {
+      "id": "tempo_explain",
+      "text": "소리 사이가 짧아졌지? 아까보다 빨라진 거야. 이제 우리 방송에 넣어 보자.",
+      "asset": "sound_letters/rain_music/audio/tempo_explain.mp3",
+      "sha256": "19488a4c98f986c731a59b0592b3571871837680320d4d13cb062a9fd4877a22",
+      "duration_ms": 8616
     }
   ],
   "credits": {

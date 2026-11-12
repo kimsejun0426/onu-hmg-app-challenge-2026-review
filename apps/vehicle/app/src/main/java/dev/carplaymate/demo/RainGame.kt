@@ -20,6 +20,7 @@ internal data class RainTurn(
     val cues: List<String>,
     val choices: List<JumpChoice>,
     val acceptsAnswer: Boolean,
+    val answerLabel: String? = null,
 )
 
 /** Store only fixed game flags and enum IDs. Microphone input is never placed in a checkpoint. */
@@ -52,14 +53,17 @@ internal object RainGame {
         "memory_bold" to "지난번 성큼성큼, 퐁당! 그 점프 중계가 좋았대.",
         "rain_drops" to "톡, 톡… 톡톡.",
         "drops_q" to "톡톡, 차창을 두드린 건 뭘까?",
-        "rain_ack" to "차창에 떨어진 빗방울이야. 톡톡!",
+        "rain_ack" to "빗방울 톡톡! 우리 차창이 악기 같아.",
+        "rain_explain" to "이번 소리는 빗방울이야. 차창을 톡톡 두드리지? 다른 소리도 들어 보자.",
         "wiper" to "슥, 삭… 슥, 삭.",
         "wiper_q" to "이번엔 앞유리에서 어떤 소리가 났어?",
-        "wiper_ack" to "앞유리를 슥삭 닦는 와이퍼야!",
+        "wiper_ack" to "와이퍼 슥삭! 톡톡이랑 같이 들어 보자.",
+        "wiper_explain" to "차 유리를 닦는 와이퍼 소리야. 슥삭, 슥삭! 빗방울이랑 같이 들어 보자.",
         "rain_beat" to "톡… 슥삭… 톡톡톡, 슥삭슥삭!",
-        "tempo_q" to "앞뒤를 비교해 봐. 두 소리가 나중엔 어떻게 달라졌어?",
+        "tempo_q" to "빗소리가 달라졌네. 아까보다 빨라졌을까, 느려졌을까?",
         "tempo_hint" to "처음엔 톡, 톡. 나중엔 톡톡톡! 소리 사이가 벌어졌어, 좁아졌어?",
         "tempo_ack" to "소리 사이가 짧아졌어. 빗방울도, 와이퍼도 점점 빨라졌지!",
+        "tempo_explain" to "소리 사이가 짧아졌지? 아까보다 빨라진 거야. 이제 우리 방송에 넣어 보자.",
         "direct_q" to "우리 방송의 첫 소리, 빗방울 톡톡부터 할까? 와이퍼 슥삭부터 할까?",
         "rain_hint" to "하늘에서 떨어져 차창을 두드려. 누구 소리일까?",
         "wiper_hint" to "앞유리를 왼쪽 오른쪽으로 쓱 닦는 건 뭘까?",
@@ -115,16 +119,16 @@ internal object RainGame {
         return describe(done, before + cues(done))
     }
 
-    private fun answerForChild(state: RainState): RainTurn = when (state.step) {
-        RainStep.DROPS -> move(state, RainStep.WIPER, "rain_ack")
-        RainStep.WIPER -> move(state, RainStep.TEMPO, "wiper_ack")
-        RainStep.TEMPO -> move(state, RainStep.DIRECT, "tempo_ack")
-        RainStep.DIRECT -> finish(state, RainEnding.DROPS)
+    private fun answerForChild(state: RainState, explain: Boolean = false): RainTurn = when (state.step) {
+        RainStep.DROPS -> move(state, RainStep.WIPER, if (explain) "rain_explain" else "rain_ack")
+        RainStep.WIPER -> move(state, RainStep.TEMPO, if (explain) "wiper_explain" else "wiper_ack")
+        RainStep.TEMPO -> move(state, RainStep.DIRECT, if (explain) "tempo_explain" else "tempo_ack")
+        RainStep.DIRECT -> describe(state.copy(paused = true))
         else -> describe(state)
     }
 
     private fun hint(state: RainState): RainTurn {
-        if (state.assisted) return answerForChild(state)
+        if (state.assisted) return answerForChild(state, explain = true)
         val helped = state.copy(assisted = true)
         val plan = when (state.step) {
             RainStep.DROPS -> listOf("rain_hint", "rain_drops", "drops_q")
@@ -138,18 +142,40 @@ internal object RainGame {
     private fun unanswered(state: RainState, silence: Boolean): RainTurn {
         if (!state.assisted) return if (silence) hint(state)
             else describe(state.copy(assisted = true), listOf("unheard") + cues(state))
-        if (!silence) return answerForChild(state)
-        // The child can listen to the finished music after one quiet invitation.
-        val rest = when (state.step) {
-            RainStep.DROPS -> listOf("rain_ack", "wiper", "wiper_ack")
-            RainStep.WIPER -> listOf("wiper_ack")
-            RainStep.TEMPO -> listOf("tempo_ack")
-            else -> emptyList()
-        }
-        return finish(state, RainEnding.DROPS, rest)
+        if (!silence) return answerForChild(state, explain = true)
+        // Silence does not choose an instrument or send a letter on the child's behalf.
+        return describe(state.copy(paused = true))
     }
 
-    fun choose(state: RainState, id: String): RainTurn {
+    private fun answerLabel(state: RainState, id: String): String? {
+        if (state.paused || state.step in setOf(RainStep.READY, RainStep.END)) return null
+        val accepted = when (state.step) {
+            RainStep.DROPS -> setOf("drops", "wiper", "pair", "pair_fast")
+            RainStep.WIPER -> setOf("drops", "wiper", "pair", "pair_fast", "wiper_fast")
+            RainStep.TEMPO -> setOf("faster", "slower", "same", "volume", "pair_fast", "wiper_fast")
+            RainStep.DIRECT -> setOf("drops", "wiper")
+            else -> emptySet()
+        }
+        if (id !in accepted) return null
+        val choices = when (state.step) {
+            RainStep.DIRECT -> directChoices
+            RainStep.TEMPO -> tempoChoices
+            else -> soundChoices
+        }
+        return choices.firstOrNull { it.id == id }?.label ?: when (id) {
+            "pair" -> "빗방울과 와이퍼"
+            "pair_fast" -> "빗방울과 와이퍼가 빨라졌어"
+            "wiper_fast" -> "와이퍼가 빨라졌어"
+            "same" -> "그대로야"
+            "volume" -> "소리가 커졌어"
+            else -> null
+        }
+    }
+
+    fun choose(state: RainState, id: String): RainTurn =
+        chooseWithoutLabel(state, id).copy(answerLabel = answerLabel(state, id))
+
+    private fun chooseWithoutLabel(state: RainState, id: String): RainTurn {
         if (state.paused) return if (id == "resume") describe(state.copy(paused = false)) else describe(state)
         if (state.step == RainStep.READY) {
             if (id != "open") return describe(state)

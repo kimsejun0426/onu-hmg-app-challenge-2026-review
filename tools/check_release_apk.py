@@ -31,6 +31,13 @@ DEVELOPER_UI = "dev.carplaymate.demo.DeveloperScreenKt"
 VOICE_APPLICATION = "dev.carplaymate.demo.OnuApplication"
 VOICE_SERVICE = "dev.carplaymate.demo.VoiceSessionService"
 VOICE_SERVICE_SINCE = (0, 23, 0)
+LETTER_SERVICE = "dev.carplaymate.demo.LetterSessionService"
+LETTER_SERVICE_SINCE = (0, 52, 0)
+LETTER_NOTIFICATION_PERMISSION = "android.permission.POST_NOTIFICATIONS"
+LETTER_MEDIA_BROWSER_SERVICE = "dev.carplaymate.demo.LetterMediaBrowserService"
+LETTER_MEDIA_BROWSER_SINCE = (0, 54, 0)
+LETTER_MEDIA_BROWSER_PERMISSION = "android.permission.MEDIA_CONTENT_CONTROL"
+LETTER_MEDIA_BROWSER_ACTION = "android.media.browse.MediaBrowserService"
 FOREGROUND_PERMISSIONS = frozenset({
     "android.permission.FOREGROUND_SERVICE",
     "android.permission.FOREGROUND_SERVICE_MICROPHONE",
@@ -87,6 +94,8 @@ def validate_voice_service(manifest: ET.Element, app: ET.Element, permissions: s
     if not declared and tuple(map(int, version_name.split("."))) < VOICE_SERVICE_SINCE:
         return None
     required = FOREGROUND_PERMISSIONS | {"android.permission.RECORD_AUDIO"}
+    if tuple(map(int, version_name.split("."))) >= LETTER_SERVICE_SINCE:
+        required = required | {LETTER_NOTIFICATION_PERMISSION}
     require(required <= permissions, "Voice service requires the complete reviewed permission set")
     for name in required:
         declarations = [item for item in manifest if item.tag.startswith("uses-permission")
@@ -110,11 +119,69 @@ def validate_voice_service(manifest: ET.Element, app: ET.Element, permissions: s
             "VoiceSessionService must be enabled in the application main process")
     require(reviewed_voice_types(attribute(service, "foregroundServiceType")),
             "VoiceSessionService requires exactly mediaPlayback and microphone types")
-    require(all(other is service or attribute(other, "foregroundServiceType") is None
+    letters = [item for item in services
+               if component_name(attribute(item, "name"), package) == LETTER_SERVICE]
+    current_letter = tuple(map(int, version_name.split("."))) >= LETTER_SERVICE_SINCE
+    require(len(letters) == (1 if current_letter else 0),
+            "Exactly one reviewed LetterSessionService is required from 0.52.0")
+    letter = letters[0] if letters else None
+    if letter is not None:
+        require(attribute(letter, "exported") == "false" and not letter.findall("intent-filter"),
+                "LetterSessionService must be explicitly private without intent filters")
+        require(attribute(letter, "enabled", "true") == "true" and
+                attribute(letter, "process", package) == package and
+                attribute(letter, "isolatedProcess", "false") == "false" and
+                attribute(letter, "externalService", "false") == "false" and
+                attribute(letter, "useAppZygote", "false") == "false",
+                "LetterSessionService must be enabled in the application main process")
+        require(reviewed_voice_types(attribute(letter, "foregroundServiceType")),
+                "LetterSessionService requires exactly mediaPlayback and microphone types")
+    require(all(other is service or other is letter or attribute(other, "foregroundServiceType") is None
                 for other in services), "Unreviewed foreground service")
-    return {"application": host, "service": VOICE_SERVICE, "exported": False,
-            "enabled": True, "process": package,
-            "foreground_service_types": ["mediaPlayback", "microphone"]}
+    report = {"application": host, "service": VOICE_SERVICE, "exported": False,
+              "enabled": True, "process": package,
+              "foreground_service_types": ["mediaPlayback", "microphone"]}
+    if letter is not None:
+        report["letter_service"] = {"service": LETTER_SERVICE, "exported": False,
+                                    "enabled": True, "process": package,
+                                    "foreground_service_types": ["mediaPlayback", "microphone"]}
+    return report
+
+
+def validate_letter_media_browser(app: ET.Element, package: str, version_name: str) -> dict | None:
+    services = [service for service in app.findall("service")
+                if component_name(attribute(service, "name"), package) == LETTER_MEDIA_BROWSER_SERVICE]
+    current = tuple(map(int, version_name.split("."))) >= LETTER_MEDIA_BROWSER_SINCE
+    require(len(services) == (1 if current else 0),
+            "Exactly one reviewed LetterMediaBrowserService is required from 0.54.0 only")
+    if not services:
+        return None
+    service = services[0]
+    require(attribute(service, "exported") == "true" and
+            attribute(service, "permission") == LETTER_MEDIA_BROWSER_PERMISSION,
+            "LetterMediaBrowserService must be explicitly exported with MEDIA_CONTENT_CONTROL")
+    # Enabling this probe changes Pleos launcher classification. Release APKs keep
+    # the reviewed declaration inert; a demo-only probe is not a release exemption.
+    require(attribute(service, "enabled") == "false",
+            "LetterMediaBrowserService must be explicitly disabled in release APKs")
+    require(attribute(service, "process", package) == package and
+            attribute(service, "isolatedProcess", "false") == "false" and
+            attribute(service, "externalService", "false") == "false" and
+            attribute(service, "useAppZygote", "false") == "false",
+            "LetterMediaBrowserService must use the application main process")
+    require(attribute(service, "foregroundServiceType") is None,
+            "LetterMediaBrowserService must not declare a foreground service type")
+    # This is one platform-protected legacy browse surface, not a general exemption
+    # for services with a known name, permission, or an intent containing this action.
+    filters = service.findall("intent-filter")
+    require(len(filters) == 1 and list(service) == filters and not filters[0].attrib and
+            len(filters[0]) == 1 and filters[0][0].tag == "action" and
+            filters[0][0].attrib == {f"{{{ANDROID}}}name": LETTER_MEDIA_BROWSER_ACTION} and
+            not list(filters[0][0]),
+            "LetterMediaBrowserService requires exactly the legacy MediaBrowserService action")
+    return {"service": LETTER_MEDIA_BROWSER_SERVICE, "exported": True,
+            "permission": LETTER_MEDIA_BROWSER_PERMISSION, "enabled": False, "process": package,
+            "intent_actions": [LETTER_MEDIA_BROWSER_ACTION], "foreground_service_types": []}
 
 
 def validate_manifest(manifest: ET.Element, package: str, version_name: str,
@@ -143,12 +210,16 @@ def validate_manifest(manifest: ET.Element, package: str, version_name: str,
     permissions = {attribute(item, "name") for item in manifest
                    if item.tag.startswith("uses-permission")}
     own_permission = package + ".DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-    require(permissions <= ALLOWED_PERMISSIONS | {own_permission},
+    allowed = ALLOWED_PERMISSIONS | {own_permission}
+    if tuple(map(int, version_name.split("."))) >= LETTER_SERVICE_SINCE:
+        allowed = allowed | {LETTER_NOTIFICATION_PERMISSION}
+    require(permissions <= allowed,
             "APK requests permissions outside the reviewed release allowlist")
     for permission in manifest.findall("permission"):
         require(attribute(permission, "name") == own_permission and
                 attribute(permission, "protectionLevel") in {"signature", "0x00000002", "2"},
                 "Unexpected or unprotected application permission")
+    media_browser = validate_letter_media_browser(app, package, version_name)
     voice_service = validate_voice_service(manifest, app, permissions, package, version_name)
     launchers = []
     for component in app:
@@ -169,6 +240,10 @@ def validate_manifest(manifest: ET.Element, package: str, version_name: str,
             for intent in component.findall("intent-filter"))
         if is_launcher and name == "dev.carplaymate.demo.MainActivity":
             launchers.append(name)
+        elif (media_browser is not None and component.tag == "service" and
+              component_name(name, package) == LETTER_MEDIA_BROWSER_SERVICE):
+            # The complete declaration was checked above; no other export is allowed.
+            continue
         else:
             require(component.tag == "receiver" and
                     name == "androidx.profileinstaller.ProfileInstallReceiver" and
@@ -177,7 +252,7 @@ def validate_manifest(manifest: ET.Element, package: str, version_name: str,
     require(len(launchers) == 1, "Exactly one reviewed launcher is required")
     return {"package": package, "version_name": version_name, "version_code": version_code,
             "permissions": sorted(permissions), "debuggable": False, "test_only": False,
-            "voice_session_service": voice_service}
+            "voice_session_service": voice_service, "letter_media_browser_service": media_browser}
 
 
 def validate_network_rules(tree: ET.Element) -> None:

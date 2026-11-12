@@ -13,11 +13,11 @@ import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
-private const val STANDALONE_NARRATION_SPEED = 0.94f
+private const val NARRATED_SCENE_SPEED = 0.94f
 
 // Conservative even on devices that decline stretching and play at 1x.
-internal fun standaloneNarrationMillis(assetMillis: Long): Long =
-    kotlin.math.ceil(assetMillis / STANDALONE_NARRATION_SPEED.toDouble()).toLong()
+internal fun narratedSceneMillis(assetMillis: Long): Long =
+    kotlin.math.ceil(assetMillis / NARRATED_SCENE_SPEED.toDouble()).toLong()
 
 /** One sample-aligned scene; speech state excludes its cue-only lead and tail. */
 internal interface StoryScenePlayer {
@@ -34,7 +34,10 @@ internal interface StoryScenePlayer {
  * happen on one bounded worker. The main thread owns starting, stopping and all callbacks.
  * A written buffer is not completion: its final frame must be consumed and the track released.
  */
-internal class AndroidScenePlayer(context: Context) : StoryScenePlayer {
+internal class AndroidScenePlayer(
+    context: Context,
+    private val setPlaybackParams: (AudioTrack, PlaybackParams) -> Unit = AudioTrack::setPlaybackParams,
+) : StoryScenePlayer {
     private val assets = context.applicationContext.assets
     private val handler = Handler(Looper.getMainLooper())
     private val worker = ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
@@ -81,8 +84,8 @@ internal class AndroidScenePlayer(context: Context) : StoryScenePlayer {
             cue?.let { BundledNarration.validateAudio(it, 3_000L) }
             BundledNarration.validateAudio(narration, 60_000L)
         } catch (_: Exception) { failure(); return }
-        val playbackMillis = if (cue == null) standaloneNarrationMillis(narration.durationMillis)
-            else cue.durationMillis + narration.durationMillis
+        // The entire mixed track shares one clock. Its serial durations bound any overlap.
+        val playbackMillis = narratedSceneMillis((cue?.durationMillis ?: 0L) + narration.durationMillis)
         val ttl = (playbackMillis + 15_000L).coerceIn(25_000L, 120_000L)
         val request = Attempt(complete, failure, speechState, SystemClock.elapsedRealtime() + ttl)
         active = request
@@ -106,17 +109,16 @@ internal class AndroidScenePlayer(context: Context) : StoryScenePlayer {
                     // This bounded, single write copies the prepared clip; it never starts playback.
                     check(track.write(pcm.samples, 0, pcm.samples.size, AudioTrack.WRITE_BLOCKING) == pcm.samples.size)
                     check(track.state == AudioTrack.STATE_INITIALIZED)
-                    if (cue == null) {
-                        // Slow only standalone narration. Mixed scenes keep their authored cue timing.
-                        try {
-                            track.playbackParams = PlaybackParams().allowDefaults()
-                                .setAudioFallbackMode(PlaybackParams.AUDIO_FALLBACK_MODE_FAIL)
-                                .setPitch(1.0f).setSpeed(STANDALONE_NARRATION_SPEED)
-                        } catch (_: IllegalArgumentException) {
-                            // A renderer can decline time stretching. Play at its original rate.
-                        } catch (_: IllegalStateException) {
-                            // Some routes reject parameters in this state. play() still checks the track.
-                        }
+                    // Both the first scene and its cue-free repeat use the same pitch-preserving pace.
+                    // Speech boundaries stay in source frames and follow the actual playback head.
+                    try {
+                        setPlaybackParams(track, PlaybackParams().allowDefaults()
+                            .setAudioFallbackMode(PlaybackParams.AUDIO_FALLBACK_MODE_FAIL)
+                            .setPitch(1.0f).setSpeed(NARRATED_SCENE_SPEED))
+                    } catch (_: IllegalArgumentException) {
+                        // A renderer can decline time stretching. Play at its original rate.
+                    } catch (_: IllegalStateException) {
+                        // Some routes reject parameters in this state. play() still checks the track.
                     }
                     interrupted()
                     val prepared = Prepared(track, pcm.samples.size, pcm.speechStartFrame, pcm.speechEndFrame)

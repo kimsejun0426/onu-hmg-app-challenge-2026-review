@@ -1,18 +1,14 @@
 {
-  "android_source_file_count": 493,
-  "apk_sha256": "9ae3a59f7f1efa8a212da5049f9475c6a0307de4cecf4824c666bd53da233b24",
+  "version_name": "0.58.0",
+  "version_code": 63,
   "application_id": "dev.carplaymate.demo",
-  "film_duration_s": 79.933333,
-  "film_sha256": "16a4ec11a690672ff3855de239c171948be6594e65cb29a12d2f1a1a07bf3de2",
+  "apk_sha256": "d80800836dc38719b2c4aed2ea789f2969fad09b86b1bea6c158b962ee078d02",
   "release_certificate_sha256": "67d799613d42b37ff571e8cd67f46de53a21782d144f80f3f8f9fd01d4a845b3",
-  "sound_letter_clips": {
-    "first_jump": 22,
-    "rain_music": 20
-  },
-  "source_manifest_sha256": "2f4faa81368f6aea0b75199419dd45fdefc20ef4b6d6ebba5cefae260d3251d3",
-  "version_code": 54,
-  "version_name": "0.51.0",
-  "film_revision": 2,
-  "film_version": "0.50.1",
+  "source_file_count": 772,
+  "source_manifest_sha256": "1ec742344333d54bec351058cb0ae25a0cab16f966843fbf45f769f84bdaf8fc",
+  "film_version": "0.55.0",
+  "film_sha256": "2603fbebe9d68af78f8e16a866eeee5d50d54ff7f7bf77e3f3865335af642c59",
+  "film_duration_s": 103.533333,
+  "film_url": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/review-058/",
   "web_try": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/try/"
 }

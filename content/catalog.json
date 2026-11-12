@@ -4,7 +4,7 @@
   "packs": [
     {
       "pack_id": "dinosaur-lab-missing-egg",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "content_asset": "content/ko-KR/dinosaurs/episode.json",
       "title": "공룡 연구소의 사라진 알",
       "subtitle": "오누와 흔적을 따라",
@@ -1776,6 +1776,32 @@
       "pack_id": "dinosaur-lab-missing-egg",
       "version": "0.10.0",
       "content_asset": "content/legacy/0.10.0/dinosaurs/episode.json",
+      "title": "공룡 연구소의 사라진 알",
+      "subtitle": "오누와 흔적을 따라",
+      "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",
+      "art_key": "dinosaurs",
+      "estimated_minutes": 6,
+      "duration_label": "약 4–6분",
+      "total_choices": 6,
+      "endings": {
+        "FOUND_TOGETHER": {
+          "title": "찾았다! 함께 만든 발견",
+          "summary": "흔적과 공룡 지식을 이어 알 모형을 찾았어요."
+        },
+        "TEAM_ASSIST": {
+          "title": "함께 모은 단서의 힘",
+          "summary": "연구소 팀에 단서를 전해 알 모형을 함께 찾았어요."
+        }
+      },
+      "interest_tags": [
+        "dinosaurs"
+      ],
+      "play_style": "explore"
+    },
+    {
+      "pack_id": "dinosaur-lab-missing-egg",
+      "version": "0.11.0",
+      "content_asset": "content/legacy/0.11.0/dinosaurs/episode.json",
       "title": "공룡 연구소의 사라진 알",
       "subtitle": "오누와 흔적을 따라",
       "description": "물가와 숲의 흔적을 따라, 로봇이 옮긴 알 모형을 함께 찾아요.",

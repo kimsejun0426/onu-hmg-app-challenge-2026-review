@@ -1,12 +1,13 @@
 {
-  "version_name": "0.51.0",
-  "version_code": 54,
-  "source_zip_sha256": "eebfc6d66adc578cc0a3de40cbe96616ea5b9d3a8cd2e0658fdbe34cf75de142",
-  "apk_sha256": "9ae3a59f7f1efa8a212da5049f9475c6a0307de4cecf4824c666bd53da233b24",
-  "film_version": "0.50.1",
-  "film_sha256": "16a4ec11a690672ff3855de239c171948be6594e65cb29a12d2f1a1a07bf3de2",
+  "version_name": "0.58.0",
+  "version_code": 63,
+  "apk_path": "apk/오누_오누_release.apk",
+  "apk_sha256": "d80800836dc38719b2c4aed2ea789f2969fad09b86b1bea6c158b962ee078d02",
+  "source_zip_sha256": "a97b9d8830faae7a206121427929bb5ba78f57af9e75230a263467b9e0236e2d",
+  "film_version": "0.55.0",
+  "film_sha256": "2603fbebe9d68af78f8e16a866eeee5d50d54ff7f7bf77e3f3865335af642c59",
+  "film_url": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/review-058/",
   "review": "https://kimsejun0426.github.io/onu-hmg-app-challenge-2026-review/try/",
-  "official_submission_complete": false,
   "private_forms_included": false,
   "source_manifest": "source-file-manifest.json"
 }

@@ -1,0 +1,509 @@
+{
+  "api": {
+    "attention": "sdpa",
+    "dtype": "bfloat16",
+    "language": "Korean",
+    "max_new_tokens": 420,
+    "non_streaming_mode": true,
+    "x_vector_only_mode": false
+  },
+  "clips": [
+    {
+      "asset": "story_audio/onu_02f1703fbae8c937.wav",
+      "expected_audio_sha256": "afbc4269d5eb9804d4a6cd26aa54fefd18ca87a3337f0fb7ec5dbab73b8df7ae",
+      "id": "onu_02f1703fbae8c937",
+      "seed": 534431334,
+      "text": "천천히 생각해도 괜찮아.",
+      "text_sha256": "02f1703fbae8c937dfea5064551d4e21ad7807152773a42fca5e2514e914e3a8"
+    },
+    {
+      "asset": "story_audio/onu_2b7b75a34f51025e.wav",
+      "expected_audio_sha256": "626665282ef79de4c9c7582fb43a31fe664b080f14cfcf3401f37a5f4a9739d0",
+      "id": "onu_2b7b75a34f51025e",
+      "seed": 526793693,
+      "text": "둘이 함께할 때는 내 이름을 먼저 말하고, 고른 말을 이어서 말해 줘.",
+      "text_sha256": "2b7b75a34f51025ed17e403e0a86555780f7d00c7e6ae5b638217c7d3e97d98c"
+    },
+    {
+      "asset": "story_audio/onu_592e066f5753dfcf.wav",
+      "expected_audio_sha256": "82dd89b95b77f6e068e9588550ae6714cf3c9b8524957f78655e3d5a58b01959",
+      "id": "onu_592e066f5753dfcf",
+      "seed": 1761804456,
+      "text": "응, 여기 있어.",
+      "text_sha256": "592e066f5753dfcffa8544e9735a64dbec23c2e6323db8d3cc2a69fab7dbda28"
+    },
+    {
+      "asset": "story_audio/onu_8688d8bb463f9b8e.wav",
+      "expected_audio_sha256": "a81cf3bb7b993799b6dac48aedc74e5d91725dce55bc7660d9b0be9a0d4515ad",
+      "id": "onu_8688d8bb463f9b8e",
+      "seed": 309578200,
+      "text": "어느 쪽인지 내가 잘 모르겠어. 다시 물어볼게.",
+      "text_sha256": "8688d8bb463f9b8e00344685306d57378b4e736c043cb026c968cae46ca17ae7"
+    },
+    {
+      "asset": "story_audio/onu_8a2aa0dc157d243e.wav",
+      "expected_audio_sha256": "31549a39df8e6e670b510b1d23fce2279a782163242014c74ac1ec420c32e33b",
+      "id": "onu_8a2aa0dc157d243e",
+      "seed": 354651892,
+      "text": "천천히 생각해도 괜찮아. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "8a2aa0dc157d243eaae42b1ef7bdda3480a4ff2017a8fce09637f8ef284949d1"
+    },
+    {
+      "asset": "story_audio/onu_8f8aac8ebce45da4.wav",
+      "expected_audio_sha256": "b3a7991caa46a40c4a285cae61dbf20365643d14cb04829e18a4427be745279e",
+      "id": "onu_8f8aac8ebce45da4",
+      "seed": 2085964143,
+      "text": "아직 선택하지 않았어. 원하는 선택을 다시 말해 줘.",
+      "text_sha256": "8f8aac8ebce45da49ee6139fc95c36addd7dd315995921d18473e4fe2448bc32"
+    },
+    {
+      "asset": "story_audio/onu_a29b4330cfc58198.wav",
+      "expected_audio_sha256": "e2d8597d538baf725271ac7fbde949cb8f457ef4174dd0595ac3be9090f12492",
+      "id": "onu_a29b4330cfc58198",
+      "seed": 834057228,
+      "text": "그 말은 내가 잘 이해하지 못했어. 다시 물어볼게.",
+      "text_sha256": "a29b4330cfc58198e4dd0b7740cca06fc85e9ab0f7291ad43936c6b0677b4b8a"
+    },
+    {
+      "asset": "story_audio/onu_c89f2f9319ad37d2.wav",
+      "expected_audio_sha256": "4de7d9590631650074c64e8f9331e162b982c8060114faca786dce2b55c19fa1",
+      "id": "onu_c89f2f9319ad37d2",
+      "seed": 276327689,
+      "text": "무엇을 할지는 들었어. 누구의 선택인지 이름만 말해 줄래?",
+      "text_sha256": "c89f2f9319ad37d294f3f6069fb88de20625a6e8bd651aa5ee3c81922c0d34a4"
+    },
+    {
+      "asset": "story_audio/dino_00dbe4f2313f6ae8.wav",
+      "expected_audio_sha256": "7d55cf88ba275b7e4721cbfd9c261071c20801407c602ffce1e9f8695afeeebd",
+      "id": "dino_00dbe4f2313f6ae8",
+      "seed": 855195912,
+      "text": "처음엔 숲에서 바퀴 자국을 봤어. 듣기 장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "00dbe4f2313f6ae8d7fb90388fd50720853a216544ff27fb76e8d55ed8be5c63"
+    },
+    {
+      "asset": "story_audio/dino_08a517ef648e0b9d.wav",
+      "expected_audio_sha256": "24d24c908cd4ba8464e307eff351953910d109204ad715a5cfd3c5202506df76",
+      "id": "dino_08a517ef648e0b9d",
+      "seed": 800361987,
+      "text": "나뭇잎 표시를 찾았어. 트리케라톱스는 식물을 먹었지. 이 표시의 로봇을 살펴보자.",
+      "text_sha256": "08a517ef648e0b9d693a85ffcab54c26b4483dea67e24d7fbe008fef2e2523f4"
+    },
+    {
+      "asset": "story_audio/dino_09abbdcf15614e68.wav",
+      "expected_audio_sha256": "091c6ff7ee7e11cc0c0d7ebadcf79accf48a82e0ef434710eefb043cac7c10d2",
+      "id": "dino_09abbdcf15614e68",
+      "seed": 1325658883,
+      "text": "바퀴 자국에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "09abbdcf15614e68c50a30ee82cfccba8e670f77b9956b94772eea5b0e95ff4c"
+    },
+    {
+      "asset": "story_audio/dino_1bc65dc63e7a639e.wav",
+      "expected_audio_sha256": "0020e970facf1131fbb8790b6b8126e749082170506bd4bbb4c1a3060b64d5c1",
+      "id": "dino_1bc65dc63e7a639e",
+      "seed": 1009081495,
+      "text": "노트를 같이 보자. 트리케라톱스는 식물을 먹었어. 나뭇잎도 식물이야.",
+      "text_sha256": "1bc65dc63e7a639eed50c7683e91b8cde62f8d234f3ed39ebc215c4beb0350c9"
+    },
+    {
+      "asset": "story_audio/dino_21070815a2b7637f.wav",
+      "expected_audio_sha256": "3dd7d0805b5498a25d77f12f412d5433288509f67d8b0019b478a07342e4f437",
+      "id": "dino_21070815a2b7637f",
+      "seed": 1351136358,
+      "text": "트리케라톱스는 얼굴에 뿔이 세 개 있었어. 스테고사우루스는 등에 판이 있었어.",
+      "text_sha256": "21070815a2b7637f3f8fc7da08ca036403b8c4399d5dc29ecc450034d67521cb"
+    },
+    {
+      "asset": "story_audio/dino_3160815e826a2f33.wav",
+      "cue_before": "cue_dino_arrival",
+      "expected_audio_sha256": "9abce5970f39677bcc85fae5506c1164dd08ee2df0ce8958c1a8a851745186f5",
+      "id": "dino_3160815e826a2f33",
+      "seed": 1339646304,
+      "text": "오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?",
+      "text_sha256": "3160815e826a2f33bbbd4d42bce7d0d53c6be48e53dac8694bd3639a786c99d6"
+    },
+    {
+      "asset": "story_audio/dino_32fcb4b6f679647b.wav",
+      "expected_audio_sha256": "13f08074a84fc56d2fa06379ae6272b7ba7182b309e553f52bf9c799f7e8d866",
+      "id": "dino_32fcb4b6f679647b",
+      "seed": 1602110760,
+      "text": "오누가 돋보기를 잡았어.",
+      "text_sha256": "32fcb4b6f679647b93b146a990a1bbff8e67f45a20b3c63b83e3cc0ea7dc23eb"
+    },
+    {
+      "asset": "story_audio/dino_341904e9437afa5c.wav",
+      "cue_before": "cue_discovery",
+      "expected_audio_sha256": "8ac33d6eaaa680ef4a9ffc6966adda0e0f4daeb07d56a523259b3cb893cf5c77",
+      "id": "dino_341904e9437afa5c",
+      "seed": 81453592,
+      "text": "오누가 읽은 상자 표지에 공작실이라고 적혀 있어. 상자에 끼워 둔 로봇의 노트도 찾았네.",
+      "text_sha256": "341904e9437afa5cab124934c74de872bf2214916954ff37ff642061d347a8c0"
+    },
+    {
+      "asset": "story_audio/dino_350bcbfbd123f73b.wav",
+      "cue_before": "cue_stream",
+      "expected_audio_sha256": "bb401a5268f4af1e504f1618a607ed4455965d8a17b19374a39cc1a328d3e46e",
+      "id": "dino_350bcbfbd123f73b",
+      "seed": 576652904,
+      "text": "물가에 바퀴 자국이 나 있어. 오누도 옆에서 흔적을 찾아볼게.",
+      "text_sha256": "350bcbfbd123f73b736827882a324bd6934adac919e7299a7b2332a70df2d3f4"
+    },
+    {
+      "asset": "story_audio/dino_382e0da11d641004.wav",
+      "expected_audio_sha256": "f12ca8eddb8170ccc8ba8976688fe41a2dbaf1ca06a4957513731a490ca9ff1a",
+      "id": "dino_382e0da11d641004",
+      "seed": 1275669027,
+      "text": "듣기 장치에서 로봇의 안내가 나와.",
+      "text_sha256": "382e0da11d6410041dade5792256f9925e6f655a17022e1f94f86179b7485ac6"
+    },
+    {
+      "asset": "story_audio/dino_3c169544bd866d05.wav",
+      "expected_audio_sha256": "314afb1ce63ebabbdd3504222663d65c0e4158578478f736e79baf27d1c655a4",
+      "id": "dino_3c169544bd866d05",
+      "seed": 611911237,
+      "text": "연구소 팀이 온실에서 알 모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "3c169544bd866d05c0e472ec8ce648095b5805c7d14145fe5037c305d7731a87"
+    },
+    {
+      "asset": "story_audio/dino_3c284e943b0ee75e.wav",
+      "expected_audio_sha256": "128b8456a158adda5221f50cf5de615baaa124a51c24f4f21f83a4087913afa8",
+      "id": "dino_3c284e943b0ee75e",
+      "seed": 1219460381,
+      "text": "공작실에는 없네. 로봇이 연구소 팀을 불렀어. 오누가 찾은 단서를 팀에 전했어.",
+      "text_sha256": "3c284e943b0ee75e19473fdfad436cb82f22bdfab42099be38930963d4aa7fa7"
+    },
+    {
+      "asset": "story_audio/dino_3d4b5ea30d2dff85.wav",
+      "cue_before": "cue_discovery",
+      "expected_audio_sha256": "5f1d56d12646ecb4acb218b18f2e5e7dc802db84543d9b588cc6f96b06671e1f",
+      "id": "dino_3d4b5ea30d2dff85",
+      "seed": 865005616,
+      "text": "오누가 읽은 상자 표지에 온실이라고 적혀 있어. 상자에 끼워 둔 로봇의 노트도 찾았네.",
+      "text_sha256": "3d4b5ea30d2dff85790d8eb8a8b02245eaa3f8e38f81aeb7de91e5e7c00f9fe9"
+    },
+    {
+      "asset": "story_audio/dino_3dbb193344056c44.wav",
+      "expected_audio_sha256": "06e6fa711ba111c3f0e872a95e931884fdc71a9c4606503948e9826670edd1cb",
+      "id": "dino_3dbb193344056c44",
+      "seed": 1844121339,
+      "text": "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+      "text_sha256": "3dbb193344056c449928d2d60d7e4fe9598cf80731c926a61454ffdb83a8485a"
+    },
+    {
+      "asset": "story_audio/dino_3f68c1762767a28a.wav",
+      "cue_before": "cue_discovery",
+      "expected_audio_sha256": "5b5881ea6a75d5b294eca8c939e10577d2820686a24b330a00165e53a23054ab",
+      "id": "dino_3f68c1762767a28a",
+      "seed": 1583945470,
+      "text": "자국 끝에 파란 세모가 있어. 공작실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+      "text_sha256": "3f68c1762767a28a10efc08597db80dd32bb6f1993d4a05a37d5aa689e6839ef"
+    },
+    {
+      "asset": "story_audio/dino_42de5c0d7a8d6365.wav",
+      "expected_audio_sha256": "c014107a2102e490301f28aadbb008566bf9777372042e70557a8cee5ef6dc2f",
+      "id": "dino_42de5c0d7a8d6365",
+      "seed": 2140719030,
+      "text": "숲길에 바퀴 자국이 보여. 오누랑 같이 살펴보자.",
+      "text_sha256": "42de5c0d7a8d6365622d2a7fed5a615e0b503f6354cad6a1a469922dfcdbdbb0"
+    },
+    {
+      "asset": "story_audio/dino_4a318149b75c90de.wav",
+      "expected_audio_sha256": "ea1c0d07ee06ae7df4f7ce8986d7d88e85c8c4256e6ab600af5916528dd7c5a7",
+      "id": "dino_4a318149b75c90de",
+      "seed": 1963151446,
+      "text": "상자 표지에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "4a318149b75c90de93dc37cb3f30a7815bbf657d6b9495ec07056e0182b8c95d"
+    },
+    {
+      "asset": "story_audio/dino_4f1c5768d15dd855.wav",
+      "expected_audio_sha256": "169e9cba71504d6e92f4345e01ceebb8974a66a19ce719a70806cd2dc182035b",
+      "id": "dino_4f1c5768d15dd855",
+      "seed": 656820430,
+      "text": "처음 찾은 상자 표지에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "4f1c5768d15dd8557bd3416790408959957699390dc7864589e8504338f1ca5c"
+    },
+    {
+      "asset": "story_audio/dino_4fdac28db0a99adb.wav",
+      "expected_audio_sha256": "b4fa7a3b7850ab6f756565bc8492c47c64f759c78da0611afe3ceaa70004f787",
+      "id": "dino_4fdac28db0a99adb",
+      "seed": 1726797117,
+      "text": "처음 찾은 바퀴 자국에서 온실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "4fdac28db0a99adbb65e13f0665b83c6b4f20105e2dba51e296d605c823e7976"
+    },
+    {
+      "asset": "story_audio/dino_520207372643609d.wav",
+      "expected_audio_sha256": "783bf195030f378d474f17579a8a46ea50ce1f6bb5ff96462952e09355c77dee",
+      "id": "dino_520207372643609d",
+      "seed": 583286340,
+      "text": "듣기 장치가 공룡 그림을 설명해 줬어. 얼굴에 뿔이 세 개래. 이 그림은 트리케라톱스일까, 스테고사우루스일까?",
+      "text_sha256": "520207372643609d9071b56b81090aa12b94c40012263907d79ae8ca9807a04c"
+    },
+    {
+      "asset": "story_audio/dino_5eeb02a4b6b92c12.wav",
+      "expected_audio_sha256": "6007c802b3599edbbed857b06fe076698d13d759424dcff26e0a9d36dfa55299",
+      "id": "dino_5eeb02a4b6b92c12",
+      "seed": 1658258507,
+      "text": "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "5eeb02a4b6b92c125d1eabd5a005d566949bcb1d99c6239119de92bd5fcc3eac"
+    },
+    {
+      "asset": "story_audio/dino_63dfd30158419890.wav",
+      "expected_audio_sha256": "fa68356ed542a4ff35d3fed28972a170fd574ba7c68fb356a2841453f7144594",
+      "id": "dino_63dfd30158419890",
+      "seed": 89111219,
+      "text": "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+      "text_sha256": "63dfd301584198906a9f9c8efd5b6bbbd69a343b6bd300a195d63615e6f39c4b"
+    },
+    {
+      "asset": "story_audio/dino_6d1af0571fbb38aa.wav",
+      "expected_audio_sha256": "1aa7890a4d3e70dee4beea6f71ab0a28debcd18a636b64bcf22e96758d9f9c7f",
+      "id": "dino_6d1af0571fbb38aa",
+      "seed": 1961946532,
+      "text": "노트를 펴 보니 트리케라톱스는 식물을 먹었어. 나뭇잎 표시의 로봇을 같이 살펴보자.",
+      "text_sha256": "6d1af0571fbb38aa85cf1b1c300ab98bd3496eb51dace69b2916a0f34ae9f75f"
+    },
+    {
+      "asset": "story_audio/dino_7d91d8bc0a744ed7.wav",
+      "expected_audio_sha256": "a8f205c8e96475c1d50eecd78e802238797e4a68ba2b6cc5627080f87476493d",
+      "id": "dino_7d91d8bc0a744ed7",
+      "seed": 282379982,
+      "text": "등에 판이 있는 공룡은 스테고사우루스야. 뿔이 세 개인 트리케라톱스가 그려진 로봇이 반짝였어.",
+      "text_sha256": "7d91d8bc0a744ed766fbe4c14c9703f54a6a7f6b81a5af69de0f552880ad5fb7"
+    },
+    {
+      "asset": "story_audio/dino_823088a509da2235.wav",
+      "expected_audio_sha256": "f474c9155d3f78f67291b7b256fbe2275b1a184caabf692884dc64f020a7a962",
+      "id": "dino_823088a509da2235",
+      "seed": 1063983455,
+      "text": "공작실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "823088a509da223548c450ce6c56426a736bcb0a08c521e285ee9637c37989e1"
+    },
+    {
+      "asset": "story_audio/dino_838fe3e372b1270b.wav",
+      "expected_audio_sha256": "5c844b3ef3b8ae47db4368c5bb44ec2b0b84105219298605703554d141529ec1",
+      "id": "dino_838fe3e372b1270b",
+      "seed": 1684450638,
+      "text": "온실에는 없네. 로봇이 연구소 팀을 불렀어. 오누가 찾은 단서를 팀에 전했어.",
+      "text_sha256": "838fe3e372b1270baa26bb65f1e1d512698025fb8320e334fdbd2dfb044571df"
+    },
+    {
+      "asset": "story_audio/dino_98a5f9eff626721e.wav",
+      "expected_audio_sha256": "f19a94b34ed876e25d2438c426411c9184a4c3fca5d4f86d61725eadb75f1d1b",
+      "id": "dino_98a5f9eff626721e",
+      "seed": 1159499849,
+      "text": "상자 표지에서 찾은 건 온실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?",
+      "text_sha256": "98a5f9eff626721e81f4a2c000d2f4b4f8b469b5a81d8874185781f06c8f4727"
+    },
+    {
+      "asset": "story_audio/dino_9d7c579e227e5115.wav",
+      "expected_audio_sha256": "ae7dd188f82596f4f392d73cb36c1ab4fd2040c30564a167aeb3c441822abf10",
+      "id": "dino_9d7c579e227e5115",
+      "seed": 954050001,
+      "text": "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?",
+      "text_sha256": "9d7c579e227e51152130acd9d8ebe26ce9f344d7802ca2b483b77e5daf7bd59a"
+    },
+    {
+      "asset": "story_audio/dino_a2feba86cc363503.wav",
+      "expected_audio_sha256": "7d9df0abd8d0ec38bdcead2f5d10a390b18fff09f86d1bfc186c5468a710cd10",
+      "id": "dino_a2feba86cc363503",
+      "seed": 942874759,
+      "text": "처음엔 숲에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "a2feba86cc3635039a8f411eccb2a03ba634af5486737a1097d4f011cd56ec7f"
+    },
+    {
+      "asset": "story_audio/dino_a5dae647ab4a6993.wav",
+      "expected_audio_sha256": "1f26de10dc0ea84bba3a5bd82f59a2a74087ffa3cb7053131296ccccb91e143f",
+      "id": "dino_a5dae647ab4a6993",
+      "seed": 282389274,
+      "text": "처음엔 물가에서 바퀴 자국을 봤어. 듣기 장치로 공룡 그림 설명을 들었지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "a5dae647ab4a6993d1c5195482f99a9d2dfb46d662a4d4e15690de7da46c8d77"
+    },
+    {
+      "asset": "story_audio/dino_a70d680c2a1c7ad0.wav",
+      "expected_audio_sha256": "cfecb6a99b1195cd6f5ca64135fbc985a00c925a6c21ad3ecf7aa4f7ecc2fb9d",
+      "id": "dino_a70d680c2a1c7ad0",
+      "seed": 619279263,
+      "text": "물가와 숲 중 먼저 가 보고 싶은 곳을 골라 줘. 오누도 함께 찾아볼게.",
+      "text_sha256": "a70d680c2a1c7ad03c938749a762e553f7d209fa573a43065d9de6665cee1fd2"
+    },
+    {
+      "asset": "story_audio/dino_a9d70186c036fec7.wav",
+      "cue_before": "cue_discovery",
+      "expected_audio_sha256": "2993e8a1224261e82b6e64159c21f626d6d8ca2ba4728c73ac1591f0c863ab53",
+      "id": "dino_a9d70186c036fec7",
+      "seed": 240038025,
+      "text": "자국 끝에 초록 동그라미가 있어. 온실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
+      "text_sha256": "a9d70186c036fec7d497f30afad069e955900322c379c2d75a645de62aa92244"
+    },
+    {
+      "asset": "story_audio/dino_b60583bb4ad0b558.wav",
+      "expected_audio_sha256": "01078be9ad1c7eefb55d580966de80bd6576177227ccaef69ee944962012a5d3",
+      "id": "dino_b60583bb4ad0b558",
+      "seed": 1130588784,
+      "text": "온실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
+      "text_sha256": "b60583bb4ad0b5587e73029f907929c7e795afa217c85a3a00a6e3452a2360d6"
+    },
+    {
+      "asset": "story_audio/dino_c0649c5b57a424c1.wav",
+      "expected_audio_sha256": "b9c540ec2931162d857638864994a1c6e1ade2db3c54afefe8262c123f381c4c",
+      "id": "dino_c0649c5b57a424c1",
+      "seed": 1212476530,
+      "text": "연구소 팀이 공작실에서 알 모형을 찾았대. 듣기 장치로 공룡 그림 설명을 들었지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "c0649c5b57a424c1fa3213b31a0baf9c278af1cc6f4c86b45ab234a69a8425a9"
+    },
+    {
+      "asset": "story_audio/dino_d1f01756b2b39712.wav",
+      "expected_audio_sha256": "5c4e46c5e6fe552255fd6973a42ac159ecec7b1902023b250c1bfb676a51ed8a",
+      "id": "dino_d1f01756b2b39712",
+      "seed": 210666415,
+      "text": "연구소 팀이 온실에서 알 모형을 찾았대. 듣기 장치로 공룡 그림 설명을 들었지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "d1f01756b2b397126a61ccf58f8035f1b0be57743bc85abbbf576af583afbcf0"
+    },
+    {
+      "asset": "story_audio/dino_d50f7ee068802340.wav",
+      "expected_audio_sha256": "86454703590dbaaf174379dc336396fd9f8afa928a4013fb13f8b0a6d1efae27",
+      "id": "dino_d50f7ee068802340",
+      "seed": 1618292250,
+      "text": "돋보기는 작은 그림을 크게 보여 줘. 듣기 장치는 그림을 말로 설명해 줘.",
+      "text_sha256": "d50f7ee06880234003668d3743ebe5745371cb71faee4a5debbe39a1e27da304"
+    },
+    {
+      "asset": "story_audio/dino_e566c68f0d20b5e0.wav",
+      "expected_audio_sha256": "3a822f1940838841568428610555ac9570cfbc2928e7e8e8dab6a3a356f676c9",
+      "id": "dino_e566c68f0d20b5e0",
+      "seed": 897093489,
+      "text": "처음 찾은 상자 표지에서 온실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "e566c68f0d20b5e034c4a574b24d19fcd014cc5c2bb57cbc3bec29029fe22ead"
+    },
+    {
+      "asset": "story_audio/dino_e7f22b727e22e3c6.wav",
+      "expected_audio_sha256": "4954c789de262b03ac3396d6a3631c5bab78dfc66787caba0e0f20192df5170d",
+      "id": "dino_e7f22b727e22e3c6",
+      "seed": 1326040542,
+      "text": "트리케라톱스 그림의 로봇이 반짝였어. 알 모형을 옮긴 로봇을 찾았네.",
+      "text_sha256": "e7f22b727e22e3c6db2fdd5c48f2c74055c533ac8e00bb7f27042cd3b6107100"
+    },
+    {
+      "asset": "story_audio/dino_e92826c9a6ad84c9.wav",
+      "cue_before": "cue_forest",
+      "expected_audio_sha256": "605ee1eef41aebf5559126e6e59330c12d0a80c4f4aec8c592bd5cbea31a13f8",
+      "id": "dino_e92826c9a6ad84c9",
+      "seed": 1929734017,
+      "text": "숲길에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+      "text_sha256": "e92826c9a6ad84c99b5f6cfe4633006f20479ca165eeed37750af5e76c38053f"
+    },
+    {
+      "asset": "story_audio/dino_ea738eaf324cb2b1.wav",
+      "expected_audio_sha256": "01e6ef0a03a464bebae363f3609ea4b7565c9f255a76ac807575e89204035a15",
+      "id": "dino_ea738eaf324cb2b1",
+      "seed": 1760136249,
+      "text": "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?",
+      "text_sha256": "ea738eaf324cb2b144e23a1e25ca904f40de4442e0d38c32b81635f0e18e6bc4"
+    },
+    {
+      "asset": "story_audio/dino_fac7a4fade3d402b.wav",
+      "expected_audio_sha256": "e446af738385b74ef64fa01f07fba23af1c5b84334e04b5223e96cf7338d5ec7",
+      "id": "dino_fac7a4fade3d402b",
+      "seed": 480338453,
+      "text": "연구소 팀이 공작실에서 알 모형을 찾았대. 돋보기로 공룡 그림을 크게 봤지. 우리가 찾은 로봇이 알 모형을 전시대에 돌려놨어.",
+      "text_sha256": "fac7a4fade3d402b5b234568891452c3dc199963a9d439322de278bfeb3da661"
+    },
+    {
+      "asset": "story_audio/dino_fcb1e1f2a1cd6567.wav",
+      "expected_audio_sha256": "53f5bc87d9091211550ae2ffd8050927e9e1fc8171a2504ca96d8ec3fd3aa22b",
+      "id": "dino_fcb1e1f2a1cd6567",
+      "seed": 412856640,
+      "text": "처음 찾은 바퀴 자국에서 공작실 표시를 봤어. 로봇과 그곳으로 가 보자.",
+      "text_sha256": "fcb1e1f2a1cd65671b69e9431dfaaaf331f99209a4c827ecad7dee35965c4122"
+    },
+    {
+      "asset": "story_audio/dino_fcbf9927c305e23a.wav",
+      "expected_audio_sha256": "1e182212b947472291cf8e16a676a774ef8be82447eec5ea28576a68362155f8",
+      "id": "dino_fcbf9927c305e23a",
+      "seed": 2136732562,
+      "text": "처음엔 물가에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네.",
+      "text_sha256": "fcbf9927c305e23aff084acaaa6116b25509d2e38f124a27857e4d38ee017ef7"
+    },
+    {
+      "asset": "story_audio/dino_fcd97438d8bc56b2.wav",
+      "expected_audio_sha256": "e616155fa362c460bef8b7b836bcf106fa0a91d81d424a7f64658f8b696d094e",
+      "id": "dino_fcd97438d8bc56b2",
+      "seed": 1476982806,
+      "text": "따라가며 찾고 싶으면 바퀴 자국, 적힌 곳을 보고 싶으면 상자 표지야.",
+      "text_sha256": "fcd97438d8bc56b28a9adf5089c9bd2c27cc217ab15ea82bbe622ce398a411ef"
+    }
+  ],
+  "cues": [
+    {
+      "asset": "story_audio/cue_dino_arrival.wav",
+      "duration_ms": 2850,
+      "id": "cue_dino_arrival",
+      "sha256": "cd27ec4dd291413378fd6f779610f92d96fde87b405aa0d37636af9acafb4d78"
+    },
+    {
+      "asset": "story_audio/cue_forest.wav",
+      "duration_ms": 2400,
+      "id": "cue_forest",
+      "sha256": "babc1c4c94bdf0cc11531df43df95c7c0a0458b122d0718fb84a30912b4d3446"
+    },
+    {
+      "asset": "story_audio/cue_stream.wav",
+      "duration_ms": 2400,
+      "id": "cue_stream",
+      "sha256": "f1b165ea3f942b8c034baca535c15fd0e2ac872decd58aa2ceda2b964aa37032"
+    },
+    {
+      "asset": "story_audio/cue_discovery.wav",
+      "duration_ms": 800,
+      "id": "cue_discovery",
+      "sha256": "8f8d0dc57c76ad5f56a840bd35a731b885396d01889cde8d399d3bcc7f0dce51"
+    }
+  ],
+  "human_listening_verified": false,
+  "model": {
+    "code_license": "Apache-2.0",
+    "code_repository": "https://github.com/QwenLM/Qwen3-TTS",
+    "license": "Apache-2.0",
+    "package": "qwen-tts==0.1.1",
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "revision": "fd4b254389122332181a7c3db7f27e918eec64e3"
+  },
+  "preserve": {
+    "legacy_only_story_clips": 6,
+    "merge_policy": "Generated assets/manifest.json contains only the 52 selected speech clips plus unchanged cues. Never replace the production 59-clip manifest wholesale; a later approved integration must merge exactly these 52 IDs and preserve the other 7.",
+    "unchanged_effects": 4,
+    "unchanged_first_jump_and_rain_clips": 50,
+    "welcome_reference6238": 1
+  },
+  "processing": {
+    "pitch_or_time_processing": false,
+    "static_gain_target_lufs": -23,
+    "true_peak_cap_dbtp": -3.25
+  },
+  "production_audio_generated": false,
+  "reference": {
+    "asset": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+    "origin": "Independent self-generated fictional Korean boy voice, VoiceDesign seed 86301.",
+    "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "text": "어, 나도 들었어. 작은 소리가 두 번 났지? 잠깐만. 우리 같이 한 번 더 들어 보자."
+  },
+  "remaining": {
+    "all_331_texts_converted": false,
+    "dynamic_nickname_role_turn_device_tts": true,
+    "guard_only_fixed_hint_fallbacks_device_tts": 2,
+    "other_six_adventure_body_texts_device_tts": 279,
+    "runtime_loader_limit_changed": false,
+    "wrong_player_name_device_tts": true
+  },
+  "schema_version": 1,
+  "scope": "Exactly current dinosaur 44 plus common recovery 8. Keep wording, IDs, WAV basenames and cue bindings. No production files changed.",
+  "seed_policy": {
+    "algorithm": "uint31(first 8 hex digits of SHA256(UTF8(namespace + LF + id + LF + text_sha256 + LF + decimal_collision_salt))); process common IDs first then story IDs, each lexicographically; increment salt only on collision",
+    "collision_count": 0,
+    "namespace": "onu-0.56.0/current-story52/reference6238/first-candidate/v1",
+    "purpose": "Deterministic first-candidate sampling, not quality selection or listening approval; exact numerical output may vary by runtime/hardware.",
+    "unique_seed_count": 52
+  },
+  "status": "frozen_plan_not_generated",
+  "version": "0.56.0-preparation",
+  "voice": "Onu, existing fictional Korean boy voice shared with the sound letters (reference6238)"
+}

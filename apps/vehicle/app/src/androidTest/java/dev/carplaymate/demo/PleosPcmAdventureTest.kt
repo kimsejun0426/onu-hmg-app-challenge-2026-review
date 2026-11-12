@@ -695,7 +695,7 @@ class PleosPcmAdventureTest {
     private fun assertRiver(snapshot: Snapshot) {
         val game = snapshot.game
         assertEquals(DEFAULT_ADVENTURE_ID, game.getString("pack_id"))
-        assertEquals("0.11.0", game.getString("pack_version"))
+        assertEquals("0.12.0", game.getString("pack_version"))
         assertEquals("river_evidence", game.getString("scene_id"))
         assertEquals("RIVER", game.getJSONObject("flags").getString("route"))
         assertTrue((0 until game.getJSONArray("clues").length()).any { game.getJSONArray("clues").getString(it) == "RIVER_ROUTE" })
@@ -751,11 +751,11 @@ class PleosPcmAdventureTest {
         const val FIXTURE = "pleos-pcm/river-choice.pcm"
         const val FIXED_PHRASE = "물가로 갈래"
         const val MAX_PCM_BYTES = 320_000
-        // Independent authored expectations from dinosaur 0.11.0: RIVER.feedback then
+        // Independent authored expectations from dinosaur 0.12.0: RIVER.feedback then
         // river_evidence.prompt with the fixed solo nickname. Never read from the actual plan.
         val EXPECTED_RIVER_FEEDBACK = listOf(
             "물가에 바퀴 자국이 나 있어. 오누도 옆에서 흔적을 찾아볼게.",
-            "별, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
+            "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?",
         )
         fun normalized(text: String): String = text.trim().trimEnd('.', '?', '!', '。', '？', '！').filterNot(Char::isWhitespace)
         fun checkedSha(value: String?): String {

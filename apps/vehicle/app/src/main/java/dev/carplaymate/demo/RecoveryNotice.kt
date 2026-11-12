@@ -21,8 +21,8 @@ internal fun RecoveryCause.notice(hasResumeTarget: Boolean = true): RecoveryNoti
         "입력을 멈추고 쉬고 있어요. 준비됐을 때 이어하기로 다시 시도해 주세요.")
     RecoveryCause.INPUT_FAILED -> RecoveryNotice("대답을 확인하지 못했어요",
         "잠깐 쉬었다가 이어하기로 다시 말해 주세요. 설정에서 다른 이용 방식을 직접 골라도 좋아요.")
-    RecoveryCause.AUDIO_FOCUS -> RecoveryNotice("다른 소리 때문에 쉬고 있어요",
-        "통화나 다른 소리가 끝나면 직접 이어가 주세요.")
+    RecoveryCause.AUDIO_FOCUS -> RecoveryNotice("소리 재생을 잠시 쉬어요",
+        "준비되면 이어하기를 눌러 주세요.")
     RecoveryCause.OUTPUT_PERMISSION -> RecoveryNotice("음성 안내 권한을 확인해 주세요",
         "설정에서 음성 안내 권한을 확인해 주세요. 소리 없이 이용하려면 ‘읽으며 체험’을 직접 고를 수 있어요.", "음성 안내 설정 확인하기")
     RecoveryCause.OUTPUT_UNAVAILABLE -> RecoveryNotice("음성 안내를 준비하지 못했어요",

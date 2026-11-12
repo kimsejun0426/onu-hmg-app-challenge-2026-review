@@ -45,6 +45,8 @@ val validateReleaseSigning = tasks.register("validateReleaseSigning") {
     }
 }
 
+val mediaProbeRequested = providers.gradleProperty("onuMediaProbe").orNull?.toBooleanStrict() ?: false
+
 android {
     namespace = "dev.carplaymate.demo"
     compileSdk = 35
@@ -59,8 +61,12 @@ android {
         applicationId = "dev.carplaymate.demo"
         minSdk = 28
         targetSdk = 35
-        versionCode = 54
-        versionName = "0.51.0"
+        versionCode = 63
+        versionName = "0.58.0"
+        // Pleos task restoration conflicts with mixed launcher/media discovery in the probe.
+        // Release and ordinary demo never activate that experimental surface.
+        buildConfigField("boolean", "LETTER_MEDIA_BROWSER_ENABLED", "false")
+        manifestPlaceholders["letterMediaBrowserEnabled"] = "false"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -96,7 +102,9 @@ android {
             initWith(getByName("release"))
             isShrinkResources = true
             applicationIdSuffix = ".demo"
-            versionNameSuffix = "-demo"
+            versionNameSuffix = if (mediaProbeRequested) "-media-probe" else "-demo"
+            buildConfigField("boolean", "LETTER_MEDIA_BROWSER_ENABLED", mediaProbeRequested.toString())
+            manifestPlaceholders["letterMediaBrowserEnabled"] = mediaProbeRequested.toString()
             signingConfig = signingConfigs.getByName("debug")
             matchingFallbacks += listOf("release")
             proguardFiles("proguard-demo-runtime.pro", "proguard-test-interfaces.pro")

@@ -17,6 +17,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.contentDescription
@@ -24,6 +25,7 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 
 @Composable
@@ -66,6 +68,33 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
     }
     val lifecycle = LocalLifecycleOwner.current.lifecycle
     val lifecycleState by lifecycle.currentStateFlow.collectAsState()
+    val window = LocalView.current
+    // Only a tap on a saved turn creates this request. Activity and process restoration start quiet.
+    var resumeEntry by remember { mutableStateOf<Pair<String, String>?>(null) }
+    DisposableEffect(window, lifecycle, letterFamily, lettersEligible, ui.fullUiAllowed, ui.interactionConfigured,
+        ui.simulation, ui.voiceInput) {
+        val removeFocusObserver = observeFirstJumpWindow(window) { resumeEntry = null }
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_PAUSE) resumeEntry = null
+        }
+        lifecycle.addObserver(observer)
+        onDispose {
+            resumeEntry = null
+            lifecycle.removeObserver(observer)
+            removeFocusObserver()
+        }
+    }
+    fun takeEntryFor(destination: String): (() -> String?)? {
+        val request = resumeEntry?.takeIf { it.first == destination } ?: return null
+        return {
+            if (resumeEntry !== request) null else {
+                resumeEntry = null
+                request.second
+            }
+        }
+    }
+    val jumpInProgress = jumpState != null && jumpState.step !in setOf(JumpStep.READY, JumpStep.END)
+    val rainInProgress = rainState != null && rainState.step !in setOf(RainStep.READY, RainStep.END)
     fun requestFamily(): String? = model.ui.value.let { state ->
         if (!state.onboarded || state.familyDeletionPending || state.localStorageProblem) null
         else state.children.takeIf { it.isNotEmpty() }?.joinToString("|") { it.id }
@@ -109,7 +138,7 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
             FamilyPermissionReturns.Kind.VOICE -> {
                 model.microphonePermissionResult(result.granted)
                 permissionProblem = if (result.granted) null else
-                    "음성 입력 권한을 켜지 않았어요. 다시 음성 방식을 누르거나 기기 앱 권한을 확인해 주세요."
+                    "마이크나 알림 권한을 켜지 않았어요. 다시 음성 방식을 누르거나 기기 앱 설정에서 권한과 알림을 확인해 주세요."
             }
             FamilyPermissionReturns.Kind.OUTPUT -> {
                 permissionProblem = if (result.granted) null else
@@ -142,7 +171,8 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
         if (!model.voiceInputSupported())
             permissionProblem = model.ui.value.voiceInputProblem
         else {
-            val required = model.requiredVoicePermissions()
+            val required = (model.requiredVoicePermissions().toList() +
+                LetterSessionService.requiredNotificationPermissions(context)).distinct().toTypedArray()
             if (required.isEmpty()) {
                 permissionProblem = null
                 model.useVoiceInput(true)
@@ -172,17 +202,19 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
         model.useSimulation(true)
     }
     fun afterInterests() = if (model.ui.value.interactionConfigured) "settings" else "interaction"
-    fun navigate(destination: String) {
+    fun navigate(destination: String, resumeCheckpoint: String? = null) {
+        resumeEntry = resumeCheckpoint?.let { destination to it }
         model.leaveAdventureScreen()
         page = if (destination == "home" && ui.onboarded && !ui.interactionConfigured) "interaction" else destination
     }
     fun openFirstLetter() {
-        if (ownsLetters() && model.ui.value.fullUiAllowed && !model.ui.value.busy) navigate("letter")
+        if (ownsLetters() && model.ui.value.fullUiAllowed && !model.ui.value.busy)
+            navigate("letter", jumpToken.takeIf { jumpInProgress })
     }
     val openReply: (() -> Unit)? = if (rainState != null || lastJump != null) ({
         if (ownsLetters() && model.ui.value.fullUiAllowed && !model.ui.value.busy) {
             lastJump?.let(::deliverReply)
-            navigate("rainLetter")
+            navigate("rainLetter", rainToken.takeIf { rainInProgress })
         }
     }) else null
     fun start(packId: String) {
@@ -245,19 +277,20 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
             Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.systemBars).imePadding()
         ) {
             val wide = maxWidth >= 840.dp && maxWidth / LocalDensity.current.fontScale >= 680.dp
-            if (!ui.onboarded || page in setOf("home", "play", "interaction")) {
+            if (ui.onboarded && page in setOf("home", "play", "interaction")) {
                 val saved = ui.savedAdventures.firstOrNull { it.sessionId == ui.snapshot?.sessionId } ?: ui.savedAdventures.firstOrNull()
                 val pack = if (page == "play") ui.snapshot?.game?.optString("pack_id")
                     else saved?.packId ?: ui.recommendations.firstOrNull()?.packId
                 val world = when {
-                    !ui.onboarded || page == "interaction" -> "arrival"
+                    page == "interaction" -> "arrival"
                     page == "home" && shouldFeatureFirstJump(ui.children, saved != null) ->
                         if (rainState != null || lastJump != null) "rain_music" else "first_jump"
                     else -> ui.adventures.firstOrNull { it.packId == pack }?.artKey ?: "dinosaurs"
                 }
                 OnuJourneyBackdrop(
                     world, Modifier.fillMaxSize(),
-                    setupIntro = ui.onboarded && page == "interaction",
+                    setupIntro = page == "interaction",
+                    activeAdventure = page == "play" && !ui.quiet && ui.snapshot?.status == "ACTIVE",
                 )
             }
             Column(Modifier.fillMaxSize()) {
@@ -322,7 +355,7 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
                                 requestOutput, openAppPermissions,
                                 onDone = { if (canFinishInteractionSetup(ui)) navigate("home") },
                             )
-                            "letter" -> SoundLetterRoute(JumpEpisode, model, ui, jumpToken, onSave = { value ->
+                            "letter" -> SoundLetterRoute(JumpEpisode, model, ui, jumpToken, takeEntryFor("letter"), onSave = { value ->
                                 if (ownsLetters() && letterRecord != prefix + value) {
                                     // Seed before a replay can replace the END checkpoint with READY.
                                     restoreLetter(value)?.takeIf { it.step == JumpStep.END }?.ending?.let(::deliverReply)
@@ -338,7 +371,7 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
                             "rainLetter" -> {
                                 if (rainState != null || lastJump != null) {
                                     val rain = remember(rainState?.previousJump, lastJump) { RainEpisode(rainState?.previousJump ?: lastJump) }
-                                    SoundLetterRoute(rain, model, ui, rainToken, onSave = { value ->
+                                    SoundLetterRoute(rain, model, ui, rainToken, takeEntryFor("rainLetter"), onSave = { value ->
                                         if (ownsLetters() && rainRecord != prefix + value) {
                                             rainRecord = prefix + value
                                             rainProgress.save(letterFamily, value)
@@ -357,7 +390,7 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
                                     { navigate("settings") },
                                 )
                             "journal" -> FamilyMemory(ui, wide, jumpState, rainState,
-                                onLetter = ::openFirstLetter, onReply = openReply, onLibrary = { navigate("library") })
+                                onLetter = { if (ownsLetters() && model.ui.value.fullUiAllowed && !model.ui.value.busy) navigate("letter") }, onReply = openReply, onLibrary = { navigate("library") })
                             "notices" -> OpenSourceNotices(
                                 Modifier.fillMaxSize()
                                     .padding(horizontal = if (wide) 32.dp else 20.dp),
@@ -412,7 +445,8 @@ internal fun FamilyScreen(model: DeveloperViewModel, onHide: () -> Unit) {
                                     onSettings = { navigate("settings") },
                                     onLetter = ::openFirstLetter,
                                     onReply = openReply,
-                                    replyInProgress = rainState != null && rainState.step !in setOf(RainStep.READY, RainStep.END),
+                                    letterInProgress = jumpInProgress,
+                                    replyInProgress = rainInProgress,
                                 )
                         }
                     }

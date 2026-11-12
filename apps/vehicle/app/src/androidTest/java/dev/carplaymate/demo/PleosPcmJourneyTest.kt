@@ -239,7 +239,7 @@ class PleosPcmJourneyTest {
             assertEquals("ENDED", durable.status); assertProgress(durable, 6)
             assertEquals(snapshot.version, durable.version); assertEquals(snapshot.game.toString(), durable.game.toString())
             assertNull(durable.speechPlan); assertNull(durable.listenWindowId)
-            evidence.put("game", JSONObject().put("pack_id", DEFAULT_ADVENTURE_ID).put("pack_version", "0.11.0")
+            evidence.put("game", JSONObject().put("pack_id", DEFAULT_ADVENTURE_ID).put("pack_version", "0.12.0")
                 .put("scene_id", "ending_found").put("ending", "FOUND_TOGETHER").put("status", snapshot.status)
                 .put("finished", true).put("history_count", 6).put("action_ids", JSONArray(STEPS.map { it.action }))
                 .put("score_total", 8).put("version", snapshot.version).put("durable_snapshot_verified", true))
@@ -307,7 +307,7 @@ class PleosPcmJourneyTest {
         val format = manifest.getJSONObject("format")
         assertEquals(16_000, format.getInt("sample_rate_hz")); assertEquals(16, format.getInt("bits_per_sample"))
         assertEquals(1, format.getInt("channels")); assertEquals("signed_pcm_little_endian", format.getString("encoding"))
-        // Authored 0.9.0 PCM is reused unchanged; the current 0.11.0 game is independently checked.
+        // Authored 0.9.0 PCM is reused unchanged; the current 0.12.0 game is independently checked.
         val entries = manifest.getJSONArray("fixtures"); assertEquals(6, entries.length())
         return STEPS.mapIndexed { index, step ->
             val entry = entries.getJSONObject(index)
@@ -749,7 +749,7 @@ class PleosPcmJourneyTest {
     private fun assertProgress(snapshot: Snapshot, count: Int) {
         check(count in 0..6)
         val game = snapshot.game
-        assertEquals(DEFAULT_ADVENTURE_ID, game.getString("pack_id")); assertEquals("0.11.0", game.getString("pack_version"))
+        assertEquals(DEFAULT_ADVENTURE_ID, game.getString("pack_id")); assertEquals("0.12.0", game.getString("pack_version"))
         assertEquals(SCENES[count], game.getString("scene_id")); assertEquals(count, game.getInt("turn_index"))
         assertEquals(count == 6, game.getBoolean("finished"))
         val history = game.getJSONArray("history"); assertEquals(count, history.length())
@@ -833,19 +833,19 @@ class PleosPcmJourneyTest {
         val SCENES = listOf("choose_path", "river_evidence", "diet", "tool", "identity", "deduction", "ending_found")
         val SCORES = listOf(0, 1, 2, 1, 2, 2)
         val CLUES = listOf("RIVER_ROUTE", "BLUE_TRIANGLE", "TRICERATOPS_PLANT_EATER", "THREE_HORNS_PICTURE", "MATCHED_ROBOT")
-        // Independent authored 0.11.0 expectations; never taken from the output plan under test.
+        // Independent authored 0.12.0 expectations; never taken from the output plan under test.
         val EXPECTED_PLANS = listOf(
-            listOf("별, 오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"),
+            listOf("오누랑 상상 속 공룡 연구소에 가자. 공룡 알 모형이 없어졌어. 물가에서 찾을까, 숲에서 찾을까?"),
             listOf("물가에 바퀴 자국이 나 있어. 오누도 옆에서 흔적을 찾아볼게.",
-                "별, 물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"),
+                "물가에 바퀴 자국과 운반 상자가 있네. 자국을 따라갈까, 상자 표지를 볼까?"),
             listOf("자국 끝에 파란 세모가 있어. 공작실 표시야. 옆에 로봇의 노트도 떨어져 있네.",
-                "별, 노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"),
+                "노트에는 트리케라톱스가 적혀 있어. 먹이 표시를 보고 로봇을 찾자. 나뭇잎일까, 생선일까?"),
             listOf("나뭇잎 표시를 찾았어. 트리케라톱스는 식물을 먹었지. 이 표시의 로봇을 살펴보자.",
-                "별, 나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"),
+                "나뭇잎 표시의 로봇이 두 대네. 공룡 그림은 서로 달라. 돋보기로 볼까, 듣기 장치로 설명을 들을까?"),
             listOf("오누가 돋보기를 잡았어.",
-                "별, 돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"),
+                "돋보기로 로봇의 공룡 그림을 봤어. 얼굴에 뿔이 세 개야. 이 그림은 트리케라톱스일까, 스테고사우루스일까?"),
             listOf("트리케라톱스 그림의 로봇이 반짝였어. 알 모형을 옮긴 로봇을 찾았네.",
-                "별, 바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"),
+                "바퀴 자국에서 찾은 건 공작실 표시였어. 로봇과 온실로 갈까, 공작실로 갈까?"),
             listOf("공작실 문이 열렸어. 로봇 옆 상자에 알 모형이 있네.",
                 "처음엔 물가에서 바퀴 자국을 봤어. 돋보기로 공룡 그림을 크게 봤지. 로봇이 알 모형을 전시대에 돌려놨어. 우리 함께 찾았네."),
         )

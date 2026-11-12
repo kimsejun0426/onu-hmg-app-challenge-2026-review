@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "voice": "Onu, existing fictional Korean boy voice shared with the sound letters (reference6238)",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "revision": "fd4b254389122332181a7c3db7f27e918eec64e3",
+    "license": "Apache-2.0",
+    "code_repository": "https://github.com/QwenLM/Qwen3-TTS",
+    "code_license": "Apache-2.0",
+    "package": "qwen-tts==0.1.1"
+  },
+  "reference": {
+    "asset": "docs/audio/reproduction/onu-letter-boy/reference.wav",
+    "sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "text": "어, 나도 들었어. 작은 소리가 두 번 났지? 잠깐만. 우리 같이 한 번 더 들어 보자.",
+    "origin": "Independent self-generated fictional Korean boy voice, VoiceDesign seed 86301."
+  },
+  "api": {
+    "language": "Korean",
+    "x_vector_only_mode": false,
+    "non_streaming_mode": true,
+    "max_new_tokens": 420,
+    "dtype": "bfloat16",
+    "attention": "sdpa"
+  },
+  "processing": {
+    "static_gain_target_lufs": -23,
+    "true_peak_cap_dbtp": -3.25,
+    "pitch_or_time_processing": false
+  },
+  "clips": [
+    {
+      "id": "ask_question",
+      "text": "해달도 펭귄도 헤엄을 잘 쳐. 깃털이 있는지 물어볼까? 날개로 헤엄치는지 물어볼까?",
+      "text_sha256": "abf6ea451f75248a03f5261d1e33bcc2f5dc8fbf6bde5c0c0cdb4e6f0fb90b7a",
+      "asset": "story_audio/ask_question.wav",
+      "seed": 65588
+    },
+    {
+      "id": "sounds_ack",
+      "text": "물소리도 발소리도 들었구나. 타닥타닥 걷다가 첨벙!",
+      "text_sha256": "b85e8bfc2a7bd2ed20ef6007c4fa7f30b40009b869eef978e5daba205255792a",
+      "asset": "story_audio/sounds_ack.wav",
+      "seed": 65511
+    },
+    {
+      "id": "reveal_help",
+      "text": "해달한테는 털이 있고, 펭귄한테는 깃털이 있어. 그러니까 이 친구는 펭귄이네!",
+      "text_sha256": "d7dc66b45f64783c66e32cc27359226cdb70c22a00e81023ac29a75d624e339d",
+      "asset": "story_audio/reveal_help.wav",
+      "seed": 65512
+    },
+    {
+      "id": "rain_explain",
+      "text": "이번 소리는 빗방울이야. 차창을 톡톡 두드리지? 다른 소리도 들어 보자.",
+      "text_sha256": "e347f4018a4ba5c7f1201fc7aee71e62ca03277236dea88b8d279d9b72f0d0ab",
+      "asset": "story_audio/rain_explain.wav",
+      "seed": 65513
+    },
+    {
+      "id": "wiper_explain",
+      "text": "차 유리를 닦는 와이퍼 소리야. 슥삭, 슥삭! 빗방울이랑 같이 들어 보자.",
+      "text_sha256": "1ab37ce06a6110bd0d48a674ebf4aa6138ff3fab8606843f9bbe1f8ed753604d",
+      "asset": "story_audio/wiper_explain.wav",
+      "seed": 65644
+    },
+    {
+      "id": "tempo_explain",
+      "text": "소리 사이가 짧아졌지? 아까보다 빨라진 거야. 이제 우리 방송에 넣어 보자.",
+      "text_sha256": "a69fb6144f9e1e1107089ceaea1232997fc5853afaaca1f3088c6fcef9562ea6",
+      "asset": "story_audio/tempo_explain.wav",
+      "seed": 65515
+    },
+    {
+      "id": "onu_welcome_b2",
+      "text": "안녕, 나는 오누야. 가는 길에 나랑 소리 퀴즈 풀어 볼래? 단서를 들려줄게.",
+      "text_sha256": "b5751151401e1b6b39549daf53324046425ce60cd7bc1d9552e8d865b09ea554",
+      "asset": "story_audio/onu_welcome_b2.wav",
+      "seed": 65590
+    }
+  ],
+  "cues": [],
+  "purpose": "오누 0.55: 소리둘다의미 보존, 설명과정답확인 구분, 음성질문명료화",
+  "scope": "The existing sound-letter voice reference6238 is retained and also used for the welcome. Two existing clips are replaced and five are added in 0.55.0; no human recordings or human listening approval.",
+  "compatibility": {
+    "matches_existing_first_jump_and_rain": true,
+    "reference_sha256": "6238c71ee33d6ab9c2382d709bbac017f1f8cc52e776ec55f817437d39cbd02f",
+    "current_release_audio_delta": {
+      "existing_clip_replacements": 2,
+      "new_clips": 5
+    },
+    "historical_voice_provenance": "docs/audio/onu-0.53.0-voice-provenance.json",
+    "legacy_asset_key": "onu_welcome_b2 is retained as a stable asset key; the current 0.55 welcome is synthesized from reference6238, not B2."
+  }
+}

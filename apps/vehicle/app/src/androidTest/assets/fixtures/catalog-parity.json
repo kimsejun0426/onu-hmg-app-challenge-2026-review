@@ -681,6 +681,17 @@
       "path_coverage": "representative_per_player_and_ending",
       "paths": 4,
       "source_sha256": "c00aa0e09caa0dcea9b3945ee4fffaeee2a8a791daaf7c801c75d34d8ff6c0e0"
+    },
+    {
+      "content_asset": "content/legacy/0.11.0/dinosaurs/episode.json",
+      "fixture_asset": "fixtures/legacy/0.11.0/dinosaur-lab-missing-egg/game-parity.json",
+      "interpretations": 917,
+      "operations": 96,
+      "pack_id": "dinosaur-lab-missing-egg",
+      "pack_version": "0.11.0",
+      "path_coverage": "representative_per_player_and_ending",
+      "paths": 4,
+      "source_sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b"
     }
   ],
   "packs": [
@@ -690,10 +701,10 @@
       "interpretations": 1261,
       "operations": 82,
       "pack_id": "dinosaur-lab-missing-egg",
-      "pack_version": "0.11.0",
+      "pack_version": "0.12.0",
       "path_coverage": "exhaustive",
       "paths": 128,
-      "source_sha256": "3a450fa04e93afa05ce4f6762c37eba7691ab14c8e9e4dc4155d6b3df1fdb11b"
+      "source_sha256": "1742febd77e810e50e852aa982bce8aeaaa592c99c819ff7ec43155905f29ddd"
     },
     {
       "content_asset": "content/ko-KR/starlight-post-office/episode.json",

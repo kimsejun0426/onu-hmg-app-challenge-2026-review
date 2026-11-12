@@ -140,9 +140,12 @@ internal class LocalGameEngine(private val pack: JSONObject) {
             val player = state.getJSONArray("players").objects().first { it.getString("player_id") == state.getString("expected_player_id") }
             val soloStyle = pack.optString("solo_prompt_style",
                 if (pack.getString("version") == "0.2.0") "nickname" else "role_and_turn")
-            prompt = if (soloStyle == "nickname" && state.getJSONArray("players").length() == 1) {
-                "${player.getString("nickname")}, $prompt"
-            } else "${player.getString("nickname")} ${player.getString("role")} 차례야. $prompt"
+            val singlePlayer = state.getJSONArray("players").length() == 1
+            prompt = when {
+                singlePlayer && soloStyle == "body_only" -> prompt
+                singlePlayer && soloStyle == "nickname" -> "${player.getString("nickname")}, $prompt"
+                else -> "${player.getString("nickname")} ${player.getString("role")} 차례야. $prompt"
+            }
         }
         val actions = JSONArray()
         for (action in scene.getJSONArray("actions").objects()) actions.put(JSONObject()

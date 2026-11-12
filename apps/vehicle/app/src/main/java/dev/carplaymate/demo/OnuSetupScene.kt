@@ -9,10 +9,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.drawscope.scale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalWindowInfo
@@ -111,27 +107,6 @@ internal fun OnuSetupScene(
                 Text(detail, style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
                 content(Modifier.weight(1f).fillMaxWidth(), false)
             }
-        }
-    }
-}
-
-/** A feathered wash follows the greeting as it scrolls; it never adds a card or changes layout. */
-internal fun Modifier.onuWelcomeIntroScrim(characterHeight: Dp): Modifier = drawWithCache {
-    val introTop = characterHeight.toPx()
-    val introHeight = (size.height - introTop).coerceAtLeast(1f)
-    val center = Offset(size.width / 2f, introTop + introHeight / 2f)
-    // The oval extends past the text edges. Its transparent rim has no rectangular boundary.
-    val radiusX = size.width.coerceAtLeast(1f) * 1.05f
-    val radiusY = introHeight * .78f
-    val paper = PlaymateColors.Ivory.copy(alpha = .97f)
-    val wash = Brush.radialGradient(
-        0f to paper, .84f to paper, 1f to paper.copy(alpha = 0f),
-        center = center, radius = radiusX,
-    )
-    onDrawBehind {
-        // Draw outside Surface's own clip, but behind its character and text.
-        scale(scaleX = 1f, scaleY = radiusY / radiusX, pivot = center) {
-            drawCircle(brush = wash, radius = radiusX, center = center)
         }
     }
 }

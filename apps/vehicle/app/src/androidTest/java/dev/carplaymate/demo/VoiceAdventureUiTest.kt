@@ -454,7 +454,7 @@ class VoiceAdventureUiTest {
         compose.onNodeWithTag("family.quiet.settings").performScrollTo().performClick()
         compose.runOnIdle { assertEquals(1, settings); assertEquals(0, resumes) }
         for ((cause, title) in listOf(
-            RecoveryCause.AUDIO_FOCUS to "다른 소리 때문에 쉬고 있어요",
+            RecoveryCause.AUDIO_FOCUS to "소리 재생을 잠시 쉬어요",
             RecoveryCause.OUTPUT_FAILED to "이야기 소리가 멈췄어요",
             RecoveryCause.CONNECTION to "연결을 다시 확인해 주세요",
         )) {

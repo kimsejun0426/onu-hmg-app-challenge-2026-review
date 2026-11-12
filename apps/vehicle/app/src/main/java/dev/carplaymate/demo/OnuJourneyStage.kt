@@ -27,6 +27,7 @@ internal fun OnuJourneyBackdrop(
     modifier: Modifier = Modifier,
     bottomScrim: Boolean = true,
     setupIntro: Boolean = false,
+    activeAdventure: Boolean = false,
 ) {
     BoxWithConstraints(modifier.clipToBounds()) {
         if (art == "arrival") Image(
@@ -39,16 +40,28 @@ internal fun OnuJourneyBackdrop(
             val paper = PlaymateColors.Ivory
             if (landscape) Box(Modifier.fillMaxSize().background(Brush.horizontalGradient(
                 0f to Color.Transparent,
-                .23f to Color.Transparent,
-                .39f to paper.copy(alpha = .90f),
+                (if (activeAdventure) .28f else .23f) to Color.Transparent,
+                (if (activeAdventure) .41f else .39f) to paper.copy(alpha = .90f),
                 .56f to paper.copy(alpha = .98f),
                 1f to paper.copy(alpha = .99f),
             )))
             // Setup captions sit directly in the world. Fade the whole scene, not a text-sized card.
             val setupWash = landscape && setupIntro
             val shortSetup = setupWash && maxHeight < 650.dp
-            val fadeStart = when { shortSetup -> .28f; setupWash -> .43f; landscape -> .55f; else -> .27f }
-            val fadeEnd = when { shortSetup -> .50f; setupWash -> .68f; landscape -> .80f; else -> .40f }
+            val fadeStart = when {
+                activeAdventure && landscape -> .72f
+                shortSetup -> .28f
+                setupWash -> .43f
+                landscape -> .55f
+                else -> .27f
+            }
+            val fadeEnd = when {
+                activeAdventure && landscape -> .98f
+                shortSetup -> .50f
+                setupWash -> .68f
+                landscape -> .80f
+                else -> .40f
+            }
             Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
                 0f to Color.Transparent,
                 fadeStart to Color.Transparent,
@@ -56,7 +69,13 @@ internal fun OnuJourneyBackdrop(
                 1f to paper,
             )))
             // Keep navigation and the progress heading readable over detailed branches.
-            val horizonEnd = with(LocalDensity.current) { (if (landscape) 280.dp else 320.dp).toPx() }
+            val horizonEnd = with(LocalDensity.current) {
+                when {
+                    activeAdventure -> 220.dp
+                    landscape -> 280.dp
+                    else -> 320.dp
+                }.toPx()
+            }
             Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
                 0f to paper.copy(alpha = .98f),
                 .78f to paper.copy(alpha = .95f),

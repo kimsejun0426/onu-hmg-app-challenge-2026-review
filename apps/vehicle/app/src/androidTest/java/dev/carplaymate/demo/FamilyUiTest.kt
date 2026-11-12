@@ -836,6 +836,38 @@ class FamilyUiTest {
         capture("interests-deleted")
     }
 
+    @Test fun aSavedLetterContinuesFromHomeOnceAndRecreationStaysPaused() {
+        onboard("하늘", null, firstMode = "읽으며 체험")
+        clickReachable(compose.onNodeWithTag("family.firstJump"))
+        clickReachable(compose.onNodeWithTag("letter.choice.0"))
+        clickReachable(compose.onNodeWithTag("letter.choice.0"))
+        val question = compose.onNodeWithTag("letter.title").fetchSemanticsNode().config[SemanticsProperties.Text].single().text
+        clickReachable(compose.onNodeWithTag("letter.home"))
+        clickScrollable("첫 편지 이어가기")
+        compose.onNodeWithTag("letter.title").assertTextEquals(question)
+        compose.onNodeWithTag("letter.resume").assertDoesNotExist()
+        compose.onNodeWithTag("letter.choice.1").assertExists()
+
+        compose.activityRule.scenario.recreate()
+        bindActivity()
+        compose.onNodeWithTag("letter.resume").assertExists()
+        compose.onNodeWithTag("letter.choice.1").assertDoesNotExist()
+        clickReachable(compose.onNodeWithTag("letter.resume"))
+        compose.onNodeWithTag("letter.title").assertTextEquals(question)
+
+        listOf("펭귄", "깃털이 있어?", "펭귄", "살금살금, 크게 첨벙!").forEach(::clickScrollable)
+        clickScrollable("펭귄의 답장 열기")
+        clickScrollable("편지 열기")
+        clickReachable(compose.onNodeWithTag("letter.choice.0"))
+        val rainQuestion = compose.onNodeWithTag("letter.title").fetchSemanticsNode().config[SemanticsProperties.Text].single().text
+        clickReachable(compose.onNodeWithTag("letter.pause"))
+        clickReachable(compose.onNodeWithTag("letter.home"))
+        clickScrollable("펭귄의 답장 이어가기")
+        compose.onNodeWithTag("letter.title").assertTextEquals(rainQuestion)
+        compose.onNodeWithTag("letter.resume").assertDoesNotExist()
+        compose.onNodeWithTag("letter.choice.1").assertExists()
+    }
+
     private fun openMemoriesFromHome() {
         compose.onNodeWithTag("family.home").assertIsDisplayed()
         compose.onNodeWithTag("family.settingsNav").assertIsDisplayed().performClick()

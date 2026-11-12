@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "pack_id": "dinosaur-lab-missing-egg",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "locale": "ko-KR",
   "title": "공룡 연구소의 사라진 알",
   "fiction_notice": "연구소, 운반 로봇, 사라진 전시용 알 모형과 사건은 허구입니다. 공룡 지식은 표시한 박물관 자료를 바탕으로 합니다.",
@@ -461,7 +461,7 @@
       "actions": []
     }
   },
-  "solo_prompt_style": "nickname",
+  "solo_prompt_style": "body_only",
   "template_labels": {
     "route_label": {
       "flag": "route",

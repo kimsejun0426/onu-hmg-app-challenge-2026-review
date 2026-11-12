@@ -1,6 +1,7 @@
 package dev.carplaymate.demo
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -10,8 +11,8 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -62,6 +63,7 @@ internal fun FamilyLanding(
     onLetter: (() -> Unit)? = null,
     onReply: (() -> Unit)? = null,
     replyInProgress: Boolean = false,
+    letterInProgress: Boolean = false,
 ) {
     val saved = ui.savedAdventures.firstOrNull { it.sessionId == ui.snapshot?.sessionId } ?: ui.savedAdventures.firstOrNull()
     val letterFeatured = onLetter != null && shouldFeatureFirstJump(ui.children, saved != null)
@@ -69,67 +71,67 @@ internal fun FamilyLanding(
     val replyAction = if (replyInProgress) "펭귄의 답장 이어가기" else "펭귄의 답장 열기"
     val recommended = ui.recommendations.firstOrNull()
     val card = ui.adventures.firstOrNull { it.packId == (saved?.packId ?: recommended?.packId) } ?: ui.adventures.firstOrNull()
+    val sideStories = buildList {
+        if (onReply != null && !replyFeatured) add(StoryLink("rain_music", replyAction,
+            null, "family.rainLetter", onReply))
+        if (onLetter != null && (!letterFeatured || replyFeatured)) add(StoryLink("first_jump",
+            if (letterInProgress) "첫 편지 이어가기" else LETTER_HOME_ACTION,
+            null, "family.firstJump", onLetter))
+    }
+    val art = when {
+        replyFeatured -> "rain_music"
+        letterFeatured -> "first_jump"
+        else -> card?.artKey ?: "dinosaurs"
+    }
+    val canStart = card != null || letterFeatured
     val scroll = rememberScrollState()
-    BoxWithConstraints(Modifier.fillMaxSize().testTag("family.home")) {
-        val compactWide = wide && maxHeight < 500.dp
-        val spacious = wide && maxWidth >= 1000.dp && maxHeight >= 600.dp
-        val invitationSpacing = when {
-            compactWide -> 8.dp
-            spacious -> 16.dp
-            else -> 12.dp
-        }
-        val companionHeight = when {
-            spacious -> (maxHeight * .68f).coerceAtMost(600.dp)
-            wide -> maxHeight.coerceAtMost(460.dp)
-            else -> (maxHeight * .26f).coerceIn(120.dp, 250.dp)
-        }
-        val invitation: @Composable ColumnScope.() -> Unit = {
-            if (letterFeatured || card != null) {
+    BoxWithConstraints(Modifier.fillMaxSize().testTag("family.home"), contentAlignment = Alignment.Center) {
+        val scale = LocalDensity.current.fontScale
+        val spacious = wide && maxWidth / scale >= 950.dp && maxHeight / scale >= 540.dp
+        val short = maxHeight / scale < 520.dp
+        val gap = if (short) 6.dp else 12.dp
+        val compactCoverHeight = (maxHeight * .20f).coerceIn(100.dp, 180.dp)
+        val info: @Composable ColumnScope.() -> Unit = {
+            if (canStart) {
                 Text(when {
                     replyFeatured -> "펭귄에게서 온 답장"
                     letterFeatured -> "바다에서 온 소리 편지"
                     saved != null -> "지난번 이야기, 이어서"
                     else -> "오늘 오누와 함께"
-                },
-                    style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Leaf)
+                }, style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Leaf)
                 Text(when {
                     replyFeatured -> "비 오는 날의 방송 음악"
                     letterFeatured -> "첫 점프를 들려줘!"
                     else -> checkNotNull(card).title
-                },
-                    style = (if (spacious) MaterialTheme.typography.displayLarge else MaterialTheme.typography.headlineLarge).copy(
-                    lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase)),
+                }, style = (if (spacious) MaterialTheme.typography.displayLarge else MaterialTheme.typography.headlineLarge)
+                    .copy(lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase)),
                     modifier = Modifier.testTag("recommendation.title").semantics { heading() })
+                if (!letterFeatured && card != null) {
+                    Text(if (saved != null) saved.progressLabel()
+                        else homeRecommendationReason(card.packId, recommended, ui.children, false),
+                        style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Forest,
+                        modifier = Modifier.testTag("recommendation.reason"))
+                }
                 Text(when {
                     replyFeatured -> "펭귄이 다음 방송에 쓸 음악을 부탁했어. 우리 차의 빗소리로 만들어 보자."
                     letterFeatured -> "바위 끝에 선 친구가 우리 차에 소리를 보냈어. 누가 보냈는지 같이 맞혀 볼래?"
-                    else -> checkNotNull(card).subtitle
+                    else -> adventureInvitation(checkNotNull(card))
                 }, style = MaterialTheme.typography.bodyMedium, color = PlaymateColors.Ink)
-                if (!letterFeatured && card != null) Text(homeRecommendationReason(card.packId, recommended, ui.children, saved != null),
-                    style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted,
-                    modifier = Modifier.testTag("recommendation.reason"))
-                if (saved != null) {
-                    SavedAdventureFamilyChange(saved, ui.children, "recommendation.participants")
-                }
-                if (onReply != null && !replyFeatured) {
-                    TextButton(onClick = onReply, enabled = !ui.busy,
-                        modifier = Modifier.heightIn(min = 54.dp).testTag("family.rainLetter")) {
-                        FamilyIcon(FamilyIcon.SOUND)
-                        Spacer(Modifier.width(8.dp))
-                        Text(replyAction, style = MaterialTheme.typography.labelLarge)
-                    }
-                }
-                if ((!letterFeatured || replyFeatured) && onLetter != null) {
-                    TextButton(onClick = onLetter, enabled = !ui.busy,
-                        modifier = Modifier.heightIn(min = 52.dp).testTag("family.firstJump")) {
-                        Text(LETTER_HOME_ACTION, style = MaterialTheme.typography.labelLarge)
-                    }
-                }
+                if (saved != null) SavedAdventureFamilyChange(saved, ui.children, "recommendation.participants")
             } else Text("이야기를 준비하고 있어요", style = MaterialTheme.typography.headlineMedium)
         }
-        val invitationActions: @Composable ColumnScope.() -> Unit = {
+        val libraryAction: @Composable (Modifier) -> Unit = { slot ->
+            OutlinedButton(onClick = onLibrary, enabled = !ui.busy,
+                modifier = slot.heightIn(min = 64.dp).testTag("family.libraryLink"),
+                shape = RoundedCornerShape(18.dp)) {
+                FamilyIcon(FamilyIcon.EXPLORE)
+                Spacer(Modifier.width(8.dp))
+                Text("다른 이야기 고르기", style = MaterialTheme.typography.labelLarge)
+            }
+        }
+        val controls: @Composable ColumnScope.() -> Unit = {
             if (saved != null) SavedAdventureParticipants(saved, "recommendation.participants")
-            if (card != null || letterFeatured) {
+            if (canStart) {
                 val selectedMode = when {
                     !ui.interactionConfigured -> "함께할 방식을 먼저 골라 주세요"
                     ui.simulation -> "선택한 방식 · 읽으며 체험"
@@ -142,7 +144,7 @@ internal fun FamilyLanding(
                     PrimaryButton(
                         when {
                             replyFeatured -> replyAction
-                            letterFeatured -> "편지 보러 가기"
+                            letterFeatured -> if (letterInProgress) "첫 편지 이어가기" else "편지 보러 가기"
                             !ui.speechReady && !ui.simulation -> "함께할 방식 선택하기"
                             saved != null -> "이어서 함께하기"
                             else -> "함께 모험 시작하기"
@@ -151,76 +153,82 @@ internal fun FamilyLanding(
                             if (replyFeatured) onReply?.invoke()
                             else if (letterFeatured) onLetter?.invoke()
                             else if (!ui.speechReady && !ui.simulation) onSettings()
-                            else if (saved != null) onResume(saved.sessionId)
-                            else card?.let { onStart(it.packId) }
-                        },
-                        !ui.busy,
-                        slot.testTag(when {
+                            else if (saved != null) onResume(saved.sessionId) else card?.let { onStart(it.packId) }
+                        }, !ui.busy, slot.testTag(when {
                             replyFeatured -> "family.rainLetter"
                             letterFeatured -> "family.firstJump"
                             else -> "family.start"
                         }),
                     )
                 }
-                val libraryAction: @Composable (Modifier) -> Unit = { slot ->
-                    TextButton(
-                        onClick = onLibrary, enabled = !ui.busy,
-                        modifier = slot.heightIn(min = 64.dp).testTag("family.libraryLink"),
-                    ) {
-                        Text("다른 이야기 고르기", style = MaterialTheme.typography.labelLarge)
-                    }
-                }
-                if (spacious && !letterFeatured) {
-                    ActionPair(first = startAction, second = libraryAction)
-                } else {
-                    startAction(Modifier.fillMaxWidth())
-                    libraryAction(Modifier.fillMaxWidth())
-                }
+                if (spacious) startAction(Modifier.fillMaxWidth())
+                else ActionPair(first = startAction, second = libraryAction)
             }
         }
-        if (wide) Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Row(
-                Modifier.widthIn(max = 1360.dp).fillMaxSize()
-                    .padding(horizontal = if (spacious) 40.dp else 24.dp,
-                        vertical = if (compactWide) 8.dp else 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(if (spacious) 36.dp else 20.dp),
-            ) {
-                Box(
-                    Modifier.weight(if (compactWide) .34f else .40f)
-                        .height(companionHeight).testTag("home.invitation"),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    OnuCompanion(Modifier.fillMaxSize().padding(if (spacious) 4.dp else 16.dp),
-                        OnuMood.READY, decorative = true)
-                }
-                Box(Modifier.weight(if (compactWide) .66f else .60f).fillMaxHeight(),
-                    contentAlignment = Alignment.CenterStart) {
-                    Column(
-                        Modifier.widthIn(max = 680.dp).fillMaxWidth().fillMaxHeight(),
-                        verticalArrangement = Arrangement.spacedBy(invitationSpacing, Alignment.CenterVertically),
-                    ) {
-                        Column(
-                            Modifier.weight(1f, fill = false).fillMaxWidth()
-                                .familyScrollIndicator(scroll).verticalScroll(scroll),
-                            verticalArrangement = Arrangement.spacedBy(invitationSpacing),
-                            content = invitation,
-                        )
-                        invitationActions()
+        val compactText: @Composable ColumnScope.() -> Unit = {
+            info()
+            sideStories.forEach { StoryLinkCard(it, !ui.busy, Modifier.fillMaxWidth()) }
+        }
+        if (spacious) {
+            Column(Modifier.widthIn(max = 1440.dp).fillMaxSize().padding(horizontal = 28.dp, vertical = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(18.dp)) {
+                Surface(Modifier.fillMaxWidth().weight(1f), shape = RoundedCornerShape(32.dp),
+                    color = PlaymateColors.Paper, border = BorderStroke(1.dp, PlaymateColors.SoftLine)) {
+                    Row(Modifier.fillMaxSize()) {
+                        StoryPreview(art, Modifier.weight(.50f).fillMaxHeight().testTag("home.invitation"),
+                            entrance = true, shape = RoundedCornerShape(topStart = 32.dp, bottomStart = 32.dp))
+                        Column(Modifier.weight(.50f).fillMaxHeight().padding(horizontal = 32.dp, vertical = 16.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically)) {
+                            Column(Modifier.weight(1f, fill = false).fillMaxWidth()
+                                .familyScrollIndicator(scroll).verticalScroll(scroll).padding(end = 8.dp),
+                                verticalArrangement = Arrangement.spacedBy(12.dp), content = info)
+                            controls()
+                        }
                     }
                 }
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically) {
+                    sideStories.forEach { StoryLinkCard(it, !ui.busy, Modifier.weight(1f)) }
+                    libraryAction(if (sideStories.isEmpty()) Modifier.fillMaxWidth() else Modifier.weight(1f))
+                }
             }
-        } else Column(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Column(Modifier.weight(1f).fillMaxWidth().familyScrollIndicator(scroll).verticalScroll(scroll),
-                verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                OnuCompanion(Modifier.fillMaxWidth().height(companionHeight).testTag("home.invitation"), OnuMood.READY, decorative = true)
-                invitation()
+        } else if (wide) {
+            Row(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                StoryPreview(art, Modifier.weight(.32f).fillMaxHeight(.88f).testTag("home.invitation"))
+                Column(Modifier.weight(.68f).fillMaxHeight(),
+                    verticalArrangement = Arrangement.spacedBy(gap, Alignment.CenterVertically)) {
+                    Column(Modifier.weight(1f, fill = false).fillMaxWidth()
+                        .familyScrollIndicator(scroll).verticalScroll(scroll),
+                        verticalArrangement = Arrangement.spacedBy(gap), content = compactText)
+                    controls()
+                }
             }
-            invitationActions()
+        } else {
+            Column(Modifier.fillMaxSize().padding(horizontal = 18.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(gap)) {
+                Column(Modifier.weight(1f).fillMaxWidth().familyScrollIndicator(scroll).verticalScroll(scroll),
+                    verticalArrangement = Arrangement.spacedBy(gap)) {
+                    if (!short) StoryPreview(art, Modifier.fillMaxWidth()
+                        .height(compactCoverHeight).testTag("home.invitation"))
+                    info()
+                    if (short) StoryPreview(art, Modifier.fillMaxWidth().height(96.dp).testTag("home.invitation"))
+                    sideStories.forEach { StoryLinkCard(it, !ui.busy, Modifier.fillMaxWidth()) }
+                }
+                controls()
+            }
         }
     }
 }
+
+/** Preserve the discovery in the dinosaur story for the first question. */
+private fun adventureInvitation(card: AdventureCard): String =
+    if (card.packId == "dinosaur-lab-missing-egg") "연구소에서 공룡 알 모형이 사라졌어. 물가와 숲의 흔적을 따라 찾아볼까?"
+    else card.description
+
+private fun SavedAdventure.progressLabel(): String =
+    if (totalChoices > 0) "${totalChoices}번 중 ${choicesCount.coerceIn(0, totalChoices)}번 선택했어요"
+    else "지난번 선택에서 이어가기"
 
 /** Decorative story space; all text stays on a separate plain surface. */
 @Composable
@@ -234,43 +242,55 @@ internal fun StoryPreview(
     OnuArrivalScene(modifier = modifier, art = art, mood = mood, entrance = entrance, shape = shape)
 }
 
-/** One illustrated place and one quiet reading surface form a single story invitation. */
+/** Keep the controls with their story, including when only the introduction needs to scroll. */
 @Composable
 private fun StoryFeature(
     art: String,
     wide: Boolean,
-    previewHeight: androidx.compose.ui.unit.Dp,
-    compact: Boolean = false,
-    entrance: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
+    actions: @Composable ColumnScope.() -> Unit,
 ) {
-    Surface(
-        modifier = if (entrance) Modifier.testTag("home.invitation") else Modifier,
-        color = PlaymateColors.Paper,
-        shape = RoundedCornerShape(28.dp),
-        border = BorderStroke(1.dp, PlaymateColors.SoftLine),
+    val scroll = rememberScrollState()
+    BoxWithConstraints(
+        Modifier.fillMaxSize().testTag("family.detail")
+            .padding(horizontal = if (wide) 28.dp else 16.dp, vertical = if (wide) 16.dp else 8.dp),
+        contentAlignment = Alignment.Center,
     ) {
-        if (wide) {
-            Row(Modifier.fillMaxWidth(),
-                verticalAlignment = if (compact) Alignment.Top else Alignment.CenterVertically) {
-                // Give the home invitation a generous stage; a short viewport keeps room for text.
-                StoryPreview(art,
-                    Modifier.weight(if (entrance && !compact) 1.05f else .8f).height(previewHeight),
-                    entrance = entrance,
-                    shape = RoundedCornerShape(topStart = 28.dp, bottomStart = 28.dp))
-                Column(
-                    Modifier.weight(if (entrance && !compact) .95f else 1.2f)
-                        .padding(horizontal = 24.dp, vertical = if (compact) 10.dp else 20.dp),
-                    verticalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp),
-                    content = content,
-                )
-            }
-        } else {
-            Column(Modifier.fillMaxWidth()) {
-                StoryPreview(art, Modifier.fillMaxWidth().height(previewHeight), entrance = entrance,
-                    shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
-                Column(Modifier.fillMaxWidth().padding(20.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp), content = content)
+        val fontScale = LocalDensity.current.fontScale
+        val split = wide && maxWidth / fontScale >= 1000.dp && maxHeight / fontScale >= 360.dp
+        val coverHeight = if (split) minOf(maxHeight, maxWidth * .54f, 720.dp)
+            else (maxHeight * .32f).coerceIn(80.dp, 280.dp)
+        Surface(
+            Modifier.widthIn(max = 1440.dp).fillMaxWidth(),
+            shape = RoundedCornerShape(28.dp), color = PlaymateColors.Paper,
+            border = BorderStroke(1.dp, PlaymateColors.SoftLine),
+        ) {
+            if (split) {
+                Row(Modifier.fillMaxWidth().height(coverHeight)) {
+                    StoryPreview(art, Modifier.weight(.54f).fillMaxHeight().testTag("adventure.cover"),
+                        shape = RoundedCornerShape(topStart = 28.dp, bottomStart = 28.dp))
+                    Column(
+                        Modifier.weight(.46f).fillMaxHeight().padding(horizontal = 28.dp, vertical = 16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+                    ) {
+                        Column(Modifier.weight(1f, fill = false).fillMaxWidth()
+                            .familyScrollIndicator(scroll).verticalScroll(scroll).padding(end = 8.dp),
+                            verticalArrangement = Arrangement.spacedBy(14.dp), content = content)
+                        actions()
+                    }
+                }
+            } else {
+                Column(Modifier.fillMaxWidth()) {
+                    Column(Modifier.weight(1f, fill = false).fillMaxWidth()
+                        .familyScrollIndicator(scroll).verticalScroll(scroll)) {
+                        StoryPreview(art, Modifier.fillMaxWidth().height(coverHeight).testTag("adventure.cover"),
+                            shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
+                        Column(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 16.dp),
+                            verticalArrangement = Arrangement.spacedBy(10.dp), content = content)
+                    }
+                    Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp),
+                        verticalArrangement = Arrangement.spacedBy(6.dp), content = actions)
+                }
             }
         }
     }
@@ -301,44 +321,113 @@ internal fun AdventureLibrary(
         ui.adventures.firstOrNull { it.packId == match.packId }
     }
     val ordered = (ranked + ui.adventures).distinctBy { it.packId }
-    val scroll = rememberScrollState()
-    Column(
-        Modifier.fillMaxSize().testTag("family.library")
-            .familyScrollIndicator(scroll).verticalScroll(scroll)
-            .padding(if (wide) 28.dp else 20.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp),
-    ) {
-        Text("소리 편지", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
-        val jumpAction = when (jumpStep) {
-            null, JumpStep.READY -> "소리를 듣고 첫 점프를 중계해 줘."
-            JumpStep.END -> "완성한 점프 중계 다시 듣기"
-            else -> "지난번 단서에서 이어가기"
-        }
-        val rainAction = when (rainStep) {
+    val continueStories = mutableListOf<StoryLink>()
+    val letters = mutableListOf<StoryLink>()
+    val adventures = mutableListOf<StoryLink>()
+    val jumpActive = jumpStep != null && jumpStep != JumpStep.READY && jumpStep != JumpStep.END
+    val rainActive = rainStep != null && rainStep != RainStep.READY && rainStep != RainStep.END
+    val jump = StoryLink("first_jump", "첫 점프를 들려줘!", when (jumpStep) {
+        null, JumpStep.READY -> "소리를 듣고 첫 점프를 중계해 줘."
+        JumpStep.END -> "완성한 점프 중계 다시 듣기"
+        else -> "지난번 단서에서 이어가기"
+    }, "library.letter.first_jump", onLetter)
+    if (jumpActive) continueStories.add(jump) else letters.add(jump)
+    if (onReply != null) {
+        val rain = StoryLink("rain_music", "비 오는 날의 방송 음악", when (rainStep) {
             null, RainStep.READY -> "차창 소리로 방송 음악을 만들자."
             RainStep.END -> "완성한 방송 음악 다시 듣기"
             else -> "지난번 단서에서 이어가기"
+        }, "library.letter.rain_music", onReply)
+        if (rainActive) continueStories.add(rain) else letters.add(rain)
+    }
+    for (card in ordered) {
+        val saved = ui.savedAdventures.firstOrNull { it.packId == card.packId }
+        val link = StoryLink(card.artKey, card.title, saved?.progressLabel() ?: card.subtitle,
+            "adventure.${card.packId}", { onDetail(card.packId) },
+            meta = if (saved == null) (card.interestTags.map(::topicLabel) + card.durationLabel)
+                .filter { it.isNotBlank() }.joinToString(" · ") else null,
+            progress = saved?.takeIf { it.totalChoices > 0 }?.let {
+                (it.choicesCount.toFloat() / it.totalChoices).coerceIn(0f, 1f)
+            })
+        if (saved != null) continueStories.add(link) else adventures.add(link)
+    }
+    val scroll = rememberScrollState()
+    BoxWithConstraints(Modifier.fillMaxSize().testTag("family.library"), contentAlignment = Alignment.TopCenter) {
+        val paired = wide && maxWidth / LocalDensity.current.fontScale >= 860.dp
+        Column(Modifier.widthIn(max = 1440.dp).fillMaxSize().familyScrollIndicator(scroll).verticalScroll(scroll)
+            .padding(horizontal = if (wide) 28.dp else 16.dp, vertical = if (wide) 20.dp else 12.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp)) {
+            StoryShelf("이어갈 이야기", continueStories, paired, !ui.busy, continued = true)
+            StoryShelf("소리 편지", letters, paired, !ui.busy)
+            StoryShelf("모험 이야기", adventures, paired, !ui.busy)
         }
-        val first: @Composable (Modifier) -> Unit = { slot ->
-            LibraryLetter("first_jump", "첫 점프를 들려줘!", jumpAction, !ui.busy, slot, onLetter)
-        }
-        if (onReply != null && wide) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(18.dp)) {
-                first(Modifier.weight(1f))
-                LibraryLetter("rain_music", "비 오는 날의 방송 음악", rainAction, !ui.busy, Modifier.weight(1f), onReply)
+    }
+}
+
+private data class StoryLink(
+    val art: String,
+    val title: String,
+    val detail: String?,
+    val tag: String,
+    val onClick: () -> Unit,
+    val meta: String? = null,
+    val progress: Float? = null,
+)
+
+@Composable
+private fun StoryShelf(title: String, stories: List<StoryLink>, paired: Boolean, enabled: Boolean,
+    continued: Boolean = false) {
+    if (stories.isEmpty()) return
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
+        for (row in stories.chunked(if (paired) 2 else 1)) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                row.forEach { StoryLinkCard(it, enabled, Modifier.weight(1f), continued) }
+                if (paired && stories.size > 1 && row.size == 1) Spacer(Modifier.weight(1f))
             }
-        } else {
-            first(Modifier.fillMaxWidth())
-            if (onReply != null) LibraryLetter("rain_music", "비 오는 날의 방송 음악", rainAction, !ui.busy, Modifier.fillMaxWidth(), onReply)
         }
-        Text("모험 이야기", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
-        ordered.chunked(if (wide) 2 else 1).forEach { row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(18.dp)) {
-                row.forEach { card ->
-                    AdventureTile(card, ui.savedAdventures.firstOrNull { it.packId == card.packId },
-                        Modifier.weight(1f), !ui.busy, { onDetail(card.packId) })
+    }
+}
+
+@Composable
+private fun StoryLinkCard(link: StoryLink, enabled: Boolean, modifier: Modifier, continued: Boolean = false) {
+    val shortcut = link.detail == null
+    Surface(onClick = link.onClick, enabled = enabled, modifier = modifier.testTag(link.tag),
+        color = if (continued) PlaymateColors.Mist else PlaymateColors.Paper,
+        shape = RoundedCornerShape(if (shortcut) 18.dp else 22.dp),
+        border = BorderStroke(1.dp, if (continued) PlaymateColors.Sage else PlaymateColors.SoftLine)) {
+        BoxWithConstraints(Modifier.fillMaxWidth()) {
+            val coverWidth = when {
+                shortcut -> (maxWidth * .21f).coerceIn(48.dp, 92.dp)
+                maxWidth / LocalDensity.current.fontScale < 360.dp -> (maxWidth * .22f).coerceAtMost(96.dp)
+                else -> (maxWidth * .32f).coerceIn(100.dp, 220.dp)
+            }
+            val minHeight = when {
+                shortcut -> 74.dp
+                link.meta != null -> 156.dp
+                else -> 116.dp
+            }
+            Row(Modifier.fillMaxWidth().heightIn(min = minHeight).height(IntrinsicSize.Min),
+                verticalAlignment = Alignment.CenterVertically) {
+                // Derive the thumbnail height from the wrapped text at the current font scale.
+                Box(Modifier.width(coverWidth).fillMaxHeight()) {
+                    AdventureScenery(link.art, Modifier.matchParentSize())
                 }
-                if (wide && row.size == 1) Spacer(Modifier.weight(1f))
+                Column(Modifier.weight(1f).padding(horizontal = if (shortcut) 12.dp else 16.dp, vertical = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(5.dp)) {
+                    if (!link.meta.isNullOrBlank()) Text(link.meta, style = MaterialTheme.typography.labelMedium,
+                        color = PlaymateColors.Forest)
+                    Text(link.title, style = if (shortcut) MaterialTheme.typography.labelLarge else MaterialTheme.typography.titleLarge,
+                        color = PlaymateColors.Ink)
+                    if (link.detail != null) Text(link.detail, style = MaterialTheme.typography.bodySmall,
+                        color = if (continued) PlaymateColors.Forest else PlaymateColors.Muted)
+                    if (link.progress != null) Box(Modifier.fillMaxWidth().padding(top = 3.dp)
+                        .height(4.dp).background(PlaymateColors.Sage, RoundedCornerShape(50))) {
+                        Box(Modifier.fillMaxWidth(link.progress).fillMaxHeight()
+                            .background(PlaymateColors.Forest, RoundedCornerShape(50)))
+                    }
+                }
+                FamilyIcon(FamilyIcon.NEXT, modifier = Modifier.padding(end = 12.dp).size(22.dp))
             }
         }
     }
@@ -346,51 +435,7 @@ internal fun AdventureLibrary(
 
 @Composable
 private fun LibraryLetter(art: String, title: String, detail: String, enabled: Boolean, modifier: Modifier, onClick: () -> Unit) {
-    Surface(onClick = onClick, enabled = enabled, modifier = modifier.testTag("library.letter.$art"),
-        color = PlaymateColors.Paper, shape = RoundedCornerShape(18.dp), border = BorderStroke(1.dp, PlaymateColors.SoftLine)) {
-        Row(Modifier.fillMaxWidth().heightIn(min = 88.dp).padding(end = 14.dp), verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            AdventureScenery(art, Modifier.size(84.dp))
-            Column(Modifier.weight(1f).padding(vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(title, style = MaterialTheme.typography.titleMedium, color = PlaymateColors.Ink)
-                Text(detail, style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Forest)
-            }
-            FamilyIcon(FamilyIcon.NEXT)
-        }
-    }
-}
-
-@Composable
-private fun AdventureTile(
-    card: AdventureCard,
-    saved: SavedAdventure?,
-    modifier: Modifier,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    Surface(onClick = onClick, enabled = enabled,
-        modifier = modifier.testTag("adventure.${card.packId}"),
-        shape = RoundedCornerShape(28.dp), color = PlaymateColors.Paper,
-        border = BorderStroke(1.dp, PlaymateColors.SoftLine)) {
-        Column {
-            BoxWithConstraints(Modifier.fillMaxWidth()) {
-                // Keep the setting recognizable without pushing its title below the first viewport.
-                val coverHeight = (maxWidth * .36f).coerceIn(144.dp, 192.dp)
-                WorldArtwork(card.artKey, Modifier.fillMaxWidth().height(coverHeight), narrative = true)
-            }
-            Column(Modifier.fillMaxWidth().padding(20.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                Eyebrow(card.interestTags.joinToString(" · ") { topicLabel(it) })
-                Text(card.title, style = MaterialTheme.typography.titleLarge)
-                Text(card.subtitle, style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Ink)
-                HorizontalDivider(color = PlaymateColors.SoftLine)
-                Row(Modifier.fillMaxWidth().padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text(if (saved != null) "이어갈 이야기 살펴보기" else "이야기 살펴보기",
-                        Modifier.weight(1f), style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Forest)
-                    FamilyIcon(FamilyIcon.NEXT)
-                }
-            }
-        }
-    }
+    StoryLinkCard(StoryLink(art, title, detail, "library.letter.$art", onClick), enabled, modifier)
 }
 
 @Composable
@@ -404,70 +449,48 @@ internal fun AdventureDetail(
 ) {
     val card = ui.adventures.firstOrNull { it.packId == ui.selectedPackId } ?: return
     val saved = ui.savedAdventures.firstOrNull { it.packId == card.packId }
-    val scroll = rememberScrollState()
-    Column(Modifier.fillMaxSize().testTag("family.detail")) {
-        BoxWithConstraints(Modifier.weight(1f).fillMaxWidth()) {
-            val shortViewport = wide && maxHeight < 320.dp
-            val previewHeight = minOf(
-                if (wide) 320.dp else 180.dp,
-                if (wide) (maxHeight - 40.dp).coerceAtLeast(120.dp)
-                else (maxHeight * .32f).coerceAtLeast(120.dp),
+    StoryFeature(card.artKey, wide, content = {
+        Eyebrow(card.interestTags.joinToString(" · ") { topicLabel(it) })
+        Text(card.title, style = MaterialTheme.typography.headlineLarge.copy(
+            lineBreak = LineBreak.Heading.copy(wordBreak = LineBreak.WordBreak.Phrase)),
+            modifier = Modifier.semantics { heading() })
+        Text(adventureInvitation(card), style = MaterialTheme.typography.bodyMedium)
+        if (saved != null) SavedAdventureFamilyChange(saved, ui.children, "adventure.participants")
+        if (card.hintScorePenalty > 0) Text(
+            "힌트를 쓰면 이번 선택에서 얻는 점수가 최대 ${card.hintScorePenalty}점 줄어요.",
+            style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            val modeIcon = when {
+                ui.simulation -> FamilyIcon.READ
+                ui.voiceInput -> FamilyIcon.MIC
+                else -> FamilyIcon.SOUND
+            }
+            FamilyIcon(modeIcon, modifier = Modifier.size(22.dp), tint = PlaymateColors.Forest)
+            Text(modeName(ui), style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Forest)
+        }
+    }, actions = {
+        if (saved != null) SavedAdventureParticipants(saved, "adventure.participants")
+        val startButton: @Composable (Modifier) -> Unit = { slot ->
+            PrimaryButton(
+                if (!ui.speechReady && !ui.simulation) "함께할 방식 선택하기"
+                else if (saved != null) "이 이야기 이어하기" else "이 모험 시작하기",
+                {
+                    if (!ui.speechReady && !ui.simulation) onSettings()
+                    else if (saved != null) onResume(saved.sessionId) else onStart(card.packId)
+                },
+                !ui.busy, slot.testTag("adventure.start"),
             )
-            Column(
-                Modifier.fillMaxSize().familyScrollIndicator(scroll).verticalScroll(scroll)
-                    .padding(if (wide) 28.dp else 20.dp),
-                verticalArrangement = Arrangement.spacedBy(20.dp),
-            ) {
-                StoryFeature(
-                    art = card.artKey,
-                    wide = wide,
-                    previewHeight = previewHeight,
-                    compact = shortViewport,
-                ) {
-                    Eyebrow(card.interestTags.joinToString(" · ") { topicLabel(it) })
-                    Text(card.title, style = MaterialTheme.typography.headlineLarge)
-                    Text(card.description, style = MaterialTheme.typography.bodyMedium)
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        FamilyIcon(if (ui.simulation) FamilyIcon.READ else FamilyIcon.SOUND,
-                            modifier = Modifier.size(22.dp), tint = PlaymateColors.Muted)
-                        Text(modeName(ui), style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
-                    }
-                    if (saved != null) SavedAdventureFamilyChange(saved, ui.children,
-                        "adventure.participants")
-                    if (card.hintScorePenalty > 0) Text(
-                        "힌트를 쓰면 이번 선택에서 얻는 점수가 최대 ${card.hintScorePenalty}점 줄어요.",
-                        style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
-                }
-            }
         }
-        Surface(color = PlaymateColors.Paper) {
-            Column(Modifier.fillMaxWidth().padding(horizontal = if (wide) 28.dp else 20.dp, vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                if (saved != null) SavedAdventureParticipants(saved, "adventure.participants")
-                val startButton: @Composable (Modifier) -> Unit = { slot ->
-                    PrimaryButton(
-                        if (!ui.speechReady && !ui.simulation) "함께할 방식 선택하기"
-                        else if (saved != null) "이 이야기 이어하기" else "이 모험 시작하기",
-                        {
-                            if (!ui.speechReady && !ui.simulation) onSettings()
-                            else if (saved != null) onResume(saved.sessionId) else onStart(card.packId)
-                        },
-                        !ui.busy, slot.testTag("adventure.start"),
-                    )
+        if (saved != null) ActionPair(
+            first = startButton,
+            second = { slot ->
+                TextButton(onClick = { onRestart(card.packId) }, enabled = !ui.busy,
+                    modifier = slot.heightIn(min = 64.dp).testTag("adventure.restart")) {
+                    Text("처음부터 새 모험")
                 }
-                if (saved != null) ActionPair(
-                    first = startButton,
-                    second = { slot ->
-                        TextButton(onClick = { onRestart(card.packId) }, enabled = !ui.busy,
-                            modifier = slot.heightIn(min = 64.dp).testTag("adventure.restart")) {
-                            Text("처음부터 새 모험")
-                        }
-                    },
-                ) else startButton(Modifier)
-            }
-        }
-    }
+            },
+        ) else startButton(Modifier)
+    })
 }
 
 /** Keep the saved participants beside the resume action, independent of the body scroll. */

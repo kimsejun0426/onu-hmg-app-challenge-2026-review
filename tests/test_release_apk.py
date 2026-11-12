@@ -397,3 +397,291 @@ def test_wrong_build_mapping_cannot_hide_obfuscated_logger_names():
 def test_dex_without_release_compiler_marker_is_rejected():
     with pytest.raises(gate.PolicyError, match="bound"):
         gate.validate_dex_mapping(b"DEX without R8 release marker", "123abcd")
+
+
+@pytest.mark.parametrize("types", ["microphone|mediaPlayback", "0x00000082"])
+def test_sound_letter_service_has_its_own_private_reviewed_owner(types):
+    node = voice_manifest()
+    set_attribute(node, "versionName", "0.52.0")
+    set_attribute(node, "versionCode", "55")
+    set_attribute(ET.SubElement(node, "uses-permission"), "name", gate.LETTER_NOTIFICATION_PERMISSION)
+    service = deepcopy(node.find("application/service"))
+    set_attribute(service, "name", gate.LETTER_SERVICE)
+    set_attribute(service, "foregroundServiceType", types)
+    node.find("application").append(service)
+    result = gate.validate_manifest(node, PACKAGE, "0.52.0", 55)
+    assert result["voice_session_service"]["letter_service"]["exported"] is False
+
+
+@pytest.mark.parametrize("mutation", ["missing", "duplicate", "exported", "implicit_export",
+                                      "intent_filter", "different_process", "isolated", "disabled",
+                                      "external", "zygote", "missing_type", "extra_type", "third_service"])
+def test_sound_letter_service_cannot_widen_activation_or_lose_required_owner(mutation):
+    node = voice_manifest()
+    set_attribute(node, "versionName", "0.52.0")
+    set_attribute(node, "versionCode", "55")
+    set_attribute(ET.SubElement(node, "uses-permission"), "name", gate.LETTER_NOTIFICATION_PERMISSION)
+    app = node.find("application")
+    service = deepcopy(app.find("service"))
+    set_attribute(service, "name", gate.LETTER_SERVICE)
+    app.append(service)
+    if mutation == "missing":
+        app.remove(service)
+    elif mutation == "duplicate":
+        app.append(deepcopy(service))
+    elif mutation == "implicit_export":
+        service.attrib.pop(f"{{{gate.ANDROID}}}exported")
+    elif mutation == "intent_filter":
+        ET.SubElement(service, "intent-filter")
+    elif mutation == "missing_type":
+        service.attrib.pop(f"{{{gate.ANDROID}}}foregroundServiceType")
+    elif mutation == "third_service":
+        other = deepcopy(service)
+        set_attribute(other, "name", ".UnreviewedThirdService")
+        app.append(other)
+    else:
+        name, value = {
+            "exported": ("exported", "true"), "different_process": ("process", ":letter"),
+            "isolated": ("isolatedProcess", "true"), "disabled": ("enabled", "false"),
+            "external": ("externalService", "true"), "zygote": ("useAppZygote", "true"),
+            "extra_type": ("foregroundServiceType", "microphone|mediaPlayback|location"),
+        }[mutation]
+        set_attribute(service, name, value)
+    with pytest.raises(gate.PolicyError, match="LetterSessionService|Unreviewed foreground"):
+        gate.validate_manifest(node, PACKAGE, "0.52.0", 55)
+
+
+@pytest.mark.parametrize("mutation", ["missing", "duplicate", "conditional", "sdk_limit"])
+def test_letter_stop_control_requires_an_unambiguous_notification_permission(mutation):
+    node = voice_manifest()
+    set_attribute(node, "versionName", "0.52.0")
+    set_attribute(node, "versionCode", "55")
+    app = node.find("application")
+    letter = deepcopy(app.find("service"))
+    set_attribute(letter, "name", gate.LETTER_SERVICE)
+    app.append(letter)
+    permission = ET.SubElement(node, "uses-permission")
+    set_attribute(permission, "name", gate.LETTER_NOTIFICATION_PERMISSION)
+    if mutation == "missing":
+        node.remove(permission)
+    elif mutation == "duplicate":
+        node.append(deepcopy(permission))
+    elif mutation == "conditional":
+        permission.tag = "uses-permission-sdk-23"
+    else:
+        set_attribute(permission, "maxSdkVersion", "32")
+    with pytest.raises(gate.PolicyError, match="permission"):
+        gate.validate_manifest(node, PACKAGE, "0.52.0", 55)
+
+
+def test_new_letter_permission_does_not_broaden_historical_release_allowlist():
+    node = voice_manifest()
+    set_attribute(ET.SubElement(node, "uses-permission"), "name", gate.LETTER_NOTIFICATION_PERMISSION)
+    with pytest.raises(gate.PolicyError, match="allowlist"):
+        check_voice_manifest(node)
+
+
+def letter_media_manifest(version="0.54.0", code=57, *, browser=True):
+    node = voice_manifest()
+    set_attribute(node, "versionName", version)
+    set_attribute(node, "versionCode", str(code))
+    set_attribute(ET.SubElement(node, "uses-permission"), "name", gate.LETTER_NOTIFICATION_PERMISSION)
+    app = node.find("application")
+    letter = deepcopy(app.find("service"))
+    set_attribute(letter, "name", gate.LETTER_SERVICE)
+    app.append(letter)
+    if browser:
+        service = ET.SubElement(app, "service")
+        set_attribute(service, "name", gate.LETTER_MEDIA_BROWSER_SERVICE)
+        set_attribute(service, "exported", "true")
+        set_attribute(service, "enabled", "false")
+        set_attribute(service, "permission", gate.LETTER_MEDIA_BROWSER_PERMISSION)
+        action = ET.SubElement(ET.SubElement(service, "intent-filter"), "action")
+        set_attribute(action, "name", gate.LETTER_MEDIA_BROWSER_ACTION)
+    return node
+
+
+def check_letter_media_manifest(node):
+    return gate.validate_manifest(node, PACKAGE, gate.attribute(node, "versionName"),
+                                  int(gate.attribute(node, "versionCode")))
+
+
+def letter_media_service(node):
+    return next(service for service in node.findall("application/service")
+                if gate.component_name(gate.attribute(service, "name"), PACKAGE) ==
+                gate.LETTER_MEDIA_BROWSER_SERVICE)
+
+
+@pytest.mark.parametrize("name", [".LetterMediaBrowserService", "LetterMediaBrowserService",
+                                  gate.LETTER_MEDIA_BROWSER_SERVICE])
+def test_reviewed_letter_browser_stays_disabled_and_separate_from_the_private_fgs(name):
+    node = letter_media_manifest()
+    service = letter_media_service(node)
+    set_attribute(service, "name", name)
+    set_attribute(service, "enabled", "false")
+    set_attribute(service, "process", PACKAGE)
+    set_attribute(service, "isolatedProcess", "false")
+    set_attribute(service, "externalService", "false")
+    set_attribute(service, "useAppZygote", "false")
+    result = check_letter_media_manifest(node)
+    assert result["letter_media_browser_service"] == {
+        "service": gate.LETTER_MEDIA_BROWSER_SERVICE, "exported": True,
+        "permission": "android.permission.MEDIA_CONTENT_CONTROL", "enabled": False,
+        "process": PACKAGE, "intent_actions": ["android.media.browse.MediaBrowserService"],
+        "foreground_service_types": [],
+    }
+    assert result["voice_session_service"]["letter_service"]["exported"] is False
+    assert result["voice_session_service"]["letter_service"]["foreground_service_types"] == [
+        "mediaPlayback", "microphone"]
+    assert gate.LETTER_MEDIA_BROWSER_PERMISSION not in result["permissions"]
+    launcher = node.find("application/activity")
+    assert gate.attribute(launcher, "name") == "dev.carplaymate.demo.MainActivity"
+    assert [gate.attribute(item, "name") for item in launcher.findall("intent-filter/category")] == [
+        "android.intent.category.LAUNCHER"]
+
+
+@pytest.mark.parametrize("version,code", [("0.52.0", 55), ("0.53.0", 56), ("0.53.99", 56)])
+def test_historical_sound_letter_apks_still_pass_without_a_browser(version, code):
+    result = check_letter_media_manifest(letter_media_manifest(version, code, browser=False))
+    assert result["letter_media_browser_service"] is None
+
+
+@pytest.mark.parametrize("version", ["0.54.0", "0.54.1", "0.55.0", "1.0.0"])
+def test_current_apk_cannot_omit_the_entire_browser_projection(version):
+    with pytest.raises(gate.PolicyError, match="Exactly one reviewed LetterMediaBrowserService"):
+        check_letter_media_manifest(letter_media_manifest(version, browser=False))
+
+
+def test_new_browser_exception_does_not_apply_to_historical_versions():
+    with pytest.raises(gate.PolicyError, match="from 0.54.0 only"):
+        check_letter_media_manifest(letter_media_manifest("0.53.0", 56))
+
+
+@pytest.mark.parametrize("mutation", ["missing", "renamed", "duplicate", "other_component"])
+def test_browser_identity_and_unique_service_are_required(mutation):
+    node = letter_media_manifest()
+    app = node.find("application")
+    service = letter_media_service(node)
+    if mutation == "missing":
+        app.remove(service)
+    elif mutation == "renamed":
+        set_attribute(service, "name", ".ArbitraryMediaBrowserService")
+    elif mutation == "duplicate":
+        other = deepcopy(service)
+        set_attribute(other, "name", ".LetterMediaBrowserService")
+        app.append(other)
+    else:
+        service.tag = "receiver"
+    with pytest.raises(gate.PolicyError, match="Exactly one reviewed LetterMediaBrowserService"):
+        check_letter_media_manifest(node)
+
+
+@pytest.mark.parametrize("name,value,reason", [
+    ("exported", None, "explicitly exported"),
+    ("exported", "false", "explicitly exported"),
+    ("exported", "@0x7f010001", "explicitly exported"),
+    ("permission", None, "MEDIA_CONTENT_CONTROL"),
+    ("permission", "", "MEDIA_CONTENT_CONTROL"),
+    ("permission", "android.permission.INTERNET", "MEDIA_CONTENT_CONTROL"),
+    ("permission", "android.permission.BIND_MEDIA_BROWSER_SERVICE", "MEDIA_CONTENT_CONTROL"),
+    ("permission", PACKAGE + ".MEDIA_BROWSER", "MEDIA_CONTENT_CONTROL"),
+    ("enabled", None, "explicitly disabled"),
+    ("enabled", "true", "explicitly disabled"),
+    ("enabled", "@0x7f010001", "explicitly disabled"),
+    ("process", ":media", "main process"),
+    ("process", "other.package", "main process"),
+    ("isolatedProcess", "true", "main process"),
+    ("externalService", "true", "main process"),
+    ("useAppZygote", "true", "main process"),
+    ("foregroundServiceType", "mediaPlayback", "foreground service type"),
+    ("foregroundServiceType", "microphone|mediaPlayback", "foreground service type"),
+    ("foregroundServiceType", "0x00000000", "foreground service type"),
+])
+def test_browser_export_does_not_weaken_permission_process_or_fgs_policy(name, value, reason):
+    node = letter_media_manifest()
+    service = letter_media_service(node)
+    if value is None:
+        service.attrib.pop(f"{{{gate.ANDROID}}}{name}")
+    else:
+        set_attribute(service, name, value)
+    with pytest.raises(gate.PolicyError, match=reason):
+        check_letter_media_manifest(node)
+
+
+@pytest.mark.parametrize("mutation", ["missing_filter", "second_filter", "filter_priority",
+                                      "missing_action", "other_action", "second_action",
+                                      "duplicate_action", "category", "data", "metadata",
+                                      "action_attribute", "action_child"])
+def test_browser_filter_is_exactly_one_legacy_action_without_extra_activation_paths(mutation):
+    node = letter_media_manifest()
+    service = letter_media_service(node)
+    intent = service.find("intent-filter")
+    action = intent.find("action")
+    if mutation == "missing_filter":
+        service.remove(intent)
+    elif mutation == "second_filter":
+        service.append(deepcopy(intent))
+    elif mutation == "filter_priority":
+        set_attribute(intent, "priority", "1")
+    elif mutation == "missing_action":
+        intent.remove(action)
+    elif mutation == "other_action":
+        set_attribute(action, "name", "androidx.media3.session.MediaLibraryService")
+    elif mutation == "second_action":
+        set_attribute(ET.SubElement(intent, "action"), "name", "android.intent.action.MEDIA_BUTTON")
+    elif mutation == "duplicate_action":
+        intent.append(deepcopy(action))
+    elif mutation == "category":
+        set_attribute(ET.SubElement(intent, "category"), "name", "android.intent.category.DEFAULT")
+    elif mutation == "data":
+        set_attribute(ET.SubElement(intent, "data"), "scheme", "https")
+    elif mutation == "metadata":
+        set_attribute(ET.SubElement(service, "meta-data"), "name", "unreviewed.media.path")
+    elif mutation == "action_attribute":
+        set_attribute(action, "other", "unreviewed")
+    else:
+        ET.SubElement(action, "category")
+    with pytest.raises(gate.PolicyError, match="exactly the legacy MediaBrowserService action"):
+        check_letter_media_manifest(node)
+
+
+@pytest.mark.parametrize("tag,name", [("service", ".ArbitraryMediaBrowserService"),
+                                      ("receiver", gate.LETTER_MEDIA_BROWSER_SERVICE),
+                                      ("provider", gate.LETTER_MEDIA_BROWSER_SERVICE),
+                                      ("activity", gate.LETTER_MEDIA_BROWSER_SERVICE)])
+def test_reviewed_browser_cannot_whitelist_other_exported_components(tag, name):
+    node = letter_media_manifest()
+    other = deepcopy(letter_media_service(node))
+    other.tag = tag
+    set_attribute(other, "name", name)
+    node.find("application").append(other)
+    with pytest.raises(gate.PolicyError, match="Unreviewed exported component"):
+        check_letter_media_manifest(node)
+
+
+@pytest.mark.parametrize("permission", ["android.permission.READ_CONTACTS",
+                                        "android.permission.ACCESS_FINE_LOCATION",
+                                        gate.LETTER_MEDIA_BROWSER_PERMISSION])
+def test_browser_does_not_add_requested_permissions(permission):
+    node = letter_media_manifest()
+    set_attribute(ET.SubElement(node, "uses-permission"), "name", permission)
+    with pytest.raises(gate.PolicyError, match="allowlist"):
+        check_letter_media_manifest(node)
+
+
+@pytest.mark.parametrize("permission", [PACKAGE + ".MEDIA_BROWSER", gate.LETTER_MEDIA_BROWSER_PERMISSION])
+def test_browser_does_not_authorize_custom_or_shadowed_platform_permissions(permission):
+    node = letter_media_manifest()
+    declaration = ET.SubElement(node, "permission")
+    set_attribute(declaration, "name", permission)
+    set_attribute(declaration, "protectionLevel", "signature")
+    with pytest.raises(gate.PolicyError, match="Unexpected or unprotected application permission"):
+        check_letter_media_manifest(node)
+
+
+def test_browser_is_not_a_substitute_for_the_existing_launcher():
+    node = letter_media_manifest()
+    app = node.find("application")
+    app.remove(app.find("activity"))
+    with pytest.raises(gate.PolicyError, match="Exactly one reviewed launcher"):
+        check_letter_media_manifest(node)

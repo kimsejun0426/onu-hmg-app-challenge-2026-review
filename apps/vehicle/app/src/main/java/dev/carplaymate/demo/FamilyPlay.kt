@@ -21,12 +21,11 @@ import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 internal fun ImmersiveAdventure(
@@ -49,7 +48,8 @@ internal fun ImmersiveAdventure(
     val art = snapshot?.presentation?.optString("art_key")?.ifBlank { null } ?: card?.artKey ?: "dinosaurs"
     val reading = !newStart && ui.simulation && snapshot?.speechPlan != null && !ui.quiet
     Box(Modifier.fillMaxSize().testTag("family.play")) {
-        if (backdrop) OnuJourneyBackdrop(art, Modifier.fillMaxSize())
+        if (backdrop) OnuJourneyBackdrop(art, Modifier.fillMaxSize(),
+            activeAdventure = !ui.quiet && !newStart && snapshot?.status == "ACTIVE")
         Column(Modifier.fillMaxSize()) {
             if (!ui.voiceInput || ui.simulation || ui.quiet)
                 FamilyHeader("play", wide, onHome, onSettings)
@@ -69,7 +69,7 @@ internal fun ImmersiveAdventure(
                     else -> Column(Modifier.align(Alignment.Center).widthIn(max = 1240.dp)
                         .fillMaxSize().padding(horizontal = if (wide) 28.dp else 16.dp),
                         verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        AdventureProgress(ui, card, onChoose)
+                        AdventureProgress(ui, card)
                         if (ui.voiceInput && !ui.simulation)
                             VoiceAdventurePanel(ui, art, onChoose, Modifier.weight(1f).fillMaxWidth(), backdrop = false)
                         else ReadingJourney(ui, wide, onChoose, Modifier.weight(1f).fillMaxWidth())
@@ -81,7 +81,7 @@ internal fun ImmersiveAdventure(
             val settledRest = ui.quiet && !ui.busy && !newStart && !ui.failure &&
                 ui.recoveryCause == null && (ui.simulation || ui.speechReady) &&
                 (ui.simulation || !ui.voiceInput || ui.voiceInputProblem == null)
-            if (!closed && !settledRest) JourneyControls(ui, wide, reading, onPause, onReadDone)
+            if (!closed && !settledRest) JourneyControls(ui, wide, reading, onPause, onReadDone, onChoose)
         }
     }
 }
@@ -125,45 +125,93 @@ private fun ReadingJourney(ui: DeveloperUiState, wide: Boolean, onChoose: (Strin
     }
 }
 
-/** Large hit areas remain available without turning the pause action into the visual headline. */
+/** Playback, help and rest stay together; only the active turn can send a request. */
 @Composable
-private fun JourneyControls(ui: DeveloperUiState, wide: Boolean, reading: Boolean,
-                            onPause: () -> Unit, onReadDone: () -> Unit) {
-    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-        Row(
-            Modifier.widthIn(max = 1240.dp).fillMaxWidth()
-                .padding(horizontal = if (wide) 28.dp else 16.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-        ) {
-            if (ui.quiet && ui.newAdventureStart != NewAdventureStart.PREPARING)
-                Row((if (wide) Modifier.width(208.dp) else Modifier.weight(1f)).heightIn(min = 80.dp).testTag("family.pauseStatus"),
-                    horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
-                    FamilyIcon(FamilyIcon.PAUSE, tint = PlaymateColors.Muted)
-                    Spacer(Modifier.width(12.dp))
-                    Text("쉬고 있어요", style = MaterialTheme.typography.labelLarge, color = PlaymateColors.Muted)
+private fun JourneyControls(
+    ui: DeveloperUiState, wide: Boolean, reading: Boolean,
+    onPause: () -> Unit, onReadDone: () -> Unit, onChoose: (String) -> Unit,
+) {
+    val snapshot = ui.snapshot
+    val choosing = snapshot?.phase == "LISTENING" && !ui.quiet && ui.newAdventureStart == null
+    Surface(color = PlaymateColors.Paper.copy(alpha = .94f)) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            HorizontalDivider(color = PlaymateColors.SoftLine)
+            Row(
+                Modifier.widthIn(max = 1240.dp).fillMaxWidth()
+                    .padding(horizontal = if (wide) 28.dp else 12.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(if (wide) 12.dp else 4.dp),
+            ) {
+                val pauseSlot = if (wide) Modifier.widthIn(min = 172.dp) else Modifier.weight(1f)
+                if (ui.quiet && ui.newAdventureStart != NewAdventureStart.PREPARING)
+                    Row(pauseSlot.heightIn(min = 80.dp).testTag("family.pauseStatus"),
+                        horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+                        FamilyIcon(FamilyIcon.PAUSE, tint = PlaymateColors.Muted)
+                        Spacer(Modifier.width(8.dp))
+                        Text("쉬고 있어요", style = MaterialTheme.typography.labelLarge, color = PlaymateColors.Muted)
+                    }
+                else TextButton(onClick = onPause,
+                    modifier = pauseSlot.heightIn(min = 80.dp).testTag("family.pause"),
+                    contentPadding = PaddingValues(horizontal = 8.dp)) {
+                    if (wide || !choosing) {
+                        FamilyIcon(FamilyIcon.PAUSE, Modifier.size(24.dp))
+                        Spacer(Modifier.width(8.dp))
+                    }
+                    Text("잠깐 쉬기", style = MaterialTheme.typography.labelLarge, textAlign = TextAlign.Center)
                 }
-            else OutlinedButton(onClick = onPause,
-                modifier = (if (wide) Modifier.width(208.dp) else Modifier.weight(if (reading) .85f else 1f))
-                    .heightIn(min = 80.dp).testTag("family.pause"),
-                shape = RoundedCornerShape(28.dp), border = BorderStroke(1.dp, PlaymateColors.Forest.copy(alpha = .28f)),
-                colors = ButtonDefaults.outlinedButtonColors(containerColor = PlaymateColors.Ivory.copy(alpha = .64f),
-                    contentColor = PlaymateColors.Forest), contentPadding = PaddingValues(14.dp)) {
-                FamilyIcon(FamilyIcon.PAUSE)
-                Spacer(Modifier.width(12.dp))
-                Text("잠깐 쉬기", style = MaterialTheme.typography.labelLarge)
+                if (reading) {
+                    if (wide) Spacer(Modifier.weight(1f))
+                    Button(onClick = onReadDone, enabled = !ui.busy,
+                        modifier = (if (wide) Modifier.width(340.dp) else Modifier.weight(1.35f))
+                            .heightIn(min = 80.dp).testTag("family.readDone"),
+                        shape = RoundedCornerShape(22.dp), contentPadding = PaddingValues(12.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = PlaymateColors.Forest, contentColor = PlaymateColors.Paper)) {
+                        Text("다 읽었어요 · 다음으로", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge)
+                        if (wide) FamilyIcon(FamilyIcon.NEXT, tint = PlaymateColors.Paper)
+                    }
+                } else if (choosing && snapshot != null) {
+                    if (wide) VerticalDivider(modifier = Modifier.height(28.dp), color = PlaymateColors.Line)
+                    val helpSlot = if (wide) Modifier.widthIn(min = 124.dp) else Modifier.weight(1f)
+                    TurnAssistance(snapshot, ui.simulation, !ui.busy, helpSlot, onChoose)
+                }
             }
-            if (reading && wide) Spacer(Modifier.weight(1f))
-            if (reading) Button(onClick = onReadDone, enabled = !ui.busy,
-                modifier = (if (wide) Modifier.width(340.dp) else Modifier.weight(1.35f))
-                    .heightIn(min = 80.dp).testTag("family.readDone"),
-                shape = RoundedCornerShape(28.dp), contentPadding = PaddingValues(16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = PlaymateColors.Forest, contentColor = PlaymateColors.Paper)) {
-                Text("다 읽었어요 · 다음으로", Modifier.weight(1f), style = MaterialTheme.typography.labelLarge)
-                if (wide) FamilyIcon(FamilyIcon.NEXT, tint = PlaymateColors.Paper)
-            } else if (wide && ui.microphoneListening) {
-                Text("짧게 대답해도 괜찮아요.", Modifier.weight(1f),
+        }
+    }
+}
+
+@Composable
+private fun TurnAssistance(
+    snapshot: Snapshot, readingMode: Boolean, enabled: Boolean, slot: Modifier, onChoose: (String) -> Unit,
+) {
+    val hintPenalty = snapshot.presentation.optInt("hint_score_penalty")
+    val repeatLabel = if (readingMode) "다시 읽기" else "다시 듣기"
+    val buttonStyle = MaterialTheme.typography.labelLarge
+    if (hintPenalty == 0) {
+        TextButton(onClick = { onChoose("다시") }, enabled = enabled,
+            modifier = slot.heightIn(min = 64.dp).testTag("family.repeat"),
+            contentPadding = PaddingValues(horizontal = 6.dp)) {
+            Text(repeatLabel, style = buttonStyle, textAlign = TextAlign.Center)
+        }
+        TextButton(onClick = { onChoose("힌트") }, enabled = enabled,
+            modifier = slot.heightIn(min = 64.dp).testTag("family.help"),
+            contentPadding = PaddingValues(horizontal = 6.dp)) {
+            Text("도와줘", style = buttonStyle, textAlign = TextAlign.Center)
+        }
+    } else {
+        var expanded by remember(snapshot.turnId, enabled) { mutableStateOf(false) }
+        Box(slot, contentAlignment = Alignment.Center) {
+            TextButton(onClick = { expanded = true }, enabled = enabled,
+                modifier = Modifier.heightIn(min = 64.dp)) { Text("도움", style = buttonStyle) }
+            DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+                DropdownMenuItem(text = { Text(if (readingMode) repeatLabel else "다시 들려줘") },
+                    onClick = { expanded = false; onChoose("다시") },
+                    modifier = Modifier.heightIn(min = 72.dp))
+                Text("힌트를 쓰면 이번 선택에서 얻는 점수가 최대 ${hintPenalty}점 줄어요.",
+                    modifier = Modifier.widthIn(max = 340.dp).padding(16.dp),
                     style = MaterialTheme.typography.bodySmall, color = PlaymateColors.Muted)
+                DropdownMenuItem(text = { Text("힌트가 필요해") },
+                    onClick = { expanded = false; onChoose("힌트") },
+                    modifier = Modifier.heightIn(min = 72.dp))
             }
         }
     }
@@ -187,149 +235,24 @@ private fun NewAdventurePreparation() {
 }
 
 @Composable
-private fun AdventureProgress(
-    ui: DeveloperUiState,
-    card: AdventureCard?,
-    onChoose: (String) -> Unit,
-) {
+private fun AdventureProgress(ui: DeveloperUiState, card: AdventureCard?) {
     val snapshot = ui.snapshot ?: return
-    val total =
-        snapshot.presentation.optInt("total_choices", card?.totalChoices ?: 1).coerceAtLeast(1)
+    val total = snapshot.presentation.optInt("total_choices", card?.totalChoices ?: 1).coerceAtLeast(1)
     val turn = snapshot.game.optInt("turn_index").coerceIn(0, total)
-    var help by remember(snapshot.turnId) { mutableStateOf(false) }
-    val canAsk = snapshot.phase == "LISTENING" && !ui.busy && !ui.quiet
-    val hintPenalty = snapshot.presentation.optInt("hint_score_penalty")
     val turnTitle = if (snapshot.game.optBoolean("finished")) "함께 만든 마지막 장면"
         else "${currentPlayer(snapshot).first}의 차례예요"
-    val titleStyle = if (ui.voiceInput) MaterialTheme.typography.titleMedium
-        else MaterialTheme.typography.headlineMedium
-    val buttonStyle = MaterialTheme.typography.labelLarge
-    val repeatLabel = if (ui.simulation) "다시 읽기" else "다시 듣기"
-    val textMeasurer = rememberTextMeasurer()
-    val density = LocalDensity.current
-    val title: @Composable (Modifier) -> Unit = { modifier ->
-        Text(
-            turnTitle,
-            modifier.testTag("family.turnTitle").semantics { heading() },
-            style = titleStyle,
-            maxLines = Int.MAX_VALUE,
-            overflow = TextOverflow.Ellipsis,
-        )
-    }
-    val assistance: @Composable RowScope.() -> Unit = {
-        if (hintPenalty == 0) {
-            TextButton(
-                onClick = { onChoose("다시") },
-                enabled = canAsk,
-                modifier = Modifier.heightIn(min = 64.dp).testTag("family.repeat"),
-                contentPadding = PaddingValues(horizontal = 12.dp),
-            ) {
-                Text(repeatLabel, style = buttonStyle)
-            }
-            OutlinedButton(
-                onClick = { onChoose("힌트") },
-                enabled = canAsk,
-                modifier = Modifier.heightIn(min = 64.dp).testTag("family.help"),
-                contentPadding = PaddingValues(horizontal = 20.dp),
-                shape = RoundedCornerShape(22.dp),
-            ) {
-                Text("도와줘", style = buttonStyle)
-            }
-        } else
-            Box {
-                TextButton(
-                    onClick = { help = true },
-                    enabled = canAsk,
-                    modifier = Modifier.heightIn(min = 64.dp),
-                    contentPadding = PaddingValues(horizontal = 12.dp),
-                ) {
-                    Text("도움", style = buttonStyle)
-                }
-                DropdownMenu(expanded = help, onDismissRequest = { help = false }) {
-                    DropdownMenuItem(
-                        text = { Text(if (ui.simulation) "다시 읽기" else "다시 들려줘") },
-                        onClick = {
-                            help = false
-                            onChoose("다시")
-                        },
-                        modifier = Modifier.heightIn(min = 72.dp),
-                    )
-                    if (hintPenalty > 0)
-                        Text(
-                            "힌트를 쓰면 이번 선택에서 얻는 점수가 최대 ${hintPenalty}점 줄어요.",
-                            modifier = Modifier.widthIn(max = 340.dp).padding(16.dp),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = PlaymateColors.Muted,
-                        )
-                    DropdownMenuItem(
-                        text = { Text("힌트가 필요해") },
-                        onClick = {
-                            help = false
-                            onChoose("힌트")
-                        },
-                        modifier = Modifier.heightIn(min = 72.dp),
-                    )
-                }
-            }
-    }
-    Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
-        BoxWithConstraints(Modifier.fillMaxWidth()) {
-            // Preserve the whole child name at every font size. Voice uses one calm
-            // shared line when it fits; longer names get the full width above assistance.
-            // Reading keeps its existing two-line allowance before separating the rows.
-            val controlsWidth = if (hintPenalty == 0) {
-                textMeasurer.measure(repeatLabel, style = buttonStyle).size.width +
-                    textMeasurer.measure("도와줘", style = buttonStyle).size.width +
-                    with(density) { (24.dp + 40.dp + 12.dp).roundToPx() }
-            } else {
-                textMeasurer.measure("도움", style = buttonStyle).size.width +
-                    with(density) { 24.dp.roundToPx() }
-            }
-            val availableTitleWidth = (constraints.maxWidth - controlsWidth -
-                with(density) { 12.dp.roundToPx() }).coerceAtLeast(1)
-            val separateTitle = textMeasurer.measure(
-                turnTitle, style = titleStyle,
-                constraints = Constraints(maxWidth = availableTitleWidth),
-            ).lineCount > (if (ui.voiceInput) 1 else 2)
-            if (separateTitle) {
-                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    title(Modifier.fillMaxWidth())
-                    Row(Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
-                        verticalAlignment = Alignment.CenterVertically,
-                        content = assistance)
-                }
-            } else {
-                Row(verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    title(Modifier.weight(1f))
-                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        content = assistance)
-                }
-            }
+    Column(Modifier.fillMaxWidth().padding(top = 6.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text(snapshot.presentation.optString("scene_title").ifBlank { card?.title ?: "우리의 모험" },
+                Modifier.weight(1f), style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Muted)
+            LinearProgressIndicator(progress = { turn.toFloat() / total },
+                modifier = Modifier.width(64.dp).height(5.dp).clip(CircleShape),
+                color = PlaymateColors.Leaf, trackColor = PlaymateColors.Sage, drawStopIndicator = {})
+            Text("$turn / $total", style = MaterialTheme.typography.labelMedium, color = PlaymateColors.Forest)
         }
-        Row(
-            Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Text(
-                snapshot.presentation.optString("scene_title").ifBlank { card?.title ?: "우리의 모험" },
-                Modifier.weight(1f),
-                style = MaterialTheme.typography.labelMedium,
-                color = PlaymateColors.Muted,
-            )
-            LinearProgressIndicator(
-                progress = { turn.toFloat() / total },
-                modifier = Modifier.width(92.dp).height(5.dp).clip(CircleShape),
-                color = PlaymateColors.Leaf,
-                trackColor = PlaymateColors.Sage,
-                drawStopIndicator = {},
-            )
-            Text("$turn / $total", style = MaterialTheme.typography.labelMedium,
-                color = PlaymateColors.Forest)
-        }
+        Text(turnTitle, Modifier.fillMaxWidth().testTag("family.turnTitle").semantics { heading() },
+            style = if (ui.voiceInput) MaterialTheme.typography.titleMedium else MaterialTheme.typography.headlineMedium)
     }
 }
 
@@ -348,6 +271,23 @@ private fun StoryPanel(ui: DeveloperUiState, modifier: Modifier, spacious: Boole
     val text =
         snapshot.speechPlan?.segments?.joinToString("\n\n") { it.text }
             ?: snapshot.presentation.optString("prompt")
+    val passage = text.ifBlank { "다음 이야기를 준비하고 있어요." }
+    // Emphasize the final authored question without modifying displayed or accessible text.
+    val questionStart = remember(passage) {
+        if (passage.trimEnd().endsWith('?'))
+            Regex("""(?:[.!?] +|\n+)""").findAll(passage).lastOrNull()?.range?.last?.plus(1) ?: 0
+        else passage.length
+    }
+    val bodyStyle = MaterialTheme.typography.bodyLarge
+    val questionStyle = if (spacious) MaterialTheme.typography.headlineMedium else MaterialTheme.typography.headlineSmall
+    val dialogue = buildAnnotatedString {
+        append(passage)
+        if (questionStart < length) {
+            addStyle(SpanStyle(fontWeight = FontWeight.Bold, color = PlaymateColors.DeepForest,
+                fontSize = questionStyle.fontSize), questionStart, length)
+            addStyle(ParagraphStyle(lineHeight = questionStyle.lineHeight), questionStart, length)
+        }
+    }
     Surface(modifier, color = Color.Transparent) {
         BoxWithConstraints(Modifier.fillMaxWidth()) {
             val compact = maxHeight < 280.dp
@@ -362,19 +302,10 @@ private fun StoryPanel(ui: DeveloperUiState, modifier: Modifier, spacious: Boole
                     verticalArrangement = Arrangement.spacedBy(20.dp),
                 ) {
                     Text(
-                        text.ifBlank { "다음 이야기를 준비하고 있어요." },
-                        style = if (spacious) MaterialTheme.typography.headlineMedium.copy(
-                            lineHeight = 46.sp, fontWeight = FontWeight.SemiBold,
-                        ) else MaterialTheme.typography.bodyLarge,
+                        dialogue, style = bodyStyle,
                         color = PlaymateColors.Ink,
                         modifier = Modifier.testTag("family.storyText"),
                     )
-                    if (ui.simulation)
-                        Text(
-                            "읽으며 체험 · 소리를 재생하지 않아요",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = PlaymateColors.Muted,
-                        )
                 }
                 if (scroll.canScrollForward)
                     TextButton(
@@ -400,12 +331,20 @@ private fun SpeechPresence(ui: DeveloperUiState, spacious: Boolean) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
+        val icon = when {
+            ui.busy -> FamilyIcon.SPARK
+            ui.microphoneListening -> FamilyIcon.MIC
+            ui.snapshot?.phase == "LISTENING" -> FamilyIcon.FAMILY
+            ui.simulation -> FamilyIcon.READ
+            else -> FamilyIcon.SOUND
+        }
+        FamilyIcon(icon, Modifier.size(24.dp), tint = PlaymateColors.Forest)
         Text(
             when {
                 ui.busy -> "다음 장면을 준비하고 있어요"
                 ui.microphoneListening -> "지금 듣고 있어요"
                 ui.snapshot?.phase == "LISTENING" && ui.voiceInput -> "목소리를 받을 준비 중이에요"
-                ui.snapshot?.phase == "LISTENING" -> "우리의 선택을 기다리고 있어요"
+                ui.snapshot?.phase == "LISTENING" -> "화면에서 골라 주세요"
                 ui.simulation -> "함께 읽는 이야기"
                 ui.outputStage == OutputStage.STARTED -> "오누가 이야기를 들려줘요"
                 ui.outputStage == OutputStage.PREPARING -> "오누가 목소리를 준비하고 있어요"
@@ -431,21 +370,20 @@ private fun AdventureChoices(snapshot: Snapshot, onChoose: (String) -> Unit, mod
             choices.chunked(columns).forEachIndexed { row, labels ->
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     labels.forEachIndexed { column, label ->
-                        OutlinedButton(
+                        Button(
                             onClick = { onChoose(label) },
                             modifier = Modifier.weight(1f).heightIn(min = 80.dp)
                                 .testTag("family.choice.${row * columns + column}"),
                             shape = RoundedCornerShape(20.dp),
-                            border = BorderStroke(1.dp, PlaymateColors.Leaf.copy(alpha = .55f)),
                             contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp),
-                            colors = ButtonDefaults.outlinedButtonColors(
-                                containerColor = PlaymateColors.Paper.copy(alpha = .94f),
-                                contentColor = PlaymateColors.DeepForest,
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = PlaymateColors.Forest,
+                                contentColor = PlaymateColors.Paper,
                             ),
                         ) {
                             Text(label, Modifier.weight(1f), style = MaterialTheme.typography.titleMedium)
                             Spacer(Modifier.width(8.dp))
-                            FamilyIcon(FamilyIcon.NEXT, Modifier.size(20.dp))
+                            FamilyIcon(FamilyIcon.NEXT, Modifier.size(20.dp), tint = PlaymateColors.Paper)
                         }
                     }
                     if (labels.size < columns) Spacer(Modifier.weight(1f))
