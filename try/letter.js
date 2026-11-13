@@ -8,29 +8,31 @@ const scenes = {
   identify: {chapter:"두 번째 단서", title:"친구에게서 온 답", choices:[["penguin","펭귄"],["otter","해달"]]},
   direct: {chapter:"첫 점프 중계", title:"이번엔 네가 소리 감독", choices:[["soft","살금살금, 크게 첨벙!"],["bold","성큼성큼, 작게 퐁당!"]]},
   end: {chapter:"첫 점프 중계", title:"우리의 첫 점프 방송", choices:[["reply","펭귄의 답장 듣기"],["remix","다른 점프로 중계하기"]]},
-  reply: {chapter:"두 번째 편지 미리 듣기", title:"펭귄에게 답장이 왔어", choices:[["remix","다른 점프로 중계하기"],["restart","처음부터 듣기"]]}
+  rain: {chapter:"두 번째 소리 편지", title:"첫 소리는 네가 골라 줘", choices:[["drops","톡톡 먼저"],["wiper","슥삭 먼저"]]},
+  music: {chapter:"펭귄의 방송 음악", title:"우리가 만든 방송 음악", choices:[["swap","다른 순서로 듣기"],["restart","첫 편지부터 듣기"]]}
 };
 let stage = "";
 let queue = [];
 let index = 0;
 let assisted = false;
 let ending = "";
+let musicOrder = "";
 let generation = 0;
 let state = "ready";
-const replayCues = {water:["splash","water_q"],guess:["candidates","guess_q"],question:["ask_question"],identify:["feather_evidence","who_q"],direct:["reveal","direct_q"]};
+const replayCues = {water:["splash","water_q"],guess:["candidates","guess_q"],question:["ask_question"],identify:["feather_evidence","who_q"],direct:["reveal","direct_q"],rain:["rain_direct_q"]};
 const warmed = new Set();
-const poses = {water:"listening",guess:"thinking",question:"storytelling",identify:"thinking",direct:"storytelling",end:"delighted",reply:"listening"};
+const poses = {water:"listening",guess:"thinking",question:"storytelling",identify:"thinking",direct:"storytelling",end:"delighted",rain:"thinking",music:"delighted"};
 const art = {shore:"노을빛 바닷가와 낮은 바위.",rain:"차창에 빗방울이 내려앉은 비 오는 풍경."};
 
 function drawPlayback() {
   document.body.classList.toggle("playing",state === "playing");
-  $("notice").classList.toggle("complete",state === "answered" && stage === "reply");
+  $("notice").classList.toggle("complete",state === "answered" && stage === "music");
   $("replay").hidden = state !== "answered";
   $("pause").hidden = state === "answered" || state === "ready";
   $("pause").textContent = state === "error" ? "소리 다시 재생" : state === "paused" ? "이어서 듣기" : "잠깐 멈추기";
   $("skip").hidden = state === "answered" || state === "ready";
 }
-const choiceArt = {wet:"splash",soft:"splash",steps:"steps",otter:"otter",penguin:"penguin",feathers:"feather",wings:"wing",swim:"swim",bold:"plop"};
+const choiceArt = {wet:"splash",soft:"splash",steps:"steps",otter:"otter",penguin:"penguin",feathers:"feather",wings:"wing",swim:"swim",bold:"plop",drops:"drops",wiper:"wiper"};
 function choicePicture(name) {
   const image = document.createElement("img");
   image.className = "choice-icon";
@@ -48,7 +50,7 @@ function showChoices(asText) {
     $("caption").textContent = queue.map(key => clips[key].text).join(" ");
     $("speaker").textContent = "편지 내용";
   }
-  $("notice").textContent = stage === "reply" ? "이번 체험은 여기까지예요. 다른 점프도 들어 볼 수 있어요." : "";
+  $("notice").textContent = stage === "music" ? (musicOrder === "drops" ? "이번엔 빗방울이 먼저였어." : "이번엔 와이퍼가 먼저였어.") : "";
   $("choices").replaceChildren();
   for (const [value, label] of scenes[stage].choices) {
     const choice = document.createElement("button");
@@ -120,8 +122,7 @@ function startQueue(cues) {
 function openScene(next, cues, retry = false) {
   if (!retry) assisted = false;
   stage = next;
-  const reply = next === "reply";
-  const artName = reply ? "rain" : "shore";
+  const artName = next === "rain" || next === "music" ? "rain" : "shore";
   $("scene").src = "art/" + artName + ".webp";
   $("scene").alt = art[artName];
   $("onu").src = "art/" + poses[next] + ".webp";
@@ -153,18 +154,27 @@ function answer(value) {
       ending = value;
       return openScene("end",["finale_" + ending]);
     case "end":
-    case "reply":
-      if (value === "reply") return openScene("reply",["rain_opening","memory_" + ending]);
-      if (value === "remix") return openScene("direct",["reveal","direct_q"]);
+      if (value === "reply") return openScene("rain",["rain_opening","memory_" + ending,"rain_direct_q"]);
+      return openScene("direct",["reveal","direct_q"]);
+    case "rain":
+      return playMusic(value);
+    case "music":
+      if (value === "swap") return playMusic(musicOrder === "drops" ? "wiper" : "drops");
       return begin();
   }
 }
-function begin() {
+function playMusic(order) {
+  musicOrder = order;
+  openScene("music",["rain_finale_" + order]);
+}
+function begin(startWithRain = false) {
   ending = "";
+  musicOrder = "";
   document.body.classList.add("in-game");
   $("intro").hidden = true;
   $("play-area").hidden = false;
-  openScene("water",["opening","splash","water_q"]);
+  if (startWithRain) openScene("rain",["rain_opening","rain_direct_q"]);
+  else openScene("water",["opening","splash","water_q"]);
 }
 function pauseTurn() {
   if (state !== "playing") return;
@@ -172,11 +182,12 @@ function pauseTurn() {
   audio.pause();
   drawPlayback();
 }
-$("open").addEventListener("click",begin);
+$("open").addEventListener("click",() => begin());
+$("open-rain").addEventListener("click",() => begin(true));
 $("skip").addEventListener("click",() => showChoices(true));
 $("replay").addEventListener("click",() => {
   $("title").focus({preventScroll:true});
-  const cues = stage === "end" ? ["finale_" + ending] : stage === "reply" ? ["rain_opening","memory_" + ending] : replayCues[stage];
+  const cues = stage === "end" ? ["finale_" + ending] : stage === "music" ? ["rain_finale_" + musicOrder] : replayCues[stage];
   startQueue(cues);
 });
 $("pause").addEventListener("click",() => {

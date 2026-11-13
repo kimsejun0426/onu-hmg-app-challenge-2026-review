@@ -86,5 +86,17 @@ const clips = {
   "memory_bold": {
     "text": "지난번 성큼성큼, 퐁당! 그 점프 중계가 좋았대.",
     "file": "clips/memory_bold.mp3"
+  },
+  "rain_direct_q": {
+    "text": "우리 방송의 첫 소리, 빗방울 톡톡부터 할까? 와이퍼 슥삭부터 할까?",
+    "file": "clips/rain_direct_q.mp3"
+  },
+  "rain_finale_drops": {
+    "text": "[빗방울 톡톡으로 시작하는 방송 음악] 펭귄한테 보냈어! 다음 방송은 우리가 만든 이 음악으로 시작한대!",
+    "file": "clips/rain_finale_drops.mp3"
+  },
+  "rain_finale_wiper": {
+    "text": "[와이퍼 슥삭으로 시작하는 방송 음악] 펭귄한테 보냈어! 다음 방송은 우리가 만든 이 음악으로 시작한대!",
+    "file": "clips/rain_finale_wiper.mp3"
   }
 };
